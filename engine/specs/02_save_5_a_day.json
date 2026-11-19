@@ -1,77 +1,511 @@
 {
  "slug": "TheMoneyWhatIfs_02_save_5_a_day",
  "title": "What If You Saved £5 a Day From Age 16? 💷",
- "voice": "bm_daniel",
+ "voice": "af_heart",
  "footnote": "Assumes 7% average yearly return. Not financial advice.",
- "thumbnail": {"lines": [
-   {"text": "WHAT IF YOU", "color": "white"},
-   {"text": "SAVED", "color": "white"},
-   {"text": "£5 A DAY", "color": "yellow", "size": 170},
-   {"text": "FROM AGE 16?", "color": "white"},
-   {"text": "...THE TOTAL IS INSANE", "color": "red", "size": 54}]},
+ "thumbnail": {
+  "lines": [
+   {
+    "text": "WHAT IF YOU",
+    "color": "white"
+   },
+   {
+    "text": "SAVED",
+    "color": "white"
+   },
+   {
+    "text": "£5 A DAY",
+    "color": "yellow",
+    "size": 170
+   },
+   {
+    "text": "FROM AGE 16?",
+    "color": "white"
+   },
+   {
+    "text": "...THE TOTAL IS INSANE",
+    "color": "red",
+    "size": 54
+   }
+  ]
+ },
  "scenes": [
-  {"type": "stack", "lines": ["What if you saved just five pounds a day, starting at sixteen?"],
+  {
+   "type": "stack",
+   "lines": [
+    "What if you saved just five pounds a day, starting at sixteen?"
+   ],
    "items": [
-    {"text": "WHAT IF...", "color": "yellow", "size": 70, "at": 0.1},
-    {"text": "YOU SAVED", "color": "white", "size": 80, "at": 0.9},
-    {"counter": {"from": 0, "to": 5, "prefix": "£", "suffix": " A DAY", "at": 1.6, "dur": 1.0}, "color": "yellow", "size": 150, "at": 1.6},
-    {"text": "FROM AGE 16", "color": "white", "size": 80, "at": 2.8}],
-   "icons": [{"kind": "coin", "at": 1.6, "y": 1080, "scale": 0.9}],
-   "dings": [[0, 2.6]]},
-  {"type": "figures", "lines": ["That's one coffee.", "Or one meal deal.", "Every single day."],
-   "hud": {"left": "AGE 16", "sub": "DAY 1", "right": {"label": "PER YEAR", "text": "£1,825"}},
-   "figures": [{"x": 300, "y": 640, "scale": 1.5, "mood": "neutral", "arm": "hold", "changes": [{"at": 2, "mood": "happy", "arm": "up"}]}],
+    {
+     "text": "WHAT IF...",
+     "color": "yellow",
+     "size": 70,
+     "at": 0.1
+    },
+    {
+     "text": "YOU SAVED",
+     "color": "white",
+     "size": 80,
+     "at": 0.9
+    },
+    {
+     "counter": {
+      "from": 0,
+      "to": 5,
+      "prefix": "£",
+      "suffix": " A DAY",
+      "at": 1.6,
+      "dur": 1.0
+     },
+     "color": "yellow",
+     "size": 150,
+     "at": 1.6
+    },
+    {
+     "text": "FROM AGE 16",
+     "color": "white",
+     "size": 80,
+     "at": 2.8
+    }
+   ],
+   "icons": [
+    {
+     "kind": "coin",
+     "at": 1.6,
+     "y": 1080,
+     "scale": 0.9
+    }
+   ],
+   "dings": [
+    [
+     0,
+     2.6
+    ]
+   ]
+  },
+  {
+   "type": "figures",
+   "lines": [
+    "That's one coffee.",
+    "Or one meal deal.",
+    "Every single day."
+   ],
+   "hud": {
+    "left": "AGE 16",
+    "sub": "DAY 1",
+    "right": {
+     "label": "PER YEAR",
+     "text": "£1,825"
+    }
+   },
+   "figures": [
+    {
+     "x": 300,
+     "y": 640,
+     "scale": 1.5,
+     "mood": "neutral",
+     "arm": "hold",
+     "changes": [
+      {
+       "at": 2,
+       "mood": "happy",
+       "arm": "up"
+      }
+     ]
+    }
+   ],
    "signs": [
-    {"text": "1 COFFEE", "sub": "£5", "at": 0, "until": 1, "color": "navy"},
-    {"text": "1 MEAL DEAL", "sub": "£5", "at": 1, "until": 2, "color": "navy"},
-    {"text": "EVERY DAY", "sub": "365 DAYS A YEAR", "at": 2, "color": "red"}],
-   "icons": []},
-  {"type": "stack", "lines": ["Hide it under your mattress until you're sixty-six, and you'd have ninety-one thousand pounds.", "Not bad."],
-   "hud": {"left": "AGE 66", "sub": "50 YEARS LATER"},
+    {
+     "text": "1 COFFEE",
+     "sub": "£5",
+     "at": 0,
+     "until": 1,
+     "color": "navy"
+    },
+    {
+     "text": "1 MEAL DEAL",
+     "sub": "£5",
+     "at": 1,
+     "until": 2,
+     "color": "navy"
+    },
+    {
+     "text": "EVERY DAY",
+     "sub": "365 DAYS A YEAR",
+     "at": 2,
+     "color": "red"
+    }
+   ],
+   "icons": []
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "Hide it under your mattress until you're sixty-six, and you'd have ninety-one thousand pounds.",
+    "Not bad."
+   ],
+   "hud": {
+    "left": "AGE 66",
+    "sub": "50 YEARS LATER"
+   },
    "items": [
-    {"text": "UNDER THE MATTRESS", "color": "grey", "size": 64, "at": 0},
-    {"counter": {"from": 0, "to": 91250, "prefix": "£", "at": [0, 2.2], "dur": 1.6}, "color": "white", "size": 150, "at": [0, 2.2]},
-    {"text": "NOT BAD.", "color": "yellow", "size": 90, "at": 1}],
-   "icons": [{"kind": "cash", "at": [0, 2.2], "y": 1060, "scale": 1.3}]},
-  {"type": "stack", "lines": ["But invest it instead, at seven percent a year...", "and every pound you save starts earning its own pounds."],
+    {
+     "text": "UNDER THE MATTRESS",
+     "color": "grey",
+     "size": 64,
+     "at": 0
+    },
+    {
+     "counter": {
+      "from": 0,
+      "to": 91250,
+      "prefix": "£",
+      "at": [
+       0,
+       2.2
+      ],
+      "dur": 1.6
+     },
+     "color": "white",
+     "size": 150,
+     "at": [
+      0,
+      2.2
+     ]
+    },
+    {
+     "text": "NOT BAD.",
+     "color": "yellow",
+     "size": 90,
+     "at": 1
+    }
+   ],
+   "icons": [
+    {
+     "kind": "cash",
+     "at": [
+      0,
+      2.2
+     ],
+     "y": 1060,
+     "scale": 1.3
+    }
+   ]
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "But invest it instead, at seven percent a year...",
+    "and every pound you save starts earning its own pounds."
+   ],
    "footnote": true,
    "items": [
-    {"text": "INVEST IT INSTEAD", "color": "white", "size": 80, "at": 0},
-    {"text": "7% A YEAR", "color": "green", "size": 150, "at": [0, 1.4]},
-    {"text": "£1", "color": "yellow", "size": 90, "at": 1, "space": -20},
-    {"text": "£1.07", "color": "yellow", "size": 90, "at": [1, 0.8], "space": -20},
-    {"text": "£1.14", "color": "yellow", "size": 90, "at": [1, 1.5], "space": -20},
-    {"text": "£1.23 ...", "color": "yellow", "size": 90, "at": [1, 2.2]}]},
-  {"type": "chart", "lines": ["By twenty-six, you've got twenty-five thousand.", "By forty, over a hundred thousand.", "And by sixty-six...", "over seven hundred and forty thousand pounds."],
-   "footnote": true,
-   "items": [{"text": "YOUR £5 A DAY, INVESTED", "color": "grey", "size": 52, "at": 0}],
-   "chart": {"x0": 16, "x1": 66, "ymax": 760000, "xticks": [16, 26, 40, 66], "xlabel": "AGE", "top": 560, "bottom": 1200,
-     "reveal": [[0, 26, 1.4], [1, 40, 1.4], [2, 66, 2.6]],
-     "series": [{"kind": "annuity", "pmt": 1825, "r": 0.07, "x0": 16, "color": "green", "prefix": "£", "at": 0}]},
-   "dings": [[3, 1.2]]},
-  {"type": "stack", "lines": ["You only put in ninety-one thousand.", "The other six hundred and fifty thousand?", "Free money. That's compound interest."],
+    {
+     "text": "INVEST IT INSTEAD",
+     "color": "white",
+     "size": 80,
+     "at": 0
+    },
+    {
+     "text": "7% A YEAR",
+     "color": "green",
+     "size": 150,
+     "at": [
+      0,
+      1.4
+     ]
+    },
+    {
+     "text": "£1",
+     "color": "yellow",
+     "size": 90,
+     "at": 1,
+     "space": -20
+    },
+    {
+     "text": "£1.07",
+     "color": "yellow",
+     "size": 90,
+     "at": [
+      1,
+      0.8
+     ],
+     "space": -20
+    },
+    {
+     "text": "£1.14",
+     "color": "yellow",
+     "size": 90,
+     "at": [
+      1,
+      1.5
+     ],
+     "space": -20
+    },
+    {
+     "text": "£1.23 ...",
+     "color": "yellow",
+     "size": 90,
+     "at": [
+      1,
+      2.2
+     ]
+    }
+   ]
+  },
+  {
+   "type": "chart",
+   "lines": [
+    "By twenty-six, you've got twenty-five thousand.",
+    "By forty, over a hundred thousand.",
+    "And by sixty-six...",
+    "over seven hundred and forty thousand pounds."
+   ],
    "footnote": true,
    "items": [
-    {"text": "YOU PUT IN", "color": "grey", "size": 60, "at": 0},
-    {"text": "£91,250", "color": "white", "size": 120, "at": 0, "space": 40},
-    {"text": "IT EARNED", "color": "grey", "size": 60, "at": 1},
-    {"counter": {"from": 0, "to": 650650, "prefix": "£", "at": 1, "dur": 1.6}, "color": "green", "size": 140, "at": 1, "space": 40},
-    {"text": "COMPOUND INTEREST", "color": "yellow", "size": 90, "at": 2}]},
-  {"type": "bars", "lines": ["But here's the twist.", "Start at twenty-six instead. Just ten years later.", "You'd end up with half. Three hundred and sixty-four thousand."],
+    {
+     "text": "YOUR £5 A DAY, INVESTED",
+     "color": "grey",
+     "size": 52,
+     "at": 0
+    }
+   ],
+   "chart": {
+    "x0": 16,
+    "x1": 66,
+    "ymax": 760000,
+    "xticks": [
+     16,
+     26,
+     40,
+     66
+    ],
+    "xlabel": "AGE",
+    "top": 560,
+    "bottom": 1200,
+    "reveal": [
+     [
+      0,
+      26,
+      1.4
+     ],
+     [
+      1,
+      40,
+      1.4
+     ],
+     [
+      2,
+      66,
+      2.6
+     ]
+    ],
+    "series": [
+     {
+      "kind": "annuity",
+      "pmt": 1825,
+      "r": 0.07,
+      "x0": 16,
+      "color": "green",
+      "prefix": "£",
+      "at": 0
+     }
+    ]
+   },
+   "dings": [
+    [
+     3,
+     1.2
+    ]
+   ]
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "You only put in ninety-one thousand.",
+    "The other six hundred and fifty thousand?",
+    "Free money. That's compound interest."
+   ],
    "footnote": true,
-   "items": [{"text": "THE TWIST", "color": "red", "size": 100, "at": 0}],
+   "items": [
+    {
+     "text": "YOU PUT IN",
+     "color": "grey",
+     "size": 60,
+     "at": 0
+    },
+    {
+     "text": "£91,250",
+     "color": "white",
+     "size": 120,
+     "at": 0,
+     "space": 40
+    },
+    {
+     "text": "IT EARNED",
+     "color": "grey",
+     "size": 60,
+     "at": 1
+    },
+    {
+     "counter": {
+      "from": 0,
+      "to": 650650,
+      "prefix": "£",
+      "at": 1,
+      "dur": 1.6
+     },
+     "color": "green",
+     "size": 140,
+     "at": 1,
+     "space": 40
+    },
+    {
+     "text": "COMPOUND INTEREST",
+     "color": "yellow",
+     "size": 90,
+     "at": 2
+    }
+   ]
+  },
+  {
+   "type": "bars",
+   "lines": [
+    "But here's the twist.",
+    "Start at twenty-six instead. Just ten years later.",
+    "You'd end up with half. Three hundred and sixty-four thousand."
+   ],
+   "footnote": true,
+   "items": [
+    {
+     "text": "THE TWIST",
+     "color": "red",
+     "size": 100,
+     "at": 0
+    }
+   ],
    "bars": [
-    {"label": "START AT 16", "value": 741900, "prefix": "£", "short": true, "color": "green", "at": 1, "dur": 1.0},
-    {"label": "START AT 26", "value": 364300, "prefix": "£", "short": true, "color": "red", "at": 2, "dur": 1.4}],
-   "callouts": [{"text": "HALF", "x": 760, "y": 560, "size": 110, "color": "red", "at": [2, 1.6]}]},
-  {"type": "twist", "lines": ["Those ten years cost you three hundred and seventy-seven thousand pounds.", "The best time to start was ten years ago.", "The second best time is today."],
-   "mood": "sad", "changes": [{"at": 2, "mood": "happy"}], "prop": "cash",
+    {
+     "label": "START AT 16",
+     "value": 741900,
+     "prefix": "£",
+     "short": true,
+     "color": "green",
+     "at": 1,
+     "dur": 1.0
+    },
+    {
+     "label": "START AT 26",
+     "value": 364300,
+     "prefix": "£",
+     "short": true,
+     "color": "red",
+     "at": 2,
+     "dur": 1.4
+    }
+   ],
+   "callouts": [
+    {
+     "text": "HALF",
+     "x": 760,
+     "y": 560,
+     "size": 110,
+     "color": "red",
+     "at": [
+      2,
+      1.6
+     ]
+    }
+   ]
+  },
+  {
+   "type": "twist",
+   "lines": [
+    "Those ten years cost you three hundred and seventy-seven thousand pounds.",
+    "The best time to start was ten years ago.",
+    "The second best time is today."
+   ],
+   "mood": "sad",
+   "changes": [
+    {
+     "at": 2,
+     "mood": "happy"
+    }
+   ],
+   "prop": "cash",
    "pages": [
-    {"at": 0, "items": [{"text": "10 YEARS LATE", "color": "white"}, {"text": "= -£377,600", "color": "red", "size": 110}]},
-    {"at": 1, "items": [{"text": "BEST TIME TO START:", "color": "white", "size": 80}, {"text": "10 YEARS AGO", "color": "grey"}]},
-    {"at": 2, "items": [{"text": "SECOND BEST:", "color": "white", "size": 80}, {"text": "TODAY", "color": "green", "size": 130}]}]},
-  {"type": "choice", "lines": ["So, would you give up your daily coffee?"],
-   "items": [{"text": "WOULD YOU GIVE UP", "color": "white", "size": 76, "at": 0}, {"text": "YOUR COFFEE?", "color": "yellow", "size": 110, "at": 0.3}],
-   "a": "YES, INVEST IT", "b": "NO, I NEED IT", "at": 0}
- ]
+    {
+     "at": 0,
+     "items": [
+      {
+       "text": "10 YEARS LATE",
+       "color": "white"
+      },
+      {
+       "text": "= -£377,600",
+       "color": "red",
+       "size": 110
+      }
+     ]
+    },
+    {
+     "at": 1,
+     "items": [
+      {
+       "text": "BEST TIME TO START:",
+       "color": "white",
+       "size": 80
+      },
+      {
+       "text": "10 YEARS AGO",
+       "color": "grey"
+      }
+     ]
+    },
+    {
+     "at": 2,
+     "items": [
+      {
+       "text": "SECOND BEST:",
+       "color": "white",
+       "size": 80
+      },
+      {
+       "text": "TODAY",
+       "color": "green",
+       "size": 130
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "lines": [
+    "So, would you give up your daily coffee?",
+    "Comment A or B below."
+   ],
+   "items": [
+    {
+     "text": "WOULD YOU GIVE UP",
+     "color": "white",
+     "size": 76,
+     "at": 0
+    },
+    {
+     "text": "YOUR COFFEE?",
+     "color": "yellow",
+     "size": 110,
+     "at": 0.3
+    }
+   ],
+   "a": "YES, INVEST IT",
+   "b": "NO, I NEED IT",
+   "at": 0
+  }
+ ],
+ "banner": {
+  "text": "What If You Saved £5 a Day From Age 16?"
+ },
+ "speed": 0.92
 }

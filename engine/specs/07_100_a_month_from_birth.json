@@ -1,7 +1,7 @@
 {
  "slug": "TheMoneyWhatIfs_07_100_a_month_from_birth",
  "title": "What If Your Parents Saved £100 a Month From Birth? 👶💷",
- "voice": "bm_daniel",
+ "voice": "af_heart",
  "footnote": "Assumes 7% average yearly return. Not financial advice.",
  "thumbnail": {
   "lines": [
@@ -415,5 +415,9 @@
    "b": "LEAVE IT",
    "at": 0
   }
- ]
+ ],
+ "banner": {
+  "text": "What If Your Parents Saved £100 a Month From Birth?"
+ },
+ "speed": 0.92
 }

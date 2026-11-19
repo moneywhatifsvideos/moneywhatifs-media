@@ -1,68 +1,444 @@
 {
  "slug": "TheMoneyWhatIfs_04_house_prices_halve",
  "title": "What If UK House Prices Halved Overnight? 🏠",
- "voice": "bm_daniel",
+ "voice": "af_heart",
  "footnote": "Illustration only. Based on ONS average UK house price, July 2026.",
- "thumbnail": {"lines": [
-   {"text": "WHAT IF", "color": "yellow", "size": 110},
-   {"text": "UK HOUSE PRICES", "color": "white"},
-   {"text": "HALVED", "color": "red", "size": 190},
-   {"text": "OVERNIGHT?", "color": "white"},
-   {"text": "...IT'S NOT GOOD NEWS", "color": "red", "size": 54}]},
+ "thumbnail": {
+  "lines": [
+   {
+    "text": "WHAT IF",
+    "color": "yellow",
+    "size": 110
+   },
+   {
+    "text": "UK HOUSE PRICES",
+    "color": "white"
+   },
+   {
+    "text": "HALVED",
+    "color": "red",
+    "size": 190
+   },
+   {
+    "text": "OVERNIGHT?",
+    "color": "white"
+   },
+   {
+    "text": "...IT'S NOT GOOD NEWS",
+    "color": "red",
+    "size": 54
+   }
+  ]
+ },
  "scenes": [
-  {"type": "stack", "lines": ["What if, overnight, every house in the UK suddenly cost half as much?"],
+  {
+   "type": "stack",
+   "lines": [
+    "What if, overnight, every house in the UK suddenly cost half as much?"
+   ],
    "items": [
-    {"text": "WHAT IF...", "color": "yellow", "size": 70, "at": 0.1},
-    {"text": "EVERY UK HOUSE", "color": "white", "size": 90, "at": 0.9},
-    {"text": "COST HALF", "color": "red", "size": 150, "at": 2.2},
-    {"text": "OVERNIGHT", "color": "white", "size": 80, "at": 3.0}],
-   "icons": [{"kind": "house", "at": 0.9, "y": 1100, "scale": 1.1}]},
-  {"type": "stack", "lines": ["The average home goes from two hundred and seventy-three thousand pounds...", "to one hundred and thirty-six."],
-   "hud": {"left": "DAY 1", "sub": "MORNING"},
+    {
+     "text": "WHAT IF...",
+     "color": "yellow",
+     "size": 70,
+     "at": 0.1
+    },
+    {
+     "text": "EVERY UK HOUSE",
+     "color": "white",
+     "size": 90,
+     "at": 0.9
+    },
+    {
+     "text": "COST HALF",
+     "color": "red",
+     "size": 150,
+     "at": 2.2
+    },
+    {
+     "text": "OVERNIGHT",
+     "color": "white",
+     "size": 80,
+     "at": 3.0
+    }
+   ],
+   "icons": [
+    {
+     "kind": "house",
+     "at": 0.9,
+     "y": 1100,
+     "scale": 1.1
+    }
+   ]
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "The average home goes from two hundred and seventy-three thousand pounds...",
+    "to one hundred and thirty-six."
+   ],
+   "hud": {
+    "left": "DAY 1",
+    "sub": "MORNING"
+   },
    "items": [
-    {"text": "AVERAGE UK HOME", "color": "grey", "size": 60, "at": 0},
-    {"counter": {"from": 273000, "keys": [[1, 136500, 1.4]], "prefix": "£"}, "color": "yellow", "size": 160, "at": 0}],
-   "icons": [{"kind": "house", "at": 0, "y": 1000, "scale": 1.2}],
-   "footnote": true, "dings": [[1, 1.4]]},
-  {"type": "figures", "lines": ["If you're saving for your first home, this is amazing.", "Your deposit just halved, from twenty-seven grand to under fourteen."],
-   "hud": {"left": "FIRST-TIME BUYER", "sub": "10% DEPOSIT", "right": {"label": "DEPOSIT NEEDED", "from": 27300, "to": 13650, "prefix": "£", "at": 1, "dur": 1.4, "color": "green"}},
-   "figures": [{"x": 300, "y": 640, "scale": 1.5, "mood": "happy", "arm": "up"}],
-   "signs": [{"text": "FINALLY!", "sub": "I CAN BUY", "at": 0.4, "color": "green"}]},
-  {"type": "figures", "lines": ["But now meet someone who bought last year.", "They borrowed two hundred and forty-five thousand, for a house now worth one hundred and thirty-six."],
-   "hud": {"left": "HOMEOWNER", "sub": "BOUGHT LAST YEAR"},
-   "figures": [{"x": 300, "y": 640, "scale": 1.5, "mood": "neutral", "arm": "down", "changes": [{"at": [1, 2.5], "mood": "shock"}]}],
+    {
+     "text": "AVERAGE UK HOME",
+     "color": "grey",
+     "size": 60,
+     "at": 0
+    },
+    {
+     "counter": {
+      "from": 273000,
+      "keys": [
+       [
+        1,
+        136500,
+        1.4
+       ]
+      ],
+      "prefix": "£"
+     },
+     "color": "yellow",
+     "size": 160,
+     "at": 0
+    }
+   ],
+   "icons": [
+    {
+     "kind": "house",
+     "at": 0,
+     "y": 1000,
+     "scale": 1.2
+    }
+   ],
+   "footnote": true,
+   "dings": [
+    [
+     1,
+     1.4
+    ]
+   ]
+  },
+  {
+   "type": "figures",
+   "lines": [
+    "If you're saving for your first home, this is amazing.",
+    "Your deposit just halved, from twenty-seven grand to under fourteen."
+   ],
+   "hud": {
+    "left": "FIRST-TIME BUYER",
+    "sub": "10% DEPOSIT",
+    "right": {
+     "label": "DEPOSIT NEEDED",
+     "from": 27300,
+     "to": 13650,
+     "prefix": "£",
+     "at": 1,
+     "dur": 1.4,
+     "color": "green"
+    }
+   },
+   "figures": [
+    {
+     "x": 300,
+     "y": 640,
+     "scale": 1.5,
+     "mood": "happy",
+     "arm": "up"
+    }
+   ],
    "signs": [
-    {"text": "£245,700", "sub": "MORTGAGE", "at": [1, 0.6], "y": 560, "color": "red"},
-    {"text": "£136,500", "sub": "HOUSE VALUE", "at": [1, 2.8], "y": 820, "color": "navy"}]},
-  {"type": "stack", "lines": ["They owe a hundred and nine thousand more than their home is worth.", "That's called negative equity. They can't sell, and they can't move."],
+    {
+     "text": "FINALLY!",
+     "sub": "I CAN BUY",
+     "at": 0.4,
+     "color": "green"
+    }
+   ]
+  },
+  {
+   "type": "figures",
+   "lines": [
+    "But now meet someone who bought last year.",
+    "They borrowed two hundred and forty-five thousand, for a house now worth one hundred and thirty-six."
+   ],
+   "hud": {
+    "left": "HOMEOWNER",
+    "sub": "BOUGHT LAST YEAR"
+   },
+   "figures": [
+    {
+     "x": 300,
+     "y": 640,
+     "scale": 1.5,
+     "mood": "neutral",
+     "arm": "down",
+     "changes": [
+      {
+       "at": [
+        1,
+        2.5
+       ],
+       "mood": "shock"
+      }
+     ]
+    }
+   ],
+   "signs": [
+    {
+     "text": "£245,700",
+     "sub": "MORTGAGE",
+     "at": [
+      1,
+      0.6
+     ],
+     "y": 560,
+     "color": "red"
+    },
+    {
+     "text": "£136,500",
+     "sub": "HOUSE VALUE",
+     "at": [
+      1,
+      2.8
+     ],
+     "y": 820,
+     "color": "navy"
+    }
+   ]
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "They owe a hundred and nine thousand more than their home is worth.",
+    "That's called negative equity. They can't sell, and they can't move."
+   ],
    "items": [
-    {"text": "THEY OWE", "color": "grey", "size": 60, "at": 0},
-    {"counter": {"from": 0, "to": 109200, "prefix": "£", "at": [0, 0.8], "dur": 1.4}, "color": "red", "size": 150, "at": [0, 0.8]},
-    {"text": "MORE THAN IT'S WORTH", "color": "grey", "size": 60, "at": [0, 0.8], "space": 50},
-    {"text": "NEGATIVE EQUITY", "color": "yellow", "size": 100, "at": 1}],
-   "figure": {"at": 1, "y": 1000, "scale": 1.0, "mood": "sad"}},
-  {"type": "stack", "lines": ["And it spreads. Most families' wealth is in their home.", "Feeling poorer, millions stop spending. Banks stop lending.", "Shops close. Builders stop building. Jobs disappear."],
-   "hud": {"left": "MONTH 3", "sub": "THE KNOCK-ON EFFECT"},
+    {
+     "text": "THEY OWE",
+     "color": "grey",
+     "size": 60,
+     "at": 0
+    },
+    {
+     "counter": {
+      "from": 0,
+      "to": 109200,
+      "prefix": "£",
+      "at": [
+       0,
+       0.8
+      ],
+      "dur": 1.4
+     },
+     "color": "red",
+     "size": 150,
+     "at": [
+      0,
+      0.8
+     ]
+    },
+    {
+     "text": "MORE THAN IT'S WORTH",
+     "color": "grey",
+     "size": 60,
+     "at": [
+      0,
+      0.8
+     ],
+     "space": 50
+    },
+    {
+     "text": "NEGATIVE EQUITY",
+     "color": "yellow",
+     "size": 100,
+     "at": 1
+    }
+   ],
+   "figure": {
+    "at": 1,
+    "y": 1000,
+    "scale": 1.0,
+    "mood": "sad"
+   }
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "And it spreads. Most families' wealth is in their home.",
+    "Feeling poorer, millions stop spending. Banks stop lending.",
+    "Shops close. Builders stop building. Jobs disappear."
+   ],
+   "hud": {
+    "left": "MONTH 3",
+    "sub": "THE KNOCK-ON EFFECT"
+   },
    "items": [
-    {"text": "PEOPLE FEEL POORER", "color": "white", "size": 80, "at": 0},
-    {"text": "SPENDING STOPS", "color": "red", "size": 90, "at": 1},
-    {"text": "LENDING STOPS", "color": "red", "size": 90, "at": [1, 1.6]},
-    {"text": "JOBS DISAPPEAR", "color": "red", "size": 100, "at": [2, 1.2]}],
-   "figure": {"at": 2, "y": 1060, "scale": 0.9, "mood": "sad", "shirt": "dark", "tie": true}},
-  {"type": "twist", "lines": ["So here's the twist.", "The cheap house you always wanted...", "might come with no job to pay for it."],
-   "mood": "happy", "sit": true, "prop": "cash", "changes": [{"at": 2, "mood": "sad"}],
+    {
+     "text": "PEOPLE FEEL POORER",
+     "color": "white",
+     "size": 80,
+     "at": 0
+    },
+    {
+     "text": "SPENDING STOPS",
+     "color": "red",
+     "size": 90,
+     "at": 1
+    },
+    {
+     "text": "LENDING STOPS",
+     "color": "red",
+     "size": 90,
+     "at": [
+      1,
+      1.6
+     ]
+    },
+    {
+     "text": "JOBS DISAPPEAR",
+     "color": "red",
+     "size": 100,
+     "at": [
+      2,
+      1.2
+     ]
+    }
+   ],
+   "figure": {
+    "at": 2,
+    "y": 1060,
+    "scale": 0.9,
+    "mood": "sad",
+    "shirt": "dark",
+    "tie": true
+   }
+  },
+  {
+   "type": "twist",
+   "lines": [
+    "So here's the twist.",
+    "The cheap house you always wanted...",
+    "might come with no job to pay for it."
+   ],
+   "mood": "happy",
+   "sit": true,
+   "prop": "cash",
+   "changes": [
+    {
+     "at": 2,
+     "mood": "sad"
+    }
+   ],
    "pages": [
-    {"at": 0, "items": [{"text": "THE TWIST", "color": "red", "size": 120}]},
-    {"at": 1, "items": [{"text": "THE CHEAP HOUSE", "color": "white"}, {"text": "YOU WANTED...", "color": "yellow"}]},
-    {"at": 2, "items": [{"text": "COMES WITH", "color": "white", "size": 80}, {"text": "NO JOB", "color": "red", "size": 140}]}]},
-  {"type": "stack", "lines": ["That's why governments don't want prices to crash.", "They want them to rise slowly, while wages catch up."],
+    {
+     "at": 0,
+     "items": [
+      {
+       "text": "THE TWIST",
+       "color": "red",
+       "size": 120
+      }
+     ]
+    },
+    {
+     "at": 1,
+     "items": [
+      {
+       "text": "THE CHEAP HOUSE",
+       "color": "white"
+      },
+      {
+       "text": "YOU WANTED...",
+       "color": "yellow"
+      }
+     ]
+    },
+    {
+     "at": 2,
+     "items": [
+      {
+       "text": "COMES WITH",
+       "color": "white",
+       "size": 80
+      },
+      {
+       "text": "NO JOB",
+       "color": "red",
+       "size": 140
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "That's why governments don't want prices to crash.",
+    "They want them to rise slowly, while wages catch up."
+   ],
    "items": [
-    {"text": "CRASH", "color": "red", "size": 130, "at": 0},
-    {"text": "= RECESSION", "color": "white", "size": 90, "at": [0, 1.0], "space": 60},
-    {"text": "THE GOAL:", "color": "grey", "size": 64, "at": 1},
-    {"text": "WAGES CATCH UP", "color": "green", "size": 110, "at": [1, 1.0]}]},
-  {"type": "choice", "lines": ["So, would a house price crash be good for Britain?"],
-   "items": [{"text": "WOULD A CRASH BE", "color": "white", "size": 76, "at": 0}, {"text": "GOOD FOR UK?", "color": "yellow", "size": 110, "at": 0.3}],
-   "a": "YES, GOOD", "b": "NO, DISASTER", "at": 0}
- ]
+    {
+     "text": "CRASH",
+     "color": "red",
+     "size": 130,
+     "at": 0
+    },
+    {
+     "text": "= RECESSION",
+     "color": "white",
+     "size": 90,
+     "at": [
+      0,
+      1.0
+     ],
+     "space": 60
+    },
+    {
+     "text": "THE GOAL:",
+     "color": "grey",
+     "size": 64,
+     "at": 1
+    },
+    {
+     "text": "WAGES CATCH UP",
+     "color": "green",
+     "size": 110,
+     "at": [
+      1,
+      1.0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "lines": [
+    "So, would a house price crash be good for Britain?"
+   ],
+   "items": [
+    {
+     "text": "WOULD A CRASH BE",
+     "color": "white",
+     "size": 76,
+     "at": 0
+    },
+    {
+     "text": "GOOD FOR UK?",
+     "color": "yellow",
+     "size": 110,
+     "at": 0.3
+    }
+   ],
+   "a": "YES, GOOD",
+   "b": "NO, DISASTER",
+   "at": 0
+  }
+ ],
+ "banner": {
+  "text": "What If UK House Prices Halved Overnight?"
+ },
+ "speed": 0.92
 }

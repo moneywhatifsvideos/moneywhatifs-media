@@ -13,6 +13,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 TTS_DIR = os.environ.get("MWI_TTS_DIR", os.path.expanduser("~/kokoro"))
 W, H, FPS = 1080, 1920, 30
 SR = 24000
+VOICE_POLISH = ("highpass=f=70,equalizer=f=200:t=q:w=1:g=2,equalizer=f=3200:t=q:w=1.2:g=3,"
+                "acompressor=threshold=-18dB:ratio=3:attack=5:release=80")
 FB = "/usr/share/fonts/truetype/google-fonts/Poppins-Bold.ttf"
 FM = "/usr/share/fonts/truetype/google-fonts/Poppins-Medium.ttf"
 _fc = {}
@@ -449,15 +451,194 @@ def T_choice(img, ctx, sc):
     if t > ctx.lt(sc.get("at", len(sc["lines"]) - 1)) + 1.0:
         pop_text(img, (W / 2, 1210), "COMMENT A OR B", 52, GREY, (t - ctx.lt(sc.get("at", len(sc["lines"]) - 1)) - 1.0) / 0.3, stroke=4)
 
+
+# ---------------- title banner ----------------
+def draw_banner(img, text, highlight=None):
+    """White rounded box near the top with the video's question; `highlight` words in blue."""
+    d = ImageDraw.Draw(img)
+    words = text.split(); hl = set((highlight or "").lower().split())
+    sz = 64
+    def lines_for(sz):
+        f = font(sz); lines, cur = [], []
+        for w in words:
+            trial = " ".join(cur + [w])
+            if cur and f.getlength(trial) > 900: lines.append(cur); cur = [w]
+            else: cur.append(w)
+        if cur: lines.append(cur)
+        return lines
+    lines = lines_for(sz)
+    while len(lines) > 2 and sz > 36: sz -= 4; lines = lines_for(sz)
+    f = font(sz); lh = sz * 1.15; h = lh * len(lines) + 44
+    y0 = 170; d.rounded_rectangle([40, y0, W - 40, y0 + h], radius=28, fill=(250, 250, 252))
+    for i, ln in enumerate(lines):
+        sp = f.getlength(" "); tw = sum(f.getlength(w) for w in ln) + sp * (len(ln) - 1)
+        x = W / 2 - tw / 2; y = y0 + 22 + lh * i + lh / 2
+        for w in ln:
+            col = (40, 110, 240) if w.lower().strip("?,.!:") in hl else (14, 16, 28)
+            d.text((x, y), w, font=f, fill=col, anchor="lm"); x += f.getlength(w) + sp
+    return y0 + h
+
+# ---------------- data templates ----------------
+UK = None
+def uk_regions():
+    global UK
+    if UK is None: UK = json.load(open(os.path.join(HERE, "assets", "uk_regions.json")))
+    return UK
+
+STOPS = [(0, (40, 90, 255)), (0.3, (30, 200, 230)), (0.55, (60, 220, 130)), (0.8, (250, 210, 60)), (1, (255, 80, 80))]
+def cmap(v):
+    v = clamp(v)
+    for (a, ca), (b, cb) in zip(STOPS, STOPS[1:]):
+        if v <= b:
+            f = (v - a) / (b - a); return tuple(int(ca[i] + (cb[i] - ca[i]) * f) for i in range(3))
+    return STOPS[-1][1]
+
+def race_pos(ctx, sc):
+    """Position in the keyframe list (float index) at scene time t: hold, then ease to next."""
+    n = len(sc["years"]); hold, trans = sc.get("hold", 8.0), sc.get("trans", 1.5)
+    t = ctx.t - sc.get("lead", 0.0)
+    for i in range(n):
+        if t < hold: return float(i)
+        t -= hold
+        if i == n - 1: return float(n - 1)
+        if t < trans: return i + ease(t / trans)
+        t -= trans
+    return float(n - 1)
+
+def race_len(sc):
+    n = len(sc["years"]); return sc.get("lead", 0.0) + n * sc.get("hold", 8.0) + (n - 1) * sc.get("trans", 1.5)
+
+def interp(vals, pos):
+    i = int(pos); f = pos - i
+    if i >= len(vals) - 1: return vals[-1]
+    a, b = vals[i], vals[i + 1]
+    if a is None or b is None: return a if f < 0.5 else b
+    return a + (b - a) * f
+
+def draw_overlay_pages(img, ctx, sc):
+    """Pages of big text shown after the race (insight cards, call to action)."""
+    after = sc.get("after", []); cur = None
+    for pg in after:
+        if ctx.t >= pg["at"]: cur = pg
+    if not cur: return
+    p = clamp((ctx.t - cur["at"]) / 0.3)
+    ov = Image.new("RGBA", (W, H), (0, 0, 0, 0)); od = ImageDraw.Draw(ov)
+    ys = cur.get("y", 700); hgt = sum(fit_size(it["text"], it.get("size", 90)) * 1.25 for it in cur["items"]) + 60
+    od.rounded_rectangle([60, ys - 30, W - 60, ys + hgt], radius=30, fill=(8, 10, 24, int(225 * p)))
+    img.paste(ov, (0, 0), ov)
+    y = ys
+    for it in cur["items"]:
+        sz = fit_size(it["text"], it.get("size", 90))
+        pop_text(img, (W / 2, y + sz * 0.62), it["text"], sz, it.get("color", "white"), (ctx.t - cur["at"]) / 0.3, stroke=max(4, sz // 12))
+        y += sz * 1.25
+
+def T_map_race(img, ctx, sc):
+    img.paste(BG_DARK); d = ImageDraw.Draw(img)
+    regs = uk_regions(); pos = race_pos(ctx, sc)
+    lon0, lat0 = -8.2, 49.9; k = math.cos(math.radians(54.5))
+    bx0, by0, bw, bh = sc.get("box", [150, 380, 760, 1180])
+    sx = bw / (10.1 * k); sy = bh / 11.0; s_ = min(sx, sy)
+    P = lambda lon, lat: (bx0 + (lon - lon0) * k * s_, by0 + bh - (lat - lat0) * s_)
+    vmin, vmax = sc["scale"]
+    vals = {r: interp(v, pos) for r, v in sc["values"].items()}
+    # glow layer
+    glow = Image.new("RGBA", (W, H), (0, 0, 0, 0)); gd = ImageDraw.Draw(glow)
+    for name, rings in regs.items():
+        v = vals.get(name)
+        col = cmap((v - vmin) / (vmax - vmin)) if v is not None else (70, 74, 96)
+        for r in rings:
+            pts = [P(*p) for p in r]
+            gd.polygon(pts, fill=col + (150 if v is not None else 90,))
+            gd.line(pts + [pts[0]], fill=tuple(min(255, c + 70) for c in col) + (255,), width=3)
+    blur = glow.filter(ImageFilter.GaussianBlur(10))
+    img.paste(blur, (0, 0), blur); img.paste(glow, (0, 0), glow); d = ImageDraw.Draw(img)
+    # labels
+    for name, (lon, lat, call) in sc["labels"].items():
+        v = vals.get(name); short = sc.get("names", {}).get(name, name).upper()
+        vs = sc.get("nodata_text", "NO DATA") if v is None else fmt(v, sc)
+        x, y = P(lon, lat)
+        if call:  # callout box
+            cx, cy = call
+            d.line([(x, y), (cx, cy)], fill=WHITE, width=3); d.ellipse([x - 7, y - 7, x + 7, y + 7], fill=WHITE)
+            wbox = max(font(30).getlength(short), font(48).getlength(vs)) + 40
+            d.rounded_rectangle([cx - wbox / 2, cy - 50, cx + wbox / 2, cy + 50], radius=14, fill=(10, 12, 26),
+                                outline=cmap((v - vmin) / (vmax - vmin)) if v is not None else GREY, width=4)
+            text_c(d, (cx, cy - 22), short, 28, WHITE); text_c(d, (cx, cy + 16), vs, 46, WHITE)
+        else:
+            text_c(d, (x, y - 22), short, 26, WHITE, stroke=4); text_c(d, (x, y + 14), vs, 42, WHITE, stroke=5)
+    # year + national average
+    yi = int(round(pos)); year = sc["years"][min(yi, len(sc["years"]) - 1)]
+    text_c(d, (W - 70, 470), str(year), 150, WHITE, stroke=6, anchor="rm")
+    if "national" in sc:
+        text_c(d, (W - 70, 570), sc.get("national_label", "UK AVERAGE"), 34, GREY, FM, anchor="rm")
+        text_c(d, (W - 70, 630), fmt(interp(sc["national"], pos), sc), 72, C("blue") if False else (90, 170, 255), stroke=4, anchor="rm")
+    # legend
+    lx0, ly, lw = sc.get("legend_pos", [70, 440, 360])
+    for i in range(lw):
+        d.line([(lx0 + i, ly), (lx0 + i, ly + 22)], fill=cmap(i / lw))
+    text_c(d, (lx0, ly - 26), sc.get("legend", ""), 30, WHITE, anchor="lm")
+    text_c(d, (lx0, ly + 52), fmt(vmin, sc), 28, WHITE, anchor="lm"); text_c(d, (lx0 + lw, ly + 52), fmt(vmax, sc), 28, WHITE, anchor="rm")
+    draw_overlay_pages(img, ctx, sc)
+
+def T_bar_race(img, ctx, sc):
+    img.paste(BG_DARK); d = ImageDraw.Draw(img); pos = race_pos(ctx, sc)
+    items = sc["items_data"]  # [{name, values:[...], color}]
+    cur = [(it, interp(it["values"], pos)) for it in items]
+    vmax = max(v for _, v in cur if v is not None) * 1.08
+    # rank interpolation: rank at floor and ceil keyframe, eased
+    def ranks(i):
+        i = min(i, len(sc["years"]) - 1)
+        order = sorted(items, key=lambda it: -(it["values"][i] or 0))
+        return {it["name"]: r for r, it in enumerate(order)}
+    i0 = int(pos); f = pos - i0; r0, r1 = ranks(i0), ranks(i0 + 1)
+    top, rowh, lab_w = sc.get("top", 420), sc.get("row", 92), 330
+    maxw = W - lab_w - 210
+    show = sc.get("show", 12)
+    for it, v in cur:
+        r = r0[it["name"]] * (1 - f) + r1[it["name"]] * f
+        if r > show - 0.5 or v is None: continue
+        y = top + r * rowh; w = max(6, maxw * v / vmax); col = C(it.get("color", "blue"))
+        d.text((lab_w + 30, y + rowh * 0.42), it["name"], font=font(fit_size(it["name"], 34, lab_w - 10)), fill=WHITE, anchor="rm")
+        d.rounded_rectangle([lab_w + 50, y + 8, lab_w + 50 + w, y + rowh - 14], radius=10, fill=col)
+        d.text((lab_w + 66 + w, y + rowh * 0.42), fmt(v, sc), font=font(38), fill=WHITE, anchor="lm")
+    yi = int(round(pos)); year = sc["years"][min(yi, len(sc["years"]) - 1)]
+    text_c(d, (W - 80, top + rowh * show + 40), str(year), 150, (90, 170, 255), stroke=6, anchor="rm")
+    draw_overlay_pages(img, ctx, sc)
+
+def T_line_race(img, ctx, sc):
+    img.paste(BG_DARK); d = ImageDraw.Draw(img); pos = race_pos(ctx, sc)
+    yrs = sc["years"]; L, R, T_, B = 140, W - 260, sc.get("top", 420), sc.get("bottom", 1500)
+    ymax = sc["ymax"]; ymin = sc.get("ymin", 0)
+    X = lambda i: L + i / (len(yrs) - 1) * (R - L); Y = lambda v: B - (v - ymin) / (ymax - ymin) * (B - T_)
+    for g in sc.get("yticks", []):
+        d.line([(L, Y(g)), (R, Y(g))], fill=(40, 46, 70), width=2); text_c(d, (L - 12, Y(g)), fmt(g, sc), 28, GREY, FM, anchor="rm")
+    for i, yv in enumerate(yrs):
+        if i % sc.get("xstep", 1) == 0: text_c(d, (X(i), B + 36), str(yv), 28, GREY, FM)
+    for sr in sc["series"]:
+        col = C(sr.get("color", "yellow")); pts = []
+        for j in range(0, int(pos * 20) + 1):
+            p = j / 20; v = interp(sr["values"], p)
+            if v is not None: pts.append((X(p), Y(v)))
+        if len(pts) > 1: d.line(pts, fill=col, width=10, joint="curve")
+        if pts:
+            ex, ey = pts[-1]; d.ellipse([ex - 12, ey - 12, ex + 12, ey + 12], fill=col)
+            d.text((ex + 22, ey - 22), sr["name"], font=font(30), fill=col, anchor="lm")
+            d.text((ex + 22, ey + 16), fmt(interp(sr["values"], pos), sc), font=font(36), fill=WHITE, anchor="lm")
+    yi = int(round(pos)); text_c(d, (R - 10, T_ + 40), str(yrs[min(yi, len(yrs) - 1)]), 120, (60, 66, 96), anchor="rm")
+    draw_overlay_pages(img, ctx, sc)
+
 TEMPLATES = {"stack": T_stack, "figures": T_figures, "phone": T_phone, "bars": T_bars, "tags": T_tags,
-             "chart": T_chart, "twist": T_twist, "choice": T_choice}
+             "chart": T_chart, "twist": T_twist, "choice": T_choice,
+             "map_race": T_map_race, "bar_race": T_bar_race, "line_race": T_line_race}
 
 # ---------------- pipeline ----------------
 def tts(spec, out):
     import soundfile as sf
     from kokoro_onnx import Kokoro
-    k = Kokoro(os.path.join(TTS_DIR, "kokoro-v1.0.int8.onnx"), os.path.join(TTS_DIR, "voices-v1.0.bin"))
-    voice = spec.get("voice", "bm_daniel"); lang = "en-gb" if voice.startswith("b") else "en-us"
+    model = os.path.join(TTS_DIR, "kokoro-v1.0.onnx")
+    if not os.path.exists(model): model = os.path.join(TTS_DIR, "kokoro-v1.0.int8.onnx")
+    k = Kokoro(model, os.path.join(TTS_DIR, "voices-v1.0.bin"))
+    voice = spec.get("voice", "af_heart"); lang = "en-gb" if voice.startswith("b") else "en-us"
     speed = spec.get("speed", 1.0)
     def trim(a, thr=0.01):
         idx = np.where(np.abs(a) > thr)[0]
@@ -473,7 +654,8 @@ def tts(spec, out):
         TL.append({"start": st, "end": t, "lines": lt})
     parts.append(np.zeros(int(1.2 * SR))); t += 1.2; TL[-1]["end"] = t
     a = np.concatenate(parts).astype(np.float32); a = a / max(1e-6, np.abs(a).max()) * 0.89
-    sf.write(os.path.join(out, "voice.wav"), a, SR)
+    raw = os.path.join(out, "voice_raw.wav"); sf.write(raw, a, SR)
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", raw, "-af", VOICE_POLISH, "-ar", str(SR), os.path.join(out, "voice.wav")], check=True)
     json.dump(TL, open(os.path.join(out, "timeline.json"), "w"), indent=1)
     return TL
 
@@ -483,8 +665,18 @@ def frame(spec, TL, chunks, k, T):
     img = BG.copy()
     TEMPLATES[sc["type"]](img, ctx, sc)
     if "hud" in sc: draw_hud(img, ctx, sc["hud"])
-    if sc.get("footnote", False) and spec.get("footnote"):
-        text_c(ImageDraw.Draw(img), (W / 2, 1340), spec["footnote"], min(28, fit_size(spec["footnote"], 28, 1000, FM)), GREY, FM)
+    data = spec.get("kind") == "data"
+    banner = spec.get("banner")
+    if banner and not data and k > 0:  # shrink the scene under a fixed question banner
+        sc_img = img.resize((int(W * 0.8), int(H * 0.8)), Image.BILINEAR)
+        img = BG.copy() if sc["type"] != "twist" else BG_DARK.copy()
+        img.paste(sc_img, (int(W * 0.1), 345))
+    if banner and (data or k > 0):
+        b = banner if isinstance(banner, dict) else {"text": banner}
+        draw_banner(img, b["text"], b.get("highlight"))
+    if spec.get("footnote") and (data or sc.get("footnote", False)):
+        fy = 1600 if data else 1530
+        text_c(ImageDraw.Draw(img), (W / 2, fy), spec["footnote"], min(28, fit_size(spec["footnote"], 28, 1000, FM)), GREY, FM)
     draw_captions(img, T, chunks)
     pz = 1.0 if k == 0 else ease(t / 0.25)  # no punch-in on the very first frames
     if pz < 1:
@@ -506,18 +698,54 @@ def render_scene(spec, TL, chunks, k, out):
     if p.wait() != 0: raise SystemExit(f"ffmpeg failed on scene {k}")
     os.rename(tmp, final)
 
+
+def music(n, bpm=100, seed=0, bright=1.0):
+    """Original procedural backing track (Am-F-C-G): soft pad, bass, pluck arpeggio, light drums."""
+    t = np.arange(n) / SR; out = np.zeros(n); rng = np.random.default_rng(seed)
+    beat = 60 / bpm; bar = 4 * beat
+    chords = [[57, 60, 64], [53, 57, 60], [48, 52, 55], [55, 59, 62]]
+    hz = lambda m: 440 * 2 ** ((m - 69) / 12)
+    nbars = int(n / SR / bar) + 2
+    for b in range(nbars):
+        ch = chords[b % 4]; s0 = int(b * bar * SR); L = int(bar * SR)
+        if s0 >= n: break
+        L = min(L, n - s0); tt = np.arange(L) / SR
+        env = np.minimum(1, tt / 0.4) * np.minimum(1, (bar - tt) / 0.3)
+        pad = sum(np.sin(2 * np.pi * hz(m) * tt) + 0.3 * np.sin(2 * np.pi * hz(m) * 1.003 * tt + 1) for m in ch)
+        out[s0:s0 + L] += 0.10 * pad * env
+        for q in range(4):  # bass on each beat
+            q0 = s0 + int(q * beat * SR); Lq = min(int(beat * SR), n - q0)
+            if Lq <= 0: continue
+            tq = np.arange(Lq) / SR
+            out[q0:q0 + Lq] += 0.22 * np.sin(2 * np.pi * hz(ch[0] - 12) * tq) * np.exp(-tq * 4)
+        arp = [ch[0] + 12, ch[1] + 12, ch[2] + 12, ch[1] + 12]
+        for e in range(8):  # pluck 8ths
+            e0 = s0 + int(e * beat / 2 * SR); Le = min(int(0.3 * SR), n - e0)
+            if Le <= 0: continue
+            te = np.arange(Le) / SR
+            out[e0:e0 + Le] += 0.07 * bright * np.sin(2 * np.pi * hz(arp[e % 4]) * te) * np.exp(-te * 9)
+        for q in (0, 2):  # kick
+            q0 = s0 + int(q * beat * SR); Lk = min(int(0.25 * SR), n - q0)
+            if Lk <= 0: continue
+            tk = np.arange(Lk) / SR; f = 50 + 70 * np.exp(-tk * 30)
+            out[q0:q0 + Lk] += 0.35 * np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-tk * 12)
+        for e in range(8):  # hats on off-beats
+            if e % 2 == 0: continue
+            e0 = s0 + int(e * beat / 2 * SR); Lh = min(int(0.04 * SR), n - e0)
+            if Lh <= 0: continue
+            out[e0:e0 + Lh] += 0.05 * rng.standard_normal(Lh) * np.exp(-np.arange(Lh) / SR * 120)
+    fade = np.minimum(1, np.minimum(t / 0.5, (t[-1] - t + 1e-3) / 1.5))
+    out *= fade
+    return out / (np.abs(out).max() + 1e-9)
+
 def mix(spec, TL, out):
     import soundfile as sf
     v, _ = sf.read(os.path.join(out, "voice.wav")); n = len(v); t = np.arange(n) / SR; rng = np.random.default_rng(1)
-    bed = np.zeros(n)
-    for f, a in [(55, .5), (82.4, .35), (110, .25), (164.8, .12)]:
-        bed += a * np.sin(2 * np.pi * f * t + np.sin(2 * np.pi * .11 * t) * .6)
-    bed *= 0.6 + 0.4 * np.sin(2 * np.pi * t / 8) ** 2
-    tw = next((TL[i]["start"] for i, s in enumerate(spec["scenes"]) if s["type"] == "twist"), TL[-1]["start"])
-    bed = bed / np.abs(bed).max() * 0.07 * np.where(t > tw, 0.6, 1.0)
-    for b in np.arange(0.05, tw, 60 / 96):
-        i = int(b * SR); L = int(.18 * SR)
-        if i + L < n: bed[i:i + L] += 0.06 * np.sin(2 * np.pi * 48 * np.arange(L) / SR) * np.exp(-np.arange(L) / SR * 22)
+    tw = next((TL[i]["start"] for i, s in enumerate(spec["scenes"]) if s["type"] == "twist"), TL[-1]["end"])
+    if spec.get("kind") == "data":
+        bed = music(n, bpm=spec.get("bpm", 104), seed=3) * 0.9
+    else:
+        bed = music(n, bpm=96, seed=1, bright=0.6) * 0.11 * np.where(t > tw, 0.55, 1.0)
     def add(at, sig):
         i = int(at * SR); j = min(n, i + len(sig))
         if 0 <= i < n: bed[i:j] += sig[:j - i]
@@ -551,7 +779,15 @@ def main():
     spec = json.load(open(spec_path)); slug = spec["slug"]
     os.makedirs(os.path.join(out, "scenes"), exist_ok=True)
     tl_path = os.path.join(out, "timeline.json")
-    TL = json.load(open(tl_path)) if os.path.exists(tl_path) and "--reuse-voice" in sys.argv else tts(spec, out)
+    if spec.get("kind") == "data":  # no narration: timeline from scene durations, music only
+        TL, t = [], 0.0
+        for sc in spec["scenes"]:
+            dur = sc.get("dur") or race_len(sc) + sc.get("tail", 0.0)
+            TL.append({"start": t, "end": t + dur, "lines": []}); t += dur
+        import soundfile as sf
+        sf.write(os.path.join(out, "voice.wav"), np.zeros(int(t * SR) + SR // 10, dtype=np.float32), SR)
+    else:
+        TL = json.load(open(tl_path)) if os.path.exists(tl_path) and "--reuse-voice" in sys.argv else tts(spec, out)
     chunks = build_chunks(TL)
     total = TL[-1]["end"]; print(f"duration {total:.1f}s")
     if stills:  # a frame near the end of each scene, as a contact sheet
@@ -570,7 +806,7 @@ def main():
     vo = os.path.join(out, "video_only.mp4"); final = os.path.join(out, f"{slug}.mp4")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", os.path.join(out, "list.txt"), "-c", "copy", vo], check=True)
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", vo, "-i", os.path.join(out, "mix.wav"), "-map", "0:v", "-map", "1:a",
-                    "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest", final], check=True)
+                    "-c:v", "copy", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "-shortest", final], check=True)
     thumbnail(spec, out, slug)
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", final, "-vf", "fps=1/5,scale=180:-1,tile=7x2", "-frames:v", "1",
                     os.path.join(out, "check.png")], check=True)

@@ -1,7 +1,7 @@
 {
  "slug": "TheMoneyWhatIfs_06_britain_bans_cash",
  "title": "What If Britain Banned Cash Tomorrow? 💳",
- "voice": "bm_daniel",
+ "voice": "af_heart",
  "footnote": "Source: UK Finance, UK Payment Markets 2026.",
  "thumbnail": {
   "lines": [
@@ -389,5 +389,9 @@
    "b": "NO, KEEP CASH",
    "at": 0
   }
- ]
+ ],
+ "banner": {
+  "text": "What If Britain Banned Cash Tomorrow?"
+ },
+ "speed": 0.92
 }

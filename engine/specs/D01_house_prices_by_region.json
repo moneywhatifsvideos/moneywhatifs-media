@@ -1,0 +1,307 @@
+{
+ "slug": "TheMoneyWhatIfs_D01_house_prices_by_region",
+ "kind": "data",
+ "title": "How Much Have House Prices Risen Where You Live? 🏠",
+ "banner": {
+  "text": "How Much Have House Prices Risen in Your Part of the UK?",
+  "highlight": "Risen"
+ },
+ "footnote": "Source: HM Land Registry UK HPI (January, seasonally adjusted). N. Ireland not in series.",
+ "thumbnail": {
+  "lines": [
+   {
+    "text": "UK HOUSE PRICES",
+    "color": "white"
+   },
+   {
+    "text": "BY REGION",
+    "color": "yellow",
+    "size": 150
+   },
+   {
+    "text": "2005 vs 2025",
+    "color": "white"
+   },
+   {
+    "text": "...ONE REGION DOUBLED",
+    "color": "red",
+    "size": 56
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "map_race",
+   "years": [
+    2005,
+    2010,
+    2015,
+    2020,
+    2025
+   ],
+   "values": {
+    "London": [
+     249208,
+     299939,
+     433291,
+     511055,
+     565389
+    ],
+    "South East": [
+     197385,
+     219781,
+     267161,
+     324680,
+     382556
+    ],
+    "East of England": [
+     174042,
+     186436,
+     226614,
+     286743,
+     333154
+    ],
+    "South West": [
+     170053,
+     182285,
+     205991,
+     248634,
+     302952
+    ],
+    "West Midlands": [
+     135173,
+     141100,
+     152552,
+     193073,
+     242209
+    ],
+    "East Midlands": [
+     131343,
+     132917,
+     148887,
+     188260,
+     237000
+    ],
+    "Yorkshire and The Humber": [
+     113759,
+     127410,
+     130147,
+     156171,
+     201960
+    ],
+    "North West": [
+     111831,
+     122954,
+     127271,
+     153210,
+     209502
+    ],
+    "North East": [
+     107264,
+     115596,
+     113103,
+     122604,
+     157712
+    ],
+    "Wales": [
+     117174,
+     121381,
+     128351,
+     155006,
+     206977
+    ],
+    "Scotland": [
+     93120,
+     125316,
+     130134,
+     147303,
+     185713
+    ],
+    "Northern Ireland": [
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
+   },
+   "national": [
+    139586,
+    155181,
+    176250,
+    213582,
+    265924
+   ],
+   "national_label": "UK AVERAGE",
+   "prefix": "£",
+   "short": true,
+   "scale": [
+    90000,
+    570000
+   ],
+   "legend": "Average house price",
+   "lead": 0.6,
+   "hold": 8.0,
+   "trans": 1.5,
+   "tail": 15.0,
+   "names": {
+    "Yorkshire and The Humber": "Yorkshire",
+    "East of England": "East",
+    "Northern Ireland": "N. Ireland",
+    "West Midlands": "W. Midlands",
+    "East Midlands": "E. Midlands"
+   },
+   "labels": {
+    "Scotland": [
+     -4.3,
+     57.0,
+     null
+    ],
+    "Northern Ireland": [
+     -6.65,
+     54.62,
+     null
+    ],
+    "Wales": [
+     -3.75,
+     52.3,
+     null
+    ],
+    "South West": [
+     -3.9,
+     50.75,
+     null
+    ],
+    "North East": [
+     -1.9,
+     55.05,
+     [
+      920,
+      860
+     ]
+    ],
+    "Yorkshire and The Humber": [
+     -1.3,
+     54.0,
+     [
+      920,
+      990
+     ]
+    ],
+    "East Midlands": [
+     -0.85,
+     52.95,
+     [
+      920,
+      1120
+     ]
+    ],
+    "East of England": [
+     0.75,
+     52.35,
+     [
+      920,
+      1250
+     ]
+    ],
+    "London": [
+     -0.12,
+     51.5,
+     [
+      920,
+      1380
+     ]
+    ],
+    "South East": [
+     -0.6,
+     51.05,
+     [
+      920,
+      1510
+     ]
+    ],
+    "North West": [
+     -2.7,
+     54.15,
+     [
+      150,
+      1210
+     ]
+    ],
+    "West Midlands": [
+     -2.15,
+     52.5,
+     [
+      150,
+      1340
+     ]
+    ]
+   },
+   "after": [
+    {
+     "at": 47.0,
+     "y": 700,
+     "items": [
+      {
+       "text": "BIGGEST RISE",
+       "color": "grey",
+       "size": 60
+      },
+      {
+       "text": "LONDON",
+       "color": "white",
+       "size": 110
+      },
+      {
+       "text": "+127%",
+       "color": "red",
+       "size": 150
+      }
+     ]
+    },
+    {
+     "at": 52.0,
+     "y": 700,
+     "items": [
+      {
+       "text": "SURPRISE RUNNER-UP",
+       "color": "grey",
+       "size": 60
+      },
+      {
+       "text": "SCOTLAND",
+       "color": "white",
+       "size": 110
+      },
+      {
+       "text": "+99%",
+       "color": "yellow",
+       "size": 150
+      }
+     ]
+    },
+    {
+     "at": 57.0,
+     "y": 650,
+     "items": [
+      {
+       "text": "WHAT'S IT LIKE",
+       "color": "white",
+       "size": 90
+      },
+      {
+       "text": "WHERE YOU LIVE?",
+       "color": "yellow",
+       "size": 100
+      },
+      {
+       "text": "COMMENT YOUR AREA",
+       "color": "grey",
+       "size": 60
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

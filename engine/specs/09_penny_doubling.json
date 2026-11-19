@@ -1,7 +1,7 @@
 {
  "slug": "TheMoneyWhatIfs_09_penny_doubling",
  "title": "£1 Million Now or 1p That Doubles Every Day? 🪙",
- "voice": "bm_daniel",
+ "voice": "af_heart",
  "footnote": "Your balance doubles each day, starting at 1p on day 1.",
  "thumbnail": {
   "lines": [
@@ -302,7 +302,8 @@
    "type": "stack",
    "lines": [
     "And on day thirty...",
-    "five point three six million pounds."
+    "five point three six million pounds.",
+    "That's more than five times the million."
    ],
    "hud": {
     "left": "DAY 30",
@@ -434,5 +435,9 @@
    "b": "THE PENNY",
    "at": 0
   }
- ]
+ ],
+ "banner": {
+  "text": "£1 Million Now or 1p That Doubles Every Day?"
+ },
+ "speed": 0.92
 }

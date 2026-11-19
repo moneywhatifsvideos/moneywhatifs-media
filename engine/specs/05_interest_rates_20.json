@@ -1,7 +1,7 @@
 {
  "slug": "TheMoneyWhatIfs_05_interest_rates_20",
  "title": "What If UK Interest Rates Hit 20%? 📈",
- "voice": "bm_daniel",
+ "voice": "af_heart",
  "footnote": "Illustration: £245,700 repayment mortgage over 25 years. Not financial advice.",
  "thumbnail": {
   "lines": [
@@ -363,5 +363,9 @@
    "b": "NO, I BORROW",
    "at": 0
   }
- ]
+ ],
+ "banner": {
+  "text": "What If UK Interest Rates Hit 20%?"
+ },
+ "speed": 0.92
 }

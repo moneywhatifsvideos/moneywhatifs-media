@@ -1,7 +1,7 @@
 {
  "slug": "TheMoneyWhatIfs_10_credit_card_minimum",
  "title": "What If You Only Paid the Minimum on £1,000? 💳",
- "voice": "bm_daniel",
+ "voice": "af_heart",
  "footnote": "Illustration: 25% APR, minimum payment 3% of balance or £5. Not financial advice.",
  "thumbnail": {
   "lines": [
@@ -445,5 +445,9 @@
    "b": "NEVER",
    "at": 0
   }
- ]
+ ],
+ "banner": {
+  "text": "What If You Only Paid the Minimum on £1,000?"
+ },
+ "speed": 0.92
 }

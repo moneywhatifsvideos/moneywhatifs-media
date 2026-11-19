@@ -1,7 +1,7 @@
 {
  "slug": "TheMoneyWhatIfs_03_million_or_weekly",
  "title": "£1 Million Now or £1,000 a Week for Life? 🤔",
- "voice": "bm_daniel",
+ "voice": "af_heart",
  "footnote": "Assumes 3% inflation. Illustration only. Not financial advice.",
  "thumbnail": {
   "lines": [
@@ -486,7 +486,8 @@
   {
    "type": "choice",
    "lines": [
-    "So which would you take?"
+    "So which would you take?",
+    "Comment A or B below."
    ],
    "items": [
     {
@@ -506,5 +507,9 @@
    "b": "£1K A WEEK",
    "at": 0
   }
- ]
+ ],
+ "banner": {
+  "text": "£1 Million Now or £1,000 a Week for Life?"
+ },
+ "speed": 0.92
 }
