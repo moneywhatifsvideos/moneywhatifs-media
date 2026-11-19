@@ -6,7 +6,7 @@ Channel: YouTube @TheMoneyWhatIfs and TikTok @themoneywhatifs, both linked to **
 Output: **two videos per day for the next 7 days** (Mon to Sun after the run), posted to YouTube Shorts and TikTok:
 - **10:00 = a "Money Data" video** (animated real UK data: map race, bar race or line race; music only, no voice).
 - **16:00 = a "What If" video** (narrated stick-figure scenario).
-This split is a two-week test that started 24 Nov 2026. From 8 Dec 2026, the analyst decides the mix: if one format clearly wins on views and watch time, give it more slots (but keep at least 2 of the other per week).
+This is Archie's standing plan (confirmed 19 Nov 2026): **one data video and one What If video every day**. Do not change the mix yourself; if the analytics strongly favour one format, recommend a change in the report and let Archie decide.
 
 Hard rules:
 - Never spend Higgsfield credits or any money.
@@ -41,6 +41,8 @@ Metricool `getScheduledPosts` (brandId 8204403, timezone Europe/London) for the 
 3. Write the findings to `~/media/analytics/YYYY-MM-DD.md` (short: top 3, bottom 3, patterns, what to do more/less of).
 
 ## 3. Trend scout (separate agent)
+
+First read `~/media/research/ideas.md` (the idea bank written by the weekly research bot) and the newest `~/media/research/YYYY-MM-DD.md` report. Prefer ideas from the bank; follow any style recommendations in the report **only if they are marked "APPROVED by Archie"**. Mark ideas you use as `USED (date)` in ideas.md when you commit at the end.
 
 Spawn a separate agent (Agent tool) with this brief: find what money and personal-finance topics are popular **right now** with UK short-form audiences. Use WebSearch (standard first, extended if thin) for things like: viral money "what if" shorts and TikToks, popular personal finance shorts in the UK, trending questions on r/UKPersonalFinance, this week's UK money news (Budget, Bank of England, prices, wages, house prices, energy bills, student loans, tax changes). Return **25 candidate topics**, each with: the question in one line, why it is popular (with source URLs), and a suggested twist. Topics only, no scripts copied.
 
