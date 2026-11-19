@@ -1,0 +1,449 @@
+{
+ "slug": "TheMoneyWhatIfs_10_credit_card_minimum",
+ "title": "What If You Only Paid the Minimum on £1,000? 💳",
+ "voice": "bm_daniel",
+ "footnote": "Illustration: 25% APR, minimum payment 3% of balance or £5. Not financial advice.",
+ "thumbnail": {
+  "lines": [
+   {
+    "text": "£1,000",
+    "color": "yellow",
+    "size": 180
+   },
+   {
+    "text": "ON A CREDIT CARD",
+    "color": "white",
+    "size": 90
+   },
+   {
+    "text": "MINIMUM",
+    "color": "red",
+    "size": 150
+   },
+   {
+    "text": "PAYMENTS ONLY?",
+    "color": "white",
+    "size": 100
+   },
+   {
+    "text": "...IT TAKES 17 YEARS",
+    "color": "red",
+    "size": 56
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "stack",
+   "lines": [
+    "You put a thousand pounds on a credit card, and only ever pay the minimum."
+   ],
+   "items": [
+    {
+     "text": "£1,000",
+     "color": "yellow",
+     "size": 190,
+     "at": 0
+    },
+    {
+     "text": "ON A CREDIT CARD",
+     "color": "white",
+     "size": 80,
+     "at": 0,
+     "space": 30
+    },
+    {
+     "text": "MINIMUM PAYMENTS ONLY",
+     "color": "red",
+     "size": 80,
+     "at": 0
+    }
+   ],
+   "figure": {
+    "at": 0,
+    "y": 1040,
+    "scale": 1.0,
+    "mood": "happy",
+    "arm": "up"
+   }
+  },
+  {
+   "type": "phone",
+   "lines": [
+    "The first bill arrives.",
+    "Minimum payment? Just thirty pounds. Easy."
+   ],
+   "app": "CREDIT CARD",
+   "balance_label": "Minimum payment",
+   "balance": {
+    "from": 0,
+    "keys": [
+     [
+      1,
+      30,
+      1.0
+     ]
+    ],
+    "prefix": "£",
+    "decimals": 2,
+    "color": "navy"
+   },
+   "notification": {
+    "title": "Statement ready",
+    "body": "Balance: £1,000.00",
+    "at": 0.3
+   },
+   "figure": {
+    "at": 1,
+    "mood": "happy"
+   }
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "But at twenty-five percent interest, nearly nineteen pounds of that is just interest.",
+    "Only eleven pounds actually pays off what you spent."
+   ],
+   "footnote": true,
+   "items": [
+    {
+     "text": "YOUR £30 PAYMENT",
+     "color": "grey",
+     "size": 64,
+     "at": 0
+    },
+    {
+     "text": "£18.77",
+     "color": "red",
+     "size": 150,
+     "at": [
+      0,
+      1.8
+     ]
+    },
+    {
+     "text": "INTEREST",
+     "color": "red",
+     "size": 70,
+     "at": [
+      0,
+      1.8
+     ],
+     "space": 40
+    },
+    {
+     "text": "£11.23",
+     "color": "green",
+     "size": 150,
+     "at": 1
+    },
+    {
+     "text": "PAYS OFF THE DEBT",
+     "color": "green",
+     "size": 70,
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "chart",
+   "lines": [
+    "Keep paying just the minimum, and as the balance falls, your payments shrink too...",
+    "so the debt drags on for years.",
+    "Seventeen years and eight months."
+   ],
+   "footnote": true,
+   "items": [
+    {
+     "text": "BALANCE LEFT ON THE CARD",
+     "color": "grey",
+     "size": 52,
+     "at": 0
+    }
+   ],
+   "chart": {
+    "x0": 0,
+    "x1": 18,
+    "ymax": 1050,
+    "xticks": [
+     0,
+     5,
+     10,
+     15,
+     18
+    ],
+    "xlabel": "YEARS",
+    "top": 560,
+    "bottom": 1150,
+    "reveal": [
+     [
+      0,
+      5,
+      1.6
+     ],
+     [
+      1,
+      12,
+      1.8
+     ],
+     [
+      2,
+      17.67,
+      1.6
+     ]
+    ],
+    "series": [
+     {
+      "kind": "points",
+      "points": [
+       [
+        0,
+        1000
+       ],
+       [
+        1,
+        873.25
+       ],
+       [
+        2,
+        762.57
+       ],
+       [
+        3,
+        665.91
+       ],
+       [
+        4,
+        581.51
+       ],
+       [
+        5,
+        507.81
+       ],
+       [
+        6,
+        443.44
+       ],
+       [
+        7,
+        387.24
+       ],
+       [
+        8,
+        338.16
+       ],
+       [
+        9,
+        295.29
+       ],
+       [
+        10,
+        257.87
+       ],
+       [
+        11,
+        225.18
+       ],
+       [
+        12,
+        196.64
+       ],
+       [
+        13,
+        171.72
+       ],
+       [
+        14,
+        147.71
+       ],
+       [
+        15,
+        118.03
+       ],
+       [
+        16,
+        80.95
+       ],
+       [
+        17,
+        34.58
+       ],
+       [
+        17.666666666666668,
+        0
+       ]
+      ],
+      "color": "red",
+      "prefix": "£",
+      "at": 0
+     }
+    ]
+   }
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "In total, you'd pay back two thousand four hundred and ninety pounds.",
+    "For a thousand pounds of stuff.",
+    "That's two and a half times what you spent."
+   ],
+   "footnote": true,
+   "items": [
+    {
+     "text": "TOTAL PAID BACK",
+     "color": "grey",
+     "size": 60,
+     "at": 0
+    },
+    {
+     "counter": {
+      "from": 1000,
+      "to": 2490,
+      "prefix": "£",
+      "at": [
+       0,
+       1.0
+      ],
+      "dur": 1.8
+     },
+     "color": "red",
+     "size": 170,
+     "at": 0
+    },
+    {
+     "text": "FOR £1,000 OF STUFF",
+     "color": "white",
+     "size": 80,
+     "at": 1
+    }
+   ],
+   "figure": {
+    "at": 1,
+    "y": 1060,
+    "scale": 0.9,
+    "mood": "sad"
+   }
+  },
+  {
+   "type": "bars",
+   "lines": [
+    "Pay a fixed fifty pounds a month instead...",
+    "and it's gone in just over two years, for twelve hundred and sixty-six.",
+    "Same debt. Fifteen years quicker, and over twelve hundred pounds cheaper."
+   ],
+   "footnote": true,
+   "items": [
+    {
+     "text": "SAME £1,000 DEBT",
+     "color": "grey",
+     "size": 52,
+     "at": 0
+    }
+   ],
+   "bars": [
+    {
+     "label": "MINIMUM ONLY",
+     "sub": "17 YRS 8 MONTHS",
+     "value": 2490,
+     "prefix": "£",
+     "color": "red",
+     "at": 0,
+     "dur": 1.0
+    },
+    {
+     "label": "£50 A MONTH",
+     "sub": "2 YRS 2 MONTHS",
+     "value": 1266,
+     "prefix": "£",
+     "color": "green",
+     "at": 1,
+     "dur": 1.2
+    }
+   ]
+  },
+  {
+   "type": "twist",
+   "lines": [
+    "Here's the twist.",
+    "Card companies are happy for you to pay slowly.",
+    "A low minimum feels kind. But it keeps you in debt for longer...",
+    "and that means more interest for the bank."
+   ],
+   "mood": "happy",
+   "sit": true,
+   "prop": "cash",
+   "changes": [
+    {
+     "at": 1,
+     "mood": "neutral"
+    },
+    {
+     "at": 2,
+     "mood": "sad"
+    }
+   ],
+   "pages": [
+    {
+     "at": 0,
+     "items": [
+      {
+       "text": "THE TWIST",
+       "color": "red",
+       "size": 120
+      }
+     ]
+    },
+    {
+     "at": 1,
+     "items": [
+      {
+       "text": "LOW MINIMUM =",
+       "color": "white"
+      },
+      {
+       "text": "LONGER DEBT",
+       "color": "red"
+      }
+     ]
+    },
+    {
+     "at": 2,
+     "items": [
+      {
+       "text": "MORE INTEREST",
+       "color": "yellow"
+      },
+      {
+       "text": "FOR THE BANK",
+       "color": "white"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "lines": [
+    "Have you ever only paid the minimum?",
+    "Comment A or B."
+   ],
+   "items": [
+    {
+     "text": "EVER ONLY PAID",
+     "color": "white",
+     "size": 80,
+     "at": 0
+    },
+    {
+     "text": "THE MINIMUM?",
+     "color": "yellow",
+     "size": 110,
+     "at": 0.3
+    }
+   ],
+   "a": "YES, GUILTY",
+   "b": "NEVER",
+   "at": 0
+  }
+ ]
+}

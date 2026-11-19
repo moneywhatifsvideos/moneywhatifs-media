@@ -1,0 +1,393 @@
+{
+ "slug": "TheMoneyWhatIfs_06_britain_bans_cash",
+ "title": "What If Britain Banned Cash Tomorrow? 💳",
+ "voice": "bm_daniel",
+ "footnote": "Source: UK Finance, UK Payment Markets 2026.",
+ "thumbnail": {
+  "lines": [
+   {
+    "text": "WHAT IF",
+    "color": "yellow",
+    "size": 110
+   },
+   {
+    "text": "BRITAIN",
+    "color": "white"
+   },
+   {
+    "text": "BANNED CASH",
+    "color": "red",
+    "size": 160
+   },
+   {
+    "text": "TOMORROW?",
+    "color": "white"
+   },
+   {
+    "text": "...WHO LOSES OUT?",
+    "color": "red",
+    "size": 56
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "stack",
+   "lines": [
+    "What if, tomorrow, Britain banned cash? No notes. No coins. Ever again.",
+    "Every single penny goes digital."
+   ],
+   "items": [
+    {
+     "text": "WHAT IF...",
+     "color": "yellow",
+     "size": 70,
+     "at": 0.1
+    },
+    {
+     "text": "BRITAIN",
+     "color": "white",
+     "size": 90,
+     "at": 0.9
+    },
+    {
+     "text": "BANNED CASH",
+     "color": "red",
+     "size": 140,
+     "at": 1.8
+    },
+    {
+     "text": "NO NOTES. NO COINS.",
+     "color": "white",
+     "size": 70,
+     "at": 3.2
+    }
+   ],
+   "icons": [
+    {
+     "kind": "cash",
+     "at": 1.8,
+     "y": 1080,
+     "scale": 1.3
+    }
+   ]
+  },
+  {
+   "type": "bars",
+   "lines": [
+    "Honestly? Most of us would barely notice.",
+    "In twenty-fifteen, almost half of all payments were cash.",
+    "Last year, just eight percent."
+   ],
+   "footnote": true,
+   "items": [
+    {
+     "text": "WOULD YOU NOTICE?",
+     "color": "white",
+     "size": 80,
+     "at": 0
+    }
+   ],
+   "bars": [
+    {
+     "label": "2015",
+     "value": 45,
+     "suffix": "%",
+     "color": "yellow",
+     "at": 1,
+     "dur": 1.0
+    },
+    {
+     "label": "2020",
+     "value": 17,
+     "suffix": "%",
+     "color": "yellow",
+     "at": [
+      1,
+      1.5
+     ],
+     "dur": 1.0
+    },
+    {
+     "label": "2025",
+     "value": 8,
+     "suffix": "%",
+     "color": "red",
+     "at": 2,
+     "dur": 1.0
+    }
+   ],
+   "top": 240
+  },
+  {
+   "type": "figures",
+   "lines": [
+    "But some people would be in real trouble.",
+    "People who budget with cash, so they can see exactly what's left.",
+    "And older people who never switched to cards."
+   ],
+   "figures": [
+    {
+     "x": 300,
+     "y": 640,
+     "scale": 1.5,
+     "mood": "sad",
+     "arm": "hold",
+     "at": 0
+    },
+    {
+     "x": 800,
+     "y": 1000,
+     "scale": 1.0,
+     "mood": "shock",
+     "shirt": "pink",
+     "at": 2,
+     "label": "NAN"
+    }
+   ],
+   "signs": [
+    {
+     "text": "£20 LEFT",
+     "sub": "FOR THE WEEK",
+     "at": 1,
+     "until": 2,
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "Then there's the outage problem.",
+    "If the card machines go down, nobody can pay for anything. Not even a loaf of bread.",
+    "It's happened before. In twenty-eighteen, a Visa outage left millions of card payments failing across Britain."
+   ],
+   "hud": {
+    "left": "SATURDAY",
+    "sub": "12:04 PM"
+   },
+   "items": [
+    {
+     "text": "CARD MACHINES",
+     "color": "white",
+     "size": 90,
+     "at": 0
+    },
+    {
+     "text": "DOWN",
+     "color": "red",
+     "size": 170,
+     "at": [
+      0,
+      0.8
+     ]
+    },
+    {
+     "text": "NOBODY CAN PAY",
+     "color": "yellow",
+     "size": 90,
+     "at": 1
+    },
+    {
+     "text": "2018: VISA OUTAGE",
+     "color": "grey",
+     "size": 64,
+     "at": 2
+    }
+   ],
+   "icons": [
+    {
+     "kind": "bread",
+     "at": [
+      1,
+      2.5
+     ],
+     "y": 1080,
+     "scale": 1.0
+    }
+   ]
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "And every single thing you buy is recorded.",
+    "Every coffee. Every pint. Every late-night kebab."
+   ],
+   "items": [
+    {
+     "text": "EVERYTHING",
+     "color": "white",
+     "size": 110,
+     "at": 0
+    },
+    {
+     "text": "RECORDED",
+     "color": "red",
+     "size": 130,
+     "at": [
+      0,
+      0.6
+     ],
+     "space": 60
+    },
+    {
+     "text": "COFFEE",
+     "color": "grey",
+     "size": 70,
+     "at": [
+      1,
+      0.0
+     ]
+    },
+    {
+     "text": "PINT",
+     "color": "grey",
+     "size": 70,
+     "at": [
+      1,
+      0.8
+     ]
+    },
+    {
+     "text": "LATE-NIGHT KEBAB",
+     "color": "yellow",
+     "size": 80,
+     "at": [
+      1,
+      1.6
+     ]
+    }
+   ],
+   "icons": []
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "To be fair, there are upsides.",
+    "No fake notes. No cash-in-hand tax dodging.",
+    "And nothing in your wallet worth stealing."
+   ],
+   "items": [
+    {
+     "text": "THE UPSIDES",
+     "color": "green",
+     "size": 110,
+     "at": 0
+    },
+    {
+     "text": "NO FAKE NOTES",
+     "color": "white",
+     "size": 80,
+     "at": 1
+    },
+    {
+     "text": "NO TAX DODGING",
+     "color": "white",
+     "size": 80,
+     "at": [
+      1,
+      1.2
+     ]
+    },
+    {
+     "text": "NOTHING TO STEAL",
+     "color": "yellow",
+     "size": 90,
+     "at": 2
+    }
+   ],
+   "figure": {
+    "at": 0,
+    "y": 1000,
+    "scale": 1.0,
+    "mood": "happy",
+    "arm": "up"
+   }
+  },
+  {
+   "type": "twist",
+   "lines": [
+    "So here's the twist.",
+    "Cash isn't really about money. It's about choice.",
+    "The day it's gone, you can't get it back."
+   ],
+   "mood": "neutral",
+   "sit": true,
+   "prop": "cash",
+   "changes": [
+    {
+     "at": 2,
+     "mood": "sad"
+    }
+   ],
+   "pages": [
+    {
+     "at": 0,
+     "items": [
+      {
+       "text": "THE TWIST",
+       "color": "red",
+       "size": 120
+      }
+     ]
+    },
+    {
+     "at": 1,
+     "items": [
+      {
+       "text": "CASH ISN'T ABOUT",
+       "color": "white",
+       "size": 80
+      },
+      {
+       "text": "MONEY",
+       "color": "grey"
+      },
+      {
+       "text": "IT'S ABOUT CHOICE",
+       "color": "yellow"
+      }
+     ]
+    },
+    {
+     "at": 2,
+     "items": [
+      {
+       "text": "ONCE IT'S GONE...",
+       "color": "white"
+      },
+      {
+       "text": "IT'S GONE",
+       "color": "red",
+       "size": 120
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "lines": [
+    "So, should Britain go cashless?",
+    "Comment A or B, and tell me why."
+   ],
+   "items": [
+    {
+     "text": "SHOULD BRITAIN",
+     "color": "white",
+     "size": 80,
+     "at": 0
+    },
+    {
+     "text": "GO CASHLESS?",
+     "color": "yellow",
+     "size": 110,
+     "at": 0.3
+    }
+   ],
+   "a": "YES, BAN IT",
+   "b": "NO, KEEP CASH",
+   "at": 0
+  }
+ ]
+}

@@ -1,0 +1,367 @@
+{
+ "slug": "TheMoneyWhatIfs_05_interest_rates_20",
+ "title": "What If UK Interest Rates Hit 20%? 📈",
+ "voice": "bm_daniel",
+ "footnote": "Illustration: £245,700 repayment mortgage over 25 years. Not financial advice.",
+ "thumbnail": {
+  "lines": [
+   {
+    "text": "WHAT IF",
+    "color": "yellow",
+    "size": 110
+   },
+   {
+    "text": "INTEREST RATES",
+    "color": "white"
+   },
+   {
+    "text": "HIT 20%?",
+    "color": "red",
+    "size": 190
+   },
+   {
+    "text": "...YOUR MORTGAGE TRIPLES",
+    "color": "red",
+    "size": 54
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "stack",
+   "lines": [
+    "What if the Bank of England put interest rates up to twenty percent tomorrow?",
+    "Your mortgage, your savings, your job. Everything changes."
+   ],
+   "items": [
+    {
+     "text": "WHAT IF...",
+     "color": "yellow",
+     "size": 70,
+     "at": 0.1
+    },
+    {
+     "text": "INTEREST RATES",
+     "color": "white",
+     "size": 90,
+     "at": 0.9
+    },
+    {
+     "counter": {
+      "from": 4,
+      "to": 20,
+      "suffix": "%",
+      "at": 2.4,
+      "dur": 1.4
+     },
+     "color": "red",
+     "size": 220,
+     "at": 2.4
+    }
+   ],
+   "icons": [
+    {
+     "kind": "coin",
+     "at": 0.9,
+     "y": 1120,
+     "scale": 0.9
+    }
+   ],
+   "dings": [
+    [
+     0,
+     3.8
+    ]
+   ]
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "Right now, the rate is four percent.",
+    "Twenty would be five times higher."
+   ],
+   "hud": {
+    "left": "TODAY",
+    "sub": "BANK RATE"
+   },
+   "items": [
+    {
+     "text": "BANK RATE NOW",
+     "color": "grey",
+     "size": 60,
+     "at": 0
+    },
+    {
+     "text": "4%",
+     "color": "white",
+     "size": 180,
+     "at": 0,
+     "space": 40
+    },
+    {
+     "text": "5× HIGHER",
+     "color": "red",
+     "size": 130,
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "phone",
+   "lines": [
+    "Here's what happens to an average mortgage.",
+    "Fourteen hundred and thirty-six pounds a month...",
+    "becomes four thousand, three hundred."
+   ],
+   "app": "MORTGAGE",
+   "balance_label": "Monthly payment",
+   "balance": {
+    "from": 1436,
+    "keys": [
+     [
+      2,
+      4323,
+      1.6
+     ]
+    ],
+    "prefix": "£",
+    "color": "red"
+   },
+   "notification": {
+    "title": "Rate change",
+    "body": "Your rate: 5% to 21%",
+    "at": [
+     2,
+     0.2
+    ]
+   },
+   "figure": {
+    "at": 1,
+    "mood": "shock"
+   },
+   "footnote": true
+  },
+  {
+   "type": "bars",
+   "lines": [
+    "Over the whole mortgage, you'd pay back one point three million pounds.",
+    "For a house worth less than three hundred thousand."
+   ],
+   "footnote": true,
+   "items": [
+    {
+     "text": "TOTAL PAID BACK",
+     "color": "grey",
+     "size": 60,
+     "at": 0
+    }
+   ],
+   "bars": [
+    {
+     "label": "AT 5%",
+     "value": 430900,
+     "prefix": "£",
+     "short": true,
+     "color": "green",
+     "at": 0,
+     "dur": 1.0
+    },
+    {
+     "label": "AT 21%",
+     "value": 1297000,
+     "prefix": "£",
+     "short": true,
+     "color": "red",
+     "at": [
+      0,
+      1.2
+     ],
+     "dur": 1.6
+    }
+   ],
+   "callouts": [
+    {
+     "text": "3×",
+     "x": 320,
+     "y": 560,
+     "size": 140,
+     "color": "red",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "figures",
+   "lines": [
+    "But savers would love it.",
+    "Ten thousand pounds in the bank would earn two thousand a year, not four hundred. Just for leaving it there."
+   ],
+   "hud": {
+    "left": "SAVER",
+    "sub": "£10,000 IN THE BANK",
+    "right": {
+     "label": "INTEREST / YEAR",
+     "from": 400,
+     "to": 2000,
+     "prefix": "£",
+     "at": [
+      1,
+      1.0
+     ],
+     "dur": 1.4,
+     "color": "green"
+    }
+   },
+   "figures": [
+    {
+     "x": 300,
+     "y": 640,
+     "scale": 1.5,
+     "mood": "happy",
+     "arm": "up"
+    }
+   ],
+   "signs": [
+    {
+     "text": "+£2,000",
+     "sub": "EVERY YEAR",
+     "at": [
+      1,
+      1.0
+     ],
+     "color": "green"
+    }
+   ]
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "The rest of the economy wouldn't.",
+    "Businesses stop borrowing. House prices fall. People lose their jobs.",
+    "But prices would stop rising. Inflation would be crushed."
+   ],
+   "hud": {
+    "left": "MONTH 6",
+    "sub": "THE ECONOMY"
+   },
+   "items": [
+    {
+     "text": "BORROWING STOPS",
+     "color": "red",
+     "size": 90,
+     "at": 1
+    },
+    {
+     "text": "HOUSE PRICES FALL",
+     "color": "red",
+     "size": 90,
+     "at": [
+      1,
+      1.6
+     ]
+    },
+    {
+     "text": "JOBS LOST",
+     "color": "red",
+     "size": 90,
+     "at": [
+      1,
+      3.0
+     ],
+     "space": 40
+    },
+    {
+     "text": "INFLATION: CRUSHED",
+     "color": "green",
+     "size": 90,
+     "at": 2
+    }
+   ]
+  },
+  {
+   "type": "twist",
+   "lines": [
+    "And here's the twist. It's happened before.",
+    "In nineteen seventy-nine, rates hit seventeen percent.",
+    "Your grandparents probably remember it."
+   ],
+   "mood": "shock",
+   "sit": true,
+   "prop": "cash",
+   "changes": [
+    {
+     "at": 2,
+     "mood": "smug"
+    }
+   ],
+   "pages": [
+    {
+     "at": 0,
+     "items": [
+      {
+       "text": "IT'S HAPPENED",
+       "color": "white"
+      },
+      {
+       "text": "BEFORE",
+       "color": "red",
+       "size": 130
+      }
+     ]
+    },
+    {
+     "at": 1,
+     "items": [
+      {
+       "text": "1979",
+       "color": "yellow",
+       "size": 130
+      },
+      {
+       "text": "RATES: 17%",
+       "color": "red"
+      }
+     ]
+    },
+    {
+     "at": 2,
+     "items": [
+      {
+       "text": "ASK YOUR",
+       "color": "white",
+       "size": 80
+      },
+      {
+       "text": "GRANDPARENTS",
+       "color": "yellow"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "lines": [
+    "So, would twenty percent rates be good for you?",
+    "Comment A if you're a saver, or B if you borrow."
+   ],
+   "items": [
+    {
+     "text": "20% RATES:",
+     "color": "white",
+     "size": 80,
+     "at": 0
+    },
+    {
+     "text": "GOOD FOR YOU?",
+     "color": "yellow",
+     "size": 110,
+     "at": 0.3
+    }
+   ],
+   "a": "YES, I SAVE",
+   "b": "NO, I BORROW",
+   "at": 0
+  }
+ ]
+}

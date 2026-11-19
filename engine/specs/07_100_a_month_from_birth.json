@@ -1,0 +1,419 @@
+{
+ "slug": "TheMoneyWhatIfs_07_100_a_month_from_birth",
+ "title": "What If Your Parents Saved £100 a Month From Birth? 👶💷",
+ "voice": "bm_daniel",
+ "footnote": "Assumes 7% average yearly return. Not financial advice.",
+ "thumbnail": {
+  "lines": [
+   {
+    "text": "WHAT IF YOU GOT",
+    "color": "white"
+   },
+   {
+    "text": "£100 A MONTH",
+    "color": "yellow",
+    "size": 160
+   },
+   {
+    "text": "FROM BIRTH?",
+    "color": "white"
+   },
+   {
+    "text": "...DON'T SPEND IT AT 18",
+    "color": "red",
+    "size": 54
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "stack",
+   "lines": [
+    "What if, from the day you were born, your parents put away a hundred pounds a month for you?"
+   ],
+   "items": [
+    {
+     "text": "WHAT IF...",
+     "color": "yellow",
+     "size": 70,
+     "at": 0.1
+    },
+    {
+     "text": "FROM THE DAY YOU WERE BORN",
+     "color": "white",
+     "size": 70,
+     "at": 1.0
+    },
+    {
+     "counter": {
+      "from": 0,
+      "to": 100,
+      "prefix": "£",
+      "suffix": " A MONTH",
+      "at": 3.4,
+      "dur": 1.0
+     },
+     "color": "yellow",
+     "size": 140,
+     "at": 3.4
+    }
+   ],
+   "icons": [
+    {
+     "kind": "coin",
+     "at": 3.4,
+     "y": 1100,
+     "scale": 0.9
+    }
+   ],
+   "dings": [
+    [
+     0,
+     4.4
+    ]
+   ]
+  },
+  {
+   "type": "figures",
+   "lines": [
+    "That's less than four pounds a day. About the price of a fancy coffee.",
+    "Into a Junior ISA, invested in the stock market."
+   ],
+   "hud": {
+    "left": "AGE 0",
+    "sub": "DAY 1",
+    "right": {
+     "label": "PER YEAR",
+     "text": "£1,200"
+    }
+   },
+   "figures": [
+    {
+     "x": 300,
+     "y": 760,
+     "scale": 1.0,
+     "mood": "happy",
+     "arm": "up"
+    }
+   ],
+   "signs": [
+    {
+     "text": "UNDER £4",
+     "sub": "A DAY",
+     "at": 0,
+     "until": 1,
+     "color": "navy"
+    },
+    {
+     "text": "JUNIOR ISA",
+     "sub": "INVESTED",
+     "at": 1,
+     "color": "green"
+    }
+   ],
+   "footnote": true
+  },
+  {
+   "type": "chart",
+   "lines": [
+    "By your tenth birthday, it's worth seventeen thousand.",
+    "By eighteen, forty-three thousand pounds.",
+    "Your parents only put in twenty-one thousand six hundred."
+   ],
+   "footnote": true,
+   "items": [
+    {
+     "text": "£100 A MONTH, INVESTED",
+     "color": "grey",
+     "size": 52,
+     "at": 0
+    }
+   ],
+   "chart": {
+    "x0": 0,
+    "x1": 18,
+    "ymax": 46000,
+    "xticks": [
+     0,
+     5,
+     10,
+     18
+    ],
+    "xlabel": "AGE",
+    "top": 560,
+    "bottom": 1150,
+    "reveal": [
+     [
+      0,
+      10,
+      1.6
+     ],
+     [
+      1,
+      18,
+      1.6
+     ]
+    ],
+    "series": [
+     {
+      "kind": "annuity",
+      "pmt": 1266.86,
+      "r": 0.07,
+      "x0": 0,
+      "color": "green",
+      "prefix": "£",
+      "at": 0
+     }
+    ]
+   },
+   "dings": [
+    [
+     1,
+     1.6
+    ]
+   ]
+  },
+  {
+   "type": "figures",
+   "lines": [
+    "At eighteen, it's legally yours.",
+    "You could buy a brand new car. In cash.",
+    "Or blow it on a year of holidays and nights out. Plenty of people do."
+   ],
+   "hud": {
+    "left": "AGE 18",
+    "sub": "IT'S YOURS",
+    "right": {
+     "label": "BALANCE",
+     "text": "£43,072",
+     "color": "green"
+    }
+   },
+   "figures": [
+    {
+     "x": 300,
+     "y": 640,
+     "scale": 1.5,
+     "mood": "happy",
+     "arm": "up"
+    }
+   ],
+   "signs": [
+    {
+     "text": "£43,072",
+     "sub": "ALL YOURS",
+     "at": 0,
+     "until": 1,
+     "color": "green"
+    },
+    {
+     "text": "NEW CAR?",
+     "sub": "CASH",
+     "at": 1,
+     "color": "red"
+    }
+   ]
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "Or, you could just leave it.",
+    "Don't add a single penny. Just wait.",
+    "Let compound interest do all the work."
+   ],
+   "items": [
+    {
+     "text": "OR...",
+     "color": "grey",
+     "size": 90,
+     "at": 0
+    },
+    {
+     "text": "LEAVE IT",
+     "color": "yellow",
+     "size": 160,
+     "at": [
+      0,
+      0.8
+     ],
+     "space": 60
+    },
+    {
+     "text": "ADD NOTHING.",
+     "color": "white",
+     "size": 80,
+     "at": 1
+    },
+    {
+     "text": "JUST WAIT.",
+     "color": "white",
+     "size": 80,
+     "at": [
+      1,
+      1.2
+     ]
+    },
+    {
+     "text": "COMPOUND INTEREST",
+     "color": "green",
+     "size": 80,
+     "at": 2
+    }
+   ],
+   "figure": {
+    "at": 1,
+    "y": 1130,
+    "scale": 0.9,
+    "mood": "smug",
+    "arm": "shrug"
+   }
+  },
+  {
+   "type": "chart",
+   "lines": [
+    "At thirty, it's ninety-seven thousand.",
+    "At forty, a hundred and ninety thousand.",
+    "And at sixty...",
+    "seven hundred and thirty-eight thousand pounds."
+   ],
+   "footnote": true,
+   "items": [
+    {
+     "text": "LEFT ALONE FROM 18",
+     "color": "grey",
+     "size": 52,
+     "at": 0
+    }
+   ],
+   "chart": {
+    "x0": 18,
+    "x1": 60,
+    "ymax": 760000,
+    "xticks": [
+     18,
+     30,
+     40,
+     60
+    ],
+    "xlabel": "AGE",
+    "top": 560,
+    "bottom": 1150,
+    "reveal": [
+     [
+      0,
+      30,
+      1.4
+     ],
+     [
+      1,
+      40,
+      1.4
+     ],
+     [
+      2,
+      60,
+      2.6
+     ]
+    ],
+    "series": [
+     {
+      "kind": "decay",
+      "v0": 43072,
+      "r": -0.06542056,
+      "x0": 18,
+      "color": "yellow",
+      "prefix": "£",
+      "at": 0
+     }
+    ]
+   },
+   "dings": [
+    [
+     3,
+     1.4
+    ]
+   ]
+  },
+  {
+   "type": "twist",
+   "lines": [
+    "So here's the twist.",
+    "The car would be worth almost nothing by then.",
+    "But the money you didn't touch? It became three-quarters of a million pounds."
+   ],
+   "mood": "neutral",
+   "sit": true,
+   "prop": "cash",
+   "changes": [
+    {
+     "at": 2,
+     "mood": "happy"
+    }
+   ],
+   "pages": [
+    {
+     "at": 0,
+     "items": [
+      {
+       "text": "THE TWIST",
+       "color": "red",
+       "size": 120
+      }
+     ]
+    },
+    {
+     "at": 1,
+     "items": [
+      {
+       "text": "THE CAR:",
+       "color": "white"
+      },
+      {
+       "text": "WORTH £0",
+       "color": "red",
+       "size": 120
+      }
+     ]
+    },
+    {
+     "at": 2,
+     "items": [
+      {
+       "text": "THE MONEY:",
+       "color": "white"
+      },
+      {
+       "text": "£738,000",
+       "color": "green",
+       "size": 130
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "lines": [
+    "So at eighteen, what would you actually do?",
+    "Be honest. Comment A or B."
+   ],
+   "items": [
+    {
+     "text": "AT 18, WOULD YOU",
+     "color": "white",
+     "size": 76,
+     "at": 0
+    },
+    {
+     "text": "SPEND OR WAIT?",
+     "color": "yellow",
+     "size": 110,
+     "at": 0.3
+    }
+   ],
+   "a": "BUY THE CAR",
+   "b": "LEAVE IT",
+   "at": 0
+  }
+ ]
+}

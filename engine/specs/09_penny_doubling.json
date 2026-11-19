@@ -1,0 +1,438 @@
+{
+ "slug": "TheMoneyWhatIfs_09_penny_doubling",
+ "title": "£1 Million Now or 1p That Doubles Every Day? 🪙",
+ "voice": "bm_daniel",
+ "footnote": "Your balance doubles each day, starting at 1p on day 1.",
+ "thumbnail": {
+  "lines": [
+   {
+    "text": "£1,000,000 NOW",
+    "color": "yellow",
+    "size": 120
+   },
+   {
+    "text": "OR",
+    "color": "grey",
+    "size": 80
+   },
+   {
+    "text": "1p DOUBLED",
+    "color": "green",
+    "size": 140
+   },
+   {
+    "text": "FOR 30 DAYS?",
+    "color": "white",
+    "size": 110
+   },
+   {
+    "text": "...MOST PEOPLE PICK WRONG",
+    "color": "red",
+    "size": 52
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "stack",
+   "lines": [
+    "One million pounds now, or one penny that doubles every day for a month?"
+   ],
+   "items": [
+    {
+     "text": "£1,000,000 NOW",
+     "color": "yellow",
+     "size": 120,
+     "at": 0
+    },
+    {
+     "text": "OR",
+     "color": "grey",
+     "size": 70,
+     "at": 0
+    },
+    {
+     "text": "1p THAT DOUBLES",
+     "color": "green",
+     "size": 120,
+     "at": 0
+    },
+    {
+     "text": "EVERY DAY FOR 30 DAYS",
+     "color": "white",
+     "size": 70,
+     "at": 0
+    }
+   ],
+   "icons": [
+    {
+     "kind": "coin",
+     "at": 0,
+     "y": 1130,
+     "scale": 0.8
+    }
+   ]
+  },
+  {
+   "type": "figures",
+   "lines": [
+    "Most people grab the million.",
+    "A penny doubling sounds like nothing.",
+    "I mean, how much can one penny really grow?"
+   ],
+   "figures": [
+    {
+     "x": 300,
+     "y": 640,
+     "scale": 1.5,
+     "mood": "happy",
+     "arm": "up"
+    }
+   ],
+   "signs": [
+    {
+     "text": "£1M PLEASE!",
+     "sub": "EASY CHOICE",
+     "at": 0.3,
+     "color": "green"
+    }
+   ]
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "Day one. One penny.",
+    "Day ten. Five pounds twelve.",
+    "Day fifteen. A hundred and sixty-three pounds.",
+    "Day twenty. Five thousand, two hundred."
+   ],
+   "footnote": true,
+   "hud": {
+    "left": "THE PENNY",
+    "sub": "DOUBLING DAILY",
+    "right": {
+     "label": "DAY",
+     "keys": [
+      [
+       1,
+       10,
+       1.2
+      ],
+      [
+       2,
+       15,
+       1.2
+      ],
+      [
+       3,
+       20,
+       1.2
+      ]
+     ],
+     "from": 1,
+     "color": "white"
+    }
+   },
+   "items": [
+    {
+     "text": "YOUR BALANCE",
+     "color": "grey",
+     "size": 60,
+     "at": 0
+    },
+    {
+     "counter": {
+      "from": 0.01,
+      "keys": [
+       [
+        1,
+        5.12,
+        1.2
+       ],
+       [
+        2,
+        163.84,
+        1.2
+       ],
+       [
+        3,
+        5242.88,
+        1.4
+       ]
+      ],
+      "prefix": "£",
+      "decimals": 2
+     },
+     "color": "green",
+     "size": 160,
+     "at": 0
+    }
+   ],
+   "icons": [
+    {
+     "kind": "coin",
+     "at": 0,
+     "y": 1080,
+     "scale": 0.7
+    }
+   ]
+  },
+  {
+   "type": "figures",
+   "lines": [
+    "Twenty days in, you're losing badly.",
+    "The million picker is laughing at you.",
+    "You'd be very tempted to give up."
+   ],
+   "figures": [
+    {
+     "x": 280,
+     "y": 700,
+     "scale": 1.2,
+     "mood": "sad",
+     "at": 0,
+     "label": "YOU"
+    },
+    {
+     "x": 800,
+     "y": 700,
+     "scale": 1.2,
+     "mood": "smug",
+     "arm": "up",
+     "shirt": "yellow",
+     "at": 1,
+     "label": "MILLION PICKER"
+    }
+   ],
+   "items": [
+    {
+     "text": "£5,243  vs  £1,000,000",
+     "color": "white",
+     "size": 70,
+     "at": 0
+    }
+   ],
+   "top": 1100
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "Then it gets fast. Day twenty-five, a hundred and sixty-seven thousand.",
+    "Day twenty-eight, one point three million. You've overtaken them.",
+    "And it's not even finished yet."
+   ],
+   "footnote": true,
+   "hud": {
+    "left": "THE PENNY",
+    "sub": "DOUBLING DAILY",
+    "right": {
+     "label": "DAY",
+     "keys": [
+      [
+       0,
+       25,
+       1.2
+      ],
+      [
+       1,
+       28,
+       1.2
+      ]
+     ],
+     "from": 20,
+     "color": "white"
+    }
+   },
+   "items": [
+    {
+     "text": "YOUR BALANCE",
+     "color": "grey",
+     "size": 60,
+     "at": 0
+    },
+    {
+     "counter": {
+      "from": 5242.88,
+      "keys": [
+       [
+        0,
+        167772.16,
+        1.4
+       ],
+       [
+        1,
+        1342177.28,
+        1.4
+       ]
+      ],
+      "prefix": "£"
+     },
+     "color": "green",
+     "size": 150,
+     "at": 0
+    },
+    {
+     "text": "YOU'RE AHEAD!",
+     "color": "yellow",
+     "size": 100,
+     "at": [
+      1,
+      2.0
+     ]
+    }
+   ],
+   "figure": {
+    "at": [
+     1,
+     2.0
+    ],
+    "y": 1060,
+    "scale": 0.9,
+    "mood": "happy",
+    "arm": "up"
+   },
+   "dings": [
+    [
+     1,
+     2.0
+    ]
+   ]
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "And on day thirty...",
+    "five point three six million pounds."
+   ],
+   "hud": {
+    "left": "DAY 30",
+    "sub": "FINAL DAY"
+   },
+   "items": [
+    {
+     "counter": {
+      "from": 2684354.56,
+      "to": 5368709.12,
+      "prefix": "£",
+      "at": 1,
+      "dur": 1.4
+     },
+     "color": "yellow",
+     "size": 150,
+     "at": 0
+    },
+    {
+     "text": "5× THE MILLION",
+     "color": "green",
+     "size": 100,
+     "at": [
+      1,
+      1.6
+     ]
+    }
+   ],
+   "crowd": false,
+   "icons": [
+    {
+     "kind": "cash",
+     "at": 1,
+     "y": 1060,
+     "scale": 1.4
+    }
+   ],
+   "dings": [
+    [
+     1,
+     1.4
+    ]
+   ]
+  },
+  {
+   "type": "twist",
+   "lines": [
+    "Here's the twist.",
+    "Half of that money arrived on the very last day.",
+    "Quit on day twenty-five, and you'd have missed out on over five million pounds.",
+    "That's compound growth. It looks like nothing, until it's everything."
+   ],
+   "mood": "smug",
+   "sit": true,
+   "prop": "cash",
+   "changes": [
+    {
+     "at": 2,
+     "mood": "happy"
+    }
+   ],
+   "pages": [
+    {
+     "at": 0,
+     "items": [
+      {
+       "text": "THE TWIST",
+       "color": "red",
+       "size": 120
+      }
+     ]
+    },
+    {
+     "at": 1,
+     "items": [
+      {
+       "text": "HALF ARRIVED",
+       "color": "white"
+      },
+      {
+       "text": "ON THE LAST DAY",
+       "color": "yellow"
+      }
+     ]
+    },
+    {
+     "at": 2,
+     "items": [
+      {
+       "text": "LOOKS LIKE NOTHING",
+       "color": "white",
+       "size": 80
+      },
+      {
+       "text": "UNTIL IT'S",
+       "color": "white",
+       "size": 80
+      },
+      {
+       "text": "EVERYTHING",
+       "color": "green",
+       "size": 130
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "lines": [
+    "So be honest. Which would you have picked?",
+    "Comment A or B."
+   ],
+   "items": [
+    {
+     "text": "BE HONEST.",
+     "color": "white",
+     "size": 80,
+     "at": 0
+    },
+    {
+     "text": "WHICH ONE?",
+     "color": "yellow",
+     "size": 110,
+     "at": 0.3
+    }
+   ],
+   "a": "£1M NOW",
+   "b": "THE PENNY",
+   "at": 0
+  }
+ ]
+}

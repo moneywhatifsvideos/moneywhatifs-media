@@ -1,0 +1,580 @@
+#!/usr/bin/env python3
+"""The Money What Ifs - video engine.
+
+Usage:  python3 mwi.py spec.json OUTDIR [--stills]
+Builds voiceover (Kokoro TTS), renders scenes from templates, adds captions,
+music bed + SFX, joins to OUTDIR/<slug>.mp4 and makes OUTDIR/<slug>_thumbnail.png.
+"""
+import json, math, os, random, subprocess, sys
+import numpy as np
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+TTS_DIR = os.environ.get("MWI_TTS_DIR", os.path.expanduser("~/kokoro"))
+W, H, FPS = 1080, 1920, 30
+SR = 24000
+FB = "/usr/share/fonts/truetype/google-fonts/Poppins-Bold.ttf"
+FM = "/usr/share/fonts/truetype/google-fonts/Poppins-Medium.ttf"
+_fc = {}
+def font(sz, f=FB):
+    sz = max(4, int(sz)); k = (sz, f)
+    if k not in _fc: _fc[k] = ImageFont.truetype(f, sz)
+    return _fc[k]
+
+NAVY = (17, 22, 48); NAVY2 = (28, 35, 72); RIM = (70, 82, 140)
+COL = {"yellow": (255, 210, 60), "red": (255, 92, 92), "white": (245, 245, 250), "blue": (52, 120, 230),
+       "grey": (150, 158, 195), "green": (80, 210, 130), "pink": (230, 120, 170), "navy": NAVY, "dark": (70, 70, 90)}
+def C(c): return COL.get(c, c) if isinstance(c, str) else tuple(c)
+YEL, RED, WHITE, GREY, GREEN, BLUE = C("yellow"), C("red"), C("white"), C("grey"), C("green"), C("blue")
+
+def clamp(x, a=0., b=1.): return max(a, min(b, x))
+def ease(x): x = clamp(x); return 1 - (1 - x) ** 3
+def back(x):
+    x = clamp(x); c1 = 1.70158; c3 = c1 + 1
+    return 1 + c3 * (x - 1) ** 3 + c1 * (x - 1) ** 2
+
+# ---------------- backgrounds ----------------
+def make_bg(top, bot):
+    bg = Image.new("RGB", (W, H)); d = ImageDraw.Draw(bg)
+    for y in range(H):
+        f = y / H; d.line([(0, y), (W, y)], fill=tuple(int(top[i] * (1 - f) + bot[i] * f) for i in range(3)))
+    g = Image.new("RGBA", (W, H), (0, 0, 0, 0)); gd = ImageDraw.Draw(g)
+    for x in range(0, W, 60): gd.line([(x, 0), (x, H)], fill=(255, 255, 255, 8))
+    for y in range(0, H, 60): gd.line([(0, y), (W, y)], fill=(255, 255, 255, 8))
+    bg.paste(g, (0, 0), g); return bg
+BG = make_bg(NAVY2, NAVY)
+BG_DARK = make_bg((12, 14, 30), (5, 6, 14))
+
+def draw_char():
+    """The channel mascot: black-headed figure peeking over a gold £ coin (transparent RGBA)."""
+    S = 2160; img = Image.new("RGBA", (S, S), (0, 0, 0, 0)); d = ImageDraw.Draw(img)
+    GD, GDD, GL, GO = (214, 150, 25), (160, 105, 10), (255, 228, 120), (255, 200, 55)
+    cx, cy, R = 1080, 1340, 600; hx, hy, hr = 1080, 650, 330
+    d.ellipse([hx - hr, hy - hr, hx + hr, hy + hr], fill=(8, 8, 12), outline=(80, 95, 160), width=14)
+    for sx in (-1, 1):
+        ex = hx + sx * 120 + 25; ey = hy - 30
+        d.ellipse([ex - 78, ey - 78, ex + 78, ey + 78], fill=(248, 248, 252))
+        d.ellipse([ex - 4, ey - 62, ex + 64, ey + 6], fill=(8, 8, 12))
+        d.ellipse([ex + 38, ey - 60, ex + 52, ey - 46], fill=(255, 255, 255))
+    d.arc([hx + 50, hy - 230, hx + 250, hy - 110], 200, 330, fill=(248, 248, 252), width=26)
+    d.line([(hx - 235, hy - 150), (hx - 60, hy - 135)], fill=(248, 248, 252), width=26)
+    sh = Image.new("L", (S, S), 0); ImageDraw.Draw(sh).ellipse([cx - R + 30, cy - R + 90, cx + R + 30, cy + R + 90], fill=150)
+    img.paste(Image.new("RGBA", (S, S), (5, 6, 18, 255)), (0, 0), sh.filter(ImageFilter.GaussianBlur(50))); d = ImageDraw.Draw(img)
+    d.ellipse([cx - R, cy - R + 50, cx + R, cy + R + 50], fill=GDD)
+    for k in range(72):
+        a = k * 2 * math.pi / 72
+        if math.sin(a) > -0.2:
+            x1 = cx + R * 0.985 * math.cos(a); y1 = cy + 50 + R * 0.985 * math.sin(a)
+            d.line([(x1, y1 - 40), (x1, y1)], fill=(130, 85, 8), width=8)
+    d.ellipse([cx - R, cy - R, cx + R, cy + R], fill=GD)
+    d.ellipse([cx - R + 30, cy - R + 30, cx + R - 30, cy + R - 30], fill=GO)
+    d.ellipse([cx - R + 95, cy - R + 95, cx + R - 95, cy + R - 95], outline=GD, width=16)
+    for k in range(48):
+        a = k * 2 * math.pi / 48; x = cx + (R - 140) * math.cos(a); y = cy + (R - 140) * math.sin(a)
+        d.ellipse([x - 9, y - 9, x + 9, y + 9], fill=GD)
+    f = font(720)
+    d.text((cx + 18, cy + 50), "£", font=f, fill=GDD, anchor="mm"); d.text((cx - 8, cy + 22), "£", font=f, fill=GL, anchor="mm")
+    d.text((cx, cy + 34), "£", font=f, fill=GD, anchor="mm")
+    for hxp in (cx - 250, cx + 250):
+        yy = (R - math.sqrt(R * R - (hxp - cx) ** 2)) + cy - R + 10
+        d.ellipse([hxp - 85, yy - 70, hxp + 85, yy + 70], fill=(8, 8, 12), outline=(80, 95, 160), width=10)
+        for fx in (-45, 0, 45): d.line([(hxp + fx, yy + 5), (hxp + fx, yy + 60)], fill=(80, 95, 160), width=8)
+    q = Image.new("RGBA", (S, S), (0, 0, 0, 0))
+    ImageDraw.Draw(q).text((1690, 470), "?", font=font(420), fill=(255, 210, 60, 255), anchor="mm", stroke_width=22, stroke_fill=(8, 8, 12))
+    q = q.rotate(-14, center=(1690, 470), resample=Image.BICUBIC); img.paste(q, (0, 0), q)
+    img = img.crop(img.getbbox()); img.thumbnail((900, 900), Image.LANCZOS); return img
+CHAR = draw_char()
+
+# ---------------- drawing helpers ----------------
+def text_c(d, xy, s, sz, fill, f=FB, stroke=0, anchor="mm"):
+    d.text(xy, s, font=font(sz, f), fill=C(fill), anchor=anchor, stroke_width=stroke, stroke_fill=(0, 0, 0))
+
+def pop_text(img, xy, s, sz, fill, p, f=FB, stroke=6):
+    if p <= 0: return
+    text_c(ImageDraw.Draw(img), xy, s, sz * max(0.05, back(p)), fill, f, stroke)
+
+def fit_size(s, sz, maxw=980, f=FB):
+    while sz > 20 and font(sz, f).getlength(s) + 20 > maxw: sz -= 4
+    return sz
+
+def fmt(v, spec):
+    pre, suf = spec.get("prefix", ""), spec.get("suffix", "")
+    dec = spec.get("decimals", 0)
+    if spec.get("short"):
+        a = abs(v)
+        if a >= 1e9: s = f"{v/1e9:.1f}".rstrip("0").rstrip(".") + "B"
+        elif a >= 1e6: s = f"{v/1e6:.2f}".rstrip("0").rstrip(".") + "M"
+        elif a >= 1e4: s = f"{v/1e3:.0f}K"
+        else: s = f"{v:,.0f}"
+    else:
+        s = f"{v:,.{dec}f}"
+    return pre + s + suf
+
+def figure(d, cx, cy, s=1.0, shirt=BLUE, mood="neutral", arm="down", look=0, tie=False, sit=False):
+    hr = 62 * s; lw = max(4, int(13 * s)); K = (10, 10, 16)
+    bt = cy + hr * 0.9; bb = bt + 150 * s
+    if sit:
+        d.line([(cx - 14 * s, bb), (cx + 70 * s, bb), (cx + 70 * s, bb + 95 * s)], fill=K, width=lw)
+        d.line([(cx + 14 * s, bb), (cx + 95 * s, bb), (cx + 95 * s, bb + 95 * s)], fill=K, width=lw)
+    else:
+        d.line([(cx - 10 * s, bb), (cx - 38 * s, bb + 150 * s)], fill=K, width=lw)
+        d.line([(cx + 10 * s, bb), (cx + 38 * s, bb + 150 * s)], fill=K, width=lw)
+    sh = bt + 22 * s
+    A = {"down": [(-34, 0, -60, 120), (34, 0, 60, 120)], "up": [(-34, 0, -95, -110), (34, 0, 95, -110)],
+         "hold": [(-34, 0, -20, 70), (34, 0, 90, 40)], "point": [(-34, 0, -60, 120), (34, 0, 150, -10)],
+         "shrug": [(-34, 0, -110, -20), (34, 0, 110, -20)]}[arm]
+    for a, b, c_, e in A: d.line([(cx + a * s, sh + b * s), (cx + c_ * s, sh + e * s)], fill=K, width=lw)
+    d.rounded_rectangle([cx - 40 * s, bt, cx + 40 * s, bb + 6 * s], radius=int(30 * s), fill=C(shirt))
+    if tie: d.polygon([(cx, bt + 8 * s), (cx - 12 * s, bt + 70 * s), (cx, bt + 92 * s), (cx + 12 * s, bt + 70 * s)], fill=RED)
+    d.ellipse([cx - hr, cy - hr, cx + hr, cy + hr], fill=(8, 8, 12), outline=RIM, width=max(2, int(4 * s)))
+    ey = cy - 8 * s; er = (17 if mood == "shock" else 13) * s
+    for sx in (-1, 1):
+        x = cx + sx * 22 * s + look * 10 * s
+        d.ellipse([x - er, ey - er, x + er, ey + er], fill=WHITE)
+        pr = er * 0.45; d.ellipse([x - pr + look * 4 * s, ey - pr, x + pr + look * 4 * s, ey + pr], fill=(8, 8, 12))
+    my = cy + 28 * s; w5 = max(2, int(5 * s))
+    if mood == "happy": d.arc([cx - 24 * s, my - 18 * s, cx + 24 * s, my + 14 * s], 10, 170, fill=WHITE, width=w5)
+    elif mood == "sad": d.arc([cx - 20 * s, my, cx + 20 * s, my + 26 * s], 200, 340, fill=WHITE, width=w5)
+    elif mood == "shock": d.ellipse([cx - 9 * s, my - 6 * s, cx + 9 * s, my + 14 * s], outline=WHITE, width=max(2, int(4 * s)))
+    elif mood == "smug":
+        d.arc([cx - 20 * s, my - 10 * s, cx + 24 * s, my + 10 * s], 20, 120, fill=WHITE, width=w5)
+    else: d.line([(cx - 14 * s, my + 4 * s), (cx + 14 * s, my + 4 * s)], fill=WHITE, width=w5)
+
+def mini_head(d, cx, cy, r):
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=(10, 10, 20), outline=RIM, width=2)
+    e = max(2, r // 4)
+    for sx in (-1, 1): d.ellipse([cx + sx * r * .45 - e, cy - e, cx + sx * r * .45 + e, cy + e], fill=WHITE)
+
+def icon(d, kind, x, y, s=1.0):
+    if kind == "pint":
+        d.polygon([(x - 80 * s, y - 150 * s), (x + 80 * s, y - 150 * s), (x + 62 * s, y + 150 * s), (x - 62 * s, y + 150 * s)], fill=(235, 170, 50))
+        d.rectangle([x - 82 * s, y - 175 * s, x + 82 * s, y - 135 * s], fill=WHITE)
+    elif kind == "bread":
+        d.rounded_rectangle([x - 150 * s, y - 80 * s, x + 150 * s, y + 90 * s], radius=int(70 * s), fill=(205, 140, 70))
+        for k in (-70, 0, 70): d.line([(x + (k - 20) * s, y - 60 * s), (x + (k + 20) * s, y + 10 * s)], fill=(240, 200, 130), width=int(10 * s))
+    elif kind == "house":
+        d.polygon([(x - 200 * s, y - 30 * s), (x, y - 190 * s), (x + 200 * s, y - 30 * s)], fill=RED)
+        d.rectangle([x - 160 * s, y - 30 * s, x + 160 * s, y + 170 * s], fill=(235, 225, 205))
+        d.rectangle([x - 40 * s, y + 60 * s, x + 40 * s, y + 170 * s], fill=NAVY)
+        for k in (-105, 105): d.rectangle([x + (k - 35) * s, y + 10 * s, x + (k + 35) * s, y + 70 * s], fill=(120, 170, 230))
+    elif kind == "coffee":
+        d.polygon([(x - 90 * s, y - 120 * s), (x + 90 * s, y - 120 * s), (x + 70 * s, y + 130 * s), (x - 70 * s, y + 130 * s)], fill=WHITE)
+        d.rectangle([x - 86 * s, y - 40 * s, x + 86 * s, y + 30 * s], fill=(140, 90, 50))
+        d.rounded_rectangle([x - 100 * s, y - 160 * s, x + 100 * s, y - 115 * s], radius=int(12 * s), fill=(60, 60, 70))
+    elif kind == "coin":
+        d.ellipse([x - 120 * s, y - 110 * s, x + 120 * s, y + 130 * s], fill=(160, 105, 10))
+        d.ellipse([x - 120 * s, y - 120 * s, x + 120 * s, y + 120 * s], fill=(255, 200, 55), outline=(214, 150, 25), width=int(10 * s))
+        text_c(d, (x, y + 8 * s), "£", 150 * s, (214, 150, 25))
+    elif kind == "cash":
+        for i in range(12):
+            r, c = divmod(i, 4); xx = x - 150 * s + c * 100 * s + (r % 2) * 50 * s; yy = y + 60 * s - r * 42 * s
+            d.rounded_rectangle([xx - 46 * s, yy - 20 * s, xx + 46 * s, yy + 20 * s], radius=6, fill=(110, 170, 90), outline=(60, 110, 50), width=3)
+    elif kind == "ticket":
+        d.rounded_rectangle([x - 200 * s, y - 120 * s, x + 200 * s, y + 120 * s], radius=int(24 * s), fill=(250, 246, 232))
+        d.rectangle([x - 200 * s, y - 120 * s, x + 200 * s, y - 60 * s], fill=YEL)
+        text_c(d, (x, y - 90 * s), "LOTTERY", 34 * s, NAVY)
+        for i in range(5):
+            cx = x - 140 * s + i * 70 * s; d.ellipse([cx - 28 * s, y - 10 * s, cx + 28 * s, y + 46 * s], fill=RED if i % 2 else BLUE)
+            text_c(d, (cx, y + 18 * s), str([7, 14, 22, 35, 41][i]), 26 * s, WHITE)
+
+# ---------------- captions ----------------
+def build_chunks(TL):
+    chunks = []
+    for sc in TL:
+        for ln in sc["lines"]:
+            words = ln["text"].split(); wts = [len(w) + 2 for w in words]; tot = sum(wts)
+            t = ln["start"]; dur = ln["end"] - ln["start"]; times = []
+            for w, wt in zip(words, wts): times.append((w, t, t + dur * wt / tot)); t += dur * wt / tot
+            cur = []
+            for w in times:
+                cur.append(w); L = sum(len(x[0]) for x in cur) + len(cur)
+                if len(cur) >= 3 or L > 15 or w[0][-1] in ".?,!": chunks.append(cur); cur = []
+            if cur: chunks.append(cur)
+    out = []
+    for i, c in enumerate(chunks):
+        end = chunks[i + 1][0][1] if i + 1 < len(chunks) else 999
+        out.append((c[0][1], min(end, c[-1][2] + 0.6), c))
+    return out
+
+def draw_captions(img, T, chunks):
+    d = ImageDraw.Draw(img)
+    for st, en, words in chunks:
+        if st <= T < en:
+            p = ease((T - st) / 0.12)
+            txts = [w[0].upper() for w in words]
+            sz = int(84 * (0.85 + 0.15 * p))
+            sz = min(sz, fit_size(" ".join(txts), sz, 1000))
+            f = font(sz); widths = [d.textlength(x, font=f) for x in txts]; sp = d.textlength(" ", font=f)
+            x = W / 2 - (sum(widths) + sp * (len(txts) - 1)) / 2
+            for (w, ws, we), tx, wd in zip(words, txts, widths):
+                d.text((x, 1430), tx, font=f, fill=YEL if ws <= T < we + 0.05 else WHITE, anchor="lm", stroke_width=9, stroke_fill=(0, 0, 0))
+                x += wd + sp
+            return
+
+# ---------------- scene context ----------------
+class Ctx:
+    def __init__(self, sc, t, instant=False): self.sc, self.t, self.instant = sc, t, instant
+    def lt(self, at):
+        """at may be a line index (int), [line, offset] or a float time in seconds"""
+        if isinstance(at, list): return self.lt(at[0]) + at[1]
+        if isinstance(at, float): return at
+        ls = self.sc["lines"]; i = min(at, len(ls) - 1)
+        return ls[i]["start"] - self.sc["start"]
+    def p(self, at, dur=0.35):
+        if self.instant and self.lt(at) <= 0.3: return 1.0  # hook: claim on screen from frame 1
+        return (self.t - self.lt(at)) / dur
+    def shown(self, it):
+        st = self.lt(it.get("at", 0))
+        if self.instant and st <= 0.3: st = 0.0  # hook: visible from frame 1
+        return self.t >= st and ("until" not in it or self.t < self.lt(it["until"]))
+
+def counter_value(ctx, cs):
+    """cs: {from, to, at, dur} or {keys:[[at, value, dur], ...], from}"""
+    if "keys" in cs:
+        v = cs.get("from", 0)
+        for at, val, *dr in cs["keys"]:
+            dur = dr[0] if dr else 1.0
+            pr = ease((ctx.t - ctx.lt(at)) / dur)
+            if pr <= 0: break
+            v = v + (val - v) * pr
+        return v
+    return cs.get("from", 0) + (cs["to"] - cs.get("from", 0)) * ease((ctx.t - ctx.lt(cs.get("at", 0))) / cs.get("dur", 1.4))
+
+def draw_hud(img, ctx, hud):
+    d = ImageDraw.Draw(img)
+    if hud.get("left"): d.text((60, 210), hud["left"], font=font(44), fill=RED)
+    if hud.get("sub"): d.text((60, 262), hud["sub"], font=font(36, FM), fill=GREY)
+    if hud.get("right"):
+        r = hud["right"]
+        d.text((W - 60, 210), r["label"], font=font(34, FM), fill=GREY, anchor="ra")
+        v = r["text"] if "text" in r else fmt(counter_value(ctx, r), r)
+        d.text((W - 60, 250), v, font=font(68), fill=C(r.get("color", "yellow")), anchor="ra")
+
+# ---------------- templates ----------------
+def items_stack(img, ctx, items, top=330, gap=1.0):
+    """Vertical stack of text/counter items, auto-laid out from `top`."""
+    y = top
+    for it in items:
+        sz = it.get("size", 80)
+        if ctx.shown(it):
+            s = it["text"] if "text" in it else fmt(counter_value(ctx, it["counter"]), it["counter"])
+            if "counter" in it:  # size to the final value so it doesn't jump
+                fin = fmt(it["counter"].get("to", it["counter"].get("keys", [[0, 0]])[-1][1]), it["counter"])
+                sz = fit_size(fin, sz)
+            else:
+                sz = fit_size(s, sz)
+            pop_text(img, (W / 2, y + sz * 0.6), s, sz, it.get("color", "white"), ctx.p(it.get("at", 0), 0.3), stroke=max(4, sz // 11))
+        y += sz * 1.25 * gap + it.get("space", 0)
+    return y
+
+def T_stack(img, ctx, sc):
+    d = ImageDraw.Draw(img)
+    if sc.get("crowd"):
+        rnd = random.Random(4)
+        for i in range(220):
+            x, y, dl = rnd.random(), rnd.random(), rnd.random() * 0.9
+            pr = 1.0 if ctx.instant else ease((ctx.t - dl * 2.2) / 0.3)
+            if pr > 0: mini_head(d, 40 + x * (W - 80), 300 + y * 900, int(26 * pr))
+        ov = Image.new("RGBA", (W, H), (10, 12, 28, 150)); img.paste(ov, (0, 0), ov)
+    y = items_stack(img, ctx, sc.get("items", []), sc.get("top", 330))
+    d = ImageDraw.Draw(img)
+    for ic in sc.get("icons", []):
+        if ctx.shown(ic):
+            pr = back(ctx.p(ic.get("at", 0), 0.35)); s = ic.get("scale", 1) * max(0.01, pr)
+            icon(d, ic["kind"], ic.get("x", 540), ic.get("y", max(y + 160, 1000)), s)
+    if "figure" in sc:
+        f = sc["figure"]
+        if ctx.shown(f):
+            pr = ease(ctx.p(f.get("at", 0), 0.4))
+            figure(d, f.get("x", 540), f.get("y", 1020) + (1 - pr) * 500, f.get("scale", 1.2), f.get("shirt", "blue"),
+                   f.get("mood", "neutral"), f.get("arm", "down"), f.get("look", 0), f.get("tie", False))
+
+def T_figures(img, ctx, sc):
+    d = ImageDraw.Draw(img)
+    for f in sc["figures"]:
+        if not ctx.shown(f): continue
+        pr = ease(ctx.p(f.get("at", 0), 0.4))
+        mood = f.get("mood", "happy"); arm = f.get("arm", "down")
+        for ch in f.get("changes", []):  # [{at, mood, arm}]
+            if ctx.t >= ctx.lt(ch["at"]): mood = ch.get("mood", mood); arm = ch.get("arm", arm)
+        x, y, s = f.get("x", 330), f.get("y", 640), f.get("scale", 1.5)
+        figure(d, x, y + (1 - pr) * 600, s, f.get("shirt", "blue"), mood, arm, f.get("look", 0), f.get("tie", False))
+        if f.get("label") and pr > 0.6: text_c(d, (x, y - 110 * s), f["label"], 50, YEL, stroke=6)
+    for sg in sc.get("signs", []):  # cards that appear/replace each other
+        if not ctx.shown(sg): continue
+        pr = back(ctx.p(sg.get("at", 0), 0.35))
+        x, y, w, h = sg.get("x", 780), sg.get("y", 620), sg.get("w", 440), sg.get("h", 200)
+        d.rounded_rectangle([x - w / 2, y - h / 2, x + w / 2, y + h / 2], radius=22, fill=WHITE)
+        sz = fit_size(sg["text"], sg.get("size", 80), w - 30)
+        text_c(d, (x, y + (sg.get("sub") and -25 or 0)), sg["text"], sz * max(0.05, pr), sg.get("color", "red"))
+        if sg.get("sub"): text_c(d, (x, y + 55), sg["sub"], 34 * max(0.05, pr), GREY, FM)
+    items_stack(img, ctx, sc.get("items", []), sc.get("top", 1050))
+
+def T_phone(img, ctx, sc):
+    d = ImageDraw.Draw(img); t = ctx.t
+    pw, ph = 560, 1000; x0 = W / 2 - pw / 2; y0 = 250 + (1 - ease(t / 0.5)) * 300
+    d.rounded_rectangle([x0 - 18, y0 - 18, x0 + pw + 18, y0 + ph + 18], radius=80, fill=(8, 8, 12), outline=RIM, width=4)
+    d.rounded_rectangle([x0, y0, x0 + pw, y0 + ph], radius=64, fill=(232, 236, 248))
+    d.rounded_rectangle([x0 + pw / 2 - 80, y0 + 22, x0 + pw / 2 + 80, y0 + 60], radius=20, fill=(8, 8, 12))
+    text_c(d, (x0 + pw / 2, y0 + 140), sc.get("app", "MY BANK"), 44, NAVY)
+    text_c(d, (x0 + pw / 2, y0 + 250), sc.get("balance_label", "Current balance"), 32, GREY, FM)
+    b = sc["balance"]; v = counter_value(ctx, b)
+    text_c(d, (x0 + pw / 2, y0 + 330), fmt(v, b), fit_size(fmt(v, b), 66, pw - 40), C(b.get("color", "navy")))
+    n = sc.get("notification")
+    if n and ctx.shown(n):
+        pn = ease(ctx.p(n.get("at", 0), 0.4)); ny = y0 + 440 - (1 - pn) * 60
+        d.rounded_rectangle([x0 + 30, ny, x0 + pw - 30, ny + 150], radius=30, fill=WHITE, outline=(210, 214, 230), width=2)
+        d.ellipse([x0 + 55, ny + 40, x0 + 125, ny + 110], fill=GREEN); text_c(d, (x0 + 90, ny + 75), "£", 40, WHITE)
+        d.text((x0 + 145, ny + 38), n["title"], font=font(30), fill=NAVY)
+        d.text((x0 + 145, ny + 80), n["body"], font=font(28, FM), fill=GREY)
+    f = sc.get("figure", {"at": 0.8, "mood": "shock"})
+    if ctx.shown(f):
+        pr = ease(ctx.p(f.get("at", 0), 0.4))
+        figure(d, 170, 1180 + (1 - pr) * 400, 1.1, mood=f.get("mood", "shock"), look=1)
+
+def T_bars(img, ctx, sc):
+    d = ImageDraw.Draw(img)
+    items_stack(img, ctx, sc.get("items", []), sc.get("top", 260))
+    bars = sc["bars"]; base = sc.get("base", 1180); maxh = sc.get("maxh", 600)
+    vmax = max(b["value"] for b in bars); n = len(bars); bw = 240 if n <= 2 else 200
+    gapx = (W - 160) / n
+    d.line([(100, base), (W - 100, base)], fill=WHITE, width=4)
+    for i, b in enumerate(bars):
+        pr = ease((ctx.t - ctx.lt(b.get("at", 0))) / b.get("dur", 1.2))
+        if ctx.t < ctx.lt(b.get("at", 0)): continue
+        cx = 80 + gapx * (i + 0.5); h = max(4, maxh * b["value"] / vmax * pr)
+        d.rounded_rectangle([cx - bw / 2, base - h, cx + bw / 2, base], radius=12, fill=C(b.get("color", "yellow")))
+        lab = fmt(b["value"] * pr, b)
+        text_c(d, (cx, base - h - 50), lab, fit_size(fmt(b["value"], b), 58, gapx - 10), WHITE, stroke=5)
+        text_c(d, (cx, base + 50), b["label"], fit_size(b["label"], 36, gapx - 10, FM), C(b.get("label_color", "grey")), FM)
+        if b.get("sub"): text_c(d, (cx, base + 95), b["sub"], 30, GREY, FM)
+    for it in sc.get("callouts", []):
+        if ctx.shown(it): pop_text(img, (it.get("x", 540), it.get("y", 600)), it["text"], it.get("size", 110), it.get("color", "red"), ctx.p(it.get("at", 0), 0.3), stroke=9)
+
+def T_tags(img, ctx, sc):
+    d = ImageDraw.Draw(img)
+    for i, tg in enumerate(sc["tags"]):
+        if not ctx.shown(tg): continue
+        y = tg.get("y", 560 + i * 450)
+        if tg.get("icon"): icon(d, tg["icon"], 280, y, tg.get("icon_scale", 1.0) * ease(ctx.p(tg.get("at", 0), 0.4)))
+        x = 720 if tg.get("icon") else 540
+        v = counter_value(ctx, tg)
+        hw = 230 if tg.get("icon") else 380
+        d.rounded_rectangle([x - hw, y - 95, x + hw, y + 95], radius=24, fill=WHITE)
+        d.ellipse([x - hw + 20, y - 15, x - hw + 50, y + 15], fill=NAVY)
+        text_c(d, (x + 20, y - 45), tg["label"], fit_size(tg["label"], 34, 2 * hw - 110, FM), GREY, FM)
+        s = fmt(v, tg); text_c(d, (x + 20, y + 25), s, fit_size(s, 78, 2 * hw - 110), C(tg.get("color", "red")))
+    items_stack(img, ctx, sc.get("items", []), sc.get("top", 1150))
+
+def series_vals(sr, x):
+    k = sr["kind"]
+    if k == "annuity":  # yearly payment pmt from x0, growth r
+        n = max(0, x - sr["x0"]); r = sr["r"]
+        return sr["pmt"] * ((1 + r) ** n - 1) / r if r else sr["pmt"] * n
+    if k == "linear": return max(0, x - sr["x0"]) * sr["pmt"]
+    if k == "decay": return sr["v0"] / (1 + sr["r"]) ** max(0, x - sr["x0"])
+    if k == "points":  # piecewise-linear through [[x, y], ...]
+        pts = sr["points"]
+        if x <= pts[0][0]: return pts[0][1]
+        for (xa, ya), (xb, yb) in zip(pts, pts[1:]):
+            if x <= xb: return ya + (yb - ya) * (x - xa) / (xb - xa)
+        return pts[-1][1]
+    return 0
+
+def T_chart(img, ctx, sc):
+    d = ImageDraw.Draw(img)
+    items_stack(img, ctx, sc.get("items", []), sc.get("top", 260))
+    ch = sc["chart"]; x0, x1 = ch["x0"], ch["x1"]; vmax = ch["ymax"]
+    L, R, T_, B = 150, W - 90, ch.get("top", 520), ch.get("bottom", 1150)
+    d.line([(L, B), (R, B)], fill=GREY, width=4); d.line([(L, T_), (L, B)], fill=GREY, width=4)
+    for xt in ch.get("xticks", []):
+        px = L + (xt - x0) / (x1 - x0) * (R - L)
+        d.line([(px, B), (px, B + 14)], fill=GREY, width=3); text_c(d, (px, B + 50), str(xt), 34, GREY, FM)
+    if ch.get("xlabel"): text_c(d, ((L + R) / 2, B + 105), ch["xlabel"], 32, GREY, FM)
+    # reveal: [[at, x], ...] -> current x
+    cur = x0
+    for at, xv, *dr in ch["reveal"]:
+        pr = ease((ctx.t - ctx.lt(at)) / (dr[0] if dr else 1.2))
+        if pr <= 0: break
+        cur = cur + (xv - cur) * pr
+    for sr in ch["series"]:
+        if ctx.t < ctx.lt(sr.get("at", 0)): continue
+        xs = np.linspace(x0, cur, 160); pts = []
+        for xv in xs:
+            v = series_vals(sr, xv); pts.append((L + (xv - x0) / (x1 - x0) * (R - L), B - min(v, vmax) / vmax * (B - T_)))
+        if len(pts) > 1: d.line(pts, fill=C(sr.get("color", "yellow")), width=12, joint="curve")
+        v = series_vals(sr, cur); ex, ey = pts[-1]
+        d.ellipse([ex - 16, ey - 16, ex + 16, ey + 16], fill=C(sr.get("color", "yellow")))
+        lab = fmt(v, sr); lx = min(max(ex, 220), W - 200)
+        text_c(d, (lx, ey - 60 + sr.get("label_dy", 0)), lab, 56, C(sr.get("color", "yellow")), stroke=6)
+        if sr.get("name"): text_c(d, (lx, ey - 112 + sr.get("label_dy", 0)), sr["name"], 30, GREY, FM, stroke=3)
+    if ch.get("cursor_label"):
+        text_c(d, (W - 60, 250), f"{ch['cursor_label']} {int(round(cur))}", 60, YEL, anchor="ra")
+
+def T_twist(img, ctx, sc):
+    img.paste(BG_DARK); t = ctx.t
+    rad = 520 - 140 * ease((t - ctx.lt(len(sc["lines"]) - 1)) / 1.5)
+    spot = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(spot).ellipse([540 - rad, 960 - rad * 1.1, 540 + rad, 960 + rad * 1.1], fill=70)
+    img.paste(Image.new("RGB", (W, H), (255, 235, 170)), (0, 0), spot.filter(ImageFilter.GaussianBlur(60)))
+    d = ImageDraw.Draw(img)
+    if sc.get("prop"): icon(d, sc["prop"], 520, 1170, 1.4)
+    mood = sc.get("mood", "sad")
+    for ch in sc.get("changes", []):
+        if t >= ctx.lt(ch["at"]): mood = ch.get("mood", mood)
+    figure(d, 520, 860, 1.15, mood=mood, sit=sc.get("sit", True), arm=sc.get("arm", "down"))
+    # text pages: each page = list of items; later page replaces earlier
+    pages = sc["pages"]; cur = None
+    for pg in pages:
+        if t >= ctx.lt(pg["at"]): cur = pg
+    if cur:
+        y = 300
+        for it in cur["items"]:
+            sz = fit_size(it["text"], it.get("size", 96))
+            pop_text(img, (W / 2, y + sz * 0.6), it["text"], sz, it.get("color", "white"), ctx.p(it.get("at", cur["at"]), 0.3), stroke=8)
+            y += sz * 1.15
+
+def T_choice(img, ctx, sc):
+    d = ImageDraw.Draw(img); t = ctx.t
+    items_stack(img, ctx, sc.get("items", []), 300)
+    for i, (L, txt) in enumerate([("A", sc["a"]), ("B", sc["b"])]):
+        col = RED if i == 0 else YEL
+        p = ease((t - ctx.lt(sc.get("at", len(sc["lines"]) - 1)) - i * 0.25) / 0.35)
+        if p <= 0: continue
+        y = 700 + i * 220; x = 120 + (1 - p) * -900; glow = int(t * 2.5) % 2 == i
+        d.rounded_rectangle([x, y, x + 840, y + 170], radius=26, fill=(20, 22, 40), outline=col, width=10 if glow else 6)
+        d.rounded_rectangle([x + 30, y + 35, x + 130, y + 135], radius=14, fill=col)
+        text_c(d, (x + 80, y + 85), L, 64, NAVY)
+        d.text((x + 170, y + 85), txt, font=font(fit_size(txt, 60, 630)), fill=WHITE, anchor="lm")
+    if t > ctx.lt(sc.get("at", len(sc["lines"]) - 1)) + 1.0:
+        pop_text(img, (W / 2, 1210), "COMMENT A OR B", 52, GREY, (t - ctx.lt(sc.get("at", len(sc["lines"]) - 1)) - 1.0) / 0.3, stroke=4)
+
+TEMPLATES = {"stack": T_stack, "figures": T_figures, "phone": T_phone, "bars": T_bars, "tags": T_tags,
+             "chart": T_chart, "twist": T_twist, "choice": T_choice}
+
+# ---------------- pipeline ----------------
+def tts(spec, out):
+    import soundfile as sf
+    from kokoro_onnx import Kokoro
+    k = Kokoro(os.path.join(TTS_DIR, "kokoro-v1.0.int8.onnx"), os.path.join(TTS_DIR, "voices-v1.0.bin"))
+    voice = spec.get("voice", "bm_daniel"); lang = "en-gb" if voice.startswith("b") else "en-us"
+    speed = spec.get("speed", 1.0)
+    def trim(a, thr=0.01):
+        idx = np.where(np.abs(a) > thr)[0]
+        return a[max(idx[0] - 240, 0): idx[-1] + 480] if len(idx) else a
+    parts, TL, t = [np.zeros(int(0.05 * SR))], [], 0.05
+    for sc in spec["scenes"]:
+        st = t; lt = []
+        for i, line in enumerate(sc["lines"]):
+            a, _ = k.create(line, voice=voice, speed=speed, lang=lang); a = trim(a); dd = len(a) / SR
+            lt.append({"text": line, "start": t, "end": t + dd}); parts.append(a); t += dd
+            gap = 0.22 if i < len(sc["lines"]) - 1 else 0.45
+            parts.append(np.zeros(int(gap * SR))); t += gap
+        TL.append({"start": st, "end": t, "lines": lt})
+    parts.append(np.zeros(int(1.2 * SR))); t += 1.2; TL[-1]["end"] = t
+    a = np.concatenate(parts).astype(np.float32); a = a / max(1e-6, np.abs(a).max()) * 0.89
+    sf.write(os.path.join(out, "voice.wav"), a, SR)
+    json.dump(TL, open(os.path.join(out, "timeline.json"), "w"), indent=1)
+    return TL
+
+def frame(spec, TL, chunks, k, T):
+    sc = dict(spec["scenes"][k]); sc.update(TL[k]); sc["start"] = 0.0 if k == 0 else TL[k]["start"]
+    t = T - sc["start"]; ctx = Ctx(sc, t, instant=(k == 0))
+    img = BG.copy()
+    TEMPLATES[sc["type"]](img, ctx, sc)
+    if "hud" in sc: draw_hud(img, ctx, sc["hud"])
+    if sc.get("footnote", False) and spec.get("footnote"):
+        text_c(ImageDraw.Draw(img), (W / 2, 1340), spec["footnote"], min(28, fit_size(spec["footnote"], 28, 1000, FM)), GREY, FM)
+    draw_captions(img, T, chunks)
+    pz = 1.0 if k == 0 else ease(t / 0.25)  # no punch-in on the very first frames
+    if pz < 1:
+        z = 1.06 - 0.06 * pz; w2, h2 = int(W * z), int(H * z)
+        img = img.resize((w2, h2), Image.BILINEAR).crop(((w2 - W) // 2, (h2 - H) // 2, (w2 - W) // 2 + W, (h2 - H) // 2 + H))
+    return img
+
+def scene_range(TL, k):
+    s = 0.0 if k == 0 else TL[k]["start"]; e = TL[k + 1]["start"] if k + 1 < len(TL) else TL[k]["end"]
+    return round(s * FPS), round(e * FPS)
+
+def render_scene(spec, TL, chunks, k, out):
+    f0, f1 = scene_range(TL, k)
+    final = os.path.join(out, "scenes", f"{k:02d}.mp4"); tmp = final.replace(".mp4", ".tmp.mp4")
+    p = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
+                          "-c:v", "libx264", "-crf", "19", "-preset", "veryfast", "-pix_fmt", "yuv420p", tmp], stdin=subprocess.PIPE)
+    for i in range(f0, f1): p.stdin.write(frame(spec, TL, chunks, k, i / FPS).tobytes())
+    p.stdin.close()
+    if p.wait() != 0: raise SystemExit(f"ffmpeg failed on scene {k}")
+    os.rename(tmp, final)
+
+def mix(spec, TL, out):
+    import soundfile as sf
+    v, _ = sf.read(os.path.join(out, "voice.wav")); n = len(v); t = np.arange(n) / SR; rng = np.random.default_rng(1)
+    bed = np.zeros(n)
+    for f, a in [(55, .5), (82.4, .35), (110, .25), (164.8, .12)]:
+        bed += a * np.sin(2 * np.pi * f * t + np.sin(2 * np.pi * .11 * t) * .6)
+    bed *= 0.6 + 0.4 * np.sin(2 * np.pi * t / 8) ** 2
+    tw = next((TL[i]["start"] for i, s in enumerate(spec["scenes"]) if s["type"] == "twist"), TL[-1]["start"])
+    bed = bed / np.abs(bed).max() * 0.07 * np.where(t > tw, 0.6, 1.0)
+    for b in np.arange(0.05, tw, 60 / 96):
+        i = int(b * SR); L = int(.18 * SR)
+        if i + L < n: bed[i:i + L] += 0.06 * np.sin(2 * np.pi * 48 * np.arange(L) / SR) * np.exp(-np.arange(L) / SR * 22)
+    def add(at, sig):
+        i = int(at * SR); j = min(n, i + len(sig))
+        if 0 <= i < n: bed[i:j] += sig[:j - i]
+    L = int(.35 * SR); x = np.convolve(rng.standard_normal(L), np.ones(30) / 30, "same")
+    whoosh = 0.10 * x * np.sin(np.linspace(0, np.pi, L)) ** 2
+    k_ = np.arange(int(.8 * SR)) / SR; ding = 0.09 * (np.sin(2 * np.pi * 1318 * k_) + .6 * np.sin(2 * np.pi * 1976 * k_)) * np.exp(-k_ * 6)
+    for s in TL[1:]: add(s["start"] - 0.15, whoosh)
+    for i, sc in enumerate(spec["scenes"]):
+        for at in sc.get("dings", []):  # [line, offset]
+            ln = TL[i]["lines"][min(at[0], len(TL[i]["lines"]) - 1)]; add(ln["start"] + at[1], ding)
+    m = v * 0.95 + bed; m = m / np.abs(m).max() * 0.95
+    sf.write(os.path.join(out, "mix.wav"), m.astype(np.float32), SR)
+
+def thumbnail(spec, out, slug):
+    th = spec["thumbnail"]; img = BG.copy(); d = ImageDraw.Draw(img)
+    g = Image.new("L", (W, H), 0); ImageDraw.Draw(g).ellipse([-160, 500, 1240, 1900], fill=130)
+    img.paste(Image.new("RGB", (W, H), (52, 74, 170)), (0, 0), g.filter(ImageFilter.GaussianBlur(220)))
+    rnd = random.Random(5); d = ImageDraw.Draw(img)
+    for _ in range(140): mini_head(d, rnd.uniform(30, 1050), rnd.uniform(1500, 1900), 24)
+    y = th.get("top", 260)
+    for ln in th["lines"]:
+        sz = fit_size(ln["text"], ln.get("size", 104), 1000)
+        text_c(d, (540, y + sz * 0.6), ln["text"], sz, ln.get("color", "white"), stroke=max(5, sz // 13))
+        y += sz * 1.2
+    c = CHAR.resize((int(CHAR.width * 520 / CHAR.height), 520), Image.LANCZOS)
+    img.paste(c, (540 - c.width // 2, max(int(y) + 60, 980)), c)
+    p = os.path.join(out, f"{slug}_thumbnail.png"); img.save(p); return p
+
+def main():
+    spec_path, out = sys.argv[1], sys.argv[2]; stills = "--stills" in sys.argv
+    spec = json.load(open(spec_path)); slug = spec["slug"]
+    os.makedirs(os.path.join(out, "scenes"), exist_ok=True)
+    tl_path = os.path.join(out, "timeline.json")
+    TL = json.load(open(tl_path)) if os.path.exists(tl_path) and "--reuse-voice" in sys.argv else tts(spec, out)
+    chunks = build_chunks(TL)
+    total = TL[-1]["end"]; print(f"duration {total:.1f}s")
+    if stills:  # a frame near the end of each scene, as a contact sheet
+        ims = []
+        for k in range(len(TL)):
+            f0, f1 = scene_range(TL, k); ims.append(frame(spec, TL, chunks, k, (f1 - 8) / FPS).resize((270, 480)))
+        cols = 5; sheet = Image.new("RGB", (270 * cols, 480 * ((len(ims) + cols - 1) // cols)))
+        for i, im in enumerate(ims): sheet.paste(im, ((i % cols) * 270, (i // cols) * 480))
+        sheet.save(os.path.join(out, "stills.png")); thumbnail(spec, out, slug); return
+    from multiprocessing import Pool
+    with Pool(min(os.cpu_count() or 2, 4)) as pool:
+        pool.starmap(render_scene, [(spec, TL, chunks, k, out) for k in range(len(TL))])
+    mix(spec, TL, out)
+    with open(os.path.join(out, "list.txt"), "w") as f:
+        for k in range(len(TL)): f.write(f"file 'scenes/{k:02d}.mp4'\n")
+    vo = os.path.join(out, "video_only.mp4"); final = os.path.join(out, f"{slug}.mp4")
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", os.path.join(out, "list.txt"), "-c", "copy", vo], check=True)
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", vo, "-i", os.path.join(out, "mix.wav"), "-map", "0:v", "-map", "1:a",
+                    "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest", final], check=True)
+    thumbnail(spec, out, slug)
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", final, "-vf", "fps=1/5,scale=180:-1,tile=7x2", "-frames:v", "1",
+                    os.path.join(out, "check.png")], check=True)
+    print("done", final)
+
+if __name__ == "__main__":
+    main()

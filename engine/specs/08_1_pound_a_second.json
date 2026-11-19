@@ -1,0 +1,394 @@
+{
+ "slug": "TheMoneyWhatIfs_08_1_pound_a_second",
+ "title": "What If You Earned £1 Every Second? ⏱️💷",
+ "voice": "bm_daniel",
+ "footnote": "Illustration: 2026/27 income tax & NI rates (England). Not financial advice.",
+ "thumbnail": {
+  "lines": [
+   {
+    "text": "WHAT IF YOU EARNED",
+    "color": "white"
+   },
+   {
+    "text": "£1 EVERY",
+    "color": "yellow",
+    "size": 170
+   },
+   {
+    "text": "SECOND?",
+    "color": "yellow",
+    "size": 170
+   },
+   {
+    "text": "...THE TAX BILL IS INSANE",
+    "color": "red",
+    "size": 52
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "stack",
+   "lines": [
+    "What if you earned one pound, every single second?"
+   ],
+   "items": [
+    {
+     "text": "WHAT IF YOU EARNED",
+     "color": "white",
+     "size": 70,
+     "at": 0
+    },
+    {
+     "text": "£1 EVERY",
+     "color": "yellow",
+     "size": 170,
+     "at": 0
+    },
+    {
+     "text": "SECOND",
+     "color": "yellow",
+     "size": 170,
+     "at": 0
+    }
+   ],
+   "icons": [
+    {
+     "kind": "coin",
+     "at": 0,
+     "y": 1120,
+     "scale": 0.9
+    }
+   ]
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "Even while you sleep.",
+    "You don't lift a finger. It just keeps landing in your account.",
+    "That's sixty pounds a minute. Three thousand six hundred an hour."
+   ],
+   "hud": {
+    "left": "HOUR 1",
+    "sub": "WHILE YOU SLEEP"
+   },
+   "items": [
+    {
+     "text": "PER MINUTE",
+     "color": "grey",
+     "size": 60,
+     "at": 2
+    },
+    {
+     "text": "£60",
+     "color": "green",
+     "size": 140,
+     "at": 2,
+     "space": 30
+    },
+    {
+     "text": "PER HOUR",
+     "color": "grey",
+     "size": 60,
+     "at": [
+      2,
+      1.4
+     ]
+    },
+    {
+     "text": "£3,600",
+     "color": "green",
+     "size": 140,
+     "at": [
+      2,
+      1.4
+     ]
+    }
+   ],
+   "figure": {
+    "at": 0,
+    "y": 1060,
+    "scale": 0.9,
+    "mood": "happy"
+   }
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "By the end of day one, you've made eighty-six thousand four hundred pounds.",
+    "More than many people earn in two years."
+   ],
+   "hud": {
+    "left": "DAY 1",
+    "sub": "MIDNIGHT"
+   },
+   "items": [
+    {
+     "text": "AFTER ONE DAY",
+     "color": "grey",
+     "size": 60,
+     "at": 0
+    },
+    {
+     "counter": {
+      "from": 0,
+      "to": 86400,
+      "prefix": "£",
+      "at": [
+       0,
+       1.0
+      ],
+      "dur": 1.6
+     },
+     "color": "yellow",
+     "size": 160,
+     "at": 0
+    },
+    {
+     "text": "2 YEARS' PAY FOR MANY",
+     "color": "white",
+     "size": 70,
+     "at": 1
+    }
+   ],
+   "icons": [
+    {
+     "kind": "cash",
+     "at": [
+      0,
+      1.0
+     ],
+     "y": 1080,
+     "scale": 1.3
+    }
+   ],
+   "dings": [
+    [
+     0,
+     2.6
+    ]
+   ]
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "And after a full year?",
+    "Thirty-one and a half million pounds.",
+    "That's enough to buy over a hundred average UK homes."
+   ],
+   "hud": {
+    "left": "DAY 365",
+    "sub": "ONE YEAR"
+   },
+   "items": [
+    {
+     "text": "AFTER ONE YEAR",
+     "color": "grey",
+     "size": 60,
+     "at": 0
+    },
+    {
+     "counter": {
+      "from": 86400,
+      "to": 31536000,
+      "prefix": "£",
+      "at": 1,
+      "dur": 1.6
+     },
+     "color": "yellow",
+     "size": 150,
+     "at": 0
+    },
+    {
+     "text": "100+ UK HOMES",
+     "color": "green",
+     "size": 90,
+     "at": 2
+    }
+   ],
+   "figure": {
+    "at": 1,
+    "y": 1000,
+    "scale": 1.2,
+    "mood": "shock",
+    "arm": "up"
+   },
+   "dings": [
+    [
+     1,
+     1.6
+    ]
+   ]
+  },
+  {
+   "type": "stack",
+   "lines": [
+    "But this is a salary. So the taxman wants his cut.",
+    "Forty-five percent income tax, plus national insurance.",
+    "Fourteen point eight million pounds. Gone."
+   ],
+   "footnote": true,
+   "items": [
+    {
+     "text": "THE TAXMAN",
+     "color": "red",
+     "size": 110,
+     "at": 0
+    },
+    {
+     "text": "INCOME TAX  -£14.18M",
+     "color": "white",
+     "size": 70,
+     "at": 1
+    },
+    {
+     "text": "NAT. INSURANCE  -£0.63M",
+     "color": "white",
+     "size": 70,
+     "at": [
+      1,
+      1.5
+     ],
+     "space": 40
+    },
+    {
+     "text": "-£14.8M",
+     "color": "red",
+     "size": 170,
+     "at": 2
+    }
+   ],
+   "figure": {
+    "at": 0,
+    "y": 1060,
+    "scale": 0.9,
+    "mood": "smug",
+    "shirt": "dark",
+    "tie": true
+   }
+  },
+  {
+   "type": "bars",
+   "lines": [
+    "You keep sixteen point seven million.",
+    "Still not bad, right?",
+    "Or is it?"
+   ],
+   "footnote": true,
+   "items": [
+    {
+     "text": "ONE YEAR AT £1 A SECOND",
+     "color": "grey",
+     "size": 52,
+     "at": 0
+    }
+   ],
+   "bars": [
+    {
+     "label": "EARNED",
+     "value": 31536000,
+     "prefix": "£",
+     "short": true,
+     "color": "yellow",
+     "at": 0,
+     "dur": 1.0
+    },
+    {
+     "label": "YOU KEEP",
+     "value": 16725866,
+     "prefix": "£",
+     "short": true,
+     "color": "green",
+     "at": [
+      0,
+      0.8
+     ],
+     "dur": 1.2
+    }
+   ]
+  },
+  {
+   "type": "twist",
+   "lines": [
+    "Now the twist.",
+    "A twenty million pound lottery win would leave you richer.",
+    "Because in the UK, lottery winnings are tax-free.",
+    "Twenty million in the bank beats a whole year of a pound a second."
+   ],
+   "mood": "happy",
+   "sit": true,
+   "prop": "cash",
+   "changes": [
+    {
+     "at": 1,
+     "mood": "shock"
+    }
+   ],
+   "pages": [
+    {
+     "at": 0,
+     "items": [
+      {
+       "text": "THE TWIST",
+       "color": "red",
+       "size": 120
+      }
+     ]
+    },
+    {
+     "at": 1,
+     "items": [
+      {
+       "text": "£20M LOTTERY",
+       "color": "yellow"
+      },
+      {
+       "text": "BEATS IT",
+       "color": "white"
+      }
+     ]
+    },
+    {
+     "at": 2,
+     "items": [
+      {
+       "text": "LOTTERY WINS ARE",
+       "color": "white",
+       "size": 80
+      },
+      {
+       "text": "TAX-FREE",
+       "color": "green",
+       "size": 140
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "choice",
+   "lines": [
+    "So which would you pick?",
+    "Comment A or B.",
+    "Oh, and while you watched this video, you'd have earned sixty pounds."
+   ],
+   "items": [
+    {
+     "text": "WHICH WOULD",
+     "color": "white",
+     "size": 80,
+     "at": 0
+    },
+    {
+     "text": "YOU PICK?",
+     "color": "yellow",
+     "size": 110,
+     "at": 0.3
+    }
+   ],
+   "a": "£1/SEC FOR A YEAR",
+   "b": "£20M TAX-FREE",
+   "at": 0
+  }
+ ]
+}
