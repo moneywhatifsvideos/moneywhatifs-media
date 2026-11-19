@@ -1,0 +1,577 @@
+{
+ "slug": "TheMoneyWhatIfs_G01_5_a_day_glow",
+ "title": "What £5 a Day From Age 16 Turns Into 💷",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Illustration: £5 a day saved yearly, 7% average yearly return. Not financial advice.",
+ "thumbnail": {
+  "scene": 4,
+  "lines": [
+   {
+    "text": "£5 A DAY",
+    "c": "gold",
+    "size": 150
+   },
+   {
+    "text": "FROM AGE 16",
+    "size": 80
+   },
+   {
+    "text": "TURNS INTO THIS",
+    "c": "mid",
+    "size": 60
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ],
+   "lines": [
+    "This is what five pounds a day turns into, if you start at sixteen."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "£5 a day · age 16 to 66",
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "from": 741880,
+     "to": 741880,
+     "dur": 0,
+     "y": 450,
+     "size": 170,
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1180,
+     "s": 1.25,
+     "ring": true,
+     "pose": "up",
+     "at": 0
+    },
+    {
+     "k": "coins",
+     "x": 540,
+     "y0": 560,
+     "y1": 1150,
+     "n": 12,
+     "dur": 3.5,
+     "at": 0.4
+    },
+    {
+     "k": "line",
+     "y": 1200,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "spots": [
+    [
+     540,
+     60
+    ]
+   ],
+   "lines": [
+    "That's one coffee. Or one meal deal. Every single day.",
+    "Most people spend it without even thinking about it."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "what £5 a day looks like",
+     "y": 360,
+     "at": 0
+    },
+    {
+     "k": "cards",
+     "y": 640,
+     "at": 0,
+     "items": [
+      {
+       "icon": "cup",
+       "label": "Coffee",
+       "at": 0,
+       "lit": true
+      },
+      {
+       "icon": "bag",
+       "label": "Meal deal",
+       "at": [
+        0,
+        0.9
+       ],
+       "lit": true
+      },
+      {
+       "icon": "phone",
+       "label": "App sub",
+       "at": [
+        0,
+        1.8
+       ]
+      }
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1180,
+     "s": 1.0,
+     "ring": true,
+     "at": 0
+    },
+    {
+     "k": "line",
+     "y": 1200,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Hide it under your mattress until you're sixty-six, and you'd have ninety-one thousand pounds."
+   ],
+   "els": [
+    {
+     "k": "counter",
+     "keys": [
+      [
+       0.3,
+       91250,
+       3.2
+      ]
+     ],
+     "y": 470,
+     "size": 150,
+     "c": "white",
+     "label": "under the mattress",
+     "at": 0
+    },
+    {
+     "k": "icon",
+     "kind": "mattress",
+     "x": 540,
+     "y": 1110,
+     "s": 2.2,
+     "at": 0,
+     "c": "mid"
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1030,
+     "s": 0.9,
+     "c": "dim",
+     "pose": "shrug",
+     "at": 0.6
+    },
+    {
+     "k": "pill",
+     "text": "safe. but slow.",
+     "x": 540,
+     "y": 1290,
+     "at": [
+      0,
+      3.0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "spots": [
+    [
+     540,
+     70
+    ]
+   ],
+   "lines": [
+    "But invest it instead, at seven percent a year, and every pound you save starts earning its own pounds."
+   ],
+   "els": [
+    {
+     "k": "pill",
+     "text": "invested at 7% a year",
+     "x": 540,
+     "y": 380,
+     "at": 0
+    },
+    {
+     "k": "grid",
+     "rows": 3,
+     "cols": 5,
+     "cell": 120,
+     "y": 740,
+     "mark": "pound",
+     "mc": "gold",
+     "fill": [
+      [
+       0.4,
+       15,
+       4.0
+      ]
+     ],
+     "label": "your pounds",
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1230,
+     "s": 0.9,
+     "ring": true,
+     "pose": "point",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "focus": [
+    540,
+    700
+   ],
+   "lines": [
+    "By twenty-six, you've got twenty-five thousand. By forty, over a hundred thousand.",
+    "And by sixty-six... over seven hundred and forty thousand pounds."
+   ],
+   "dings": [
+    [
+     1,
+     2.2
+    ]
+   ],
+   "els": [
+    {
+     "k": "counter",
+     "from": 0,
+     "keys": [
+      [
+       0.2,
+       25214,
+       1.2
+      ],
+      [
+       [
+        0,
+        2.4
+       ],
+       106175,
+       1.6
+      ],
+      [
+       [
+        1,
+        0.6
+       ],
+       741880,
+       2.6
+      ]
+     ],
+     "y": 400,
+     "size": 160,
+     "at": 0
+    },
+    {
+     "k": "caps",
+     "text": "age 26",
+     "y": 290,
+     "at": 0,
+     "until": [
+      0,
+      2.4
+     ]
+    },
+    {
+     "k": "caps",
+     "text": "age 40",
+     "y": 290,
+     "at": [
+      0,
+      2.4
+     ],
+     "until": 1
+    },
+    {
+     "k": "caps",
+     "text": "age 66",
+     "y": 290,
+     "at": 1
+    },
+    {
+     "k": "stairs",
+     "n": 8,
+     "x0": 150,
+     "y0": 1290,
+     "w": 96,
+     "h": 74,
+     "at": 0,
+     "climb": {
+      "at": 0.2,
+      "dur": 8.0
+     },
+     "s": 0.62
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "footnote": true,
+   "lines": [
+    "You only put in ninety-one thousand.",
+    "The other six hundred and fifty thousand? That's compound interest. Free money."
+   ],
+   "els": [
+    {
+     "k": "bars",
+     "y": 1230,
+     "h": 620,
+     "max": 650630,
+     "at": 0,
+     "items": [
+      {
+       "label": "you put in",
+       "value": 91250,
+       "c": "white",
+       "at": 0.2
+      },
+      {
+       "label": "it earned",
+       "value": 650630,
+       "at": 1,
+       "dur": 2.2
+      }
+     ]
+    },
+    {
+     "k": "pill",
+     "text": "compound interest",
+     "x": 540,
+     "y": 400,
+     "at": [
+      1,
+      1.6
+     ]
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "spots": [
+    [
+     300,
+     60
+    ],
+    [
+     780,
+     50
+    ]
+   ],
+   "lines": [
+    "Now here's the catch. Start at twenty-six instead, just ten years later.",
+    "You end up with half."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "same £5 a day",
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 300,
+     "y": 1080,
+     "s": 1.0,
+     "ring": true,
+     "tag": "starts at 16",
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 780,
+     "y": 1080,
+     "s": 1.0,
+     "c": "dim",
+     "tag": "starts at 26",
+     "at": [
+      0,
+      1.2
+     ]
+    },
+    {
+     "k": "counter",
+     "from": 741880,
+     "to": 741880,
+     "dur": 0,
+     "x": 300,
+     "y": 560,
+     "size": 76,
+     "maxw": 430,
+     "at": 1
+    },
+    {
+     "k": "counter",
+     "from": 0,
+     "to": 364329,
+     "dur": 1.5,
+     "x": 780,
+     "y": 560,
+     "size": 76,
+     "maxw": 430,
+     "c": "white",
+     "at": [
+      0,
+      2.2
+     ]
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "twist": true,
+   "lines": [
+    "Those ten years cost you three hundred and seventy-seven thousand pounds."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "the cost of waiting 10 years",
+     "y": 520,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "from": 0,
+     "to": -377551,
+     "dur": 2.4,
+     "y": 640,
+     "size": 150,
+     "c": "red",
+     "at": 0.3
+    },
+    {
+     "k": "icon",
+     "kind": "clock",
+     "x": 540,
+     "y": 1010,
+     "s": 2.2,
+     "c": "red",
+     "pop": true,
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "spots": [
+    [
+     540,
+     70
+    ]
+   ],
+   "lines": [
+    "The amount barely matters. The start date does.",
+    "The best time to start was ten years ago. The second best time is today."
+   ],
+   "els": [
+    {
+     "k": "box",
+     "y": 640,
+     "w": 820,
+     "h": 260,
+     "at": 0,
+     "lines": [
+      {
+       "text": "AMOUNT",
+       "c": "dim",
+       "size": 56
+      },
+      {
+       "text": "START DATE",
+       "c": "gold",
+       "size": 84
+      }
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 1.0,
+     "ring": true,
+     "pose": "up",
+     "at": 1
+    },
+    {
+     "k": "pill",
+     "text": "start today",
+     "x": 540,
+     "y": 1300,
+     "at": [
+      1,
+      2.0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "So be honest. How old were you when you started saving?",
+    "Tell me in the comments. I'll go first: way too late."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "HOW OLD WERE YOU",
+     "y": 560,
+     "size": 84,
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "WHEN YOU STARTED?",
+     "y": 660,
+     "size": 84,
+     "c": "gold",
+     "at": 0
+    },
+    {
+     "k": "crowd",
+     "n": 5,
+     "y": 1180,
+     "x0": 180,
+     "x1": 900,
+     "s": 0.75,
+     "hero": 2,
+     "at": 0.3
+    },
+    {
+     "k": "caps",
+     "text": "comment your age",
+     "y": 1290,
+     "at": [
+      0,
+      1.5
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -775,6 +775,9 @@ def tts(spec, out):
     return TL
 
 def frame(spec, TL, chunks, k, T):
+    if spec.get("style") == "glow":
+        import glow
+        return glow.frame(spec, TL, k, T)
     sc = dict(spec["scenes"][k]); sc.update(TL[k]); sc["start"] = 0.0 if k == 0 else TL[k]["start"]
     t = T - sc["start"]; ctx = Ctx(sc, t, instant=(k == 0))
     img = BG.copy()
@@ -856,7 +859,7 @@ def music(n, bpm=100, seed=0, bright=1.0):
 def mix(spec, TL, out):
     import soundfile as sf
     v, _ = sf.read(os.path.join(out, "voice.wav")); n = len(v); t = np.arange(n) / SR; rng = np.random.default_rng(1)
-    tw = next((TL[i]["start"] for i, s in enumerate(spec["scenes"]) if s["type"] == "twist"), TL[-1]["end"])
+    tw = next((TL[i]["start"] for i, s in enumerate(spec["scenes"]) if s["type"] == "twist" or s.get("twist")), TL[-1]["end"])
     if spec.get("kind") == "data":
         bed = music(n, bpm=spec.get("bpm", 104), seed=3) * 0.9
     else:
@@ -889,6 +892,12 @@ def thumbnail(spec, out, slug):
     img.paste(c, (540 - c.width // 2, max(int(y) + 60, 980)), c)
     p = os.path.join(out, f"{slug}_thumbnail.png"); img.save(p); return p
 
+def make_thumb(spec, TL, out, slug):
+    if spec.get("style") == "glow":
+        import glow
+        return glow.thumbnail(spec, TL, out, slug)
+    return thumbnail(spec, out, slug)
+
 def main():
     spec_path, out = sys.argv[1], sys.argv[2]; stills = "--stills" in sys.argv
     spec = json.load(open(spec_path)); slug = spec["slug"]
@@ -913,7 +922,7 @@ def main():
             f0, f1 = scene_range(TL, k); ims.append(frame(spec, TL, chunks, k, (f1 - 8) / FPS).resize((270, 480)))
         cols = 5; sheet = Image.new("RGB", (270 * cols, 480 * ((len(ims) + cols - 1) // cols)))
         for i, im in enumerate(ims): sheet.paste(im, ((i % cols) * 270, (i // cols) * 480))
-        sheet.save(os.path.join(out, "stills.png")); thumbnail(spec, out, slug); return
+        sheet.save(os.path.join(out, "stills.png")); make_thumb(spec, TL, out, slug); return
     from multiprocessing import Pool
     with Pool(min(os.cpu_count() or 2, 4)) as pool:
         pool.starmap(render_scene, [(spec, TL, chunks, k, out) for k in range(len(TL))])
@@ -924,7 +933,7 @@ def main():
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", os.path.join(out, "list.txt"), "-c", "copy", vo], check=True)
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", vo, "-i", os.path.join(out, "mix.wav"), "-map", "0:v", "-map", "1:a",
                     "-c:v", "copy", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "-shortest", final], check=True)
-    thumbnail(spec, out, slug)
+    make_thumb(spec, TL, out, slug)
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", final, "-vf", "fps=1/5,scale=180:-1,tile=7x2", "-frames:v", "1",
                     os.path.join(out, "check.png")], check=True)
     print("done", final)

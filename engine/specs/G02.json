@@ -1,0 +1,646 @@
+{
+ "slug": "TheMoneyWhatIfs_G02_same_salary",
+ "title": "Same Salary. Why Does Only One Retire Rich? 💷",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Illustration: take-home pay, 3% yearly pay rise, 7% average yearly return. Not financial advice.",
+ "thumbnail": {
+  "scene": 7,
+  "lines": [
+   {
+    "text": "SAME SALARY.",
+    "size": 110
+   },
+   {
+    "text": "ONE RETIRES RICH.",
+    "c": "gold",
+    "size": 96
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "spots": [
+    [
+     300,
+     60
+    ],
+    [
+     780,
+     80
+    ]
+   ],
+   "lines": [
+    "Two people. Same job. Same salary. One retires with almost a million pounds."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "same job · same salary",
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "from": 0,
+     "to": 0,
+     "dur": 0,
+     "x": 300,
+     "y": 470,
+     "size": 90,
+     "c": "dim",
+     "maxw": 420,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "from": 960107,
+     "to": 960107,
+     "dur": 0,
+     "x": 780,
+     "y": 470,
+     "size": 90,
+     "maxw": 430,
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 300,
+     "y": 1120,
+     "s": 1.05,
+     "c": "dim",
+     "tag": "person a",
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 780,
+     "y": 1120,
+     "s": 1.05,
+     "ring": true,
+     "tag": "person b",
+     "at": 0
+    },
+    {
+     "k": "line",
+     "y": 1140,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "spots": [
+    [
+     540,
+     60
+    ]
+   ],
+   "lines": [
+    "They both start at twenty-two, taking home two thousand pounds a month."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "take-home pay at 22",
+     "y": 360,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "from": 0,
+     "to": 2000,
+     "dur": 1.2,
+     "y": 470,
+     "size": 150,
+     "c": "white",
+     "at": 0.3
+    },
+    {
+     "k": "crowd",
+     "n": 2,
+     "x0": 400,
+     "x1": 680,
+     "y": 1150,
+     "s": 0.95,
+     "hero": 1,
+     "hero_c": "white",
+     "at": 0
+    },
+    {
+     "k": "line",
+     "y": 1170,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "focus": [
+    540,
+    700
+   ],
+   "lines": [
+    "Every year, they both get a three percent pay rise.",
+    "By sixty, they're both taking home almost six thousand a month."
+   ],
+   "els": [
+    {
+     "k": "pill",
+     "text": "+3% every year",
+     "x": 540,
+     "y": 300,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "from": 2000,
+     "keys": [
+      [
+       0.3,
+       2000,
+       0.1
+      ],
+      [
+       [
+        1,
+        0.0
+       ],
+       5970,
+       3.0
+      ]
+     ],
+     "y": 440,
+     "size": 140,
+     "c": "white",
+     "suffix": "/mo",
+     "at": 0
+    },
+    {
+     "k": "stairs",
+     "n": 9,
+     "x0": 120,
+     "y0": 1290,
+     "w": 90,
+     "h": 70,
+     "at": 0,
+     "climb": {
+      "at": 0.4,
+      "dur": 6.5
+     },
+     "s": 0.6
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "spots": [
+    [
+     540,
+     50
+    ]
+   ],
+   "lines": [
+    "Person A does what everyone does. Every raise means a nicer car, a bigger flat, a better phone."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "person a · every pay rise",
+     "y": 360,
+     "at": 0
+    },
+    {
+     "k": "cards",
+     "y": 640,
+     "w": 200,
+     "gap": 34,
+     "at": 0,
+     "items": [
+      {
+       "icon": "car",
+       "label": "nicer car",
+       "at": [
+        0,
+        1.6
+       ],
+       "lit": true
+      },
+      {
+       "icon": "house",
+       "label": "bigger flat",
+       "at": [
+        0,
+        2.4
+       ],
+       "lit": true
+      },
+      {
+       "icon": "phone",
+       "label": "new phone",
+       "at": [
+        0,
+        3.2
+       ],
+       "lit": true
+      }
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1200,
+     "s": 1.0,
+     "pose": "up",
+     "at": 0
+    },
+    {
+     "k": "pill",
+     "text": "spent: 100%",
+     "x": 540,
+     "y": 1290,
+     "at": [
+      0,
+      3.8
+     ],
+     "inv": true
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "spots": [
+    [
+     540,
+     70
+    ]
+   ],
+   "lines": [
+    "Person B does one thing differently. Half of every pay rise goes straight into investments.",
+    "The other half, they enjoy."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "person b · every pay rise",
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "divider",
+     "x": 540,
+     "y0": 450,
+     "y1": 960,
+     "at": 0.5
+    },
+    {
+     "k": "icon",
+     "kind": "chart",
+     "x": 300,
+     "y": 640,
+     "s": 2.0,
+     "c": "gold",
+     "pop": true,
+     "at": [
+      0,
+      2.0
+     ]
+    },
+    {
+     "k": "text",
+     "text": "50% INVESTED",
+     "x": 300,
+     "y": 840,
+     "size": 56,
+     "c": "gold",
+     "at": [
+      0,
+      2.0
+     ]
+    },
+    {
+     "k": "icon",
+     "kind": "bag",
+     "x": 780,
+     "y": 640,
+     "s": 2.0,
+     "pop": true,
+     "at": 1
+    },
+    {
+     "k": "text",
+     "text": "50% ENJOYED",
+     "x": 780,
+     "y": 840,
+     "size": 56,
+     "at": 1
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1240,
+     "s": 0.95,
+     "ring": true,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "At first, it's nothing. Thirty pounds a month. Nobody would even notice."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "invested in year 2",
+     "y": 470,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "from": 0,
+     "to": 30,
+     "dur": 0.8,
+     "y": 580,
+     "size": 140,
+     "suffix": "/mo",
+     "at": [
+      0,
+      1.0
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1180,
+     "s": 1.0,
+     "pose": "shrug",
+     "c": "mid",
+     "at": 0
+    },
+    {
+     "k": "line",
+     "y": 1200,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "footnote": true,
+   "lines": [
+    "But by thirty, B has almost thirteen thousand. By forty, almost a hundred thousand.",
+    "By fifty, three hundred and fifty thousand."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "person b's investments",
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "curve",
+     "box": [
+      120,
+      600,
+      900,
+      1240
+     ],
+     "ys": [
+      0.0,
+      0,
+      371,
+      1151,
+      2380,
+      4100,
+      6359,
+      9207,
+      12697,
+      16889,
+      21844,
+      27631,
+      34322,
+      41996,
+      50736,
+      60634,
+      71786,
+      84297,
+      98280,
+      113856,
+      131155,
+      150316,
+      171488,
+      194834,
+      220526,
+      248749,
+      279703,
+      313601,
+      350673
+     ],
+     "max": 360000,
+     "at": 0.2,
+     "dur": 7.0,
+     "fill": true,
+     "head": true,
+     "xlabels": [
+      [
+       0,
+       "AGE 22"
+      ],
+      [
+       0.2857142857142857,
+       "30"
+      ],
+      [
+       0.6428571428571429,
+       "40"
+      ],
+      [
+       1.0,
+       "50"
+      ]
+     ]
+    },
+    {
+     "k": "counter",
+     "from": 0,
+     "keys": [
+      [
+       0.4,
+       12697,
+       2.0
+      ],
+      [
+       [
+        0,
+        3.0
+       ],
+       98280,
+       2.2
+      ],
+      [
+       [
+        1,
+        0.2
+       ],
+       350673,
+       2.4
+      ]
+     ],
+     "y": 460,
+     "size": 120,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "twist": true,
+   "spots": [
+    [
+     300,
+     40
+    ],
+    [
+     780,
+     90
+    ]
+   ],
+   "lines": [
+    "By sixty, Person B has nine hundred and sixty thousand pounds.",
+    "Person A? Nothing."
+   ],
+   "dings": [
+    [
+     0,
+     3.0
+    ]
+   ],
+   "els": [
+    {
+     "k": "bars",
+     "y": 1180,
+     "h": 600,
+     "max": 960107,
+     "w": 240,
+     "gap": 140,
+     "at": 0,
+     "items": [
+      {
+       "label": "person a",
+       "value": 0,
+       "c": "dim",
+       "at": 1
+      },
+      {
+       "label": "person b",
+       "value": 960107,
+       "at": 0.3,
+       "dur": 2.6
+      }
+     ]
+    },
+    {
+     "k": "caps",
+     "text": "invested by 60",
+     "y": 330,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "spots": [
+    [
+     540,
+     70
+    ]
+   ],
+   "lines": [
+    "Same salary. Same pay rises. And B still enjoyed half of every single one."
+   ],
+   "els": [
+    {
+     "k": "crowd",
+     "n": 2,
+     "x0": 400,
+     "x1": 680,
+     "y": 1100,
+     "s": 1.0,
+     "hero": 1,
+     "hero_c": "gold",
+     "at": 0
+    },
+    {
+     "k": "box",
+     "y": 600,
+     "w": 840,
+     "h": 230,
+     "at": 0.3,
+     "lines": [
+      {
+       "text": "SAME MONEY IN.",
+       "size": 60
+      },
+      {
+       "text": "DIFFERENT MONEY KEPT.",
+       "c": "gold",
+       "size": 60
+      }
+     ]
+    },
+    {
+     "k": "line",
+     "y": 1120,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Getting rich isn't about what you earn. It's about what you don't upgrade.",
+    "So be honest. Where did your last pay rise go?"
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "IT'S NOT WHAT YOU EARN.",
+     "y": 520,
+     "size": 70,
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "IT'S WHAT YOU DON'T UPGRADE.",
+     "y": 610,
+     "size": 70,
+     "c": "gold",
+     "at": [
+      0,
+      2.0
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1180,
+     "s": 1.0,
+     "ring": true,
+     "pose": "point",
+     "at": 1
+    },
+    {
+     "k": "caps",
+     "text": "where did your last pay rise go?",
+     "y": 1290,
+     "at": 1
+    }
+   ]
+  }
+ ]
+}
