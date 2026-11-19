@@ -12,3 +12,4 @@
 | 8 | Earn £1 every second (tax bill, £20M lottery beats it) | absurd number | 19 Nov |
 | 9 | £1M now or 1p doubling for 30 days | either/or choice | 20 Nov |
 | 10 | £1,000 on a credit card, minimum payments only (17 years) | debt trap | 21 Nov |
+| D01 | UK house prices by region 2005-2025 (map race; London +127%, Scotland +99%) | data: map race | 24 Nov |

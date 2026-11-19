@@ -3,14 +3,18 @@
 This is the full procedure for the unattended weekly run. Follow it top to bottom. Archie is not watching: never stop to ask questions. Make sensible decisions, note them in the report, and keep going. Only stop early if something would publish wrong or harmful content.
 
 Channel: YouTube @TheMoneyWhatIfs and TikTok @themoneywhatifs, both linked to **Metricool brand 8204403** (timezone Europe/London).
-Output: **two videos per day for the next 7 days** (Mon to Sun after the run), at **10:00 and 16:00 UK time**, posted to YouTube Shorts and TikTok.
+Output: **two videos per day for the next 7 days** (Mon to Sun after the run), posted to YouTube Shorts and TikTok:
+- **10:00 = a "Money Data" video** (animated real UK data: map race, bar race or line race; music only, no voice).
+- **16:00 = a "What If" video** (narrated stick-figure scenario).
+This split is a two-week test that started 24 Nov 2026. From 8 Dec 2026, the analyst decides the mix: if one format clearly wins on views and watch time, give it more slots (but keep at least 2 of the other per week).
 
 Hard rules:
 - Never spend Higgsfield credits or any money.
 - Every number is computed in Python or taken from a source found this run. Never from memory.
 - Topics from other creators are fine as **inspiration only**. Never copy their scripts, wording, characters, visuals, music or titles. Every video must be an original script with our own UK angle and twist.
 - No claims about real private individuals; no named companies portrayed negatively; no investment recommendations ("not financial advice" footnote on anything showing returns).
-- YouTube: madeForKids false, isAiGeneratedContent false (cartoon). TikTok: isAigc true (AI voice).
+- YouTube: madeForKids false, isAiGeneratedContent false (cartoon). TikTok: isAigc true for What If videos (AI voice); false for data videos (no AI voice).
+- Data videos use **real published figures only**. Only show years/points that exist in the source; never invent in-between data points or fill gaps; mark missing areas as "NO DATA".
 
 ## 0. Set up the workspace
 
@@ -19,7 +23,7 @@ Hard rules:
 ```bash
 mkdir -p ~/kokoro && cd ~/kokoro
 curl -sSL -o voices-v1.0.bin https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin
-curl -sSL -o kokoro-v1.0.int8.onnx https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.int8.onnx
+curl -sSL -o kokoro-v1.0.onnx https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx
 pip install --break-system-packages -q kokoro-onnx soundfile pillow numpy
 export MWI_TTS_DIR=~/kokoro
 ```
@@ -28,7 +32,7 @@ export MWI_TTS_DIR=~/kokoro
 
 ## 1. Find the free slots
 
-Metricool `getScheduledPosts` (brandId 8204403, timezone Europe/London) for the 7 days after today. Each day has two slots: 10:00 and 16:00. A slot is taken if any post is already there. The number of videos to make = number of free slots (normally 14).
+Metricool `getScheduledPosts` (brandId 8204403, timezone Europe/London) for the 7 days after today. Each day has two slots: 10:00 (data) and 16:00 (What If). A slot is taken if any post is already there. Make one data video per free 10:00 slot and one What If per free 16:00 slot (normally 7 + 7).
 
 ## 2. Analyst: what is working
 
@@ -42,7 +46,7 @@ Spawn a separate agent (Agent tool) with this brief: find what money and persona
 
 ## 4. Choose the topics
 
-Pick exactly as many topics as there are free slots:
+Pick What If topics for the free 16:00 slots (data topics are chosen in step 5b):
 - none already in topics.md (a clearly different angle on a theme is fine);
 - weighted towards the analyst's winning types and hook shapes, but always a mix: savings/compounding, either/or choices, absurd-but-concrete numbers, debt traps, "what if the government/economy…", everyday prices;
 - at least 3 tied to this week's UK news when the scout found good ones;
@@ -50,7 +54,9 @@ Pick exactly as many topics as there are free slots:
 
 ## 5. Writer: scripts as spec files
 
-Write one spec per video into `~/media/engine/specs/NN_short_name.json`, numbering on from the highest existing number. Follow the format of the existing specs exactly (read two of them first). Rules:
+Write one spec per video into `~/media/engine/specs/NN_short_name.json`, numbering on from the highest existing number. Follow the format of the existing specs exactly (read two recent ones first, e.g. 09 and 10). Rules:
+- **Voice:** `"voice": "af_heart"` and `"speed": 0.92` (Archie's chosen voice, Nov 2026). The engine polishes the audio automatically.
+- **Title banner:** `"banner": {"text": "<the title without emoji>"}`. The engine keeps it on screen above every scene after the hook (the scene is shrunk to fit under it).
 - **Hook (most important, from analytics):** scene 0 states the full claim on screen in the first frame: key items `"at": 0`, static text (never a counter counting up from £0 in the hook). First voice line is one sentence of at most about 15 words that says the claim itself. Best hook shapes so far: clear either/or, absurd-but-concrete number, relatable trap.
 - 8–9 scenes: hook, relatable setup, first result, mechanism, escalating numbers (DAY/AGE HUD, counters, chart), payoff number, twist, lesson, A/B question.
 - 165–185 spoken words so the video is **61–70 seconds**. Numbers as words in voice lines, digits on screen.
@@ -59,9 +65,25 @@ Write one spec per video into `~/media/engine/specs/NN_short_name.json`, numberi
 - Templates, fields, moods, icons and chart kinds: see the docstring and TEMPLATES in mwi.py and the existing specs. `chart` series kinds: annuity, linear, decay (negative r = lump-sum growth), points.
 - Also write, per video: YouTube/TikTok **title** (question + one emoji), **description** (hook line, "Comment A or B 👇", footnote, 4–5 hashtags, no #shorts), and 6 tags. Keep these in a `posts.json` in the run folder.
 
+## 5b. Data videos (10:00 slots)
+
+For each free 10:00 slot, make one data video spec in `~/media/engine/specs/DNN_short_name.json` (numbering on from the highest D-number). Read `engine/specs/D01_house_prices_by_region.json` first: it is the reference example.
+
+1. **Pick a data topic** people in the UK care about and will want to compare or argue about in the comments: house prices or rents by region, wages by job or region, what things cost then vs now (bread, pint, petrol, energy bills, train fares, tuition), inflation, interest rates, savings rates, council tax by region, Christmas spending by region, UK vs USA comparisons, wealth or pay gaps by age. Use the trend scout's ideas and this week's news. Not already in topics.md.
+2. **Get the real numbers.** Use WebSearch to find an official source (ONS, HM Land Registry, Bank of England, gov.uk, OBR, HMRC, Ofgem, UK Finance) and read the values with WebFetch (it can read CSV files and tables from URLs found by WebSearch; use its `offset` to page through long files). The shell cannot download from most of these sites. GitHub-hosted datasets are fine. Record every value with its source URL in `~/media/data/DNN_short_name.md`. If you cannot get a complete, sourced dataset, pick another topic.
+3. **Choose a template:**
+   - `map_race`: UK regions coloured by value, stepping through years (12 region names exactly as in `engine/assets/uk_regions.json`; use `null` for missing, which shows NO DATA). Copy the `labels` block from D01 (in-map labels + callout boxes).
+   - `bar_race`: up to 12 bars that re-rank each year: `items_data` [{name, values:[one per year], color}], `show`, `top`, `row`.
+   - `line_race`: several lines drawn across years: `series` [{name, values, color}], `ymax`, `ymin`, `yticks`, `xstep`.
+   Common fields: `years` (keyframes: real data years only), `prefix`/`suffix`/`decimals`/`short`, `lead` 0.6, `hold` (seconds per year; with many years use 1.5–3), `trans`, `tail` (seconds after the race for the `after` overlay pages), and `after` pages: biggest change, a surprise, then a call to action ("WHAT'S IT LIKE WHERE YOU LIVE?" / "COMMENT YOUR AREA" or a question). Total length 61–75 s: race_len = lead + years×hold + (years−1)×trans, plus tail.
+4. Top level: `"kind": "data"`, `slug` `TheMoneyWhatIfs_DNN_name`, `title`, `banner` {text, highlight}, a short `footnote` naming the source (keep it under about 90 characters), `thumbnail`.
+5. Compute the headline facts for the `after` pages in Python from the same numbers (e.g. % change).
+6. Render the same way as What If videos (step 7). Data videos take about 4 minutes each to render; start them early. Check a frame mid-race and the final frame: no label overlaps, nothing cut off.
+7. Post text: hook line, "Comment your area 👇" (or the question), source, 4–5 hashtags (#data #uk ...). TikTok `isAigc` false.
+
 ## 6. Fact-checker (separate agent, independent)
 
-Spawn a **fresh** agent that has not seen your reasoning. Give it only the spec files and posts.json. Its brief: independently verify every number and factual claim (recompute all maths in Python; check every current fact with WebSearch against an official or reputable source; check spoken numbers match on-screen numbers; flag anything misleading, any copied wording, any claim about a real person or company). It returns PASS or a list of problems per video.
+Spawn a **fresh** agent that has not seen your reasoning. Give it only the spec files, posts.json and the `data/DNN_*.md` source notes. Its brief: independently verify every number and factual claim (for data videos, re-fetch the source and spot-check at least 10 values per video plus every number on the `after` pages) (recompute all maths in Python; check every current fact with WebSearch against an official or reputable source; check spoken numbers match on-screen numbers; flag anything misleading, any copied wording, any claim about a real person or company). It returns PASS or a list of problems per video.
 Fix every problem and re-run the checker on the fixed videos. If a video still cannot be verified after one fix round, drop it and make a replacement from the next-best topic (which also goes through the checker).
 
 ## 7. Render and inspect
