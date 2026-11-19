@@ -627,9 +627,124 @@ def T_line_race(img, ctx, sc):
     yi = int(round(pos)); text_c(d, (R - 10, T_ + 40), str(yrs[min(yi, len(yrs) - 1)]), 120, (60, 66, 96), anchor="rm")
     draw_overlay_pages(img, ctx, sc)
 
+# ---------------- fast "DATA-style" templates (light chart, continuous motion) ----------------
+LIGHT = (246, 244, 238); INK = (20, 22, 34); GRID_L = (226, 223, 214)
+def light_canvas(img, band=370):
+    d = ImageDraw.Draw(img)
+    d.rectangle([0, 0, W, H], fill=LIGHT)
+    for x in range(0, W, 60): d.line([(x, band), (x, H)], fill=GRID_L, width=1)
+    for y in range(band, H, 60): d.line([(0, y), (W, y)], fill=GRID_L, width=1)
+    d.rectangle([0, 0, W, band], fill=(10, 11, 18))
+    return d
+
+def lin_pos(ctx, sc, n):
+    """Continuous position through n keyframes at sc['spy'] seconds per step."""
+    return clamp((ctx.t - sc.get("lead", 0.5)) / sc.get("spy", 1.5), 0, n - 1)
+
+def lin_len(sc, n): return sc.get("lead", 0.5) + (n - 1) * sc.get("spy", 1.5)
+
+def T_bar_race2(img, ctx, sc):
+    d = light_canvas(img)
+    yrs = sc["years"]; items = sc["items_data"]; pos = lin_pos(ctx, sc, len(yrs))
+    def val(it, p):
+        v = interp(it["values"], p)
+        return v
+    def order_at(i):
+        i = min(max(i, 0), len(yrs) - 1)
+        live = [it for it in items if it["values"][i] is not None]
+        live.sort(key=lambda it: -it["values"][i])
+        return {it["name"]: r for r, it in enumerate(live)}
+    i0 = int(pos); f = pos - i0; r0, r1 = order_at(i0), order_at(i0 + 1)
+    cur = [(it, val(it, pos)) for it in items]
+    vmax = max(v for _, v in cur if v is not None) * 1.02
+    top, rowh, lab_w = sc.get("top", 420), sc.get("row", 98), sc.get("label_w", 360)
+    maxw = W - lab_w - 250
+    ff = f * f * (3 - 2 * f)
+    for it, v in cur:
+        if v is None or it["name"] not in r0 and it["name"] not in r1: continue
+        ra = r0.get(it["name"], r1.get(it["name"])); rb = r1.get(it["name"], ra)
+        r = ra * (1 - ff) + rb * ff
+        y = top + r * rowh; w = max(8, maxw * v / vmax); col = C(it.get("color", "blue"))
+        nm = it.get("label", it["name"])
+        d.text((lab_w, y + rowh * 0.42), nm, font=font(fit_size(nm, 36, lab_w - 20)), fill=INK, anchor="rm")
+        d.rectangle([lab_w + 16, y + 8, lab_w + 16 + w, y + rowh - 12], fill=col)
+        d.text((lab_w + 30 + w, y + rowh * 0.42), fmt(v, sc), font=font(40), fill=INK, anchor="lm",
+               stroke_width=3, stroke_fill=LIGHT)
+    year = yrs[min(int(round(pos)), len(yrs) - 1)]
+    text_c(d, (W - 60, sc.get("year_y", 1540)), str(year), 170, (40, 110, 240), anchor="rm", stroke=6)
+    if sc.get("subtitle"): text_c(d, (60, sc.get("year_y", 1540) + 10), sc["subtitle"], 32, (110, 110, 120), FM, anchor="lm")
+    draw_overlay_pages(img, ctx, sc)
+
+def T_line_race2(img, ctx, sc):
+    d = light_canvas(img)
+    x0, x1 = sc["x0"], sc["x1"]; spy = sc.get("spy", 1.25); lead = sc.get("lead", 0.5)
+    X_now = clamp(x0 + (ctx.t - lead) / spy, x0, x1)
+    L, R, T_, B = 140, W - 250, sc.get("top", 440), sc.get("bottom", 1440)
+    ymin, ymax = sc.get("ymin", 0), sc["ymax"]
+    # x window: whole range (DATA-style shows the full timeline growing)
+    X = lambda x: L + (x - x0) / (x1 - x0) * (R - L); Y = lambda v: B - (v - ymin) / (ymax - ymin) * (B - T_)
+    # big faded year behind
+    yr = int(X_now)
+    d.text(((L + R) / 2, (T_ + B) / 2), str(yr), font=font(300), fill=(225, 221, 210), anchor="mm")
+    for g in sc.get("yticks", []):
+        d.line([(L, Y(g)), (R, Y(g))], fill=(210, 206, 196), width=2)
+        d.text((L - 14, Y(g)), fmt(g, {"suffix": sc.get("suffix", ""), "decimals": 0}), font=font(30), fill=(90, 90, 100), anchor="rm")
+    for xt in range(int(x0), int(x1) + 1, sc.get("xstep", 5)):
+        d.text((X(xt), B + 34), str(xt), font=font(30), fill=(90, 90, 100), anchor="mm")
+    d.line([(L, B), (R, B)], fill=INK, width=3)
+    def series_at(sr, x):
+        xs, ys = sr["xs"], sr["ys"]
+        if x <= xs[0]: return ys[0]
+        for i in range(1, len(xs)):
+            if x <= xs[i]:
+                f = (x - xs[i - 1]) / (xs[i] - xs[i - 1]); return ys[i - 1] + (ys[i] - ys[i - 1]) * f
+        return ys[-1]
+    sh = sc.get("shade")
+    if sh and X_now > x0:
+        A = next(s_ for s_ in sc["series"] if s_["name"] == sh["above"]); Bs = next(s_ for s_ in sc["series"] if s_["name"] == sh["below"])
+        ov = Image.new("RGBA", (W, H), (0, 0, 0, 0)); od = ImageDraw.Draw(ov); step = 0.04; x = max(x0, A["xs"][0], Bs["xs"][0])
+        while x < X_now:
+            a, b = series_at(A, x), series_at(Bs, x)
+            if a > b: od.rectangle([X(x), Y(a), X(x + step) + 1, Y(b)], fill=tuple(sh.get("color", [255, 80, 80, 70])))
+            x += step
+        img.paste(ov, (0, 0), ov); d = ImageDraw.Draw(img)
+    labels = []
+    for sr in sc["series"]:
+        col = C(sr.get("color", "blue")); xs = [x for x in sr["xs"] if x <= X_now]
+        if not xs: continue
+        pts = [(X(x), Y(y)) for x, y in zip(sr["xs"], sr["ys"]) if x <= X_now]
+        pts.append((X(X_now), Y(series_at(sr, X_now))))
+        if len(pts) > 1: d.line(pts, fill=col, width=sr.get("width", 9), joint="curve")
+        ex, ey = pts[-1]; d.ellipse([ex - 13, ey - 13, ex + 13, ey + 13], fill=col, outline=LIGHT, width=3)
+        labels.append([ey, sr, col, series_at(sr, X_now)])
+    labels.sort(key=lambda z: z[0])
+    for i in range(1, len(labels)):  # keep end labels apart
+        if labels[i][0] - labels[i - 1][0] < 90: labels[i][0] = labels[i - 1][0] + 90
+    for ly, sr, col, v in labels:
+        ex = X(X_now) + 24
+        d.text((ex, ly - 22), sr["name"], font=font(30), fill=col, anchor="lm", stroke_width=3, stroke_fill=LIGHT)
+        d.text((ex, ly + 18), fmt(v, {"suffix": sc.get("suffix", ""), "decimals": sr.get("decimals", 1)}), font=font(42), fill=INK, anchor="lm", stroke_width=3, stroke_fill=LIGHT)
+    if sh and sh.get("label"):
+        d.rectangle([L + 10, T_ - 70, L + 46, T_ - 40], fill=tuple(sh.get("color", [255, 80, 80, 70])[:3]))
+        d.text((L + 60, T_ - 55), sh["label"], font=font(30), fill=INK, anchor="lm")
+    for ev in sc.get("events", []):  # short callouts that pop as the line passes a date
+        if ev["x"] <= X_now < ev["x"] + ev.get("dur", 3.0) / spy * 1.0:
+            p = clamp((X_now - ev["x"]) * spy / 0.3)
+            ex, ey = X(ev["x"]), Y(ev["y"])
+            bw = max(font(34).getlength(ev["text"]), font(28).getlength(ev.get("sub", ""))) + 40
+            bx = min(max(ex - bw / 2, 30), W - bw - 30); by = ey - 150
+            ov = Image.new("RGBA", (W, H), (0, 0, 0, 0)); od = ImageDraw.Draw(ov)
+            od.rounded_rectangle([bx, by, bx + bw, by + 96], radius=16, fill=(14, 16, 28, int(235 * p)))
+            img.paste(ov, (0, 0), ov); d = ImageDraw.Draw(img)
+            d.line([(ex, by + 96), (ex, ey - 14)], fill=INK, width=3)
+            d.text((bx + bw / 2, by + 32), ev["text"], font=font(34), fill=WHITE, anchor="mm")
+            if ev.get("sub"): d.text((bx + bw / 2, by + 70), ev["sub"], font=font(28, FM), fill=(200, 205, 220), anchor="mm")
+    draw_overlay_pages(img, ctx, sc)
+
 TEMPLATES = {"stack": T_stack, "figures": T_figures, "phone": T_phone, "bars": T_bars, "tags": T_tags,
              "chart": T_chart, "twist": T_twist, "choice": T_choice,
-             "map_race": T_map_race, "bar_race": T_bar_race, "line_race": T_line_race}
+             "map_race": T_map_race, "bar_race": T_bar_race, "line_race": T_line_race,
+             "bar_race2": T_bar_race2, "line_race2": T_line_race2}
 
 # ---------------- pipeline ----------------
 def tts(spec, out):
@@ -675,8 +790,8 @@ def frame(spec, TL, chunks, k, T):
         b = banner if isinstance(banner, dict) else {"text": banner}
         draw_banner(img, b["text"], b.get("highlight"))
     if spec.get("footnote") and (data or sc.get("footnote", False)):
-        fy = 1600 if data else 1530
-        text_c(ImageDraw.Draw(img), (W / 2, fy), spec["footnote"], min(28, fit_size(spec["footnote"], 28, 1000, FM)), GREY, FM)
+        fy = spec.get("footnote_y", 1600) if data else 1530
+        text_c(ImageDraw.Draw(img), (W / 2, fy), spec["footnote"], min(28, fit_size(spec["footnote"], 28, 1000, FM)), (110, 110, 122) if spec.get("light") else GREY, FM)
     draw_captions(img, T, chunks)
     pz = 1.0 if k == 0 else ease(t / 0.25)  # no punch-in on the very first frames
     if pz < 1:
@@ -782,7 +897,9 @@ def main():
     if spec.get("kind") == "data":  # no narration: timeline from scene durations, music only
         TL, t = [], 0.0
         for sc in spec["scenes"]:
-            dur = sc.get("dur") or race_len(sc) + sc.get("tail", 0.0)
+            if sc["type"] == "bar_race2": dur = lin_len(sc, len(sc["years"])) + sc.get("tail", 0.0)
+            elif sc["type"] == "line_race2": dur = sc.get("lead", 0.5) + (sc["x1"] - sc["x0"]) * sc.get("spy", 1.25) + sc.get("tail", 0.0)
+            else: dur = sc.get("dur") or race_len(sc) + sc.get("tail", 0.0)
             TL.append({"start": t, "end": t + dur, "lines": []}); t += dur
         import soundfile as sf
         sf.write(os.path.join(out, "voice.wav"), np.zeros(int(t * SR) + SR // 10, dtype=np.float32), SR)

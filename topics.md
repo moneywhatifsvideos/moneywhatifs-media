@@ -12,4 +12,6 @@
 | 8 | Earn £1 every second (tax bill, £20M lottery beats it) | absurd number | 19 Nov |
 | 9 | £1M now or 1p doubling for 30 days | either/or choice | 20 Nov |
 | 10 | £1,000 on a credit card, minimum payments only (17 years) | debt trap | 21 Nov |
-| D01 | UK house prices by region 2005-2025 (map race; London +127%, Scotland +99%) | data: map race | 24 Nov |
+| D01 | UK house prices by region 2005-2025 (map race) | data: map race | not posted (style too slow) |
+| D02 | Most expensive UK regions for houses 1995-2025 (bar race; London x7) | data: bar race | 24 Nov |
+| D03 | Bank Rate vs CPI inflation 1989-2025 (line race; inflation beat rates in 14 of 37 years) | data: line race | 25 Nov |
