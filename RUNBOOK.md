@@ -56,18 +56,28 @@ Pick What If topics for the free What If slots (data topics are chosen in step 5
 - at least 3 tied to this week's UK news when the scout found good ones;
 - each must have a real twist (something most viewers get wrong).
 
-## 5. Writer: scripts as spec files
+## 5. Writer: scripts as spec files (GLOW STYLE)
 
-Write one spec per video into `~/media/engine/specs/NN_short_name.json`, numbering on from the highest existing number. Follow the format of the existing specs exactly (read two recent ones first, e.g. 09 and 10). Rules:
-- **Voice:** `"voice": "af_heart"` and `"speed": 0.92` (Archie's chosen voice, Nov 2026). The engine polishes the audio automatically.
-- **Title banner:** `"banner": {"text": "<the title without emoji>"}`. The engine keeps it on screen above every scene after the hook (the scene is shrunk to fit under it).
-- **Hook (most important, from analytics):** scene 0 states the full claim on screen in the first frame: key items `"at": 0`, static text (never a counter counting up from £0 in the hook). First voice line is one sentence of at most about 15 words that says the claim itself. Best hook shapes so far: clear either/or, absurd-but-concrete number, relatable trap.
-- 8–9 scenes: hook, relatable setup, first result, mechanism, escalating numbers (DAY/AGE HUD, counters, chart), payoff number, twist, lesson, A/B question.
-- 175–195 spoken words so the video is **63–72 seconds**. Numbers as words in voice lines, digits on screen.
-- Compute every number in Python first; take current facts (prices, rates, tax bands) from sources found this run and name the source in the spec's `footnote`. Footnote "Not financial advice." on anything showing returns or debt.
-- On-screen text: no →, ✈ or emoji (Poppins lacks them). £ × % ≠ = are fine.
-- Templates, fields, moods, icons and chart kinds: see the docstring and TEMPLATES in mwi.py and the existing specs. `chart` series kinds: annuity, linear, decay (negative r = lump-sum growth), points.
-- Also write, per video: YouTube/TikTok **title** (question + one emoji), **description** (hook line, "Comment A or B 👇", footnote, 4–5 hashtags, no #shorts), and 6 tags. Keep these in a `posts.json` in the run folder.
+**All What If videos use the glow style** (Archie's decision, 19 Nov 2026): dark stage, spotlights, glowing faceless figures, gold £ counters, thin outline icons, small pill labels, 1–2 word captions, slow camera push. Never use the old cartoon templates (stack, figures, phone, bars, tags, chart, twist, choice) for new What Ifs.
+
+Write one spec per video into `~/media/engine/specs/GNN_short_name.json`, numbering on from the highest G-number, slug `TheMoneyWhatIfs_GNN_short_name`. **Read two of `engine/specs/G01.json` … `G09.json` first and copy their structure exactly**, and read the docstring and `DRAW` table at the top of `engine/glow.py`.
+
+Spec format:
+- Top level: `"style": "glow"`, `"voice": "af_heart"`, `"speed": 0.92`, `slug`, `title`, `footnote`, `thumbnail` {`scene` (index of a visually strong scene), `lines` [{text, c, size}] — 2–3 short lines; the scene's top-area text is hidden automatically on the thumbnail}.
+- Each scene: `"type": "glow"`, `lines` (voice lines), `els` (elements), optional `spots` [[x, power]] (spotlight cones, power 40–90), `focus` [x, y] (camera push target), `twist` true (ducks music), `footnote` true (shows the footnote on that scene), `dings` [[line, offset]].
+- Elements (`"k"`): `counter` (big £ number; `from`/`to`/`dur` or `keys` [[at, value, dur]], `prefix`, `suffix`, `dec`, `c`, `label`), `caps` (small spaced label), `text` (big bold line), `pill` (white rounded label; `inv` for outline), `fig` (glowing figure; `s`, `c` white/dim/mid/gold, `pose` stand/up/point/shrug, `hat` grad/crown, `ring`, `tag`, `move`), `crowd` (row of figures, `hero` index), `stairs` (figure climbing, `climb` {at, dur}), `cards` (row of outline cards with icons, labels and optional cross/check `mark`), `grid` (boxes that fill with marks over time), `curve` (glowing line chart, `ys` real values, `xlabels`, `fill`, `head`), `bars` (2–3 glowing bars with value labels, `sub`), `icon` (coin, cup, house, card, phone, bag, car, chart, clock, cross, check, question, pound, mattress, pint, bank, arrow_up), `box` (glass panel with 1–2 lines), `coins` (coin rain), `divider`, `line` (dashed floor).
+- Every element takes `at` (and optional `until`): line index, [line, offset] or seconds from scene start. Keep content between x 80–1000 and y 250–1320 (captions sit at y 1420; TikTok covers the bottom and right edge).
+- **Variety:** use at least 7 different element kinds per video and never the same layout twice in a row. Something new should appear every 1–2 seconds.
+
+Script rules:
+- **Hook (most important):** scene 0 shows the claim or the payoff number on the first frame (elements `"at": 0`, counters with `dur` 0). First voice line is one sentence of at most about 15 words.
+- 8–10 scenes: hook, relatable setup, mechanism, escalating numbers, payoff, twist, lesson, closing question.
+- **Closing question, not "Comment A or B":** end with a natural, slightly personal question people want to answer ("How old were you when you started saving?", "Where did your last pay rise go?", "Ever only paid the minimum? No judgement."). Put the same question in the description.
+- **Money truths:** up to 3 of the 7 What If slots per week may be "money truth" scripts: a relatable myth-flip with an identity angle (e.g. "Same salary. One retires rich." G02). Same glow format, one strong statement, illustrative numbers computed in Python with the assumptions in the footnote.
+- 175–195 spoken words so the video is **63–72 seconds**. Numbers as words in voice lines, digits on screen; every on-screen number must match the spoken one.
+- Compute every number in Python first; take current facts from sources found this run and name the source in `footnote`. "Not financial advice." on anything showing returns or debt.
+- On-screen text: no →, ✈ or emoji (Poppins lacks them). £ × % · = are fine.
+- Also write, per video: YouTube/TikTok **title** (question or statement + one emoji), **description** (hook line, the closing question + 👇, footnote, 4–5 hashtags, no #shorts), and 6 tags. Keep these in a `posts.json` in the run folder.
 
 ## 5b. Data videos
 
@@ -99,7 +109,7 @@ For each spec:
 ```bash
 cd ~/media/engine && python3 mwi.py specs/NN_name.json ~/out/NN_name --stills
 ```
-Look at `stills.png` and the thumbnail with Read: fix text overlaps, empty-looking scenes, text running off screen. Confirm the printed duration is **63 s or more**. If it is short, add a line (What If) or increase `tail` (data), and re-render. As a last resort, pad the finished file with an end hold: `ffmpeg -i in.mp4 -vf tpad=stop_mode=clone:stop_duration=PAD -af apad=pad_dur=PAD -c:v libx264 -crf 18 -preset veryfast -pix_fmt yuv420p -r 30 -c:a aac -b:a 192k out.mp4`. Check every final MP4 with ffprobe before publishing; never publish anything under 63 s. Then:
+Look at `stills.png` and the thumbnail with Read: fix text overlaps, empty-looking scenes, text running off screen, captions hidden behind elements, and any scene that looks like the one before it. Glow videos render in about 2 minutes each. Confirm the printed duration is **63 s or more**. If it is short, add a line (What If) or increase `tail` (data), and re-render. As a last resort, pad the finished file with an end hold: `ffmpeg -i in.mp4 -vf tpad=stop_mode=clone:stop_duration=PAD -af apad=pad_dur=PAD -c:v libx264 -crf 18 -preset veryfast -pix_fmt yuv420p -r 30 -c:a aac -b:a 192k out.mp4`. Check every final MP4 with ffprobe before publishing; never publish anything under 63 s. Then:
 ```bash
 python3 mwi.py specs/NN_name.json ~/out/NN_name --reuse-voice
 ffmpeg -v error -y -i ~/out/NN_name/<slug>.mp4 -frames:v 1 -vf scale=270:-1 ~/out/NN_name/first.png
