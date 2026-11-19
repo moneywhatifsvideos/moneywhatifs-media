@@ -32,3 +32,10 @@ One short message (SendUserMessage; PushNotification too if available):
 - the 3 best findings;
 - the ranked recommendations, each one line, with: "Reply 'approve 1, 3' in the chat to adopt any of these."
 - how many new ideas were added to the idea bank.
+
+## 5. When Archie replies (same session, after the report)
+If Archie replies approving recommendations (e.g. "approve 1, 3"):
+1. Mark those items `APPROVED by Archie (date)` in the dated report; mark others `NOT APPROVED` only if he says so.
+2. Changes to topics, titles, hooks, script structure or posting are applied by the next Sunday production run (it follows APPROVED items). Nothing else to do.
+3. Changes that need the engine (visual style, new template, animation) : make them now in `~/media/engine/mwi.py`, keep old specs working, test by rendering one existing spec with `--stills` and one full render, look at the frames, then commit and push. Tell Archie what changed and send the test video.
+4. Commit and push.
