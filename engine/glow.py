@@ -161,6 +161,13 @@ def icon(d, kind, x, y, s=1.0, c=WHITE, w=4):
     elif kind == "mattress":
         d.rounded_rectangle([x - R * 1.4, y - R * 0.35, x + R * 1.4, y + R * 0.35], radius=int(16 * s), outline=c, width=w)
         for k in (-0.7, 0, 0.7): d.line([(x + k * R, y - R * 0.35), (x + k * R, y + R * 0.35)], fill=c, width=max(2, w // 2))
+    elif kind == "pint":
+        d.line([(x - R * 0.55, y - R * 0.8), (x - R * 0.4, y + R * 0.85), (x + R * 0.4, y + R * 0.85), (x + R * 0.55, y - R * 0.8)], fill=c, width=w, joint="curve")
+        d.line([(x - R * 0.5, y - R * 0.45), (x + R * 0.5, y - R * 0.45)], fill=c, width=max(2, w // 2))
+    elif kind == "bank":
+        d.polygon([(x - R, y - R * 0.35), (x, y - R), (x + R, y - R * 0.35)], outline=c, width=w)
+        for k in (-0.6, 0, 0.6): d.line([(x + k * R, y - R * 0.25), (x + k * R, y + R * 0.6)], fill=c, width=w)
+        d.line([(x - R, y + R * 0.8), (x + R, y + R * 0.8)], fill=c, width=w)
     elif kind == "arrow_up":
         d.line([(x, y + R), (x, y - R)], fill=c, width=w); d.line([(x - R * 0.5, y - R * 0.45), (x, y - R), (x + R * 0.5, y - R * 0.45)], fill=c, width=w, joint="curve")
 
@@ -320,7 +327,8 @@ def E_bars(d, ctx, el, a, img):
         if ctx.t < st: continue
         x = x0 + i * (bw + gap); h = hmax * it["value"] / vmax * p; c = col(it.get("c"), GOLD)
         d.rectangle([x, base - h, x + bw, base], fill=scale_c(c, 0.22 * a), outline=scale_c(c, a), width=4)
-        txt(d, (x + bw / 2, base - h - 48), money(it["value"] * p, it.get("prefix", "£")), fit(d, money(it["value"], "£"), 52, bw + 90), scale_c(c, a))
+        vs = money(it["value"] * p, it.get("prefix", "£"), it.get("suffix", ""), it.get("dec", 0))
+        txt(d, (x + bw / 2, base - h - 48), vs, fit(d, money(it["value"], it.get("prefix", "£"), it.get("suffix", ""), it.get("dec", 0)), 52, bw + 90), scale_c(c, a))
         caps(d, (x + bw / 2, base + 40), it["label"], 24, scale_c(WHITE, a), 0.12)
         if it.get("sub"): caps(d, (x + bw / 2, base + 76), it["sub"], 20, scale_c(MID, a), 0.12)
 

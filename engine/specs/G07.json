@@ -1,0 +1,497 @@
+{
+ "slug": "TheMoneyWhatIfs_G07_interest_rates_20",
+ "title": "What If UK Interest Rates Hit 20%? 📈",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Illustration: £245,700 repayment mortgage over 25 years, mortgage rate 5% rising to 21%. Not financial advice.",
+ "thumbnail": {
+  "scene": 2,
+  "lines": [
+   {
+    "text": "UK RATES HIT",
+    "size": 100
+   },
+   {
+    "text": "20%",
+    "c": "red",
+    "size": 170
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "lines": [
+    "What if the Bank of England put interest rates up to twenty percent tomorrow?",
+    "Your mortgage, your savings, your job. Everything changes."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "bank of england rate · tomorrow",
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "from": 20,
+     "to": 20,
+     "dur": 0,
+     "prefix": "",
+     "suffix": "%",
+     "y": 460,
+     "size": 190,
+     "c": "red",
+     "at": 0
+    },
+    {
+     "k": "cards",
+     "y": 860,
+     "at": 1,
+     "items": [
+      {
+       "icon": "house",
+       "label": "mortgage",
+       "at": 1,
+       "lit": true
+      },
+      {
+       "icon": "coin",
+       "label": "savings",
+       "at": [
+        1,
+        0.8
+       ],
+       "lit": true
+      },
+      {
+       "icon": "bag",
+       "label": "your job",
+       "at": [
+        1,
+        1.6
+       ],
+       "lit": true
+      }
+     ]
+    }
+   ],
+   "spots": [
+    [
+     540,
+     70
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Right now, the rate is four percent. Twenty would be five times higher."
+   ],
+   "els": [
+    {
+     "k": "counter",
+     "from": 4,
+     "keys": [
+      [
+       0.2,
+       4,
+       0.1
+      ],
+      [
+       [
+        0,
+        2.6
+       ],
+       20,
+       1.4
+      ]
+     ],
+     "prefix": "",
+     "suffix": "%",
+     "y": 460,
+     "size": 190,
+     "c": "white",
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "5× HIGHER",
+     "y": 640,
+     "size": 100,
+     "c": "red",
+     "at": [
+      0,
+      3.2
+     ]
+    },
+    {
+     "k": "stairs",
+     "n": 5,
+     "x0": 300,
+     "y0": 1250,
+     "w": 100,
+     "h": 80,
+     "at": 0,
+     "climb": {
+      "at": 2.6,
+      "dur": 1.4
+     },
+     "s": 0.6
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Here's what happens to an average mortgage.",
+    "Fourteen hundred and thirty-six pounds a month...",
+    "becomes four thousand, three hundred."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "monthly mortgage payment",
+     "y": 360,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "from": 1436,
+     "keys": [
+      [
+       2,
+       4323,
+       1.6
+      ]
+     ],
+     "y": 470,
+     "size": 160,
+     "c": "white",
+     "at": 1
+    },
+    {
+     "k": "pill",
+     "text": "rate: 5% to 21%",
+     "x": 540,
+     "y": 610,
+     "at": 2
+    },
+    {
+     "k": "icon",
+     "kind": "house",
+     "x": 540,
+     "y": 900,
+     "s": 2.6,
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1250,
+     "s": 0.8,
+     "c": "mid",
+     "pose": "shrug",
+     "at": 2
+    }
+   ],
+   "footnote": true
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Over the whole mortgage, you'd pay back one point three million pounds.",
+    "For a house worth less than three hundred thousand."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "total paid back",
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "bars",
+     "y": 1150,
+     "h": 560,
+     "max": 1297000,
+     "w": 240,
+     "gap": 140,
+     "at": 0,
+     "items": [
+      {
+       "label": "at 5%",
+       "value": 430900,
+       "c": "green",
+       "at": 0.2
+      },
+      {
+       "label": "at 21%",
+       "value": 1297000,
+       "c": "red",
+       "at": 1.0,
+       "dur": 2.0
+      }
+     ]
+    }
+   ],
+   "footnote": true
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "But savers would love it. Ten thousand pounds in the bank would earn two thousand a year, not four hundred.",
+    "Just for leaving it there, and doing absolutely nothing."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "£10,000 saved · interest a year",
+     "y": 360,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "from": 400,
+     "keys": [
+      [
+       [
+        0,
+        2.6
+       ],
+       2000,
+       1.6
+      ]
+     ],
+     "y": 470,
+     "size": 160,
+     "c": "green",
+     "at": 0
+    },
+    {
+     "k": "coins",
+     "x": 540,
+     "y0": 600,
+     "y1": 1150,
+     "n": 14,
+     "dur": 3.0,
+     "at": [
+      0,
+      2.6
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1180,
+     "s": 1.0,
+     "pose": "up",
+     "ring": true,
+     "tag": "saver",
+     "at": 0
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "The rest of the economy wouldn't. Businesses stop borrowing. House prices fall. People lose their jobs.",
+    "But prices would stop rising. Inflation would be crushed."
+   ],
+   "els": [
+    {
+     "k": "cards",
+     "y": 560,
+     "w": 180,
+     "gap": 30,
+     "at": 0,
+     "items": [
+      {
+       "icon": "bank",
+       "label": "borrowing",
+       "at": [
+        0,
+        1.8
+       ],
+       "mark": {
+        "kind": "cross",
+        "at": [
+         0,
+         2.1
+        ]
+       }
+      },
+      {
+       "icon": "house",
+       "label": "house prices",
+       "at": [
+        0,
+        3.0
+       ],
+       "mark": {
+        "kind": "cross",
+        "at": [
+         0,
+         3.3
+        ]
+       }
+      },
+      {
+       "icon": "bag",
+       "label": "jobs",
+       "at": [
+        0,
+        4.0
+       ],
+       "mark": {
+        "kind": "cross",
+        "at": [
+         0,
+         4.3
+        ]
+       }
+      },
+      {
+       "icon": "cup",
+       "label": "inflation",
+       "at": 1,
+       "lit": true,
+       "mark": {
+        "kind": "check",
+        "at": [
+         1,
+         1.5
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "k": "crowd",
+     "n": 6,
+     "y": 1180,
+     "x0": 140,
+     "x1": 940,
+     "s": 0.7,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "And here's the twist. It's happened before.",
+    "In nineteen seventy-nine, rates hit seventeen percent. Your grandparents probably remember it."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "1979",
+     "y": 330,
+     "size": 34,
+     "at": 1
+    },
+    {
+     "k": "counter",
+     "from": 0,
+     "keys": [
+      [
+       1,
+       17,
+       1.4
+      ]
+     ],
+     "prefix": "",
+     "suffix": "%",
+     "y": 460,
+     "size": 190,
+     "c": "red",
+     "at": 1
+    },
+    {
+     "k": "crowd",
+     "n": 3,
+     "y": 1150,
+     "x0": 330,
+     "x1": 750,
+     "s": 0.95,
+     "hero": 1,
+     "at": 0.3
+    },
+    {
+     "k": "line",
+     "y": 1170,
+     "at": 0
+    }
+   ],
+   "twist": true,
+   "spots": [
+    [
+     540,
+     60
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "So, would twenty percent rates help you or hurt you?",
+    "Are you a saver, or a borrower?",
+    "Tell me in the comments, and tell me why."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "SAVER",
+     "x": 300,
+     "y": 560,
+     "size": 90,
+     "c": "green",
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "OR",
+     "x": 540,
+     "y": 560,
+     "size": 50,
+     "c": "mid",
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "BORROWER?",
+     "x": 790,
+     "y": 560,
+     "size": 76,
+     "c": "red",
+     "maxw": 420,
+     "at": 0
+    },
+    {
+     "k": "crowd",
+     "n": 5,
+     "y": 1160,
+     "x0": 180,
+     "x1": 900,
+     "s": 0.75,
+     "hero": 2,
+     "at": 0.3
+    },
+    {
+     "k": "caps",
+     "text": "tell me in the comments",
+     "y": 1270,
+     "at": 1
+    }
+   ]
+  }
+ ]
+}

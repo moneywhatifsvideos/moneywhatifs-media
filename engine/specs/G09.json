@@ -1,0 +1,488 @@
+{
+ "slug": "TheMoneyWhatIfs_G09_britain_bans_cash",
+ "title": "What If Britain Banned Cash Tomorrow? 💳",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Source: UK Finance, UK Payment Markets 2026.",
+ "thumbnail": {
+  "scene": 0,
+  "lines": [
+   {
+    "text": "BRITAIN BANS",
+    "size": 110
+   },
+   {
+    "text": "CASH",
+    "c": "red",
+    "size": 180
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "lines": [
+    "What if, tomorrow, Britain banned cash? No notes. No coins. Ever again.",
+    "Every single penny goes digital."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "tomorrow",
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "CASH IS BANNED",
+     "y": 450,
+     "size": 120,
+     "c": "red",
+     "at": 0
+    },
+    {
+     "k": "icon",
+     "kind": "pound",
+     "x": 540,
+     "y": 820,
+     "s": 3.0,
+     "c": "gold",
+     "at": 0
+    },
+    {
+     "k": "icon",
+     "kind": "cross",
+     "x": 540,
+     "y": 820,
+     "s": 3.6,
+     "c": "red",
+     "lw": 6,
+     "pop": true,
+     "at": 0
+    },
+    {
+     "k": "icon",
+     "kind": "card",
+     "x": 540,
+     "y": 1180,
+     "s": 1.6,
+     "at": 1
+    }
+   ],
+   "spots": [
+    [
+     540,
+     70
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Honestly? Most of us would barely notice.",
+    "In twenty-fifteen, almost half of all payments were cash. Last year, just eight percent."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "payments made in cash",
+     "y": 330,
+     "at": 1
+    },
+    {
+     "k": "bars",
+     "y": 1150,
+     "h": 560,
+     "max": 45,
+     "w": 240,
+     "gap": 140,
+     "at": 1,
+     "items": [
+      {
+       "label": "2015",
+       "value": 45,
+       "prefix": "",
+       "suffix": "%",
+       "c": "white",
+       "at": [
+        1,
+        0.4
+       ]
+      },
+      {
+       "label": "last year",
+       "value": 8,
+       "prefix": "",
+       "suffix": "%",
+       "c": "gold",
+       "at": [
+        1,
+        3.0
+       ]
+      }
+     ]
+    }
+   ],
+   "footnote": true
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "But some people would be in real trouble.",
+    "People who budget with cash, so they can see exactly what's left. And older people who never switched to cards."
+   ],
+   "els": [
+    {
+     "k": "fig",
+     "x": 300,
+     "y": 1080,
+     "s": 1.0,
+     "ring": true,
+     "tag": "cash budgeters",
+     "at": 1
+    },
+    {
+     "k": "fig",
+     "x": 780,
+     "y": 1080,
+     "s": 1.0,
+     "ring": true,
+     "tag": "older people",
+     "at": [
+      1,
+      3.4
+     ]
+    },
+    {
+     "k": "text",
+     "text": "£20 LEFT",
+     "x": 300,
+     "y": 640,
+     "size": 70,
+     "c": "gold",
+     "at": [
+      1,
+      1.4
+     ]
+    },
+    {
+     "k": "icon",
+     "kind": "card",
+     "x": 780,
+     "y": 640,
+     "s": 1.6,
+     "c": "dim",
+     "at": [
+      1,
+      3.4
+     ]
+    },
+    {
+     "k": "line",
+     "y": 1100,
+     "at": 0
+    }
+   ],
+   "spots": [
+    [
+     300,
+     60
+    ],
+    [
+     780,
+     60
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Then there's the outage problem. If the card machines go down, nobody can pay for anything. Not even a loaf of bread.",
+    "It's happened before. In twenty-eighteen, a Visa outage left millions of card payments failing across Britain."
+   ],
+   "els": [
+    {
+     "k": "icon",
+     "kind": "card",
+     "x": 540,
+     "y": 560,
+     "s": 2.6,
+     "at": 0
+    },
+    {
+     "k": "icon",
+     "kind": "cross",
+     "x": 540,
+     "y": 560,
+     "s": 2.6,
+     "c": "red",
+     "lw": 6,
+     "pop": true,
+     "at": [
+      0,
+      2.6
+     ]
+    },
+    {
+     "k": "pill",
+     "text": "2018: visa outage",
+     "x": 540,
+     "y": 800,
+     "at": 1
+    },
+    {
+     "k": "crowd",
+     "n": 6,
+     "y": 1180,
+     "x0": 140,
+     "x1": 940,
+     "s": 0.7,
+     "pose": "shrug",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "And every single thing you buy is recorded.",
+    "Every coffee. Every pint. Every late-night kebab."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "recorded",
+     "y": 360,
+     "at": 0
+    },
+    {
+     "k": "cards",
+     "y": 640,
+     "at": 1,
+     "items": [
+      {
+       "icon": "cup",
+       "label": "coffee",
+       "at": 1,
+       "lit": true,
+       "mark": {
+        "kind": "check",
+        "at": [
+         1,
+         0.3
+        ],
+        "c": "gold"
+       }
+      },
+      {
+       "icon": "pint",
+       "label": "pint",
+       "at": [
+        1,
+        0.9
+       ],
+       "lit": true,
+       "mark": {
+        "kind": "check",
+        "at": [
+         1,
+         1.2
+        ],
+        "c": "gold"
+       }
+      },
+      {
+       "icon": "clock",
+       "label": "late night",
+       "at": [
+        1,
+        1.8
+       ],
+       "lit": true,
+       "mark": {
+        "kind": "check",
+        "at": [
+         1,
+         2.1
+        ],
+        "c": "gold"
+       }
+      }
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1180,
+     "s": 1.0,
+     "c": "mid",
+     "at": 0
+    },
+    {
+     "k": "line",
+     "y": 1200,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "To be fair, there are upsides. No fake notes. No cash-in-hand tax dodging.",
+    "And nothing in your wallet worth stealing."
+   ],
+   "els": [
+    {
+     "k": "pill",
+     "text": "the upsides",
+     "x": 540,
+     "y": 360,
+     "at": 0
+    },
+    {
+     "k": "cards",
+     "y": 660,
+     "at": 0,
+     "items": [
+      {
+       "icon": "pound",
+       "label": "no fake notes",
+       "at": [
+        0,
+        1.6
+       ],
+       "lit": true,
+       "mark": {
+        "kind": "check",
+        "at": [
+         0,
+         1.9
+        ]
+       }
+      },
+      {
+       "icon": "bank",
+       "label": "no tax dodging",
+       "at": [
+        0,
+        2.6
+       ],
+       "lit": true,
+       "mark": {
+        "kind": "check",
+        "at": [
+         0,
+         2.9
+        ]
+       }
+      },
+      {
+       "icon": "bag",
+       "label": "nothing to steal",
+       "at": 1,
+       "lit": true,
+       "mark": {
+        "kind": "check",
+        "at": [
+         1,
+         0.3
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1200,
+     "s": 0.95,
+     "ring": true,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "So here's the twist. Cash isn't really about money. It's about choice.",
+    "The day it's gone, you can't get it back."
+   ],
+   "els": [
+    {
+     "k": "box",
+     "y": 620,
+     "w": 860,
+     "h": 220,
+     "at": 0,
+     "lines": [
+      {
+       "text": "CASH ISN'T ABOUT MONEY.",
+       "size": 54
+      },
+      {
+       "text": "IT'S ABOUT CHOICE.",
+       "c": "gold",
+       "size": 64
+      }
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1200,
+     "s": 1.0,
+     "ring": true,
+     "at": 0.4
+    }
+   ],
+   "twist": true,
+   "spots": [
+    [
+     540,
+     70
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "So, should Britain go cashless?",
+    "Tell me why in the comments."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "SHOULD BRITAIN",
+     "y": 540,
+     "size": 84,
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "GO CASHLESS?",
+     "y": 640,
+     "size": 84,
+     "c": "gold",
+     "at": 0
+    },
+    {
+     "k": "crowd",
+     "n": 5,
+     "y": 1160,
+     "x0": 180,
+     "x1": 900,
+     "s": 0.75,
+     "hero": 2,
+     "at": 0.3
+    },
+    {
+     "k": "caps",
+     "text": "tell me why",
+     "y": 1270,
+     "at": 1
+    }
+   ]
+  }
+ ]
+}

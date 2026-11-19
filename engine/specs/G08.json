@@ -1,0 +1,534 @@
+{
+ "slug": "TheMoneyWhatIfs_G08_million_or_weekly",
+ "title": "£1 Million Now or £1,000 a Week for Life? 🤔",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Assumes 3% inflation. Illustration only. Not financial advice.",
+ "thumbnail": {
+  "scene": 0,
+  "lines": [
+   {
+    "text": "£1M NOW",
+    "c": "gold",
+    "size": 130
+   },
+   {
+    "text": "OR £1K A WEEK",
+    "size": 100
+   },
+   {
+    "text": "FOR LIFE?",
+    "c": "mid",
+    "size": 70
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "lines": [
+    "You win the lottery. You can take one million pounds today...",
+    "or a thousand pounds every week, for the rest of your life."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "you win the lottery",
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "divider",
+     "x": 540,
+     "y0": 420,
+     "y1": 1180,
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "£1,000,000",
+     "x": 300,
+     "y": 520,
+     "size": 80,
+     "c": "gold",
+     "maxw": 430,
+     "at": 0
+    },
+    {
+     "k": "caps",
+     "text": "today",
+     "x": 300,
+     "y": 600,
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "£1,000",
+     "x": 780,
+     "y": 520,
+     "size": 80,
+     "c": "white",
+     "maxw": 430,
+     "at": 0
+    },
+    {
+     "k": "caps",
+     "text": "every week for life",
+     "x": 780,
+     "y": 600,
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 300,
+     "y": 1080,
+     "s": 0.95,
+     "ring": true,
+     "tag": "a",
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 780,
+     "y": 1080,
+     "s": 0.95,
+     "c": "mid",
+     "tag": "b",
+     "at": 0
+    }
+   ],
+   "spots": [
+    [
+     300,
+     70
+    ],
+    [
+     780,
+     50
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Most people pick the weekly money. It feels safe.",
+    "Fifty-two grand a year, forever."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "most people pick",
+     "y": 360,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "from": 0,
+     "to": 52000,
+     "dur": 1.4,
+     "suffix": " a year",
+     "y": 470,
+     "size": 130,
+     "c": "white",
+     "at": 1
+    },
+    {
+     "k": "crowd",
+     "n": 6,
+     "x0": 130,
+     "x1": 950,
+     "y": 1100,
+     "s": 0.72,
+     "pose": "up",
+     "at": 0
+    },
+    {
+     "k": "line",
+     "y": 1120,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "If you're eighteen, and you live to eighty-two...",
+    "that's over three million pounds in total."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "age 18 to 82 · 64 years",
+     "y": 360,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "from": 0,
+     "to": 3328000,
+     "dur": 2.2,
+     "y": 470,
+     "size": 150,
+     "at": 1
+    },
+    {
+     "k": "coins",
+     "x": 540,
+     "y0": 600,
+     "y1": 1150,
+     "n": 16,
+     "dur": 3.0,
+     "at": 1
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1180,
+     "s": 1.0,
+     "pose": "up",
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Easy choice, right? Not quite. There's a hidden thief."
+   ],
+   "els": [
+    {
+     "k": "icon",
+     "kind": "question",
+     "x": 540,
+     "y": 600,
+     "s": 2.4,
+     "pop": true,
+     "at": 0
+    },
+    {
+     "k": "pill",
+     "text": "a hidden thief",
+     "x": 540,
+     "y": 840,
+     "inv": true,
+     "at": [
+      0,
+      1.8
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1180,
+     "s": 1.0,
+     "c": "mid",
+     "pose": "shrug",
+     "at": 0
+    }
+   ],
+   "spots": [
+    [
+     540,
+     50
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Inflation. Your thousand pounds never goes up, but prices do.",
+    "At three percent a year, by forty-two it only buys what five hundred does today.",
+    "By sixty-six? Two hundred and fifty."
+   ],
+   "els": [
+    {
+     "k": "pill",
+     "text": "inflation",
+     "x": 540,
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "caps",
+     "text": "what your £1,000 buys, in today's money",
+     "y": 420,
+     "at": 1
+    },
+    {
+     "k": "counter",
+     "from": 1000,
+     "keys": [
+      [
+       [
+        1,
+        2.6
+       ],
+       500,
+       1.4
+      ],
+      [
+       [
+        2,
+        0.8
+       ],
+       250,
+       1.2
+      ]
+     ],
+     "prefix": "~£",
+     "y": 530,
+     "size": 150,
+     "c": "red",
+     "at": 1
+    },
+    {
+     "k": "caps",
+     "text": "age 42",
+     "y": 640,
+     "at": [
+      1,
+      2.6
+     ],
+     "until": 2
+    },
+    {
+     "k": "caps",
+     "text": "age 66",
+     "y": 640,
+     "at": 2
+    },
+    {
+     "k": "icon",
+     "kind": "bag",
+     "x": 540,
+     "y": 960,
+     "s": 2.2,
+     "at": 0
+    }
+   ],
+   "footnote": true
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Now take the million, and invest it. Take out four percent a year.",
+    "That's forty grand, and it rises with prices. Done right, it can keep paying you for life."
+   ],
+   "els": [
+    {
+     "k": "pill",
+     "text": "invest the £1m",
+     "x": 540,
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "caps",
+     "text": "take out 4% a year",
+     "y": 420,
+     "at": [
+      0,
+      2.4
+     ]
+    },
+    {
+     "k": "counter",
+     "from": 0,
+     "to": 40000,
+     "dur": 1.4,
+     "suffix": " a year",
+     "y": 530,
+     "size": 130,
+     "at": 1
+    },
+    {
+     "k": "icon",
+     "kind": "chart",
+     "x": 540,
+     "y": 860,
+     "s": 2.4,
+     "c": "gold",
+     "pop": true,
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 0.9,
+     "ring": true,
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "By sixty-six, the weekly prize spends like thirteen grand a year.",
+    "The million? Still paying you forty."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "at age 66, a year in today's money",
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "bars",
+     "y": 1150,
+     "h": 560,
+     "max": 40000,
+     "w": 240,
+     "gap": 140,
+     "at": 0,
+     "items": [
+      {
+       "label": "weekly prize",
+       "value": 13000,
+       "c": "white",
+       "at": 0.4
+      },
+      {
+       "label": "the million",
+       "value": 40000,
+       "at": 1,
+       "dur": 1.6
+      }
+     ]
+    }
+   ],
+   "footnote": true
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "But there's a catch. A million in your bank account is very easy to spend.",
+    "The weekly money protects you from yourself."
+   ],
+   "els": [
+    {
+     "k": "box",
+     "y": 600,
+     "w": 860,
+     "h": 200,
+     "at": 0,
+     "lines": [
+      {
+       "text": "£1M IS VERY",
+       "size": 56
+      },
+      {
+       "text": "EASY TO SPEND",
+       "c": "red",
+       "size": 60
+      }
+     ]
+    },
+    {
+     "k": "cards",
+     "y": 940,
+     "w": 180,
+     "gap": 30,
+     "at": [
+      0,
+      2.4
+     ],
+     "items": [
+      {
+       "icon": "car",
+       "label": "",
+       "at": [
+        0,
+        2.4
+       ],
+       "lit": true
+      },
+      {
+       "icon": "house",
+       "label": "",
+       "at": [
+        0,
+        2.8
+       ],
+       "lit": true
+      },
+      {
+       "icon": "bag",
+       "label": "",
+       "at": [
+        0,
+        3.2
+       ],
+       "lit": true
+      }
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1280,
+     "s": 0.75,
+     "pose": "up",
+     "at": 0.4
+    }
+   ],
+   "twist": true
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "So which would you take?",
+    "And be honest... could you trust yourself with a million pounds?",
+    "Tell me in the comments."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "£1M NOW",
+     "x": 300,
+     "y": 560,
+     "size": 80,
+     "c": "gold",
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "OR",
+     "x": 540,
+     "y": 560,
+     "size": 50,
+     "c": "mid",
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "£1K A WEEK",
+     "x": 790,
+     "y": 560,
+     "size": 76,
+     "c": "white",
+     "maxw": 420,
+     "at": 0
+    },
+    {
+     "k": "crowd",
+     "n": 5,
+     "y": 1160,
+     "x0": 180,
+     "x1": 900,
+     "s": 0.75,
+     "hero": 2,
+     "at": 0.3
+    },
+    {
+     "k": "caps",
+     "text": "tell me in the comments",
+     "y": 1270,
+     "at": 1
+    }
+   ]
+  }
+ ]
+}

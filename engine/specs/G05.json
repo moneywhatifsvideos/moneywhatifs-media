@@ -1,0 +1,433 @@
+{
+ "slug": "TheMoneyWhatIfs_G05_credit_card_minimum",
+ "title": "What If You Only Paid the Minimum on £1,000? 💳",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Illustration: 25% APR, minimum payment 3% of balance or £5. Not financial advice.",
+ "thumbnail": {
+  "scene": 3,
+  "lines": [
+   {
+    "text": "£1,000 DEBT",
+    "size": 110
+   },
+   {
+    "text": "17 YEARS",
+    "c": "red",
+    "size": 140
+   },
+   {
+    "text": "TO PAY OFF?",
+    "size": 70
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "lines": [
+    "You put a thousand pounds on a credit card, and only ever pay the minimum."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "on a credit card · minimum payments only",
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "from": 1000,
+     "to": 1000,
+     "dur": 0,
+     "y": 440,
+     "size": 150,
+     "c": "white",
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "17 YEARS TO CLEAR IT",
+     "y": 570,
+     "size": 76,
+     "c": "red",
+     "at": 0
+    },
+    {
+     "k": "icon",
+     "kind": "card",
+     "x": 540,
+     "y": 860,
+     "s": 2.4,
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1200,
+     "s": 0.9,
+     "c": "mid",
+     "pose": "shrug",
+     "at": 0.3
+    }
+   ],
+   "spots": [
+    [
+     540,
+     70
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "The first bill arrives. Minimum payment? Just thirty pounds. Easy."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "minimum payment",
+     "y": 360,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "from": 0,
+     "to": 30,
+     "dec": 2,
+     "dur": 1.0,
+     "y": 470,
+     "size": 150,
+     "at": [
+      0,
+      1.0
+     ]
+    },
+    {
+     "k": "icon",
+     "kind": "phone",
+     "x": 540,
+     "y": 830,
+     "s": 2.6,
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1210,
+     "s": 0.9,
+     "pose": "up",
+     "at": [
+      0,
+      2.6
+     ]
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "But at twenty-five percent interest, nearly nineteen pounds of that is just interest.",
+    "Only eleven pounds actually pays off what you spent."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "your £30 payment",
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "bars",
+     "y": 1150,
+     "h": 560,
+     "max": 18.77,
+     "w": 240,
+     "gap": 140,
+     "at": 0,
+     "items": [
+      {
+       "label": "interest",
+       "value": 18.77,
+       "dec": 2,
+       "c": "red",
+       "at": 0.6
+      },
+      {
+       "label": "pays off debt",
+       "value": 11.23,
+       "dec": 2,
+       "c": "white",
+       "at": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Keep paying just the minimum, and as the balance falls, your payments shrink too...",
+    "so the debt drags on for years. Seventeen years and eight months."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "balance left",
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "curve",
+     "box": [
+      120,
+      480,
+      920,
+      1150
+     ],
+     "ys": [
+      1000,
+      873,
+      763,
+      666,
+      582,
+      508,
+      443,
+      387,
+      338,
+      295,
+      258,
+      225,
+      197,
+      172,
+      148,
+      118,
+      81,
+      35,
+      0
+     ],
+     "max": 1000,
+     "c": "red",
+     "at": 0.2,
+     "dur": 7.0,
+     "head": true,
+     "xlabels": [
+      [
+       0,
+       "YEAR 0"
+      ],
+      [
+       0.2777777777777778,
+       "5"
+      ],
+      [
+       0.5555555555555556,
+       "10"
+      ],
+      [
+       0.8333333333333334,
+       "15"
+      ]
+     ]
+    },
+    {
+     "k": "text",
+     "text": "17 YEARS 8 MONTHS",
+     "y": 1290,
+     "size": 70,
+     "c": "red",
+     "at": [
+      1,
+      0.8
+     ]
+    }
+   ],
+   "footnote": true
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "In total, you'd pay back two thousand four hundred and ninety pounds. For a thousand pounds of stuff.",
+    "That's two and a half times what you spent."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "total paid back",
+     "y": 360,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "from": 0,
+     "to": 2490,
+     "dur": 2.0,
+     "y": 470,
+     "size": 160,
+     "c": "red",
+     "at": 0.3
+    },
+    {
+     "k": "text",
+     "text": "FOR £1,000 OF STUFF",
+     "y": 620,
+     "size": 64,
+     "at": [
+      0,
+      3.0
+     ]
+    },
+    {
+     "k": "icon",
+     "kind": "bag",
+     "x": 540,
+     "y": 920,
+     "s": 2.4,
+     "pop": true,
+     "at": [
+      0,
+      3.0
+     ]
+    },
+    {
+     "k": "pill",
+     "text": "2.5× what you spent",
+     "x": 540,
+     "y": 1180,
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Pay a fixed fifty pounds a month instead... and it's gone in just over two years, for twelve hundred and sixty-six.",
+    "Same debt. Fifteen years quicker, and over twelve hundred pounds cheaper."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "same £1,000 debt",
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "bars",
+     "y": 1150,
+     "h": 560,
+     "max": 2490,
+     "w": 240,
+     "gap": 140,
+     "at": 0,
+     "items": [
+      {
+       "label": "minimum only",
+       "sub": "17y 8m",
+       "value": 2490,
+       "c": "red",
+       "at": 0.2
+      },
+      {
+       "label": "fixed £50",
+       "sub": "2y 2m",
+       "value": 1266,
+       "c": "green",
+       "at": [
+        0,
+        2.2
+       ]
+      }
+     ]
+    }
+   ],
+   "footnote": true
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Here's the twist. Card companies are happy for you to pay slowly.",
+    "A low minimum feels kind. But it keeps you in debt for longer... and that means more interest for the bank."
+   ],
+   "els": [
+    {
+     "k": "icon",
+     "kind": "bank",
+     "x": 540,
+     "y": 600,
+     "s": 2.6,
+     "c": "red",
+     "pop": true,
+     "at": 0
+    },
+    {
+     "k": "box",
+     "y": 900,
+     "w": 860,
+     "h": 200,
+     "at": 1,
+     "lines": [
+      {
+       "text": "LOW MINIMUM =",
+       "size": 54
+      },
+      {
+       "text": "MORE INTEREST FOR THEM",
+       "c": "red",
+       "size": 54
+      }
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1270,
+     "s": 0.8,
+     "c": "dim",
+     "at": 0.5
+    }
+   ],
+   "twist": true
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Be honest. Have you ever only paid the minimum?",
+    "Tell me in the comments. No judgement."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "EVER ONLY PAID",
+     "y": 540,
+     "size": 84,
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "THE MINIMUM?",
+     "y": 640,
+     "size": 84,
+     "c": "gold",
+     "at": 0
+    },
+    {
+     "k": "crowd",
+     "n": 5,
+     "y": 1160,
+     "x0": 180,
+     "x1": 900,
+     "s": 0.75,
+     "hero": 2,
+     "at": 0.3
+    },
+    {
+     "k": "caps",
+     "text": "no judgement",
+     "y": 1270,
+     "at": 1
+    }
+   ]
+  }
+ ]
+}

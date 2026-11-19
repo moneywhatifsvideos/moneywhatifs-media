@@ -1,0 +1,565 @@
+{
+ "slug": "TheMoneyWhatIfs_G03_penny_doubling",
+ "title": "£1 Million Now or 1p That Doubles Every Day? 🪙",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Your balance doubles each day, starting at 1p on day 1.",
+ "thumbnail": {
+  "scene": 5,
+  "lines": [
+   {
+    "text": "£1 MILLION NOW",
+    "size": 100
+   },
+   {
+    "text": "OR 1p DOUBLED?",
+    "c": "gold",
+    "size": 110
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "lines": [
+    "One million pounds now, or one penny that doubles every day for a month?"
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "which would you take?",
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "divider",
+     "x": 540,
+     "y0": 420,
+     "y1": 1180,
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "£1,000,000",
+     "x": 300,
+     "y": 520,
+     "size": 76,
+     "c": "white",
+     "maxw": 430,
+     "at": 0
+    },
+    {
+     "k": "caps",
+     "text": "today",
+     "x": 300,
+     "y": 600,
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "1p",
+     "x": 780,
+     "y": 520,
+     "size": 110,
+     "c": "gold",
+     "at": 0
+    },
+    {
+     "k": "caps",
+     "text": "doubling for 30 days",
+     "x": 780,
+     "y": 600,
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 300,
+     "y": 1080,
+     "s": 0.95,
+     "c": "mid",
+     "tag": "a",
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 780,
+     "y": 1080,
+     "s": 0.95,
+     "ring": true,
+     "tag": "b",
+     "at": 0
+    }
+   ],
+   "spots": [
+    [
+     300,
+     50
+    ],
+    [
+     780,
+     70
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Most people grab the million. A penny doubling sounds like nothing.",
+    "I mean, how much can one penny really grow?"
+   ],
+   "els": [
+    {
+     "k": "pill",
+     "text": "£1m please!",
+     "x": 540,
+     "y": 380,
+     "at": 0
+    },
+    {
+     "k": "crowd",
+     "n": 6,
+     "x0": 130,
+     "x1": 950,
+     "y": 1050,
+     "s": 0.72,
+     "pose": "up",
+     "at": 0
+    },
+    {
+     "k": "icon",
+     "kind": "coin",
+     "x": 540,
+     "y": 700,
+     "s": 0.6,
+     "c": "gold",
+     "pop": true,
+     "label": "1p",
+     "at": 1
+    },
+    {
+     "k": "line",
+     "y": 1070,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Day one. One penny. Day ten. Five pounds twelve.",
+    "Day fifteen. A hundred and sixty-three pounds. Day twenty. Five thousand, two hundred."
+   ],
+   "els": [
+    {
+     "k": "counter",
+     "from": 0.01,
+     "dec": 2,
+     "keys": [
+      [
+       0.1,
+       0.01,
+       0.1
+      ],
+      [
+       [
+        0,
+        1.8
+       ],
+       5.12,
+       1.0
+      ],
+      [
+       1,
+       163.84,
+       1.0
+      ],
+      [
+       [
+        1,
+        2.9
+       ],
+       5242.88,
+       1.2
+      ]
+     ],
+     "y": 430,
+     "size": 150,
+     "at": 0
+    },
+    {
+     "k": "grid",
+     "rows": 5,
+     "cols": 6,
+     "cell": 96,
+     "y": 900,
+     "mark": "check",
+     "mc": "gold",
+     "label": "day",
+     "fill": [
+      [
+       0.1,
+       1,
+       0.1
+      ],
+      [
+       [
+        0,
+        1.8
+       ],
+       10,
+       1.0
+      ],
+      [
+       1,
+       15,
+       1.0
+      ],
+      [
+       [
+        1,
+        2.9
+       ],
+       20,
+       1.2
+      ]
+     ],
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Twenty days in, you're losing badly. The million picker is laughing at you.",
+    "You'd be very tempted to give up."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "day 20",
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 300,
+     "y": 1080,
+     "s": 1.0,
+     "c": "gold",
+     "pose": "up",
+     "tag": "£1,000,000",
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 780,
+     "y": 1080,
+     "s": 1.0,
+     "c": "dim",
+     "pose": "shrug",
+     "tag": "£5,243",
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "£5,243  VS  £1,000,000",
+     "y": 500,
+     "size": 66,
+     "at": 0.3
+    },
+    {
+     "k": "line",
+     "y": 1100,
+     "at": 0
+    }
+   ],
+   "spots": [
+    [
+     300,
+     80
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Then it gets fast. Day twenty-five, a hundred and sixty-seven thousand.",
+    "Day twenty-eight, one point three million. You've overtaken them.",
+    "And it's not even finished yet."
+   ],
+   "els": [
+    {
+     "k": "counter",
+     "from": 5242.88,
+     "keys": [
+      [
+       [
+        0,
+        1.6
+       ],
+       167772.16,
+       1.5
+      ],
+      [
+       1,
+       1342177.28,
+       1.6
+      ]
+     ],
+     "y": 420,
+     "size": 140,
+     "at": 0
+    },
+    {
+     "k": "caps",
+     "text": "day 25",
+     "y": 300,
+     "at": 0,
+     "until": 1
+    },
+    {
+     "k": "caps",
+     "text": "day 28",
+     "y": 300,
+     "at": 1
+    },
+    {
+     "k": "pill",
+     "text": "overtaken",
+     "x": 540,
+     "y": 560,
+     "at": [
+      1,
+      2.6
+     ]
+    },
+    {
+     "k": "stairs",
+     "n": 8,
+     "x0": 150,
+     "y0": 1290,
+     "w": 96,
+     "h": 74,
+     "at": 0,
+     "climb": {
+      "at": 0.3,
+      "dur": 7.0
+     },
+     "s": 0.62
+    }
+   ],
+   "focus": [
+    540,
+    700
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "And on day thirty... five point three six million pounds.",
+    "That's more than five times the million."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "day 30",
+     "y": 330,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "from": 1342177.28,
+     "to": 5368709.12,
+     "dur": 2.0,
+     "dec": 2,
+     "y": 450,
+     "size": 130,
+     "at": 0.4
+    },
+    {
+     "k": "text",
+     "text": "5× THE MILLION",
+     "y": 600,
+     "size": 80,
+     "c": "white",
+     "at": 1
+    },
+    {
+     "k": "coins",
+     "x": 540,
+     "y0": 650,
+     "y1": 1150,
+     "n": 16,
+     "dur": 3.0,
+     "at": 0.4
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1170,
+     "s": 1.05,
+     "ring": true,
+     "pose": "up",
+     "at": 0
+    }
+   ],
+   "spots": [
+    [
+     540,
+     90
+    ]
+   ],
+   "dings": [
+    [
+     0,
+     2.2
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Here's the twist. Half of that money arrived on the very last day.",
+    "Quit on day twenty-five, and you'd have missed out on over five million pounds.",
+    "That's compound growth. It looks like nothing, until it's everything."
+   ],
+   "els": [
+    {
+     "k": "pill",
+     "text": "half arrived on day 30",
+     "x": 540,
+     "y": 380,
+     "at": 0
+    },
+    {
+     "k": "curve",
+     "box": [
+      120,
+      520,
+      920,
+      1200
+     ],
+     "ys": [
+      0.01,
+      0.02,
+      0.04,
+      0.08,
+      0.16,
+      0.32,
+      0.64,
+      1.28,
+      2.56,
+      5.12,
+      10.24,
+      20.48,
+      40.96,
+      81.92,
+      163.84,
+      327.68,
+      655.36,
+      1310.72,
+      2621.44,
+      5242.88,
+      10485.76,
+      20971.52,
+      41943.04,
+      83886.08,
+      167772.16,
+      335544.32,
+      671088.64,
+      1342177.28,
+      2684354.56,
+      5368709.12
+     ],
+     "max": 5400000.0,
+     "at": 0.3,
+     "dur": 5.0,
+     "fill": true,
+     "head": true,
+     "xlabels": [
+      [
+       0,
+       "DAY 1"
+      ],
+      [
+       0.6551724137931034,
+       "20"
+      ],
+      [
+       0.8275862068965517,
+       "25"
+      ],
+      [
+       1,
+       "30"
+      ]
+     ]
+    },
+    {
+     "k": "text",
+     "text": "QUIT ON DAY 25?  MISS £5.2M",
+     "y": 1300,
+     "size": 54,
+     "c": "red",
+     "at": 1
+    }
+   ],
+   "twist": true
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "So be honest. Which would you have picked?",
+    "And would you really have waited thirty days?",
+    "Most people wouldn't. Tell me in the comments."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "£1M NOW",
+     "x": 300,
+     "y": 560,
+     "size": 80,
+     "c": "white",
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "OR",
+     "x": 540,
+     "y": 560,
+     "size": 50,
+     "c": "mid",
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "1p DOUBLED",
+     "x": 790,
+     "y": 560,
+     "size": 76,
+     "c": "gold",
+     "maxw": 420,
+     "at": 0
+    },
+    {
+     "k": "crowd",
+     "n": 5,
+     "y": 1160,
+     "x0": 180,
+     "x1": 900,
+     "s": 0.75,
+     "hero": 2,
+     "at": 0.3
+    },
+    {
+     "k": "caps",
+     "text": "tell me in the comments",
+     "y": 1270,
+     "at": 1
+    }
+   ]
+  }
+ ]
+}
