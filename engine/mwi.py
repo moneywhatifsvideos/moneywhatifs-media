@@ -478,6 +478,34 @@ def draw_banner(img, text, highlight=None):
             d.text((x, y), w, font=f, fill=col, anchor="lm"); x += f.getlength(w) + sp
     return y0 + h
 
+def draw_banner_glow(img, text, highlight=None, label=None):
+    """Glow-style title: small spaced label, big white title with gold highlight words, thin gold rule."""
+    d = ImageDraw.Draw(img); words = text.upper().split(); hl = set((highlight or "").upper().split())
+    sz = 70
+    def lines_for(sz):
+        f = font(sz); lines, cur = [], []
+        for w in words:
+            trial = " ".join(cur + [w])
+            if cur and f.getlength(trial) > 940: lines.append(cur); cur = [w]
+            else: cur.append(w)
+        if cur: lines.append(cur)
+        return lines
+    lines = lines_for(sz)
+    while len(lines) > 2 and sz > 40: sz -= 4; lines = lines_for(sz)
+    f = font(sz); y = 175
+    if label:
+        fl = font(26, FM); s = label.upper(); sp = 6
+        tw = sum(d.textlength(ch, font=fl) for ch in s) + sp * (len(s) - 1); x = W / 2 - tw / 2
+        for ch in s: d.text((x, y), ch, font=fl, fill=(150, 150, 156), anchor="lm"); x += d.textlength(ch, font=fl) + sp
+        y += 46
+    for ln in lines:
+        sp = f.getlength(" "); tw = sum(f.getlength(w) for w in ln) + sp * (len(ln) - 1); x = W / 2 - tw / 2
+        for w in ln:
+            d.text((x, y + sz * 0.55), w, font=f, fill=(226, 184, 96) if w.strip("?,.!:") in {h.strip("?,.!:") for h in hl} else (240, 240, 236), anchor="lm")
+            x += f.getlength(w) + sp
+        y += sz * 1.12
+    d.line([(W / 2 - 70, y + 18), (W / 2 + 70, y + 18)], fill=(226, 184, 96), width=4)
+
 # ---------------- data templates ----------------
 UK = None
 def uk_regions():
@@ -521,15 +549,20 @@ def draw_overlay_pages(img, ctx, sc):
     for pg in after:
         if ctx.t >= pg["at"]: cur = pg
     if not cur: return
-    p = clamp((ctx.t - cur["at"]) / 0.3)
+    p = clamp((ctx.t - cur["at"]) / 0.3); gl = sc.get("glow")
     ov = Image.new("RGBA", (W, H), (0, 0, 0, 0)); od = ImageDraw.Draw(ov)
     ys = cur.get("y", 700); hgt = sum(fit_size(it["text"], it.get("size", 90)) * 1.25 for it in cur["items"]) + 60
-    od.rounded_rectangle([60, ys - 30, W - 60, ys + hgt], radius=30, fill=(8, 10, 24, int(225 * p)))
+    if gl:
+        od.rounded_rectangle([60, ys - 30, W - 60, ys + hgt], radius=26, fill=(6, 6, 8, int(238 * p)), outline=(70, 70, 76, int(255 * p)), width=3)
+    else:
+        od.rounded_rectangle([60, ys - 30, W - 60, ys + hgt], radius=30, fill=(8, 10, 24, int(225 * p)))
     img.paste(ov, (0, 0), ov)
+    GL = {"yellow": (226, 184, 96), "red": (255, 110, 110), "green": (110, 225, 150), "grey": (150, 150, 156), "white": (240, 240, 236)}
     y = ys
     for it in cur["items"]:
-        sz = fit_size(it["text"], it.get("size", 90))
-        pop_text(img, (W / 2, y + sz * 0.62), it["text"], sz, it.get("color", "white"), (ctx.t - cur["at"]) / 0.3, stroke=max(4, sz // 12))
+        sz = fit_size(it["text"], it.get("size", 90)); c = it.get("color", "white")
+        if gl: c = GL.get(c, c)
+        pop_text(img, (W / 2, y + sz * 0.62), it["text"], sz, c, (ctx.t - cur["at"]) / 0.3, stroke=0 if gl else max(4, sz // 12))
         y += sz * 1.25
 
 def T_map_race(img, ctx, sc):
@@ -629,8 +662,13 @@ def T_line_race(img, ctx, sc):
 
 # ---------------- fast "DATA-style" templates (light chart, continuous motion) ----------------
 LIGHT = (246, 244, 238); INK = (20, 22, 34); GRID_L = (226, 223, 214)
-def light_canvas(img, band=370):
+def light_canvas(img, band=370, dark=False):
     d = ImageDraw.Draw(img)
+    if dark:
+        d.rectangle([0, 0, W, H], fill=(0, 0, 0))
+        for x in range(0, W, 60): d.line([(x, 360), (x, H)], fill=(16, 16, 20), width=1)
+        for y in range(360, H, 60): d.line([(0, y), (W, y)], fill=(16, 16, 20), width=1)
+        return d
     d.rectangle([0, 0, W, H], fill=LIGHT)
     for x in range(0, W, 60): d.line([(x, band), (x, H)], fill=GRID_L, width=1)
     for y in range(band, H, 60): d.line([(0, y), (W, y)], fill=GRID_L, width=1)
@@ -643,8 +681,13 @@ def lin_pos(ctx, sc, n):
 
 def lin_len(sc, n): return sc.get("lead", 0.5) + (n - 1) * sc.get("spy", 1.5)
 
+def gcol(c, glow):
+    if not glow: return c
+    g = sum(c) / 3; return tuple(int(min(255, (v * 0.75 + g * 0.25) * 1.1)) for v in c)
+
 def T_bar_race2(img, ctx, sc):
-    d = light_canvas(img)
+    glow = sc.get("glow"); d = light_canvas(img, dark=glow)
+    ink = (236, 234, 228) if glow else INK; bgc = (0, 0, 0) if glow else LIGHT
     yrs = sc["years"]; items = sc["items_data"]; pos = lin_pos(ctx, sc, len(yrs))
     def val(it, p):
         v = interp(it["values"], p)
@@ -664,19 +707,28 @@ def T_bar_race2(img, ctx, sc):
         if v is None or it["name"] not in r0 and it["name"] not in r1: continue
         ra = r0.get(it["name"], r1.get(it["name"])); rb = r1.get(it["name"], ra)
         r = ra * (1 - ff) + rb * ff
-        y = top + r * rowh; w = max(8, maxw * v / vmax); col = C(it.get("color", "blue"))
+        y = top + r * rowh; w = max(8, maxw * v / vmax); col = gcol(C(it.get("color", "blue")), glow)
         nm = it.get("label", it["name"])
-        d.text((lab_w, y + rowh * 0.42), nm, font=font(fit_size(nm, 36, lab_w - 20)), fill=INK, anchor="rm")
-        d.rectangle([lab_w + 16, y + 8, lab_w + 16 + w, y + rowh - 12], fill=col)
-        d.text((lab_w + 30 + w, y + rowh * 0.42), fmt(v, sc), font=font(40), fill=INK, anchor="lm",
-               stroke_width=3, stroke_fill=LIGHT)
+        d.text((lab_w, y + rowh * 0.42), nm, font=font(fit_size(nm, 36, lab_w - 20)), fill=ink, anchor="rm")
+        if glow:
+            d.rectangle([lab_w + 16, y + 10, lab_w + 16 + w, y + rowh - 14], fill=tuple(int(c * 0.30) for c in col), outline=col, width=4)
+        else:
+            d.rectangle([lab_w + 16, y + 8, lab_w + 16 + w, y + rowh - 12], fill=col)
+        lead = glow and r < 0.5
+        d.text((lab_w + 30 + w, y + rowh * 0.42), fmt(v, sc), font=font(40), fill=(226, 184, 96) if lead else ink, anchor="lm",
+               stroke_width=3, stroke_fill=bgc)
     year = yrs[min(int(round(pos)), len(yrs) - 1)]
-    text_c(d, (W - 60, sc.get("year_y", 1540)), str(year), 170, (40, 110, 240), anchor="rm", stroke=6)
-    if sc.get("subtitle"): text_c(d, (60, sc.get("year_y", 1540) + 10), sc["subtitle"], 32, (110, 110, 120), FM, anchor="lm")
+    if glow:
+        d.text((W - 60, sc.get("year_y", 1540)), str(year), font=font(170), fill=(226, 184, 96), anchor="rm")
+    else:
+        text_c(d, (W - 60, sc.get("year_y", 1540)), str(year), 170, (40, 110, 240), anchor="rm", stroke=6)
+    if sc.get("subtitle"): text_c(d, (60, sc.get("year_y", 1540) + 10), sc["subtitle"].upper() if glow else sc["subtitle"], 30 if glow else 32, (130, 130, 138) if glow else (110, 110, 120), FM, anchor="lm")
     draw_overlay_pages(img, ctx, sc)
 
 def T_line_race2(img, ctx, sc):
-    d = light_canvas(img)
+    glow = sc.get("glow"); d = light_canvas(img, dark=glow)
+    ink = (236, 234, 228) if glow else INK; bgc = (0, 0, 0) if glow else LIGHT
+    faint = (24, 24, 28) if glow else (225, 221, 210); gridc = (34, 34, 40) if glow else (210, 206, 196); tick = (130, 130, 138) if glow else (90, 90, 100)
     x0, x1 = sc["x0"], sc["x1"]; spy = sc.get("spy", 1.25); lead = sc.get("lead", 0.5)
     X_now = clamp(x0 + (ctx.t - lead) / spy, x0, x1)
     L, R, T_, B = 140, W - 250, sc.get("top", 440), sc.get("bottom", 1440)
@@ -685,13 +737,13 @@ def T_line_race2(img, ctx, sc):
     X = lambda x: L + (x - x0) / (x1 - x0) * (R - L); Y = lambda v: B - (v - ymin) / (ymax - ymin) * (B - T_)
     # big faded year behind
     yr = int(X_now)
-    d.text(((L + R) / 2, (T_ + B) / 2), str(yr), font=font(300), fill=(225, 221, 210), anchor="mm")
+    d.text(((L + R) / 2, (T_ + B) / 2), str(yr), font=font(300), fill=faint, anchor="mm")
     for g in sc.get("yticks", []):
-        d.line([(L, Y(g)), (R, Y(g))], fill=(210, 206, 196), width=2)
-        d.text((L - 14, Y(g)), fmt(g, {"suffix": sc.get("suffix", ""), "decimals": 0}), font=font(30), fill=(90, 90, 100), anchor="rm")
+        d.line([(L, Y(g)), (R, Y(g))], fill=gridc, width=2)
+        d.text((L - 14, Y(g)), fmt(g, {"suffix": sc.get("suffix", ""), "decimals": 0}), font=font(30), fill=tick, anchor="rm")
     for xt in range(int(x0), int(x1) + 1, sc.get("xstep", 5)):
-        d.text((X(xt), B + 34), str(xt), font=font(30), fill=(90, 90, 100), anchor="mm")
-    d.line([(L, B), (R, B)], fill=INK, width=3)
+        d.text((X(xt), B + 34), str(xt), font=font(30), fill=tick, anchor="mm")
+    d.line([(L, B), (R, B)], fill=(90, 90, 96) if glow else INK, width=3)
     def series_at(sr, x):
         xs, ys = sr["xs"], sr["ys"]
         if x <= xs[0]: return ys[0]
@@ -710,23 +762,23 @@ def T_line_race2(img, ctx, sc):
         img.paste(ov, (0, 0), ov); d = ImageDraw.Draw(img)
     labels = []
     for sr in sc["series"]:
-        col = C(sr.get("color", "blue")); xs = [x for x in sr["xs"] if x <= X_now]
+        col = gcol(C(sr.get("color", "blue")), glow); xs = [x for x in sr["xs"] if x <= X_now]
         if not xs: continue
         pts = [(X(x), Y(y)) for x, y in zip(sr["xs"], sr["ys"]) if x <= X_now]
         pts.append((X(X_now), Y(series_at(sr, X_now))))
         if len(pts) > 1: d.line(pts, fill=col, width=sr.get("width", 9), joint="curve")
-        ex, ey = pts[-1]; d.ellipse([ex - 13, ey - 13, ex + 13, ey + 13], fill=col, outline=LIGHT, width=3)
+        ex, ey = pts[-1]; d.ellipse([ex - 13, ey - 13, ex + 13, ey + 13], fill=col, outline=bgc, width=3)
         labels.append([ey, sr, col, series_at(sr, X_now)])
     labels.sort(key=lambda z: z[0])
     for i in range(1, len(labels)):  # keep end labels apart
         if labels[i][0] - labels[i - 1][0] < 90: labels[i][0] = labels[i - 1][0] + 90
     for ly, sr, col, v in labels:
         ex = X(X_now) + 24
-        d.text((ex, ly - 22), sr["name"], font=font(30), fill=col, anchor="lm", stroke_width=3, stroke_fill=LIGHT)
-        d.text((ex, ly + 18), fmt(v, {"suffix": sc.get("suffix", ""), "decimals": sr.get("decimals", 1)}), font=font(42), fill=INK, anchor="lm", stroke_width=3, stroke_fill=LIGHT)
+        d.text((ex, ly - 22), sr["name"], font=font(30), fill=col, anchor="lm", stroke_width=3, stroke_fill=bgc)
+        d.text((ex, ly + 18), fmt(v, {"suffix": sc.get("suffix", ""), "decimals": sr.get("decimals", 1)}), font=font(42), fill=ink, anchor="lm", stroke_width=3, stroke_fill=bgc)
     if sh and sh.get("label"):
         d.rectangle([L + 10, T_ - 70, L + 46, T_ - 40], fill=tuple(sh.get("color", [255, 80, 80, 70])[:3]))
-        d.text((L + 60, T_ - 55), sh["label"], font=font(30), fill=INK, anchor="lm")
+        d.text((L + 60, T_ - 55), sh["label"], font=font(30), fill=ink, anchor="lm")
     for ev in sc.get("events", []):  # short callouts that pop as the line passes a date
         if ev["x"] <= X_now < ev["x"] + ev.get("dur", 3.0) / spy * 1.0:
             p = clamp((X_now - ev["x"]) * spy / 0.3)
@@ -736,7 +788,7 @@ def T_line_race2(img, ctx, sc):
             ov = Image.new("RGBA", (W, H), (0, 0, 0, 0)); od = ImageDraw.Draw(ov)
             od.rounded_rectangle([bx, by, bx + bw, by + 96], radius=16, fill=(14, 16, 28, int(235 * p)))
             img.paste(ov, (0, 0), ov); d = ImageDraw.Draw(img)
-            d.line([(ex, by + 96), (ex, ey - 14)], fill=INK, width=3)
+            d.line([(ex, by + 96), (ex, ey - 14)], fill=ink, width=3)
             d.text((bx + bw / 2, by + 32), ev["text"], font=font(34), fill=WHITE, anchor="mm")
             if ev.get("sub"): d.text((bx + bw / 2, by + 70), ev["sub"], font=font(28, FM), fill=(200, 205, 220), anchor="mm")
     draw_overlay_pages(img, ctx, sc)
@@ -781,6 +833,8 @@ def frame(spec, TL, chunks, k, T):
     sc = dict(spec["scenes"][k]); sc.update(TL[k]); sc["start"] = 0.0 if k == 0 else TL[k]["start"]
     t = T - sc["start"]; ctx = Ctx(sc, t, instant=(k == 0))
     img = BG.copy()
+    gdata = spec.get("kind") == "data" and spec.get("theme") == "glow"
+    if gdata: sc["glow"] = True
     TEMPLATES[sc["type"]](img, ctx, sc)
     if "hud" in sc: draw_hud(img, ctx, sc["hud"])
     data = spec.get("kind") == "data"
@@ -791,10 +845,16 @@ def frame(spec, TL, chunks, k, T):
         img.paste(sc_img, (int(W * 0.1), 345))
     if banner and (data or k > 0):
         b = banner if isinstance(banner, dict) else {"text": banner}
-        draw_banner(img, b["text"], b.get("highlight"))
+        if gdata: draw_banner_glow(img, b["text"], b.get("highlight"), b.get("label"))
+        else: draw_banner(img, b["text"], b.get("highlight"))
     if spec.get("footnote") and (data or sc.get("footnote", False)):
         fy = spec.get("footnote_y", 1600) if data else 1530
-        text_c(ImageDraw.Draw(img), (W / 2, fy), spec["footnote"], min(28, fit_size(spec["footnote"], 28, 1000, FM)), (110, 110, 122) if spec.get("light") else GREY, FM)
+        text_c(ImageDraw.Draw(img), (W / 2, fy), spec["footnote"], min(28, fit_size(spec["footnote"], 28, 1000, FM)), (110, 110, 122) if spec.get("light") and not gdata else GREY, FM)
+    if gdata:
+        import glow as _g
+        from PIL import ImageChops
+        small = img.resize((W // 4, H // 4), Image.BILINEAR).filter(ImageFilter.GaussianBlur(5)).resize((W, H), Image.BILINEAR)
+        img = ImageChops.add(ImageChops.add(img, _g.background(T)), ImageChops.multiply(small, Image.new("RGB", (W, H), (120, 120, 120))))
     draw_captions(img, T, chunks)
     pz = 1.0 if k == 0 else ease(t / 0.25)  # no punch-in on the very first frames
     if pz < 1:
@@ -893,6 +953,17 @@ def thumbnail(spec, out, slug):
     p = os.path.join(out, f"{slug}_thumbnail.png"); img.save(p); return p
 
 def make_thumb(spec, TL, out, slug):
+    if spec.get("kind") == "data" and spec.get("theme") == "glow":
+        sc0 = spec["scenes"][0]; aft = sc0.get("after", [])
+        T = (aft[0]["at"] - 0.2) if aft else TL[-1]["end"] - 1
+        img = frame(spec, TL, [], 0, T); d = ImageDraw.Draw(img)
+        ov = Image.new("RGBA", (W, H), (0, 0, 0, 0)); ImageDraw.Draw(ov).rectangle([0, 0, W, 515], fill=(4, 4, 6, 245))
+        img.paste(ov, (0, 0), ov); d = ImageDraw.Draw(img); y = 110
+        GL = {"yellow": (226, 184, 96), "red": (255, 110, 110), "green": (110, 225, 150), "white": (240, 240, 236), "grey": (150, 150, 156)}
+        for ln in spec["thumbnail"]["lines"]:
+            sz = fit_size(ln["text"], ln.get("size", 104), 1000)
+            d.text((540, y + sz * 0.6), ln["text"], font=font(sz), fill=GL.get(ln.get("color", "white"), (240, 240, 236)), anchor="mm"); y += sz * 1.12
+        p = os.path.join(out, f"{slug}_thumbnail.png"); img.save(p); return p
     if spec.get("style") == "glow":
         import glow
         return glow.thumbnail(spec, TL, out, slug)

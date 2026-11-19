@@ -14,7 +14,7 @@ import mwi
 from mwi import W, H, font, FB, FM, clamp, ease, back, Ctx
 
 WHITE = (240, 240, 236); DIM = (92, 92, 98); MID = (150, 150, 156)
-GOLD = (255, 196, 72); RED = (255, 86, 86); GREEN = (90, 230, 140)
+GOLD = (226, 184, 96); RED = (255, 86, 86); GREEN = (90, 230, 140)
 CMAP = {"white": WHITE, "dim": DIM, "mid": MID, "gold": GOLD, "red": RED, "green": GREEN}
 def col(c, default=WHITE):
     if c is None: return default
