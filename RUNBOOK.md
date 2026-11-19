@@ -4,8 +4,10 @@ This is the full procedure for the unattended weekly run. Follow it top to botto
 
 Channel: YouTube @TheMoneyWhatIfs and TikTok @themoneywhatifs, both linked to **Metricool brand 8204403** (timezone Europe/London).
 Output: **two videos per day for the next 7 days** (Mon to Sun after the run), posted to YouTube Shorts and TikTok:
-- **10:00 = a "Money Data" video** (animated real UK data: map race, bar race or line race; music only, no voice).
-- **16:00 = a "What If" video** (narrated stick-figure scenario).
+- one **"Money Data" video** (animated real UK data: bar race or line race; music only, no voice), and
+- one **"What If" video** (narrated stick-figure scenario).
+- **Alternating slots (Archie approved 19 Nov 2026):** the two posting times are 10:00 and 16:00. On days with an **even** day-of-month the data video goes at 10:00 and the What If at 16:00; on **odd** days they swap (What If 10:00, data 16:00). This lets the analyst separate "which format works" from "which time works". Do not test other times.
+- **Every video must be at least 63 seconds long** (TikTok Creator Rewards only counts videos over 1 minute; 63 s gives a safety margin).
 This is Archie's standing plan (confirmed 19 Nov 2026): **one data video and one What If video every day**. Do not change the mix yourself; if the analytics strongly favour one format, recommend a change in the report and let Archie decide.
 
 Hard rules:
@@ -32,12 +34,12 @@ export MWI_TTS_DIR=~/kokoro
 
 ## 1. Find the free slots
 
-Metricool `getScheduledPosts` (brandId 8204403, timezone Europe/London) for the 7 days after today. Each day has two slots: 10:00 (data) and 16:00 (What If). A slot is taken if any post is already there. Make one data video per free 10:00 slot and one What If per free 16:00 slot (normally 7 + 7).
+Metricool `getScheduledPosts` (brandId 8204403, timezone Europe/London) for the 7 days after today. Each day has two slots, 10:00 and 16:00, with the format set by the alternating rule above (even day: data 10:00, What If 16:00; odd day: What If 10:00, data 16:00). A slot is taken if any post is already there. Make one video of the right format per free slot (normally 7 + 7).
 
 ## 2. Analyst: what is working
 
 1. Metricool `getAnalyticsDataByMetrics` for the last 28 days, YouTube per-video: `YTVV17` title, `YTVV06` views, `YTVV08` average view duration, `YTVV09` likes, `YTVV11` comments, `YTVV12` shares. For TikTok, call `getAnalyticsAvailableMetrics` with network `tiktok` and connector `posts`, then pull views, likes, comments, shares, average watch time per post.
-2. Rank videos by views and by average view duration as a share of length. Note which topic types (see topics.md) and which hook shapes did best and worst. If there is no data yet, say so and fall back to an even mix.
+2. Rank videos by views and by average view duration as a share of length. Note which topic types (see topics.md) and which hook shapes did best and worst. If there is no data yet, say so and fall back to an even mix. Also compare the four groups data-10:00, data-16:00, What If-10:00, What If-16:00 (median views each) and report which format and which time are ahead; after 3 weeks of alternating, recommend a fixed time if one is clearly better.
 3. Write the findings to `~/media/analytics/YYYY-MM-DD.md` (short: top 3, bottom 3, patterns, what to do more/less of).
 
 ## 3. Trend scout (separate agent)
@@ -48,7 +50,7 @@ Spawn a separate agent (Agent tool) with this brief: find what money and persona
 
 ## 4. Choose the topics
 
-Pick What If topics for the free 16:00 slots (data topics are chosen in step 5b):
+Pick What If topics for the free What If slots (data topics are chosen in step 5b):
 - none already in topics.md (a clearly different angle on a theme is fine);
 - weighted towards the analyst's winning types and hook shapes, but always a mix: savings/compounding, either/or choices, absurd-but-concrete numbers, debt traps, "what if the government/economy…", everyday prices;
 - at least 3 tied to this week's UK news when the scout found good ones;
@@ -61,15 +63,15 @@ Write one spec per video into `~/media/engine/specs/NN_short_name.json`, numberi
 - **Title banner:** `"banner": {"text": "<the title without emoji>"}`. The engine keeps it on screen above every scene after the hook (the scene is shrunk to fit under it).
 - **Hook (most important, from analytics):** scene 0 states the full claim on screen in the first frame: key items `"at": 0`, static text (never a counter counting up from £0 in the hook). First voice line is one sentence of at most about 15 words that says the claim itself. Best hook shapes so far: clear either/or, absurd-but-concrete number, relatable trap.
 - 8–9 scenes: hook, relatable setup, first result, mechanism, escalating numbers (DAY/AGE HUD, counters, chart), payoff number, twist, lesson, A/B question.
-- 165–185 spoken words so the video is **61–70 seconds**. Numbers as words in voice lines, digits on screen.
+- 175–195 spoken words so the video is **63–72 seconds**. Numbers as words in voice lines, digits on screen.
 - Compute every number in Python first; take current facts (prices, rates, tax bands) from sources found this run and name the source in the spec's `footnote`. Footnote "Not financial advice." on anything showing returns or debt.
 - On-screen text: no →, ✈ or emoji (Poppins lacks them). £ × % ≠ = are fine.
 - Templates, fields, moods, icons and chart kinds: see the docstring and TEMPLATES in mwi.py and the existing specs. `chart` series kinds: annuity, linear, decay (negative r = lump-sum growth), points.
 - Also write, per video: YouTube/TikTok **title** (question + one emoji), **description** (hook line, "Comment A or B 👇", footnote, 4–5 hashtags, no #shorts), and 6 tags. Keep these in a `posts.json` in the run folder.
 
-## 5b. Data videos (10:00 slots)
+## 5b. Data videos
 
-For each free 10:00 slot, make one data video spec in `~/media/engine/specs/DNN_short_name.json` (numbering on from the highest D-number). Read `engine/specs/D01_house_prices_by_region.json` first: it is the reference example.
+For each free data slot, make one data video spec in `~/media/engine/specs/DNN_short_name.json` (numbering on from the highest D-number). Read `engine/specs/D01_house_prices_by_region.json` first: it is the reference example.
 
 1. **Pick a data topic** people in the UK care about and will want to compare or argue about in the comments: house prices or rents by region, wages by job or region, what things cost then vs now (bread, pint, petrol, energy bills, train fares, tuition), inflation, interest rates, savings rates, council tax by region, Christmas spending by region, UK vs USA comparisons, wealth or pay gaps by age. Use the trend scout's ideas and this week's news. Not already in topics.md.
 2. **Get the real numbers.** Use WebSearch to find an official source (ONS, HM Land Registry, Bank of England, gov.uk, OBR, HMRC, Ofgem, UK Finance) and read the values with WebFetch (it can read CSV files and tables from URLs found by WebSearch; use its `offset` to page through long files). The shell cannot download from most of these sites. GitHub-hosted datasets are fine. Record every value with its source URL in `~/media/data/DNN_short_name.md`. If you cannot get a complete, sourced dataset, pick another topic.
@@ -80,7 +82,7 @@ For each free 10:00 slot, make one data video spec in `~/media/engine/specs/DNN_
    - `map_race`: UK regions coloured by value, stepping through years (12 region names exactly as in `engine/assets/uk_regions.json`; use `null` for missing, which shows NO DATA). Copy the `labels` block from D01 (in-map labels + callout boxes).
    - `bar_race`: up to 12 bars that re-rank each year: `items_data` [{name, values:[one per year], color}], `show`, `top`, `row`.
    - `line_race`: several lines drawn across years: `series` [{name, values, color}], `ymax`, `ymin`, `yticks`, `xstep`.
-   Common fields: `years` (real data years only), `prefix`/`suffix`/`decimals`/`short`, `lead` 0.5, `tail` (seconds after the race for the `after` overlay pages, about 13), and `after` pages: biggest change, a surprise, then a call to action ("WHAT'S IT LIKE WHERE YOU LIVE?" / "COMMENT YOUR AREA" or a question). Total length 61–70 s: for bar_race2, lead + (years−1)×spy + tail; for line_race2, lead + (x1−x0)×spy + tail. Set `after` page times (`at`) relative to the end of the race.
+   Common fields: `years` (real data years only), `prefix`/`suffix`/`decimals`/`short`, `lead` 0.5, `tail` (seconds after the race for the `after` overlay pages, about 13), and `after` pages: biggest change, a surprise, then a call to action ("WHAT'S IT LIKE WHERE YOU LIVE?" / "COMMENT YOUR AREA" or a question). Total length 63–72 s: for bar_race2, lead + (years−1)×spy + tail; for line_race2, lead + (x1−x0)×spy + tail. Set `after` page times (`at`) relative to the end of the race.
 4. Top level: `"kind": "data"`, `slug` `TheMoneyWhatIfs_DNN_name`, `title`, `banner` {text, highlight}, a short `footnote` naming the source (keep it under about 90 characters), `thumbnail`.
 5. Compute the headline facts for the `after` pages in Python from the same numbers (e.g. % change).
 6. Render the same way as What If videos (step 7). The fast templates render in about 2 minutes each. Check a frame mid-race and the final frame: no label overlaps, nothing cut off.
@@ -97,7 +99,7 @@ For each spec:
 ```bash
 cd ~/media/engine && python3 mwi.py specs/NN_name.json ~/out/NN_name --stills
 ```
-Look at `stills.png` and the thumbnail with Read: fix text overlaps, empty-looking scenes, text running off screen. Confirm the printed duration is 61 s or more (add a line if not). Then:
+Look at `stills.png` and the thumbnail with Read: fix text overlaps, empty-looking scenes, text running off screen. Confirm the printed duration is **63 s or more**. If it is short, add a line (What If) or increase `tail` (data), and re-render. As a last resort, pad the finished file with an end hold: `ffmpeg -i in.mp4 -vf tpad=stop_mode=clone:stop_duration=PAD -af apad=pad_dur=PAD -c:v libx264 -crf 18 -preset veryfast -pix_fmt yuv420p -r 30 -c:a aac -b:a 192k out.mp4`. Check every final MP4 with ffprobe before publishing; never publish anything under 63 s. Then:
 ```bash
 python3 mwi.py specs/NN_name.json ~/out/NN_name --reuse-voice
 ffmpeg -v error -y -i ~/out/NN_name/<slug>.mp4 -frames:v 1 -vf scale=270:-1 ~/out/NN_name/first.png

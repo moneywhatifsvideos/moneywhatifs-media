@@ -39,3 +39,7 @@ If Archie replies approving recommendations (e.g. "approve 1, 3"):
 2. Changes to topics, titles, hooks, script structure or posting are applied by the next Sunday production run (it follows APPROVED items). Nothing else to do.
 3. Changes that need the engine (visual style, new template, animation) : make them now in `~/media/engine/mwi.py`, keep old specs working, test by rendering one existing spec with `--stills` and one full render, look at the frames, then commit and push. Tell Archie what changed and send the test video.
 4. Commit and push.
+
+## Standing decisions (do not re-propose)
+- Posting times: already being tested by alternating data/What If between 10:00 and 16:00 (approved 19 Nov 2026). Don't propose other time tests until the channel has about 1,000 followers.
+- Minimum length: every video is at least 63 seconds (TikTok Creator Rewards needs over 1 minute).
