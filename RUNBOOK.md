@@ -3,12 +3,14 @@
 This is the full procedure for the unattended weekly run. Follow it top to bottom. Archie is not watching: never stop to ask questions. Make sensible decisions, note them in the report, and keep going. Only stop early if something would publish wrong or harmful content.
 
 Channel: YouTube @TheMoneyWhatIfs and TikTok @themoneywhatifs, both linked to **Metricool brand 8204403** (timezone Europe/London).
-Output: **two videos per day for the next 7 days** (Mon to Sun after the run), posted to YouTube Shorts and TikTok:
-- one **"Money Data" video** (animated real UK data: bar race or line race; music only, no voice), and
-- one **"What If" video** (narrated stick-figure scenario).
-- **Alternating slots (Archie approved 19 Nov 2026):** the two posting times are 10:00 and 16:00. On days with an **even** day-of-month the data video goes at 10:00 and the What If at 16:00; on **odd** days they swap (What If 10:00, data 16:00). This lets the analyst separate "which format works" from "which time works". Do not test other times.
+Output: **three videos per day for the next 7 days** (Mon to Sun after the run) for YouTube Shorts and TikTok, **posted by Archie himself** with the platforms' own schedulers (see step 8):
+- one **"Money Data" video** (animated real UK data: bar race or line race; music only, no voice),
+- one **"What If" video** (narrated glow-style scenario), and
+- one **"Trending" video** (glow style, narrated): built on this week's UK money news or a money question/trend that is popular right now (from the trend scout and the research bot). It may be a topical What If, a "money truth" (relatable myth-flip, e.g. G02 "Same salary"), or a short news-driven explainer. It must still be fact-checked and original.
+- **Posting times: 10:00, 16:00 and 19:00 (UK).** The format rotates daily so the analyst can separate format from time: on day-of-month d, with formats in the order [Data, What If, Trending] and slots [10:00, 16:00, 19:00], slot i gets format number (i + d) mod 3. Example: d = 26 → 10:00 What If, 16:00 Trending, 19:00 Data. Videos already in an earlier pack count towards that day's mix; fill only the missing formats in the free slots.
 - **Every video must be at least 63 seconds long** (TikTok Creator Rewards only counts videos over 1 minute; 63 s gives a safety margin).
-This is Archie's standing plan (confirmed 19 Nov 2026): **one data video and one What If video every day**. Do not change the mix yourself; if the analytics strongly favour one format, recommend a change in the report and let Archie decide.
+This is Archie's standing plan (confirmed 20 Nov 2026): **one Data, one What If and one Trending video every day**. Do not change the mix yourself; if the analytics strongly favour one format, recommend a change in the report and let Archie decide. If you cannot make a video that meets the quality bar for a slot, leave the slot empty and say so in the report; never publish a weak video to fill a slot.
+- **Metricool is for analytics only** (free plan: only 20 published posts a month). Never create or update scheduled posts in Metricool.
 
 Hard rules:
 - Never spend Higgsfield credits or any money.
@@ -34,12 +36,12 @@ export MWI_TTS_DIR=~/kokoro
 
 ## 1. Find the free slots
 
-Metricool `getScheduledPosts` (brandId 8204403, timezone Europe/London) for the 7 days after today. Each day has two slots, 10:00 and 16:00, with the format set by the alternating rule above (even day: data 10:00, What If 16:00; odd day: What If 10:00, data 16:00). A slot is taken if any post is already there. Make one video of the right format per free slot (normally 7 + 7).
+The schedule ledger is the posting packs in `~/media/packs/` (one file per week, named by the first date it covers). Read every pack that covers any of the 7 days after today: a slot (date + time) listed in a pack is taken. Each day has three slots, 10:00, 16:00 and 19:00, with formats set by the rotation rule above. Make one video of the right format per free slot (normally 7 + 7 + 7 = 21). Do not use Metricool for this.
 
 ## 2. Analyst: what is working
 
 1. Metricool `getAnalyticsDataByMetrics` for the last 28 days, YouTube per-video: `YTVV17` title, `YTVV06` views, `YTVV08` average view duration, `YTVV09` likes, `YTVV11` comments, `YTVV12` shares. For TikTok, call `getAnalyticsAvailableMetrics` with network `tiktok` and connector `posts`, then pull views, likes, comments, shares, average watch time per post.
-2. Rank videos by views and by average view duration as a share of length. Note which topic types (see topics.md) and which hook shapes did best and worst. If there is no data yet, say so and fall back to an even mix. Also compare the four groups data-10:00, data-16:00, What If-10:00, What If-16:00 (median views each) and report which format and which time are ahead; after 3 weeks of alternating, recommend a fixed time if one is clearly better.
+2. Rank videos by views and by average view duration as a share of length. Note which topic types (see topics.md) and which hook shapes did best and worst. If there is no data yet, say so and fall back to an even mix. (YouTube posts uploaded by Archie still appear in Metricool analytics because the channel is connected.) Also compare the four groups data-10:00, data-16:00, What If-10:00, What If-16:00 (median views each) and report which format and which time are ahead; after 3 weeks of alternating, recommend a fixed time if one is clearly better.
 3. Write the findings to `~/media/analytics/YYYY-MM-DD.md` (short: top 3, bottom 3, patterns, what to do more/less of).
 
 ## 3. Trend scout (separate agent)
@@ -50,7 +52,7 @@ Spawn a separate agent (Agent tool) with this brief: find what money and persona
 
 ## 4. Choose the topics
 
-Pick What If topics for the free What If slots (data topics are chosen in step 5b):
+Pick What If topics for the free What If slots and Trending topics for the free Trending slots (Trending = the scout's freshest items and this week's UK money news; what is being talked about now, not evergreen) (data topics are chosen in step 5b):
 - none already in topics.md (a clearly different angle on a theme is fine);
 - weighted towards the analyst's winning types and hook shapes, but always a mix: savings/compounding, either/or choices, absurd-but-concrete numbers, debt traps, "what if the government/economy…", everyday prices;
 - at least 3 tied to this week's UK news when the scout found good ones;
@@ -73,7 +75,7 @@ Script rules:
 - **Hook (most important):** scene 0 shows the claim or the payoff number on the first frame (elements `"at": 0`, counters with `dur` 0). First voice line is one sentence of at most about 15 words.
 - 8–10 scenes: hook, relatable setup, mechanism, escalating numbers, payoff, twist, lesson, closing question.
 - **Closing question, not "Comment A or B":** end with a natural, slightly personal question people want to answer ("How old were you when you started saving?", "Where did your last pay rise go?", "Ever only paid the minimum? No judgement."). Put the same question in the description.
-- **Money truths:** up to 3 of the 7 What If slots per week may be "money truth" scripts: a relatable myth-flip with an identity angle (e.g. "Same salary. One retires rich." G02). Same glow format, one strong statement, illustrative numbers computed in Python with the assumptions in the footnote.
+- **Money truths:** usually go in Trending slots; up to 2 of the 7 What If slots per week may also be "money truth" scripts: a relatable myth-flip with an identity angle (e.g. "Same salary. One retires rich." G02). Same glow format, one strong statement, illustrative numbers computed in Python with the assumptions in the footnote.
 - 175–195 spoken words so the video is **63–72 seconds**. Numbers as words in voice lines, digits on screen; every on-screen number must match the spoken one.
 - Compute every number in Python first; take current facts from sources found this run and name the source in `footnote`. "Not financial advice." on anything showing returns or debt.
 - On-screen text: no →, ✈ or emoji (Poppins lacks them). £ × % · = are fine.
@@ -116,26 +118,20 @@ ffmpeg -v error -y -i ~/out/NN_name/<slug>.mp4 -frames:v 1 -vf scale=270:-1 ~/ou
 ```
 Check `first.png` shows the hook claim and `check.png` looks right. Re-render anything broken.
 
-## 8. Publish
+## 8. Publish: the posting pack (Archie uploads)
 
-1. Copy each `<slug>.mp4` and `<slug>_thumbnail.png` to the root of `~/media`, `git add`, commit (message "Add videos NN-MM"), and `git -c push.negotiate=true push`. Check each link returns 200: `curl -sS -o /dev/null -w "%{http_code}" https://raw.githubusercontent.com/moneywhatifsvideos/moneywhatifs-media/main/<file>`.
-2. Metricool `createScheduledPost` per video into its slot (blogId 8204403). `info` JSON:
-   - `autoPublish` true, `draft` false, `descendants` [], `firstCommentText` "", `hasNotReadNotes` false, `mediaAltText` [], `shortener` false, `smartLinkData` {"ids": []}
-   - `media`: [raw GitHub MP4 link]; `videoThumbnailUrl`: raw GitHub PNG link
-   - `providers`: [{"network":"youtube"},{"network":"tiktok"}]
-   - `publicationDate`: {"dateTime":"YYYY-MM-DDTHH:MM:00","timezone":"Europe/London"}
-   - `text`: the description
-   - `youtubeData`: {title, type "short", privacy "public", tags, category "EDUCATION", madeForKids false, isAiGeneratedContent false}
-   - `tiktokData`: {disableComment false, disableDuet false, disableStitch false, privacyOption "PUBLIC_TO_EVERYONE", commercialContentThirdParty false, commercialContentOwnBrand false, **title** (required, same as YouTube title), autoAddMusic false, isAigc true}
-   Schedule the first one alone; if it succeeds, do the rest. Keep each `plannerUrl`.
-   **TikTok notify mode (Archie, 20 Nov 2026, until he says otherwise):** TikTok posts made through the API were getting 0 views, so schedule each video as **two separate posts**: (1) YouTube only, `autoPublish` true, as above; (2) TikTok only, same time, `autoPublish` **false** (Metricool sends Archie a phone notification and he finishes the post in the TikTok app), with the same text and tiktokData (isAigc true for What Ifs, false for data videos). Do not use videoThumbnailUrl on the TikTok post. In the report, remind Archie that TikTok posts need him to tap the Metricool notification.
-3. Append the new topics to `topics.md` (with type and date), commit the specs, analytics note and topics.md, push.
+Archie posts everything himself with the native schedulers (YouTube Studio, and TikTok Studio on desktop, which schedules up to 10 days ahead). TikTok gave API-scheduled posts 0 views, and Metricool's free plan only allows 20 published posts a month, so **do not schedule anything in Metricool.**
+
+1. Copy each `<slug>.mp4` and `<slug>_thumbnail.png` to the root of `~/media`, `git add`, commit (message "Add videos for week of YYYY-MM-DD"), and `git -c push.negotiate=true push`. Check each link returns 200: `curl -sS -o /dev/null -w "%{http_code}" https://raw.githubusercontent.com/moneywhatifsvideos/moneywhatifs-media/main/<file>`.
+2. Write the posting pack `~/media/packs/YYYY-MM-DD.md` (date = first day it covers). Copy the layout of the newest existing pack exactly: the upload instructions at the top, a summary table (When, Type, Video link, Platforms, TikTok AI label), then one section per video in time order with: download link (`https://github.com/moneywhatifsvideos/moneywhatifs-media/raw/main/<file>`), thumbnail link, platforms, TikTok AI label (ON for narrated videos, off for data videos), the **Title** in its own code block and the **Caption** (description) in its own code block, so Archie can copy each with one tap.
+3. Append the new topics to `topics.md` (with type and date), commit the pack, specs, analytics note and topics.md, push.
 
 ## 9. Report to Archie
 
 Send one message (SendUserMessage; also PushNotification if available) with:
-- the week's schedule: day, time, title, Metricool planner link;
+- the link to the posting pack (`https://github.com/moneywhatifsvideos/moneywhatifs-media/blob/main/packs/YYYY-MM-DD.md`) and a reminder to upload and schedule the week's videos on YouTube Studio and TikTok Studio (about 40 minutes);
+- the week's schedule: day, time, type, title;
 - analytics highlights: best and worst videos last week and what changed in this batch because of it;
 - trending topics used and the twist added;
 - anything dropped or that went wrong, and anything he needs to do.
-Keep it short and scannable. Remind him he can delete any post in the Metricool planner before it goes out.
+Keep it short and scannable. He can skip any video he doesn't like by simply not uploading it.

@@ -23,7 +23,7 @@ Use WebSearch (standard, then extended where results are thin) and WebFetch on p
    - **What's working out there:** 5–8 bullet findings, each with the example accounts or videos and links.
    - **Recommendations:** 3–5 ranked changes to our style or approach (hooks, titles, visuals, pacing, formats, series, posting), each with why (evidence), expected impact, and effort. Mark each "PROPOSED". Never mark anything approved yourself.
    - **Sources:** links.
-2. `~/media/research/ideas.md`, the rolling idea bank (create if missing). Two sections, **Data video ideas** and **What If ideas**. Add 8–12 new ideas per section per week, each one line: the title/question, the hook, the twist or reveal, why it should work (trend/evidence), and for data ideas the exact official source and years available. Don't duplicate topics.md or existing ideas. Keep at most about 60 open ideas; delete the weakest ones beyond that. Leave ideas marked USED alone.
+2. `~/media/research/ideas.md`, the rolling idea bank (create if missing). Three sections, **Data video ideas**, **What If ideas** and **Trending ideas** (time-sensitive: this week's news, viral money questions, upcoming dates; give each a 'use by' date). Add 8–12 new ideas per section per week (Trending: 7–10, refreshed every week; delete expired ones), each one line: the title/question, the hook, the twist or reveal, why it should work (trend/evidence), and for data ideas the exact official source and years available. Don't duplicate topics.md or existing ideas. Keep at most about 60 open ideas; delete the weakest ones beyond that. Leave ideas marked USED alone.
 3. Commit with message "Weekly research YYYY-MM-DD" and `git -c push.negotiate=true push`.
 
 ## 4. Report to Archie
