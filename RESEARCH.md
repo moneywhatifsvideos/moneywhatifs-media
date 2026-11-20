@@ -41,5 +41,6 @@ If Archie replies approving recommendations (e.g. "approve 1, 3"):
 4. Commit and push.
 
 ## Standing decisions (do not re-propose)
-- Posting times: already being tested by alternating data/What If between 10:00 and 16:00 (approved 19 Nov 2026). Don't propose other time tests until the channel has about 1,000 followers.
+- Posting: 3 videos a day (Data, What If, Trending) at 10:00, 16:00 and 19:00 with formats rotating daily (approved 20 Nov 2026). Archie uploads them himself with YouTube Studio and TikTok Studio from weekly posting packs; Metricool is analytics only. Don't propose other time tests until the channel has about 1,000 followers.
+- TikTok views before 20 Nov 2026 are not meaningful (API-scheduled posts were held back); ignore them.
 - Minimum length: every video is at least 63 seconds (TikTok Creator Rewards needs over 1 minute).
