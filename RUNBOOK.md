@@ -128,6 +128,7 @@ Check `first.png` shows the hook claim and `check.png` looks right. Re-render an
    - `youtubeData`: {title, type "short", privacy "public", tags, category "EDUCATION", madeForKids false, isAiGeneratedContent false}
    - `tiktokData`: {disableComment false, disableDuet false, disableStitch false, privacyOption "PUBLIC_TO_EVERYONE", commercialContentThirdParty false, commercialContentOwnBrand false, **title** (required, same as YouTube title), autoAddMusic false, isAigc true}
    Schedule the first one alone; if it succeeds, do the rest. Keep each `plannerUrl`.
+   **TikTok notify mode (Archie, 20 Nov 2026, until he says otherwise):** TikTok posts made through the API were getting 0 views, so schedule each video as **two separate posts**: (1) YouTube only, `autoPublish` true, as above; (2) TikTok only, same time, `autoPublish` **false** (Metricool sends Archie a phone notification and he finishes the post in the TikTok app), with the same text and tiktokData (isAigc true for What Ifs, false for data videos). Do not use videoThumbnailUrl on the TikTok post. In the report, remind Archie that TikTok posts need him to tap the Metricool notification.
 3. Append the new topics to `topics.md` (with type and date), commit the specs, analytics note and topics.md, push.
 
 ## 9. Report to Archie
