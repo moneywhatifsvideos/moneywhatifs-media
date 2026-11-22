@@ -1,0 +1,568 @@
+{
+ "slug": "TheMoneyWhatIfs_G11_live_on_state_pension",
+ "title": "Could You Live on the State Pension? 👵💷",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Sources: DWP benefit and pension rates 2027/28; Ofgem price cap Oct–Dec 2026; gov.uk National Living Wage 2027.",
+ "thumbnail": {
+  "scene": 4,
+  "lines": [
+   {
+    "text": "COULD YOU LIVE ON",
+    "size": 90
+   },
+   {
+    "text": "£250.70 A WEEK?",
+    "c": "gold",
+    "size": 110
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "lines": [
+    "Two hundred and fifty pounds seventy a week. That's the full new state pension from April."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "full new state pension · april 2027",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 480,
+     "size": 170,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "/wk",
+     "dec": 2,
+     "maxw": 900,
+     "from": 250.7,
+     "to": 250.7,
+     "dur": 0
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1150,
+     "s": 1.05,
+     "pose": "stand",
+     "at": 0,
+     "ring": true
+    },
+    {
+     "k": "line",
+     "y": 1170,
+     "at": 0
+    },
+    {
+     "k": "pill",
+     "text": "could you live on it?",
+     "x": 540,
+     "y": 640,
+     "at": 0,
+     "inv": true,
+     "size": 26
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "It's going up three point nine percent, from two hundred and forty-one pounds thirty."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "2026/27 to 2027/28",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 500,
+     "size": 160,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 2,
+     "maxw": 900,
+     "from": 241.3,
+     "keys": [
+      [
+       0,
+       241.3,
+       0
+      ],
+      [
+       [
+        0,
+        2.6
+       ],
+       250.7,
+       1.4
+      ]
+     ]
+    },
+    {
+     "k": "icon",
+     "kind": "arrow_up",
+     "x": 540,
+     "y": 790,
+     "s": 2.0,
+     "pop": true,
+     "at": [
+      0,
+      2.6
+     ],
+     "c": "gold"
+    },
+    {
+     "k": "pill",
+     "text": "+3.9%",
+     "x": 540,
+     "y": 980,
+     "at": [
+      0,
+      3.0
+     ],
+     "inv": false,
+     "size": 26
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Over a year, that's thirteen thousand and thirty-six pounds. About thirty-five pounds seventy-two a day."
+   ],
+   "els": [
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 450,
+     "size": 150,
+     "at": 0.3,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 13036,
+     "dur": 1.4,
+     "label": "a year"
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 760,
+     "size": 120,
+     "at": [
+      0,
+      3.2
+     ],
+     "prefix": "£",
+     "suffix": "",
+     "dec": 2,
+     "maxw": 900,
+     "from": 0,
+     "to": 35.72,
+     "dur": 1.0,
+     "c": "white",
+     "label": "a day"
+    },
+    {
+     "k": "crowd",
+     "n": 3,
+     "x0": 340,
+     "x1": 740,
+     "y": 1200,
+     "s": 0.75,
+     "hero": 1,
+     "at": 0,
+     "hero_c": "gold"
+    }
+   ],
+   "focus": [
+    540,
+    600
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Now the bills. Energy alone, at today's price cap, costs a typical home about thirty-three pounds a week."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "typical energy bill · oct to dec 2026 cap",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "icon",
+     "kind": "house",
+     "x": 540,
+     "y": 640,
+     "s": 2.4,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 900,
+     "size": 130,
+     "at": [
+      0,
+      2.4
+     ],
+     "prefix": "£",
+     "suffix": "/wk",
+     "dec": 2,
+     "maxw": 900,
+     "from": 0,
+     "to": 33.13,
+     "dur": 1.0
+    },
+    {
+     "k": "line",
+     "y": 1100,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "That leaves two hundred and seventeen pounds fifty-seven for food, rent, council tax, travel, and everything else."
+   ],
+   "els": [
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 420,
+     "size": 140,
+     "at": 0.2,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 2,
+     "maxw": 900,
+     "from": 250.7,
+     "to": 217.57,
+     "dur": 1.4,
+     "c": "white"
+    },
+    {
+     "k": "cards",
+     "y": 760,
+     "w": 190,
+     "gap": 24,
+     "at": 0,
+     "items": [
+      {
+       "icon": "bag",
+       "label": "food",
+       "at": [
+        0,
+        2.4
+       ],
+       "lit": true
+      },
+      {
+       "icon": "house",
+       "label": "rent",
+       "at": [
+        0,
+        2.8
+       ],
+       "lit": true
+      },
+      {
+       "icon": "bank",
+       "label": "council tax",
+       "at": [
+        0,
+        3.2
+       ],
+       "lit": true
+      },
+      {
+       "icon": "car",
+       "label": "travel",
+       "at": [
+        0,
+        3.6
+       ],
+       "lit": true
+      }
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1260,
+     "s": 0.8,
+     "pose": "shrug",
+     "at": 1,
+     "c": "mid"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Compare that with a full-time job on the new minimum wage. Four hundred and ninety-five pounds a week."
+   ],
+   "els": [
+    {
+     "k": "bars",
+     "items": [
+      {
+       "label": "state pension",
+       "value": 250.7,
+       "at": 0.2,
+       "dur": 1.4,
+       "prefix": "£",
+       "suffix": "",
+       "dec": 2,
+       "sub": "per week"
+      },
+      {
+       "label": "minimum wage",
+       "value": 495.38,
+       "at": [
+        0,
+        2.6
+       ],
+       "dur": 1.4,
+       "prefix": "£",
+       "suffix": "",
+       "dec": 2,
+       "c": "white",
+       "sub": "37.5 hrs at £13.21"
+      }
+     ],
+     "y": 1150,
+     "h": 560,
+     "w": 230,
+     "gap": 120,
+     "at": 0
+    },
+    {
+     "k": "caps",
+     "text": "april 2027",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    }
+   ],
+   "spots": [
+    [
+     330,
+     50
+    ],
+    [
+     750,
+     50
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "But here's the catch most people miss. You only get the full amount with thirty-five qualifying years of National Insurance."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "qualifying years needed",
+     "y": 300,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "grid",
+     "rows": 5,
+     "cols": 7,
+     "fill": [
+      [
+       0.4,
+       35,
+       3.2
+      ]
+     ],
+     "y": 700,
+     "cell": 82,
+     "mark": "check",
+     "at": 0,
+     "solid": false,
+     "mc": "gold"
+    },
+    {
+     "k": "text",
+     "text": "35 YEARS",
+     "x": 540,
+     "y": 1080,
+     "size": 90,
+     "at": [
+      0,
+      3.0
+     ],
+     "c": "gold"
+    }
+   ],
+   "spots": [
+    [
+     540,
+     70
+    ]
+   ],
+   "twist": true
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Fewer years means a smaller pension. And the state pension age is rising from sixty-six to sixty-seven, so you wait longer too."
+   ],
+   "els": [
+    {
+     "k": "stairs",
+     "n": 8,
+     "x0": 140,
+     "y0": 1290,
+     "w": 95,
+     "h": 70,
+     "at": 0,
+     "climb": {
+      "at": 0.5,
+      "dur": 4.0
+     },
+     "s": 0.6
+    },
+    {
+     "k": "text",
+     "text": "66 TO 67",
+     "x": 540,
+     "y": 480,
+     "size": 120,
+     "at": 1,
+     "c": "gold"
+    },
+    {
+     "k": "caps",
+     "text": "state pension age",
+     "y": 360,
+     "x": 540,
+     "at": 1,
+     "size": 26
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "The state pension is a floor, not a plan. Workplace pensions, savings, everything above it is up to you."
+   ],
+   "els": [
+    {
+     "k": "box",
+     "lines": [
+      {
+       "text": "A FLOOR,",
+       "size": 58
+      },
+      {
+       "text": "NOT A PLAN.",
+       "size": 58,
+       "c": "gold"
+      }
+     ],
+     "y": 600,
+     "w": 760,
+     "h": 240,
+     "at": 0
+    },
+    {
+     "k": "crowd",
+     "n": 5,
+     "x0": 200,
+     "x1": 880,
+     "y": 1200,
+     "s": 0.7,
+     "hero": 2,
+     "at": 0,
+     "hero_c": "gold"
+    },
+    {
+     "k": "line",
+     "y": 1220,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "So, honestly. Could you live on two hundred and fifty pounds seventy a week? Tell me why, or why not."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "£250.70",
+     "x": 540,
+     "y": 560,
+     "size": 150,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "caps",
+     "text": "could you live on it?",
+     "y": 720,
+     "x": 540,
+     "at": 0.5,
+     "size": 26
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 1.0,
+     "pose": "point",
+     "at": 0,
+     "ring": true
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ],
+   "footnote": true
+  }
+ ]
+}

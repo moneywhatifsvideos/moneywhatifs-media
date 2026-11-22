@@ -1,0 +1,572 @@
+{
+ "slug": "TheMoneyWhatIfs_G13_christmas_647",
+ "title": "Christmas Isn't Expensive. December Is 🎄💷",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Sources: IPA Christmas consumer survey 2026 (average expected spend £647, gifts 58%); Lloyds Bank, 13 Nov 2026.",
+ "thumbnail": {
+  "scene": 6,
+  "lines": [
+   {
+    "text": "£647 CHRISTMAS?",
+    "size": 100
+   },
+   {
+    "text": "OR £12.44 A WEEK",
+    "c": "gold",
+    "size": 96
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "lines": [
+    "Christmas isn't expensive. It's just the month you pay for all of it at once."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "average expected christmas spend",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 490,
+     "size": 180,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 647,
+     "to": 647,
+     "dur": 0
+    },
+    {
+     "k": "text",
+     "text": "ALL AT ONCE.",
+     "x": 540,
+     "y": 700,
+     "size": 70,
+     "at": [
+      0,
+      2.4
+     ],
+     "c": "red"
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1150,
+     "s": 1.05,
+     "pose": "shrug",
+     "at": 0,
+     "ring": true
+    },
+    {
+     "k": "line",
+     "y": 1170,
+     "at": 0
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "The average person in the UK expects to spend six hundred and forty-seven pounds on Christmas this year."
+   ],
+   "els": [
+    {
+     "k": "crowd",
+     "n": 7,
+     "x0": 150,
+     "x1": 930,
+     "y": 1180,
+     "s": 0.62,
+     "hero": 3,
+     "at": 0,
+     "hero_c": "gold"
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 500,
+     "size": 150,
+     "at": 0.6,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 647,
+     "dur": 1.6
+    },
+    {
+     "k": "caps",
+     "text": "ipa survey 2026",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    }
+   ],
+   "focus": [
+    540,
+    700
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Gifts are fifty-eight percent of that. Then food and drink, travel, and all the extras nobody budgets for. Wrapping paper, the work secret Santa, the last-minute panic buy."
+   ],
+   "els": [
+    {
+     "k": "pill",
+     "text": "gifts: 58%",
+     "x": 540,
+     "y": 300,
+     "at": 0,
+     "inv": false,
+     "size": 26
+    },
+    {
+     "k": "cards",
+     "y": 640,
+     "w": 190,
+     "gap": 24,
+     "at": 0,
+     "items": [
+      {
+       "icon": "bag",
+       "label": "gifts",
+       "at": 0.2,
+       "lit": true
+      },
+      {
+       "icon": "cup",
+       "label": "food & drink",
+       "at": [
+        0,
+        2.6
+       ],
+       "lit": true
+      },
+      {
+       "icon": "car",
+       "label": "travel",
+       "at": [
+        0,
+        3.4
+       ],
+       "lit": true
+      },
+      {
+       "icon": "question",
+       "label": "extras",
+       "at": [
+        0,
+        4.0
+       ],
+       "lit": true
+      }
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1230,
+     "s": 0.9,
+     "pose": "stand",
+     "at": 1,
+     "c": "mid"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Half of us plan to spend over two hundred and fifty pounds. More than one in four, over five hundred."
+   ],
+   "els": [
+    {
+     "k": "bars",
+     "items": [
+      {
+       "label": "over £250",
+       "value": 51,
+       "at": 0.3,
+       "dur": 1.4,
+       "prefix": "",
+       "suffix": "%",
+       "dec": 0,
+       "sub": "plan to spend"
+      },
+      {
+       "label": "over £500",
+       "value": 28,
+       "at": [
+        0,
+        2.8
+       ],
+       "dur": 1.4,
+       "prefix": "",
+       "suffix": "%",
+       "dec": 0,
+       "c": "white",
+       "sub": "plan to spend"
+      }
+     ],
+     "y": 1150,
+     "h": 560,
+     "w": 230,
+     "gap": 120,
+     "at": 0,
+     "max": 60
+    },
+    {
+     "k": "caps",
+     "text": "lloyds bank, nov 2026",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    }
+   ],
+   "spots": [
+    [
+     330,
+     50
+    ],
+    [
+     750,
+     50
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "But only about three in ten have been saving for it every month."
+   ],
+   "els": [
+    {
+     "k": "grid",
+     "rows": 2,
+     "cols": 5,
+     "fill": [
+      [
+       0.5,
+       3,
+       1.5
+      ]
+     ],
+     "y": 700,
+     "cell": 120,
+     "mark": "check",
+     "at": 0,
+     "solid": false,
+     "label": "saving monthly: 31%",
+     "mc": "gold"
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 0.9,
+     "pose": "shrug",
+     "at": 0,
+     "c": "dim"
+    },
+    {
+     "k": "line",
+     "y": 1240,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "For many people, it lands in one go. Out of December's pay, or on a card, right before the longest, emptiest month of the year."
+   ],
+   "els": [
+    {
+     "k": "icon",
+     "kind": "card",
+     "x": 540,
+     "y": 560,
+     "s": 2.8,
+     "pop": true,
+     "at": 0,
+     "c": "red"
+    },
+    {
+     "k": "text",
+     "text": "ONE BIG HIT",
+     "x": 540,
+     "y": 820,
+     "size": 80,
+     "at": [
+      0,
+      1.5
+     ]
+    },
+    {
+     "k": "text",
+     "text": "THEN JANUARY.",
+     "x": 540,
+     "y": 920,
+     "size": 60,
+     "at": 1,
+     "c": "mid"
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1250,
+     "s": 0.8,
+     "pose": "stand",
+     "at": 0,
+     "c": "dim"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Now split that six hundred and forty-seven pounds across fifty-two weeks. It's twelve pounds forty-four a week."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "£647 ÷ 52 weeks",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 520,
+     "size": 180,
+     "at": [
+      0,
+      2.6
+     ],
+     "prefix": "£",
+     "suffix": "/wk",
+     "dec": 2,
+     "maxw": 900,
+     "from": 647,
+     "to": 12.44,
+     "dur": 1.8
+    },
+    {
+     "k": "coins",
+     "at": [
+      0,
+      2.6
+     ],
+     "n": 12,
+     "dur": 2.0,
+     "y0": 650,
+     "y1": 1150
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ],
+   "twist": true,
+   "dings": [
+    [
+     1,
+     0.2
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Same Christmas. Same presents. The only difference is when you pay."
+   ],
+   "els": [
+    {
+     "k": "divider",
+     "x": 540,
+     "y0": 450,
+     "y1": 1000,
+     "at": 0
+    },
+    {
+     "k": "caps",
+     "text": "same christmas",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "text",
+     "text": "ALL IN",
+     "x": 300,
+     "y": 600,
+     "size": 64,
+     "at": 0,
+     "c": "red"
+    },
+    {
+     "k": "text",
+     "text": "DECEMBER",
+     "x": 300,
+     "y": 680,
+     "size": 64,
+     "at": 0,
+     "c": "red"
+    },
+    {
+     "k": "text",
+     "text": "£12.44",
+     "x": 780,
+     "y": 600,
+     "size": 70,
+     "at": [
+      0,
+      1.6
+     ],
+     "c": "gold"
+    },
+    {
+     "k": "text",
+     "text": "A WEEK",
+     "x": 780,
+     "y": 680,
+     "size": 56,
+     "at": [
+      0,
+      1.6
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 300,
+     "y": 1150,
+     "s": 0.9,
+     "pose": "shrug",
+     "at": 0,
+     "c": "dim"
+    },
+    {
+     "k": "fig",
+     "x": 780,
+     "y": 1150,
+     "s": 0.9,
+     "pose": "up",
+     "at": [
+      0,
+      1.6
+     ],
+     "ring": true
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Christmas doesn't cost less when you're ready for it. It just stops hurting in January."
+   ],
+   "els": [
+    {
+     "k": "box",
+     "lines": [
+      {
+       "text": "IT DOESN'T COST LESS.",
+       "size": 58
+      },
+      {
+       "text": "IT JUST STOPS HURTING.",
+       "size": 58,
+       "c": "gold"
+      }
+     ],
+     "y": 600,
+     "w": 900,
+     "h": 240,
+     "at": 0
+    },
+    {
+     "k": "stairs",
+     "n": 7,
+     "x0": 200,
+     "y0": 1300,
+     "w": 100,
+     "h": 60,
+     "at": 0,
+     "climb": {
+      "at": 0.4,
+      "dur": 3.0
+     },
+     "s": 0.6
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Be honest. When do you start saving for Christmas? January, or the week before? No judgement."
+   ],
+   "els": [
+    {
+     "k": "icon",
+     "kind": "question",
+     "x": 540,
+     "y": 600,
+     "s": 2.6,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "caps",
+     "text": "when do you start saving?",
+     "y": 860,
+     "x": 540,
+     "at": 0.6,
+     "size": 26
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 1.0,
+     "pose": "point",
+     "at": 0,
+     "ring": true
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ],
+   "footnote": true
+  }
+ ]
+}

@@ -1,0 +1,572 @@
+{
+ "slug": "TheMoneyWhatIfs_G17_petrol_3_a_litre",
+ "title": "What If Petrol Hit £3 a Litre? ⛽",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Pump price: DESNZ weekly road fuel prices, w/c 16 Nov 2026. Illustration: 40 mpg, 200 miles a week, 46 weeks a year.",
+ "thumbnail": {
+  "scene": 4,
+  "lines": [
+   {
+    "text": "PETROL AT £3?",
+    "size": 110
+   },
+   {
+    "text": "£165 A TANK",
+    "c": "red",
+    "size": 120
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "lines": [
+    "What if petrol hit three pounds a litre? A full tank would cost one hundred and sixty-five pounds."
+   ],
+   "els": [
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 420,
+     "size": 150,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "/litre",
+     "dec": 2,
+     "maxw": 900,
+     "from": 3.0,
+     "to": 3.0,
+     "dur": 0,
+     "c": "white"
+    },
+    {
+     "k": "caps",
+     "text": "a 55 litre tank",
+     "y": 560,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 680,
+     "size": 150,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 165,
+     "to": 165,
+     "dur": 0,
+     "c": "red"
+    },
+    {
+     "k": "icon",
+     "kind": "car",
+     "x": 540,
+     "y": 980,
+     "s": 2.6,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "line",
+     "y": 1150,
+     "at": 0
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Right now, the average litre of petrol in the UK costs about one pound sixty-seven."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "uk average petrol · w/c 16 nov 2026",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 490,
+     "size": 170,
+     "at": 0.3,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 2,
+     "maxw": 900,
+     "from": 0,
+     "to": 1.67,
+     "dur": 1.2
+    },
+    {
+     "k": "crowd",
+     "n": 5,
+     "x0": 220,
+     "x1": 860,
+     "y": 1180,
+     "s": 0.65,
+     "hero": 2,
+     "at": 0
+    },
+    {
+     "k": "line",
+     "y": 1200,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "And fuel is up by a third in a year, so three pounds isn't as crazy as it sounds."
+   ],
+   "els": [
+    {
+     "k": "pill",
+     "text": "motor fuel: +33% in the year to october",
+     "x": 540,
+     "y": 320,
+     "at": 0,
+     "inv": false,
+     "size": 26
+    },
+    {
+     "k": "icon",
+     "kind": "arrow_up",
+     "x": 540,
+     "y": 620,
+     "s": 2.6,
+     "pop": true,
+     "at": 0.4,
+     "c": "red"
+    },
+    {
+     "k": "text",
+     "text": "NOT THAT CRAZY.",
+     "x": 540,
+     "y": 900,
+     "size": 80,
+     "at": [
+      0,
+      2.6
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1250,
+     "s": 0.85,
+     "pose": "shrug",
+     "at": 1,
+     "c": "mid"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Filling a fifty-five litre tank today costs ninety-one pounds eighty-nine."
+   ],
+   "els": [
+    {
+     "k": "cards",
+     "y": 480,
+     "w": 260,
+     "gap": 60,
+     "at": 0,
+     "items": [
+      {
+       "icon": "car",
+       "label": "55 litres",
+       "at": 0.2,
+       "lit": true
+      },
+      {
+       "icon": "pound",
+       "label": "£1.67 a litre",
+       "at": 0.6,
+       "lit": true
+      }
+     ]
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 800,
+     "size": 150,
+     "at": [
+      0,
+      2.2
+     ],
+     "prefix": "£",
+     "suffix": "",
+     "dec": 2,
+     "maxw": 900,
+     "from": 0,
+     "to": 91.89,
+     "dur": 1.2
+    },
+    {
+     "k": "line",
+     "y": 1050,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "At three pounds, that same tank is one hundred and sixty-five pounds. Seventy-three pounds more, every fill."
+   ],
+   "els": [
+    {
+     "k": "bars",
+     "items": [
+      {
+       "label": "today",
+       "value": 91.89,
+       "at": 0.2,
+       "dur": 1.4,
+       "prefix": "£",
+       "suffix": "",
+       "dec": 2,
+       "c": "white"
+      },
+      {
+       "label": "at £3",
+       "value": 165,
+       "at": [
+        0,
+        1.8
+       ],
+       "dur": 1.4,
+       "prefix": "£",
+       "suffix": "",
+       "dec": 0,
+       "c": "red"
+      }
+     ],
+     "y": 1150,
+     "h": 560,
+     "w": 230,
+     "gap": 120,
+     "at": 0,
+     "max": 165
+    },
+    {
+     "k": "caps",
+     "text": "one full tank",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    }
+   ],
+   "spots": [
+    [
+     330,
+     50
+    ],
+    [
+     750,
+     70
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Drive two hundred miles a week, and your yearly fuel bill jumps from one thousand seven hundred and forty-seven pounds to three thousand one hundred and thirty-seven."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "200 miles a week · 40 mpg",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 500,
+     "size": 160,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 1747,
+     "keys": [
+      [
+       0,
+       1747,
+       0
+      ],
+      [
+       [
+        0,
+        4.2
+       ],
+       3137,
+       1.6
+      ]
+     ]
+    },
+    {
+     "k": "stairs",
+     "n": 8,
+     "x0": 140,
+     "y0": 1290,
+     "w": 95,
+     "h": 70,
+     "at": 0,
+     "climb": {
+      "at": 0.5,
+      "dur": 5.0
+     },
+     "s": 0.6
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Here's the twist. Fuel duty is a set amount, fifty-two point nine five pence a litre right now. But VAT is a percentage."
+   ],
+   "els": [
+    {
+     "k": "box",
+     "lines": [
+      {
+       "text": "FUEL DUTY: 52.95p",
+       "size": 56
+      },
+      {
+       "text": "VAT: 1/6 OF THE PUMP PRICE",
+       "size": 56,
+       "c": "gold"
+      }
+     ],
+     "y": 560,
+     "w": 880,
+     "h": 240,
+     "at": 0
+    },
+    {
+     "k": "icon",
+     "kind": "bank",
+     "x": 540,
+     "y": 900,
+     "s": 2.2,
+     "pop": true,
+     "at": [
+      0,
+      3.0
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1260,
+     "s": 0.8,
+     "pose": "stand",
+     "at": 1,
+     "c": "dim"
+    }
+   ],
+   "spots": [
+    [
+     540,
+     70
+    ]
+   ],
+   "twist": true
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "So at three pounds a litre, the VAT you pay jumps from about twenty-eight pence a litre to fifty pence."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "vat in every litre",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 500,
+     "size": 170,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 2,
+     "maxw": 900,
+     "from": 0.28,
+     "keys": [
+      [
+       0,
+       0.28,
+       0
+      ],
+      [
+       [
+        0,
+        3.2
+       ],
+       0.5,
+       1.2
+      ]
+     ]
+    },
+    {
+     "k": "text",
+     "text": "28p",
+     "x": 300,
+     "y": 760,
+     "size": 90,
+     "at": 0,
+     "c": "white"
+    },
+    {
+     "k": "text",
+     "text": "50p",
+     "x": 780,
+     "y": 760,
+     "size": 90,
+     "at": [
+      0,
+      3.2
+     ],
+     "c": "red"
+    },
+    {
+     "k": "divider",
+     "x": 540,
+     "y0": 680,
+     "y1": 840,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "And it's not just drivers. Almost everything in the shops arrives on a lorry, so prices everywhere would feel it."
+   ],
+   "els": [
+    {
+     "k": "cards",
+     "y": 620,
+     "w": 220,
+     "gap": 30,
+     "at": 0,
+     "items": [
+      {
+       "icon": "bag",
+       "label": "food",
+       "at": [
+        0,
+        2.6
+       ],
+       "lit": true
+      },
+      {
+       "icon": "house",
+       "label": "deliveries",
+       "at": [
+        0,
+        3.2
+       ],
+       "lit": true
+      },
+      {
+       "icon": "cup",
+       "label": "takeaways",
+       "at": [
+        0,
+        3.8
+       ],
+       "lit": true
+      }
+     ]
+    },
+    {
+     "k": "crowd",
+     "n": 5,
+     "x0": 220,
+     "x1": 860,
+     "y": 1210,
+     "s": 0.6,
+     "hero": -1,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "So, how much does a full tank cost you right now?"
+   ],
+   "els": [
+    {
+     "k": "icon",
+     "kind": "question",
+     "x": 540,
+     "y": 600,
+     "s": 2.6,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "caps",
+     "text": "what does your tank cost?",
+     "y": 860,
+     "x": 540,
+     "at": 0.6,
+     "size": 26
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 1.0,
+     "pose": "point",
+     "at": 0,
+     "ring": true
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ],
+   "footnote": true
+  }
+ ]
+}

@@ -1,0 +1,537 @@
+{
+ "slug": "TheMoneyWhatIfs_G18_the_42_day_month",
+ "title": "Paid Early for Christmas? Your Money Has to Last 42 Days 📅",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Illustration: £2,000 left after bills; pay on Fri 18 Dec 2026 and Fri 29 Jan 2027.",
+ "thumbnail": {
+  "scene": 6,
+  "lines": [
+   {
+    "text": "THE 42-DAY",
+    "size": 120
+   },
+   {
+    "text": "MONTH",
+    "c": "gold",
+    "size": 140
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "lines": [
+    "Get paid early for Christmas? That money might have to last you forty-two days."
+   ],
+   "els": [
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 480,
+     "size": 200,
+     "at": 0,
+     "prefix": "",
+     "suffix": " DAYS",
+     "dec": 0,
+     "maxw": 900,
+     "from": 42,
+     "to": 42,
+     "dur": 0,
+     "c": "gold"
+    },
+    {
+     "k": "caps",
+     "text": "until your next payday",
+     "y": 620,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "icon",
+     "kind": "clock",
+     "x": 540,
+     "y": 860,
+     "s": 2.4,
+     "pop": true,
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 0.9,
+     "pose": "shrug",
+     "at": 0,
+     "c": "mid"
+    },
+    {
+     "k": "line",
+     "y": 1240,
+     "at": 0
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Lots of employers pay early in December, so you've got the cash before the big day. Presents, food, parties. It feels like plenty."
+   ],
+   "els": [
+    {
+     "k": "cards",
+     "y": 560,
+     "w": 220,
+     "gap": 30,
+     "at": 0,
+     "items": [
+      {
+       "icon": "card",
+       "label": "payday",
+       "at": 0.2,
+       "lit": true
+      },
+      {
+       "icon": "bag",
+       "label": "presents",
+       "at": [
+        0,
+        2.4
+       ],
+       "lit": true
+      },
+      {
+       "icon": "cup",
+       "label": "parties",
+       "at": [
+        0,
+        3.0
+       ],
+       "lit": true
+      }
+     ]
+    },
+    {
+     "k": "crowd",
+     "n": 5,
+     "x0": 220,
+     "x1": 860,
+     "y": 1190,
+     "s": 0.65,
+     "hero": 2,
+     "at": 0,
+     "hero_c": "gold"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Say your pay lands on Friday the eighteenth of December. The next one? Friday the twenty-ninth of January."
+   ],
+   "els": [
+    {
+     "k": "pill",
+     "text": "fri 18 dec",
+     "x": 300,
+     "y": 460,
+     "at": 0,
+     "inv": false,
+     "size": 26
+    },
+    {
+     "k": "pill",
+     "text": "fri 29 jan",
+     "x": 780,
+     "y": 460,
+     "at": [
+      1,
+      0.2
+     ],
+     "inv": false,
+     "size": 26
+    },
+    {
+     "k": "line",
+     "y": 700,
+     "at": 0.5,
+     "arrow": true
+    },
+    {
+     "k": "fig",
+     "x": 200,
+     "y": 1140,
+     "s": 0.85,
+     "pose": "stand",
+     "at": 0,
+     "move": {
+      "at": [
+       1,
+       0.0
+      ],
+      "dur": 3.0,
+      "to": [
+       880,
+       1140
+      ]
+     }
+    },
+    {
+     "k": "line",
+     "y": 1160,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "That's forty-two days. Eleven more than a normal month, and they're the coldest, darkest days of the year."
+   ],
+   "els": [
+    {
+     "k": "grid",
+     "rows": 6,
+     "cols": 7,
+     "fill": [
+      [
+       0.2,
+       42,
+       3.0
+      ]
+     ],
+     "y": 760,
+     "cell": 78,
+     "mark": "cross",
+     "at": 0,
+     "solid": false,
+     "label": "days to cover"
+    },
+    {
+     "k": "text",
+     "text": "42 DAYS",
+     "x": 540,
+     "y": 1220,
+     "size": 80,
+     "at": [
+      0,
+      2.0
+     ],
+     "c": "gold"
+    }
+   ],
+   "focus": [
+    540,
+    760
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Say you've got two thousand pounds left after bills. Over a normal month, that's sixty-four pounds fifty-two a day."
+   ],
+   "els": [
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 420,
+     "size": 130,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 2000,
+     "to": 2000,
+     "dur": 0,
+     "c": "white",
+     "label": "left after bills"
+    },
+    {
+     "k": "caps",
+     "text": "÷ 31 days",
+     "y": 590,
+     "x": 540,
+     "at": [
+      0,
+      3.0
+     ],
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 740,
+     "size": 150,
+     "at": [
+      0,
+      3.6
+     ],
+     "prefix": "£",
+     "suffix": "/day",
+     "dec": 2,
+     "maxw": 900,
+     "from": 0,
+     "to": 64.52,
+     "dur": 1.2
+    },
+    {
+     "k": "icon",
+     "kind": "coin",
+     "x": 540,
+     "y": 1050,
+     "s": 1.8,
+     "pop": true,
+     "at": 1,
+     "c": "gold"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Over forty-two days, it's forty-seven pounds sixty-two a day. Almost seventeen pounds less, every single day."
+   ],
+   "els": [
+    {
+     "k": "bars",
+     "items": [
+      {
+       "label": "31 days",
+       "value": 64.52,
+       "at": 0.2,
+       "dur": 1.4,
+       "prefix": "£",
+       "suffix": "",
+       "dec": 2,
+       "c": "white",
+       "sub": "per day"
+      },
+      {
+       "label": "42 days",
+       "value": 47.62,
+       "at": [
+        0,
+        1.4
+       ],
+       "dur": 1.4,
+       "prefix": "£",
+       "suffix": "",
+       "dec": 2,
+       "sub": "per day"
+      }
+     ],
+     "y": 1150,
+     "h": 560,
+     "w": 230,
+     "gap": 120,
+     "at": 0,
+     "max": 64.52
+    },
+    {
+     "k": "caps",
+     "text": "your daily budget",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    }
+   ],
+   "spots": [
+    [
+     330,
+     50
+    ],
+    [
+     750,
+     60
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Spend at the normal-month pace, and you run out eleven days early. Right when the January bills land."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "11 DAYS SHORT",
+     "x": 540,
+     "y": 460,
+     "size": 110,
+     "at": [
+      0,
+      2.0
+     ],
+     "c": "red"
+    },
+    {
+     "k": "icon",
+     "kind": "card",
+     "x": 540,
+     "y": 760,
+     "s": 2.4,
+     "pop": true,
+     "at": [
+      0,
+      3.0
+     ],
+     "c": "red"
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 0.95,
+     "pose": "shrug",
+     "at": 0,
+     "c": "dim"
+    }
+   ],
+   "spots": [
+    [
+     540,
+     70
+    ]
+   ],
+   "twist": true
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "You're not bad with money. Your month is just longer than your payslip thinks."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "YOU'RE NOT BAD WITH MONEY.",
+     "x": 540,
+     "y": 520,
+     "size": 66,
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "YOUR MONTH IS JUST LONGER.",
+     "x": 540,
+     "y": 620,
+     "size": 66,
+     "at": [
+      0,
+      2.0
+     ],
+     "c": "gold"
+    },
+    {
+     "k": "stairs",
+     "n": 7,
+     "x0": 200,
+     "y0": 1300,
+     "w": 100,
+     "h": 60,
+     "at": 0,
+     "climb": {
+      "at": 0.3,
+      "dur": 3.0
+     },
+     "s": 0.6
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "So do one thing tonight. Divide what you've got left by forty-two, not thirty-one. That's your daily number."
+   ],
+   "els": [
+    {
+     "k": "box",
+     "lines": [
+      {
+       "text": "WHAT'S LEFT ÷ 42",
+       "size": 58
+      },
+      {
+       "text": "= YOUR DAILY NUMBER",
+       "size": 58,
+       "c": "gold"
+      }
+     ],
+     "y": 560,
+     "w": 860,
+     "h": 240,
+     "at": 0
+    },
+    {
+     "k": "icon",
+     "kind": "phone",
+     "x": 540,
+     "y": 900,
+     "s": 2.0,
+     "pop": true,
+     "at": 1
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1250,
+     "s": 0.85,
+     "pose": "up",
+     "at": 1,
+     "ring": true
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "When's your first payday after Christmas? Tell me how long you've got to wait. I'll go first: too long."
+   ],
+   "els": [
+    {
+     "k": "icon",
+     "kind": "question",
+     "x": 540,
+     "y": 600,
+     "s": 2.6,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "caps",
+     "text": "when's your january payday?",
+     "y": 860,
+     "x": 540,
+     "at": 0.6,
+     "size": 26
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 1.0,
+     "pose": "point",
+     "at": 0,
+     "ring": true
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ],
+   "footnote": true
+  }
+ ]
+}

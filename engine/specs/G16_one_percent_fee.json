@@ -1,0 +1,582 @@
+{
+ "slug": "TheMoneyWhatIfs_G16_one_percent_fee",
+ "title": "What If You Paid a 1% Fee for 30 Years? 📉",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Illustration: £10,000, 5% yearly growth before fees, fees taken yearly, 30 years. Not financial advice.",
+ "thumbnail": {
+  "scene": 7,
+  "lines": [
+   {
+    "text": "1% VS 0.25% FEE",
+    "size": 96
+   },
+   {
+    "text": "£8,123 GAP",
+    "c": "red",
+    "size": 120
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "lines": [
+    "A one percent fee sounds tiny. Over thirty years, it can cost you about a quarter of your final pot."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "1% FEE",
+     "x": 540,
+     "y": 420,
+     "size": 130,
+     "at": 0,
+     "c": "white"
+    },
+    {
+     "k": "caps",
+     "text": "of your final pot vs no fees, 30 years",
+     "y": 560,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 700,
+     "size": 150,
+     "at": 0,
+     "prefix": "",
+     "suffix": "%",
+     "dec": 0,
+     "maxw": 900,
+     "from": 26,
+     "to": 26,
+     "dur": 0,
+     "c": "red"
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1180,
+     "s": 1.0,
+     "pose": "shrug",
+     "at": 0,
+     "c": "mid"
+    },
+    {
+     "k": "line",
+     "y": 1200,
+     "at": 0
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Two people each invest ten thousand pounds, and leave it alone. Their funds grow by the same five percent a year."
+   ],
+   "els": [
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 460,
+     "size": 140,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 10000,
+     "to": 10000,
+     "dur": 0,
+     "label": "each invests"
+    },
+    {
+     "k": "pill",
+     "text": "5% a year growth",
+     "x": 540,
+     "y": 600,
+     "at": 1,
+     "inv": false,
+     "size": 26
+    },
+    {
+     "k": "crowd",
+     "n": 2,
+     "x0": 340,
+     "x1": 740,
+     "y": 1150,
+     "s": 1.0,
+     "hero": 1,
+     "at": 0
+    },
+    {
+     "k": "line",
+     "y": 1170,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Person A pays a quarter of a percent in fees. Person B pays one percent."
+   ],
+   "els": [
+    {
+     "k": "divider",
+     "x": 540,
+     "y0": 420,
+     "y1": 1000,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "x": 300,
+     "y": 560,
+     "size": 120,
+     "at": 0,
+     "prefix": "",
+     "suffix": "%",
+     "dec": 2,
+     "maxw": 420,
+     "from": 0.25,
+     "to": 0.25,
+     "dur": 0,
+     "c": "gold"
+    },
+    {
+     "k": "fig",
+     "x": 300,
+     "y": 1120,
+     "s": 0.9,
+     "pose": "stand",
+     "at": 0,
+     "tag": "person a"
+    },
+    {
+     "k": "counter",
+     "x": 780,
+     "y": 560,
+     "size": 120,
+     "at": [
+      0,
+      2.4
+     ],
+     "prefix": "",
+     "suffix": "%",
+     "dec": 0,
+     "maxw": 420,
+     "from": 1,
+     "to": 1,
+     "dur": 0,
+     "c": "red"
+    },
+    {
+     "k": "fig",
+     "x": 780,
+     "y": 1120,
+     "s": 0.9,
+     "pose": "stand",
+     "at": [
+      0,
+      2.4
+     ],
+     "c": "dim",
+     "tag": "person b"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "After year one, the difference is seventy-eight pounds seventy-five. Nobody would notice."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "gap after year one",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 500,
+     "size": 160,
+     "at": 0.3,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 2,
+     "maxw": 900,
+     "from": 0,
+     "to": 78.75,
+     "dur": 1.2
+    },
+    {
+     "k": "icon",
+     "kind": "coin",
+     "x": 540,
+     "y": 800,
+     "s": 2.0,
+     "pop": true,
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1230,
+     "s": 0.85,
+     "pose": "shrug",
+     "at": 1,
+     "c": "mid"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "But the fee is taken every single year, from a bigger and bigger pot. So the gap compounds too, just like your money."
+   ],
+   "els": [
+    {
+     "k": "icon",
+     "kind": "clock",
+     "x": 300,
+     "y": 520,
+     "s": 1.8,
+     "pop": true,
+     "at": 0
+    },
+    {
+     "k": "icon",
+     "kind": "arrow_up",
+     "x": 780,
+     "y": 520,
+     "s": 1.8,
+     "pop": true,
+     "at": [
+      0,
+      2.4
+     ],
+     "c": "red"
+    },
+    {
+     "k": "curve",
+     "ys": [
+      0,
+      79,
+      164,
+      257,
+      358,
+      467,
+      584,
+      712,
+      848,
+      996,
+      1155,
+      1326,
+      1509,
+      1706,
+      1917,
+      2143,
+      2386,
+      2645,
+      2922,
+      3219,
+      3536,
+      3874,
+      4235,
+      4621,
+      5032,
+      5470,
+      5936,
+      6433,
+      6962,
+      7525,
+      8123
+     ],
+     "xlabels": [
+      [
+       0,
+       "YR 0"
+      ],
+      [
+       0.5,
+       "15"
+      ],
+      [
+       1.0,
+       "30"
+      ]
+     ],
+     "box": [
+      140,
+      720,
+      900,
+      1240
+     ],
+     "at": 0.5,
+     "dur": 5.0,
+     "fill": true,
+     "head": true,
+     "max": 9000,
+     "c": [
+      255,
+      86,
+      86
+     ]
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "With no fees at all, the ten thousand would grow to forty-three thousand two hundred and nineteen pounds."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "no fees, 30 years",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 500,
+     "size": 160,
+     "at": 0.4,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 10000,
+     "to": 43219,
+     "dur": 1.8
+    },
+    {
+     "k": "coins",
+     "at": 0.6,
+     "n": 14,
+     "dur": 2.2,
+     "y0": 650,
+     "y1": 1150
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Person A ends with forty thousand and ninety-three. Person B? Thirty-one thousand nine hundred and sixty-nine."
+   ],
+   "els": [
+    {
+     "k": "bars",
+     "items": [
+      {
+       "label": "person a",
+       "value": 40093,
+       "at": 0.3,
+       "dur": 1.4,
+       "prefix": "£",
+       "suffix": "",
+       "dec": 0,
+       "sub": "0.25% fee"
+      },
+      {
+       "label": "person b",
+       "value": 31969,
+       "at": [
+        1,
+        0.3
+       ],
+       "dur": 1.4,
+       "prefix": "£",
+       "suffix": "",
+       "dec": 0,
+       "c": "red",
+       "sub": "1% fee"
+      }
+     ],
+     "y": 1150,
+     "h": 560,
+     "w": 230,
+     "gap": 120,
+     "at": 0,
+     "max": 43219
+    },
+    {
+     "k": "caps",
+     "text": "after 30 years",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    }
+   ],
+   "spots": [
+    [
+     330,
+     70
+    ],
+    [
+     750,
+     40
+    ]
+   ],
+   "twist": true
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "That's eight thousand one hundred and twenty-three pounds gone. Most of what they first put in."
+   ],
+   "els": [
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 500,
+     "size": 180,
+     "at": 0.3,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 8123,
+     "dur": 1.6,
+     "c": "red",
+     "label": "lost to the extra fee"
+    },
+    {
+     "k": "box",
+     "lines": [
+      {
+       "text": "FROM A FEE THAT",
+       "size": 58
+      },
+      {
+       "text": "SOUNDED TINY.",
+       "size": 58,
+       "c": "gold"
+      }
+     ],
+     "y": 820,
+     "w": 760,
+     "h": 220,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "So before you invest, find the fee. Look for the ongoing charge and the platform fee, and add them together."
+   ],
+   "els": [
+    {
+     "k": "cards",
+     "y": 640,
+     "w": 240,
+     "gap": 30,
+     "at": 0,
+     "items": [
+      {
+       "icon": "chart",
+       "label": "ongoing charge",
+       "at": [
+        0,
+        1.8
+       ],
+       "lit": true
+      },
+      {
+       "icon": "phone",
+       "label": "platform fee",
+       "at": [
+        0,
+        3.0
+       ],
+       "lit": true
+      },
+      {
+       "icon": "check",
+       "label": "add them up",
+       "at": [
+        0,
+        4.2
+       ],
+       "lit": true
+      }
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1230,
+     "s": 0.95,
+     "pose": "point",
+     "at": 1,
+     "ring": true
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Do you know what fees your pension or ISA charges? Be honest, no judgement. Then go and check it today."
+   ],
+   "els": [
+    {
+     "k": "icon",
+     "kind": "question",
+     "x": 540,
+     "y": 600,
+     "s": 2.6,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "caps",
+     "text": "do you know your fees?",
+     "y": 860,
+     "x": 540,
+     "at": 0.6,
+     "size": 26
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 1.0,
+     "pose": "shrug",
+     "at": 0,
+     "ring": true
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ],
+   "footnote": true
+  }
+ ]
+}

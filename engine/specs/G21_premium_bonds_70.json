@@ -1,0 +1,533 @@
+{
+ "slug": "TheMoneyWhatIfs_G21_premium_bonds_70",
+ "title": "Premium Bonds at 70: Would You Win Anything? 🎟️",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "NS&I, Nov 2026: prize fund rate 4.35%, odds 21,000 to 1 per £1 bond each month. Illustration only. Not financial advice.",
+ "thumbnail": {
+  "scene": 7,
+  "lines": [
+   {
+    "text": "£1,000 IN PREMIUM BONDS",
+    "size": 80
+   },
+   {
+    "text": "56% WIN NOTHING",
+    "c": "red",
+    "size": 100
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "lines": [
+    "Put a thousand pounds in Premium Bonds, and you'll probably win nothing all year."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "chance of no prize in a year, with £1,000",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 490,
+     "size": 200,
+     "at": 0,
+     "prefix": "",
+     "suffix": "%",
+     "dec": 0,
+     "maxw": 900,
+     "from": 56,
+     "to": 56,
+     "dur": 0,
+     "c": "red"
+    },
+    {
+     "k": "icon",
+     "kind": "coin",
+     "x": 540,
+     "y": 800,
+     "s": 2.4,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 0.9,
+     "pose": "shrug",
+     "at": 0,
+     "c": "mid"
+    },
+    {
+     "k": "line",
+     "y": 1240,
+     "at": 0
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Britain's favourite flutter just turned seventy. They first went on sale in November, nineteen fifty-six."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "70",
+     "x": 540,
+     "y": 480,
+     "size": 220,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "pill",
+     "text": "since november 1956",
+     "x": 540,
+     "y": 660,
+     "at": 1,
+     "inv": false,
+     "size": 26
+    },
+    {
+     "k": "crowd",
+     "n": 7,
+     "x0": 150,
+     "x1": 930,
+     "y": 1180,
+     "s": 0.6,
+     "hero": 3,
+     "at": 0,
+     "hero_c": "gold"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Every month, each one pound bond has a twenty-one thousand to one chance of winning a prize."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "odds per £1 bond, every month",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "text",
+     "text": "21,000 TO 1",
+     "x": 540,
+     "y": 500,
+     "size": 120,
+     "at": 0,
+     "c": "white"
+    },
+    {
+     "k": "icon",
+     "kind": "coin",
+     "x": 540,
+     "y": 800,
+     "s": 2.0,
+     "pop": true,
+     "at": 1,
+     "c": "gold"
+    },
+    {
+     "k": "line",
+     "y": 1050,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "The prize fund rate is four point three five percent. That sounds better than most savings accounts."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "prize fund rate",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 500,
+     "size": 170,
+     "at": 0.3,
+     "prefix": "",
+     "suffix": "%",
+     "dec": 2,
+     "maxw": 900,
+     "from": 0,
+     "to": 4.35,
+     "dur": 1.4
+    },
+    {
+     "k": "cards",
+     "y": 850,
+     "w": 240,
+     "gap": 50,
+     "at": 0,
+     "items": [
+      {
+       "icon": "bank",
+       "label": "savings",
+       "at": [
+        0,
+        3.0
+       ],
+       "lit": true
+      },
+      {
+       "icon": "coin",
+       "label": "prize fund",
+       "at": [
+        0,
+        3.4
+       ],
+       "lit": true,
+       "mark": {
+        "kind": "check",
+        "at": [
+         0,
+         3.8
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "But that rate is an average across everyone, including the two people who won a million pounds this month. Most holders get much less."
+   ],
+   "els": [
+    {
+     "k": "crowd",
+     "n": 7,
+     "x0": 150,
+     "x1": 930,
+     "y": 1180,
+     "s": 0.62,
+     "hero": 3,
+     "at": 0,
+     "hero_c": "gold",
+     "hat": "crown"
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 480,
+     "size": 130,
+     "at": [
+      0,
+      3.0
+     ],
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 1000000,
+     "to": 1000000,
+     "dur": 0,
+     "label": "top prize"
+    },
+    {
+     "k": "pill",
+     "text": "2 winners · november 2026",
+     "x": 540,
+     "y": 640,
+     "at": [
+      0,
+      4.0
+     ],
+     "inv": true,
+     "size": 26
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "With a thousand pounds, you get a thousand chances every month. That's twelve thousand chances a year."
+   ],
+   "els": [
+    {
+     "k": "grid",
+     "rows": 3,
+     "cols": 4,
+     "fill": [
+      [
+       0.3,
+       12,
+       2.0
+      ]
+     ],
+     "y": 660,
+     "cell": 120,
+     "mark": "check",
+     "at": 0,
+     "solid": false,
+     "label": "one box = 1,000 chances",
+     "mc": "gold"
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 1080,
+     "size": 110,
+     "at": 1,
+     "prefix": "",
+     "suffix": " chances",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 12000,
+     "dur": 1.4
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "And yet, you've still got about a fifty-six percent chance of winning nothing at all."
+   ],
+   "els": [
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 520,
+     "size": 200,
+     "at": 0.6,
+     "prefix": "",
+     "suffix": "%",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 56,
+     "dur": 1.6,
+     "c": "red"
+    },
+    {
+     "k": "text",
+     "text": "WIN NOTHING",
+     "x": 540,
+     "y": 720,
+     "size": 90,
+     "at": [
+      0,
+      2.6
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 0.95,
+     "pose": "shrug",
+     "at": 0,
+     "c": "dim"
+    }
+   ],
+   "spots": [
+    [
+     540,
+     70
+    ]
+   ],
+   "twist": true,
+   "dings": [
+    [
+     0,
+     2.4
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "A savings account paying four percent would give you forty pounds instead. Every year. Guaranteed."
+   ],
+   "els": [
+    {
+     "k": "bars",
+     "items": [
+      {
+       "label": "bonds",
+       "value": 0,
+       "at": 0.3,
+       "dur": 1.4,
+       "prefix": "£",
+       "suffix": "",
+       "dec": 0,
+       "c": "red",
+       "sub": "most likely year"
+      },
+      {
+       "label": "4% account",
+       "value": 40,
+       "at": [
+        0,
+        2.0
+       ],
+       "dur": 1.4,
+       "prefix": "£",
+       "suffix": "",
+       "dec": 0,
+       "sub": "every year"
+      }
+     ],
+     "y": 1150,
+     "h": 560,
+     "w": 230,
+     "gap": 120,
+     "at": 0,
+     "max": 45
+    },
+    {
+     "k": "caps",
+     "text": "£1,000 for a year",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    }
+   ],
+   "spots": [
+    [
+     330,
+     40
+    ],
+    [
+     750,
+     70
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Premium Bonds are safe, and any prize is tax-free. Just treat them like a draw you can't lose your stake in, not a savings plan."
+   ],
+   "els": [
+    {
+     "k": "box",
+     "lines": [
+      {
+       "text": "A DRAW,",
+       "size": 58
+      },
+      {
+       "text": "NOT A SAVINGS PLAN.",
+       "size": 58,
+       "c": "gold"
+      }
+     ],
+     "y": 540,
+     "w": 820,
+     "h": 240,
+     "at": 0
+    },
+    {
+     "k": "icon",
+     "kind": "check",
+     "x": 330,
+     "y": 860,
+     "s": 1.6,
+     "pop": true,
+     "at": 1,
+     "c": "green",
+     "label": "safe"
+    },
+    {
+     "k": "icon",
+     "kind": "check",
+     "x": 750,
+     "y": 860,
+     "s": 1.6,
+     "pop": true,
+     "at": 1,
+     "c": "green",
+     "label": "tax-free prizes"
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1250,
+     "s": 0.85,
+     "pose": "stand",
+     "at": 1,
+     "ring": true
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Have you ever won anything on Premium Bonds? What's the biggest prize you've had? Tell me below."
+   ],
+   "els": [
+    {
+     "k": "icon",
+     "kind": "question",
+     "x": 540,
+     "y": 600,
+     "s": 2.6,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "caps",
+     "text": "ever won anything?",
+     "y": 860,
+     "x": 540,
+     "at": 0.6,
+     "size": 26
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 1.0,
+     "pose": "point",
+     "at": 0,
+     "ring": true
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ],
+   "footnote": true
+  }
+ ]
+}

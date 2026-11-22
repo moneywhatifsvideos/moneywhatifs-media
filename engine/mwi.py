@@ -740,7 +740,7 @@ def T_line_race2(img, ctx, sc):
     d.text(((L + R) / 2, (T_ + B) / 2), str(yr), font=font(300), fill=faint, anchor="mm")
     for g in sc.get("yticks", []):
         d.line([(L, Y(g)), (R, Y(g))], fill=gridc, width=2)
-        d.text((L - 14, Y(g)), fmt(g, {"suffix": sc.get("suffix", ""), "decimals": 0}), font=font(30), fill=tick, anchor="rm")
+        d.text((L - 14, Y(g)), fmt(g, {"prefix": sc.get("prefix", ""), "suffix": sc.get("suffix", ""), "decimals": 0}), font=font(30), fill=tick, anchor="rm")
     for xt in range(int(x0), int(x1) + 1, sc.get("xstep", 5)):
         d.text((X(xt), B + 34), str(xt), font=font(30), fill=tick, anchor="mm")
     d.line([(L, B), (R, B)], fill=(90, 90, 96) if glow else INK, width=3)
@@ -775,7 +775,7 @@ def T_line_race2(img, ctx, sc):
     for ly, sr, col, v in labels:
         ex = X(X_now) + 24
         d.text((ex, ly - 22), sr["name"], font=font(30), fill=col, anchor="lm", stroke_width=3, stroke_fill=bgc)
-        d.text((ex, ly + 18), fmt(v, {"suffix": sc.get("suffix", ""), "decimals": sr.get("decimals", 1)}), font=font(42), fill=ink, anchor="lm", stroke_width=3, stroke_fill=bgc)
+        d.text((ex, ly + 18), fmt(v, {"prefix": sc.get("prefix", ""), "suffix": sc.get("suffix", ""), "decimals": sr.get("decimals", 1)}), font=font(42), fill=ink, anchor="lm", stroke_width=3, stroke_fill=bgc)
     if sh and sh.get("label"):
         d.rectangle([L + 10, T_ - 70, L + 46, T_ - 40], fill=tuple(sh.get("color", [255, 80, 80, 70])[:3]))
         d.text((L + 60, T_ - 55), sh["label"], font=font(30), fill=ink, anchor="lm")

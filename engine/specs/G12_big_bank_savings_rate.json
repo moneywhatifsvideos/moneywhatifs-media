@@ -1,0 +1,614 @@
+{
+ "slug": "TheMoneyWhatIfs_G12_big_bank_savings_rate",
+ "title": "Is Your Bank Paying You 1.16%? 🏦",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Rates: Moneyfacts, 5 Nov 2026; Bank of England. Illustration ignores tax, rates assumed fixed. Not financial advice.",
+ "thumbnail": {
+  "scene": 5,
+  "lines": [
+   {
+    "text": "BIG BANKS PAY",
+    "size": 100
+   },
+   {
+    "text": "1.16%",
+    "c": "red",
+    "size": 150
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "lines": [
+    "If your savings sit with a big bank, the average easy access rate is just one point one six percent."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "big-bank easy access average · nov 2026",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 490,
+     "size": 180,
+     "at": 0,
+     "prefix": "",
+     "suffix": "%",
+     "dec": 2,
+     "maxw": 900,
+     "from": 1.16,
+     "to": 1.16,
+     "dur": 0,
+     "c": "red"
+    },
+    {
+     "k": "icon",
+     "kind": "bank",
+     "x": 540,
+     "y": 820,
+     "s": 2.6,
+     "pop": true,
+     "at": 0
+    },
+    {
+     "k": "line",
+     "y": 1060,
+     "at": 0
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "This month, the Bank of England raised interest rates to four percent. The first rise in years, and it's good news for savers."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "bank of england base rate",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 500,
+     "size": 170,
+     "at": 0,
+     "prefix": "",
+     "suffix": "%",
+     "dec": 2,
+     "maxw": 900,
+     "from": 3.75,
+     "keys": [
+      [
+       0,
+       3.75,
+       0
+      ],
+      [
+       [
+        0,
+        2.0
+       ],
+       4.0,
+       1.0
+      ]
+     ]
+    },
+    {
+     "k": "icon",
+     "kind": "arrow_up",
+     "x": 540,
+     "y": 780,
+     "s": 2.0,
+     "pop": true,
+     "at": [
+      0,
+      2.0
+     ],
+     "c": "gold"
+    },
+    {
+     "k": "pill",
+     "text": "5 nov 2026",
+     "x": 540,
+     "y": 980,
+     "at": 0,
+     "inv": true,
+     "size": 26
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Savings deals got better fast. The best easy access accounts now pay over four percent, and fixed bonds even more."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "BEST EASY ACCESS",
+     "x": 540,
+     "y": 420,
+     "size": 60,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 560,
+     "size": 150,
+     "at": 0.5,
+     "prefix": "",
+     "suffix": "%+",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 4.0,
+     "dur": 1.2
+    },
+    {
+     "k": "icon",
+     "kind": "chart",
+     "x": 540,
+     "y": 840,
+     "s": 2.2,
+     "pop": true,
+     "at": 1,
+     "c": "gold"
+    },
+    {
+     "k": "crowd",
+     "n": 5,
+     "x0": 220,
+     "x1": 860,
+     "y": 1220,
+     "s": 0.65,
+     "hero": 4,
+     "at": 0,
+     "hero_c": "gold"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "But the big banks' average? Still one point one six. Across the whole market, it's two point five six."
+   ],
+   "els": [
+    {
+     "k": "bars",
+     "items": [
+      {
+       "label": "big banks",
+       "value": 1.16,
+       "at": 0.3,
+       "dur": 1.4,
+       "prefix": "",
+       "suffix": "%",
+       "dec": 2,
+       "c": "red"
+      },
+      {
+       "label": "market avg",
+       "value": 2.56,
+       "at": [
+        0,
+        1.8
+       ],
+       "dur": 1.4,
+       "prefix": "",
+       "suffix": "%",
+       "dec": 2,
+       "c": "white"
+      },
+      {
+       "label": "best deals",
+       "value": 4.0,
+       "at": [
+        1,
+        0.6
+       ],
+       "dur": 1.4,
+       "prefix": "",
+       "suffix": "%+",
+       "dec": 0
+      }
+     ],
+     "y": 1150,
+     "h": 560,
+     "w": 200,
+     "gap": 80,
+     "at": 0,
+     "max": 4.0
+    },
+    {
+     "k": "caps",
+     "text": "easy access savings rates",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    }
+   ],
+   "spots": [
+    [
+     230,
+     40
+    ],
+    [
+     540,
+     40
+    ],
+    [
+     850,
+     40
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Now put ten thousand pounds in each one, and leave it there for a whole year."
+   ],
+   "els": [
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 480,
+     "size": 150,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 10000,
+     "to": 10000,
+     "dur": 0
+    },
+    {
+     "k": "cards",
+     "y": 820,
+     "w": 240,
+     "gap": 60,
+     "at": 0,
+     "items": [
+      {
+       "icon": "bank",
+       "label": "big bank",
+       "at": 0.4,
+       "lit": true
+      },
+      {
+       "icon": "bank",
+       "label": "best deal",
+       "at": 0.8,
+       "lit": true
+      }
+     ]
+    },
+    {
+     "k": "line",
+     "y": 1050,
+     "at": 0
+    }
+   ],
+   "focus": [
+    540,
+    650
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "The big bank pays one hundred and sixteen pounds. The best deal pays four hundred."
+   ],
+   "els": [
+    {
+     "k": "divider",
+     "x": 540,
+     "y0": 450,
+     "y1": 1100,
+     "at": 0
+    },
+    {
+     "k": "caps",
+     "text": "interest after one year",
+     "y": 320,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 300,
+     "y": 620,
+     "size": 120,
+     "at": 0.3,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 420,
+     "from": 0,
+     "to": 116,
+     "dur": 1.0,
+     "c": "red"
+    },
+    {
+     "k": "fig",
+     "x": 300,
+     "y": 1080,
+     "s": 0.9,
+     "pose": "stand",
+     "at": 0,
+     "c": "dim",
+     "tag": "big bank"
+    },
+    {
+     "k": "counter",
+     "x": 780,
+     "y": 620,
+     "size": 120,
+     "at": [
+      0,
+      2.6
+     ],
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 420,
+     "from": 0,
+     "to": 400,
+     "dur": 1.2
+    },
+    {
+     "k": "fig",
+     "x": 780,
+     "y": 1080,
+     "s": 0.9,
+     "pose": "stand",
+     "at": [
+      0,
+      2.6
+     ],
+     "ring": true,
+     "tag": "best deal"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "That's two hundred and eighty-four pounds a year, just for staying put. It's a loyalty tax."
+   ],
+   "els": [
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 520,
+     "size": 180,
+     "at": 0.3,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 284,
+     "dur": 1.2,
+     "c": "red",
+     "label": "cost of staying put"
+    },
+    {
+     "k": "text",
+     "text": "THE LOYALTY TAX",
+     "x": 540,
+     "y": 760,
+     "size": 80,
+     "at": [
+      0,
+      3.0
+     ]
+    },
+    {
+     "k": "icon",
+     "kind": "cross",
+     "x": 540,
+     "y": 1000,
+     "s": 2.0,
+     "pop": true,
+     "at": [
+      0,
+      3.0
+     ],
+     "c": "red"
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ],
+   "twist": true
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Over five years, if rates stayed the same, the gap grows to one thousand five hundred and seventy-three pounds."
+   ],
+   "els": [
+    {
+     "k": "curve",
+     "ys": [
+      0,
+      284,
+      583,
+      897,
+      1226,
+      1573
+     ],
+     "xlabels": [
+      [
+       0,
+       "NOW"
+      ],
+      [
+       0.4,
+       "YR 2"
+      ],
+      [
+       0.8,
+       "YR 4"
+      ],
+      [
+       1.0,
+       "5"
+      ]
+     ],
+     "box": [
+      120,
+      620,
+      920,
+      1220
+     ],
+     "at": 0.3,
+     "dur": 5.0,
+     "fill": true,
+     "head": true,
+     "max": 1700
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 460,
+     "size": 130,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "keys": [
+      [
+       0.3,
+       1573,
+       5.0
+      ]
+     ],
+     "c": "gold"
+    },
+    {
+     "k": "caps",
+     "text": "the gap",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Switching usually takes minutes online. Check your rate today, then set a reminder to check it again in six months, because rates move."
+   ],
+   "els": [
+    {
+     "k": "cards",
+     "y": 650,
+     "w": 220,
+     "gap": 40,
+     "at": 0,
+     "items": [
+      {
+       "icon": "phone",
+       "label": "compare",
+       "at": 0.3,
+       "lit": true
+      },
+      {
+       "icon": "check",
+       "label": "switch",
+       "at": 1.0,
+       "lit": true
+      },
+      {
+       "icon": "clock",
+       "label": "minutes",
+       "at": 1.7,
+       "lit": true
+      }
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 1.0,
+     "pose": "up",
+     "at": 1,
+     "ring": true
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "So, what rate is your savings account paying right now? No judgement."
+   ],
+   "els": [
+    {
+     "k": "icon",
+     "kind": "question",
+     "x": 540,
+     "y": 600,
+     "s": 2.6,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "caps",
+     "text": "what rate are you on?",
+     "y": 860,
+     "x": 540,
+     "at": 0.6,
+     "size": 26
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 1.0,
+     "pose": "point",
+     "at": 0,
+     "ring": true
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ],
+   "footnote": true
+  }
+ ]
+}

@@ -1,0 +1,579 @@
+{
+ "slug": "TheMoneyWhatIfs_G22_student_loan_pay_rise",
+ "title": "What If You Got a £1,000 Pay Rise With a Student Loan? 🎓",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Illustration: England, 2026/27; income tax 20%, employee NI 8%, Plan 2 loan 9% above £29,385. Not financial advice.",
+ "thumbnail": {
+  "scene": 6,
+  "lines": [
+   {
+    "text": "£1,000 PAY RISE",
+    "size": 100
+   },
+   {
+    "text": "YOU KEEP £630",
+    "c": "gold",
+    "size": 110
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "lines": [
+    "A thousand pound pay rise. With a student loan, you keep six hundred and thirty."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "of a £1,000 pay rise, you keep",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 490,
+     "size": 200,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 630,
+     "to": 630,
+     "dur": 0
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1200,
+     "s": 1.0,
+     "pose": "stand",
+     "at": 0,
+     "hat": "grad",
+     "ring": true
+    },
+    {
+     "k": "line",
+     "y": 1220,
+     "at": 0
+    },
+    {
+     "k": "pill",
+     "text": "plan 2 graduate",
+     "x": 540,
+     "y": 680,
+     "at": 0,
+     "inv": true,
+     "size": 26
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Say you're a graduate in England on thirty-five thousand pounds, with a Plan Two student loan."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "salary",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 480,
+     "size": 160,
+     "at": 0.3,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 35000,
+     "dur": 1.4
+    },
+    {
+     "k": "crowd",
+     "n": 5,
+     "x0": 220,
+     "x1": 860,
+     "y": 1180,
+     "s": 0.65,
+     "hero": 2,
+     "at": 0,
+     "hero_c": "gold",
+     "hat": "grad"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "You repay nine percent of everything you earn above twenty-nine thousand three hundred and eighty-five pounds."
+   ],
+   "els": [
+    {
+     "k": "pill",
+     "text": "9% above the threshold",
+     "x": 540,
+     "y": 320,
+     "at": 0,
+     "inv": false,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 520,
+     "size": 130,
+     "at": [
+      0,
+      2.6
+     ],
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 29385,
+     "to": 29385,
+     "dur": 0,
+     "c": "white"
+    },
+    {
+     "k": "line",
+     "y": 700,
+     "at": 0.3,
+     "label": "threshold"
+    },
+    {
+     "k": "icon",
+     "kind": "card",
+     "x": 540,
+     "y": 940,
+     "s": 2.0,
+     "pop": true,
+     "at": [
+      0,
+      2.0
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1260,
+     "s": 0.8,
+     "pose": "stand",
+     "at": 1,
+     "c": "mid"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "That's five hundred and five pounds a year, taken straight from your payslip before your pay even reaches you."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "student loan repayment a year",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 500,
+     "size": 180,
+     "at": 0.3,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 505,
+     "dur": 1.2,
+     "c": "red"
+    },
+    {
+     "k": "icon",
+     "kind": "bank",
+     "x": 540,
+     "y": 820,
+     "s": 2.2,
+     "pop": true,
+     "at": 1
+    },
+    {
+     "k": "line",
+     "y": 1050,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Now you get a thousand pound raise. Twenty percent goes in income tax. Eight percent in National Insurance."
+   ],
+   "els": [
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 380,
+     "size": 120,
+     "at": 0,
+     "prefix": "+£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 1000,
+     "to": 1000,
+     "dur": 0,
+     "c": "white"
+    },
+    {
+     "k": "cards",
+     "y": 700,
+     "w": 220,
+     "gap": 30,
+     "at": 0,
+     "items": [
+      {
+       "icon": "bank",
+       "label": "tax 20%",
+       "at": [
+        0,
+        2.6
+       ],
+       "lit": true
+      },
+      {
+       "icon": "card",
+       "label": "ni 8%",
+       "at": [
+        1,
+        0.2
+       ],
+       "lit": true
+      },
+      {
+       "icon": "question",
+       "label": "loan ?",
+       "at": [
+        1,
+        1.4
+       ],
+       "lit": false
+      }
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1240,
+     "s": 0.85,
+     "pose": "shrug",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "And nine percent more to the student loan. That's thirty-seven percent of your raise, gone."
+   ],
+   "els": [
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 480,
+     "size": 200,
+     "at": [
+      0,
+      2.6
+     ],
+     "prefix": "",
+     "suffix": "%",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 37,
+     "dur": 1.4,
+     "c": "red"
+    },
+    {
+     "k": "caps",
+     "text": "of your raise, gone",
+     "y": 640,
+     "x": 540,
+     "at": [
+      0,
+      3.0
+     ],
+     "size": 26
+    },
+    {
+     "k": "bars",
+     "items": [
+      {
+       "label": "you keep",
+       "value": 630,
+       "at": [
+        0,
+        3.6
+       ],
+       "dur": 1.4,
+       "prefix": "£",
+       "suffix": "",
+       "dec": 0
+      },
+      {
+       "label": "deductions",
+       "value": 370,
+       "at": [
+        0,
+        3.6
+       ],
+       "dur": 1.4,
+       "prefix": "£",
+       "suffix": "",
+       "dec": 0,
+       "c": "red"
+      }
+     ],
+     "y": 1220,
+     "h": 380,
+     "w": 200,
+     "gap": 120,
+     "at": 0,
+     "max": 1000
+    }
+   ],
+   "spots": [
+    [
+     540,
+     70
+    ]
+   ],
+   "twist": true,
+   "dings": [
+    [
+     1,
+     0.2
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "And with the threshold frozen from next April until twenty thirty, every future raise pulls more of your pay into repayments. Just like income tax."
+   ],
+   "els": [
+    {
+     "k": "stairs",
+     "n": 8,
+     "x0": 140,
+     "y0": 1290,
+     "w": 95,
+     "h": 70,
+     "at": 0,
+     "climb": {
+      "at": 0.5,
+      "dur": 4.5
+     },
+     "s": 0.6
+    },
+    {
+     "k": "text",
+     "text": "FROZEN 2027 TO 2030",
+     "x": 540,
+     "y": 420,
+     "size": 80,
+     "at": 1,
+     "c": "gold"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "But here's what most people get wrong. Plan Two loans are wiped after thirty years, whatever is left."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "WIPED AFTER",
+     "x": 540,
+     "y": 460,
+     "size": 90,
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "30 YEARS",
+     "x": 540,
+     "y": 570,
+     "size": 120,
+     "at": [
+      0,
+      3.0
+     ],
+     "c": "gold"
+    },
+    {
+     "k": "icon",
+     "kind": "check",
+     "x": 540,
+     "y": 860,
+     "s": 2.2,
+     "pop": true,
+     "at": [
+      0,
+      3.4
+     ],
+     "c": "green"
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1250,
+     "s": 0.85,
+     "pose": "up",
+     "at": 1,
+     "ring": true
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "That's why, for lots of graduates, it works more like an extra tax on earnings than a normal debt."
+   ],
+   "els": [
+    {
+     "k": "divider",
+     "x": 540,
+     "y0": 450,
+     "y1": 980,
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "NORMAL DEBT",
+     "x": 300,
+     "y": 600,
+     "size": 52,
+     "at": 0,
+     "c": "mid"
+    },
+    {
+     "k": "text",
+     "text": "GRADUATE TAX",
+     "x": 780,
+     "y": 600,
+     "size": 52,
+     "at": [
+      0,
+      2.6
+     ],
+     "c": "gold"
+    },
+    {
+     "k": "icon",
+     "kind": "card",
+     "x": 300,
+     "y": 800,
+     "s": 1.6,
+     "pop": true,
+     "at": 0,
+     "c": "mid"
+    },
+    {
+     "k": "icon",
+     "kind": "bank",
+     "x": 780,
+     "y": 800,
+     "s": 1.6,
+     "pop": true,
+     "at": [
+      0,
+      2.6
+     ],
+     "c": "gold"
+    },
+    {
+     "k": "crowd",
+     "n": 3,
+     "x0": 340,
+     "x1": 740,
+     "y": 1220,
+     "s": 0.6,
+     "hero": 1,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Graduates, be honest. How much of your last pay rise did you actually get to keep? Tell me in the comments."
+   ],
+   "els": [
+    {
+     "k": "icon",
+     "kind": "question",
+     "x": 540,
+     "y": 600,
+     "s": 2.6,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "caps",
+     "text": "how much did you keep?",
+     "y": 860,
+     "x": 540,
+     "at": 0.6,
+     "size": 26
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 1.0,
+     "pose": "point",
+     "at": 0,
+     "hat": "grad",
+     "ring": true
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ],
+   "footnote": true
+  }
+ ]
+}

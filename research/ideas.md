@@ -31,7 +31,7 @@ Added 21 Nov 2026 unless stated. Facts come from this week's report (research/20
    - Reveal: the gap between the top 10% and the top 1%.
    - Why: British Finance with Jack's "Top 10% in the UK" got 56K views.
    - Source: ONS ASHE 2026 percentile tables (XLSX).
-6. **Minimum wage: £3.60 to £13.21** (line race, 1999–2027)
+6. **Minimum wage: £3.60 to £13.21** USED (22 Nov 2026) (line race, 1999–2027)
    - Hook: "Your first job paid __ an hour."
    - Reveal: pay roughly 3.7x, compared with what prices did over the same years.
    - Why: the April 2027 rate was set at the Budget; nostalgia plus comparing yourself.
@@ -51,7 +51,7 @@ Added 21 Nov 2026 unless stated. Facts come from this week's report (research/20
    - Reveal: how far income tax pulls ahead of the rest.
    - Why: the tax burden is about to hit a record (OBR).
    - Source: HMRC tax and NICs receipts, NS_Table.ods (check how many years it covers).
-10. **What £100 from 1989 buys today** (shrinking-banknote line race)
+10. **What £100 from 1989 buys today** USED (22 Nov 2026) (shrinking-banknote line race)
     - Hook: "Your £100 has been shrinking for 37 years."
     - Reveal: how much it's worth today.
     - Why: then-vs-now posts go viral (Full Fact, Jan 2026), and ours is sourced.
@@ -59,7 +59,7 @@ Added 21 Nov 2026 unless stated. Facts come from this week's report (research/20
 
 ## What If ideas
 
-1. **What if you had to live on the state pension?**
+1. **What if you had to live on the state pension?** USED (22 Nov 2026)
    - Hook: "£250.70 a week. Go."
    - Reveal: rent plus energy plus food leaves £__.
    - Why: the April 2027 rate was just confirmed. Relatable for parents and grandparents.
@@ -67,7 +67,7 @@ Added 21 Nov 2026 unless stated. Facts come from this week's report (research/20
    - Hook: "The Budget just put a new tax on your savings."
    - Reveal: you'd pay 24% of the interest in tax, compared with £0 in an ISA.
    - Why: a real 28 Oct Budget change that few people have noticed.
-3. **What if petrol hit £3 a litre?**
+3. **What if petrol hit £3 a litre?** USED (22 Nov 2026)
    - Hook: "Fuel is up a third in a year…"
    - Reveal: what that does to a commute, and to food prices.
    - Why: CPI motor fuel is +33.2%.
@@ -87,7 +87,7 @@ Added 21 Nov 2026 unless stated. Facts come from this week's report (research/20
    - Hook: "Why not just print it?"
    - Reveal: inflation eats it (link to our £1M everyone video).
    - Why: Explains101's version got 1.0M.
-8. **What if you overpaid your mortgage by £200 a month?**
+8. **What if you overpaid your mortgage by £200 a month?** USED (22 Nov 2026)
    - Hook: "Mortgage-free 8 years early?"
    - Reveal: interest saved, compared with investing the same £200.
    - Why: the POV "pay off your house" video got 244K.
@@ -115,11 +115,11 @@ Added 21 Nov 2026 unless stated. Facts come from this week's report (research/20
    - Hook: "The first £20K is the hardest."
    - Reveal: compound growth starts to do the work, and it's a full ISA allowance.
    - Why: British Finance with Jack's version got 138K.
-4. **Your pay rise is worth 0.4%**
+4. **Your pay rise is worth 0.4%** USED (22 Nov 2026)
    - Hook: "You got a raise. You're not richer."
    - Reveal: real wages explained in 60 seconds.
    - Why: ONS, 17 Nov.
-5. **Christmas costs 54% of a month's pay**
+5. **Christmas costs 54% of a month's pay** USED (22 Nov 2026)
    - Hook: "The average family spends £1,681 on Christmas."
    - Reveal: "the January you" after Christmas.
    - Why: MoneySuperMarket figure; very seasonal.
@@ -139,7 +139,7 @@ Added 21 Nov 2026 unless stated. Facts come from this week's report (research/20
    - Hook: "Your heating bill just jumped ~£440."
    - Reveal: per month, plus "what if you'd fixed?"
    - Why: Ofgem announces the new cap on 25 Nov. Cornwall Insight forecasts £2,166 (+26%). Confirm the real figure on the day.
-2. **£235 every Black Friday since 2010, invested instead** (use by 30 Nov)
+2. **£235 every Black Friday since 2010, invested instead** USED (22 Nov 2026) (use by 30 Nov)
    - Hook: "The average shopper spends £235 this week."
    - Reveal: the pot today.
    - Why: PwC forecasts £6.6bn of spending, the highest since 2022.
@@ -148,7 +148,7 @@ Added 21 Nov 2026 unless stated. Facts come from this week's report (research/20
    - Reveal: how a price can be raised before a sale.
    - Why: seasonal search spike.
    - Source to find next run: Which? price tracking.
-4. **The long wait: November payday to January** (use by 30 Nov)
+4. **The long wait: November payday to January** USED (22 Nov 2026) (use by 30 Nov)
    - Hook: "Paid early in December? Your money has to last about 40 days."
    - Reveal: daily budget maths.
    - Why: most people are paid on the last working day (30 Nov), and December pay often comes early.

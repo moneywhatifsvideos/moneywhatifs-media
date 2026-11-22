@@ -27,3 +27,24 @@
 | G08 | £1m or £1k a week (remake of 03) | either/or | TikTok 23 Nov |
 | G09 | Britain bans cash (remake of 06) | economy | 23 Nov |
 
+
+## Week of 23–29 Nov 2026 (made 22 Nov 2026)
+| # | Topic | Type | Posted |
+|---|---|---|---|
+| G10 | Your pay rise is worth £1.15 a week (real pay +0.2%) | Trending · Money mindset | 23 Nov |
+| G11 | Could you live on the state pension? (£250.70, 35 NI years twist) | What If | 24 Nov |
+| G12 | Big banks pay 1.16% vs best 4%+ (loyalty tax £284) | Trending | 24 Nov |
+| G13 | Christmas £647 = £12.44 a week | Trending · Money mindset | 25 Nov |
+| G14 | Overpay mortgage £200 a month (5y 5m early, £57,380) | What If | 25 Nov |
+| G15 | Black Friday £267 saved every year (£15,574 after 30y) | Trending | 26 Nov |
+| D04 | £100 from 1989 today (CPI line race; £278 / £36) | data: line race | 26 Nov |
+| G16 | 1% vs 0.25% fee over 30 years (£8,123 gap) | What If | 26 Nov |
+| D05 | Minimum wage vs prices 1999–2027 (x3.5 vs x2.0) | data: line race | 27 Nov |
+| G17 | Petrol at £3 a litre (VAT 28p to 50p) | What If | 27 Nov |
+| G18 | The 42-day month (paid 18 Dec, next 29 Jan) | Trending · Money mindset | 27 Nov |
+| G19 | £300 a month for a house deposit (moving target) | What If | 28 Nov |
+| G20 | Personal allowance frozen to 2031 (£750 fiscal drag) | Trending | 28 Nov |
+| D06 | State pension 2000–2027 (basic x2.8; new £250.70) | data: line race | 28 Nov |
+| G21 | Premium Bonds at 70 (56% chance of no prize with £1,000) | Trending | 29 Nov |
+| D07 | Years of minimum wage to buy a home, by region 2000–2025 | data: bar race | 29 Nov |
+| G22 | £1,000 pay rise with a Plan 2 student loan (keep £630) | What If | 29 Nov |

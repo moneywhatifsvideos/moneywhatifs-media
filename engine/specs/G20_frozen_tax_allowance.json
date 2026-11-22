@@ -1,0 +1,535 @@
+{
+ "slug": "TheMoneyWhatIfs_G20_frozen_tax_allowance",
+ "title": "Your Tax-Free Allowance Is Frozen Until 2031 🧊💷",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Illustration: basic-rate taxpayer; £12,570 uprated by ONS CPI (2021 average to Oct 2026). Sources: HMRC, ONS. Not financial advice.",
+ "thumbnail": {
+  "scene": 5,
+  "lines": [
+   {
+    "text": "THE £750",
+    "size": 120
+   },
+   {
+    "text": "STEALTH TAX",
+    "c": "red",
+    "size": 120
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "lines": [
+    "Your tax-free allowance hasn't moved since twenty twenty-one. And it's frozen until twenty thirty-one."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "personal allowance",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 480,
+     "size": 170,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 12570,
+     "to": 12570,
+     "dur": 0,
+     "c": "white"
+    },
+    {
+     "k": "pill",
+     "text": "frozen until 2031",
+     "x": 540,
+     "y": 640,
+     "at": 0,
+     "inv": true,
+     "size": 26
+    },
+    {
+     "k": "icon",
+     "kind": "clock",
+     "x": 540,
+     "y": 880,
+     "s": 2.2,
+     "pop": true,
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1230,
+     "s": 0.85,
+     "pose": "stand",
+     "at": 0,
+     "c": "mid"
+    },
+    {
+     "k": "line",
+     "y": 1250,
+     "at": 0
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Every year, the first twelve thousand five hundred and seventy pounds you earn is free of income tax. That's your personal allowance."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "tax-free every year",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 490,
+     "size": 160,
+     "at": 0.4,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 12570,
+     "dur": 1.6
+    },
+    {
+     "k": "crowd",
+     "n": 5,
+     "x0": 220,
+     "x1": 860,
+     "y": 1180,
+     "s": 0.65,
+     "hero": 2,
+     "at": 0,
+     "hero_c": "gold"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Normally, that number rises with prices. Since twenty twenty-one, it hasn't moved at all. Not by a single pound."
+   ],
+   "els": [
+    {
+     "k": "cards",
+     "y": 600,
+     "w": 260,
+     "gap": 60,
+     "at": 0,
+     "items": [
+      {
+       "icon": "chart",
+       "label": "prices",
+       "at": 0.3,
+       "lit": true,
+       "mark": {
+        "kind": "arrow_up",
+        "at": [
+         0,
+         1.0
+        ],
+        "c": "red"
+       }
+      },
+      {
+       "icon": "pound",
+       "label": "allowance",
+       "at": [
+        0,
+        2.0
+       ],
+       "lit": true,
+       "mark": {
+        "kind": "cross",
+        "at": [
+         1,
+         0.6
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1230,
+     "s": 0.9,
+     "pose": "shrug",
+     "at": 1,
+     "c": "dim"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Since then, prices have risen by twenty-nine point eight percent."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "cpi, 2021 average to oct 2026",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 500,
+     "size": 170,
+     "at": 0.3,
+     "prefix": "",
+     "suffix": "%",
+     "dec": 1,
+     "maxw": 900,
+     "from": 0,
+     "to": 29.8,
+     "dur": 1.6,
+     "c": "red"
+    },
+    {
+     "k": "icon",
+     "kind": "arrow_up",
+     "x": 540,
+     "y": 800,
+     "s": 2.2,
+     "pop": true,
+     "at": 1.0,
+     "c": "red"
+    },
+    {
+     "k": "line",
+     "y": 1050,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "If the allowance had kept up, it would be sixteen thousand three hundred and twenty-one pounds today."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "allowance, if it kept up with prices",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 500,
+     "size": 160,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 12570,
+     "keys": [
+      [
+       0,
+       12570,
+       0
+      ],
+      [
+       [
+        0,
+        2.6
+       ],
+       16321,
+       1.6
+      ]
+     ]
+    },
+    {
+     "k": "stairs",
+     "n": 8,
+     "x0": 140,
+     "y0": 1290,
+     "w": 95,
+     "h": 70,
+     "at": 0,
+     "climb": {
+      "at": 0.5,
+      "dur": 4.0
+     },
+     "s": 0.6
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "That's three thousand seven hundred and fifty-one pounds of your pay that's now taxed at twenty percent."
+   ],
+   "els": [
+    {
+     "k": "bars",
+     "items": [
+      {
+       "label": "actual",
+       "value": 12570,
+       "at": 0.3,
+       "dur": 1.4,
+       "prefix": "£",
+       "suffix": "",
+       "dec": 0,
+       "c": "white"
+      },
+      {
+       "label": "kept up",
+       "value": 16321,
+       "at": [
+        0,
+        1.6
+       ],
+       "dur": 1.4,
+       "prefix": "£",
+       "suffix": "",
+       "dec": 0
+      }
+     ],
+     "y": 1150,
+     "h": 560,
+     "w": 230,
+     "gap": 120,
+     "at": 0,
+     "max": 16321
+    },
+    {
+     "k": "pill",
+     "text": "gap £3,751 · taxed at 20%",
+     "x": 540,
+     "y": 330,
+     "at": [
+      0,
+      3.0
+     ],
+     "inv": false,
+     "size": 26
+    }
+   ],
+   "spots": [
+    [
+     330,
+     50
+    ],
+    [
+     750,
+     70
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "So you pay about seven hundred and fifty pounds a year extra. And the tax rate never changed."
+   ],
+   "els": [
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 500,
+     "size": 200,
+     "at": 0.3,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 750,
+     "dur": 1.4,
+     "c": "red",
+     "label": "extra tax a year"
+    },
+    {
+     "k": "text",
+     "text": "THE RATE NEVER CHANGED.",
+     "x": 540,
+     "y": 760,
+     "size": 66,
+     "at": [
+      0,
+      3.2
+     ]
+    },
+    {
+     "k": "icon",
+     "kind": "cross",
+     "x": 540,
+     "y": 1000,
+     "s": 1.8,
+     "pop": true,
+     "at": [
+      0,
+      3.2
+     ],
+     "c": "red"
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ],
+   "twist": true,
+   "dings": [
+    [
+     0,
+     1.8
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "It's called fiscal drag. Your pay rises with prices, and more of it slides into tax every year."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "FISCAL DRAG",
+     "x": 540,
+     "y": 420,
+     "size": 110,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "grid",
+     "rows": 2,
+     "cols": 5,
+     "fill": [
+      [
+       0.6,
+       10,
+       4.0
+      ]
+     ],
+     "y": 820,
+     "cell": 110,
+     "mark": "pound",
+     "at": 0,
+     "solid": false,
+     "label": "more of every pay rise taxed",
+     "mc": "red"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "And with the freeze running to twenty thirty-one, that gap keeps growing every single year. Every year prices rise, it gets a little bit bigger."
+   ],
+   "els": [
+    {
+     "k": "box",
+     "lines": [
+      {
+       "text": "FROZEN TO 2031.",
+       "size": 58
+      },
+      {
+       "text": "THE GAP KEEPS GROWING.",
+       "size": 58,
+       "c": "red"
+      }
+     ],
+     "y": 560,
+     "w": 880,
+     "h": 240,
+     "at": 0
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1230,
+     "s": 0.95,
+     "pose": "shrug",
+     "at": 1,
+     "c": "mid"
+    },
+    {
+     "k": "line",
+     "y": 1250,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Did you know about the freeze? What would you do with an extra seven hundred and fifty pounds a year?"
+   ],
+   "els": [
+    {
+     "k": "icon",
+     "kind": "question",
+     "x": 540,
+     "y": 600,
+     "s": 2.6,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "caps",
+     "text": "did you know about the freeze?",
+     "y": 860,
+     "x": 540,
+     "at": 0.6,
+     "size": 26
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 1.0,
+     "pose": "point",
+     "at": 0,
+     "ring": true
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ],
+   "footnote": true
+  }
+ ]
+}

@@ -1,0 +1,528 @@
+{
+ "slug": "TheMoneyWhatIfs_G14_overpay_mortgage_200",
+ "title": "What If You Overpaid Your Mortgage by £200 a Month? 🏠",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Illustration: £245,700 repayment mortgage, 25 years, 6% fixed throughout (Moneyfacts avg 5-yr fix, Nov 2026). Not financial advice.",
+ "thumbnail": {
+  "scene": 6,
+  "lines": [
+   {
+    "text": "+£200 A MONTH",
+    "size": 100
+   },
+   {
+    "text": "5 YEARS EARLIER",
+    "c": "gold",
+    "size": 100
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "lines": [
+    "Pay two hundred pounds extra a month, and you could be mortgage-free five years early."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "MORTGAGE-FREE",
+     "x": 540,
+     "y": 380,
+     "size": 80,
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "5 YEARS EARLY",
+     "x": 540,
+     "y": 480,
+     "size": 90,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 660,
+     "size": 110,
+     "at": 0,
+     "prefix": "+£",
+     "suffix": "/mo",
+     "dec": 0,
+     "maxw": 900,
+     "from": 200,
+     "to": 200,
+     "dur": 0,
+     "c": "white"
+    },
+    {
+     "k": "icon",
+     "kind": "house",
+     "x": 540,
+     "y": 960,
+     "s": 2.6,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "line",
+     "y": 1150,
+     "at": 0
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Take the average UK home. Two hundred and seventy-three thousand pounds, with a ten percent deposit."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "average uk house price · sept 2026",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 480,
+     "size": 150,
+     "at": 0.3,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 273000,
+     "dur": 1.4
+    },
+    {
+     "k": "icon",
+     "kind": "house",
+     "x": 540,
+     "y": 800,
+     "s": 2.4,
+     "pop": true,
+     "at": 0
+    },
+    {
+     "k": "pill",
+     "text": "10% deposit",
+     "x": 540,
+     "y": 1000,
+     "at": [
+      0,
+      3.4
+     ],
+     "inv": false,
+     "size": 26
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "That's a mortgage of two hundred and forty-five thousand seven hundred pounds, over twenty-five years, at six percent."
+   ],
+   "els": [
+    {
+     "k": "box",
+     "lines": [
+      {
+       "text": "£245,700 MORTGAGE",
+       "size": 62,
+       "c": "gold"
+      },
+      {
+       "text": "25 YEARS · 6%",
+       "size": 58
+      }
+     ],
+     "y": 480,
+     "w": 860,
+     "h": 240,
+     "at": 0
+    },
+    {
+     "k": "crowd",
+     "n": 3,
+     "x0": 340,
+     "x1": 740,
+     "y": 1180,
+     "s": 0.75,
+     "hero": 1,
+     "at": 0
+    },
+    {
+     "k": "line",
+     "y": 1200,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "The monthly payment is one thousand five hundred and eighty-three pounds. Every month, for three hundred months."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "monthly payment",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 480,
+     "size": 170,
+     "at": 0.4,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 1583,
+     "dur": 1.4
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1150,
+     "s": 1.0,
+     "pose": "stand",
+     "at": 0,
+     "c": "mid"
+    },
+    {
+     "k": "icon",
+     "kind": "card",
+     "x": 540,
+     "y": 820,
+     "s": 1.8,
+     "pop": true,
+     "at": 1.2
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Over the full term, you'd pay about two hundred and twenty-nine thousand pounds in interest. Almost as much as you borrowed."
+   ],
+   "els": [
+    {
+     "k": "bars",
+     "items": [
+      {
+       "label": "borrowed",
+       "value": 245700,
+       "at": 0.3,
+       "dur": 1.4,
+       "prefix": "£",
+       "suffix": "",
+       "dec": 0,
+       "c": "white"
+      },
+      {
+       "label": "interest",
+       "value": 229000,
+       "at": [
+        0,
+        2.5
+       ],
+       "dur": 1.4,
+       "prefix": "£",
+       "suffix": "",
+       "dec": 0,
+       "c": "red",
+       "sub": "approx"
+      }
+     ],
+     "y": 1150,
+     "h": 560,
+     "w": 230,
+     "gap": 120,
+     "at": 0
+    },
+    {
+     "k": "caps",
+     "text": "over 25 years",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    }
+   ],
+   "spots": [
+    [
+     330,
+     50
+    ],
+    [
+     750,
+     50
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Now overpay by two hundred pounds a month. Same rate. Same house. Same everything else."
+   ],
+   "els": [
+    {
+     "k": "pill",
+     "text": "+£200 every month",
+     "x": 540,
+     "y": 320,
+     "at": 0,
+     "inv": false,
+     "size": 26
+    },
+    {
+     "k": "stairs",
+     "n": 9,
+     "x0": 120,
+     "y0": 1290,
+     "w": 92,
+     "h": 72,
+     "at": 0,
+     "climb": {
+      "at": 0.3,
+      "dur": 4.5
+     },
+     "s": 0.6
+    },
+    {
+     "k": "icon",
+     "kind": "coin",
+     "x": 860,
+     "y": 520,
+     "s": 1.5,
+     "pop": true,
+     "at": 0.8,
+     "c": "gold"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "You're clear in nineteen years and seven months. That's five years and five months early."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "19 YEARS 7 MONTHS",
+     "x": 540,
+     "y": 380,
+     "size": 80,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "pill",
+     "text": "5 years 5 months early",
+     "x": 540,
+     "y": 480,
+     "at": [
+      0,
+      3.0
+     ],
+     "inv": false,
+     "size": 26
+    },
+    {
+     "k": "grid",
+     "rows": 5,
+     "cols": 5,
+     "fill": [
+      [
+       0.3,
+       20,
+       3.0
+      ]
+     ],
+     "y": 880,
+     "cell": 90,
+     "mark": "check",
+     "at": 0,
+     "solid": false,
+     "label": "years paying",
+     "mc": "gold"
+    }
+   ],
+   "spots": [
+    [
+     540,
+     70
+    ]
+   ],
+   "twist": true,
+   "dings": [
+    [
+     1,
+     0.2
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "And you save fifty-seven thousand three hundred and eighty pounds in interest, from about forty-seven thousand pounds of overpayments."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "interest saved",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 480,
+     "size": 160,
+     "at": 0.4,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 57380,
+     "dur": 1.6
+    },
+    {
+     "k": "caps",
+     "text": "from about £47,000 overpaid",
+     "y": 640,
+     "x": 540,
+     "at": [
+      0,
+      3.2
+     ],
+     "size": 26
+    },
+    {
+     "k": "coins",
+     "at": 0.6,
+     "n": 14,
+     "dur": 2.4,
+     "y0": 700,
+     "y1": 1180
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Check your deal first. Many lenders let you overpay up to ten percent a year without a fee. Go over that, and you could be charged."
+   ],
+   "els": [
+    {
+     "k": "cards",
+     "y": 640,
+     "w": 240,
+     "gap": 30,
+     "at": 0,
+     "items": [
+      {
+       "icon": "check",
+       "label": "check your deal",
+       "at": 0.3,
+       "lit": true
+      },
+      {
+       "icon": "pound",
+       "label": "10% a year",
+       "at": [
+        0,
+        2.0
+       ],
+       "lit": true
+      },
+      {
+       "icon": "cross",
+       "label": "fees above",
+       "at": [
+        1,
+        0.5
+       ],
+       "lit": true
+      }
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1230,
+     "s": 0.95,
+     "pose": "point",
+     "at": 1,
+     "ring": true
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Would you overpay your mortgage, or invest the money instead? Tell me which, and why."
+   ],
+   "els": [
+    {
+     "k": "icon",
+     "kind": "question",
+     "x": 540,
+     "y": 600,
+     "s": 2.6,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "caps",
+     "text": "overpay or invest?",
+     "y": 860,
+     "x": 540,
+     "at": 0.6,
+     "size": 26
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 1.0,
+     "pose": "shrug",
+     "at": 0,
+     "ring": true
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ],
+   "footnote": true
+  }
+ ]
+}

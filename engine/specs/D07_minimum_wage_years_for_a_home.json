@@ -1,0 +1,593 @@
+{
+ "slug": "TheMoneyWhatIfs_D07_minimum_wage_years_for_a_home",
+ "kind": "data",
+ "light": true,
+ "footnote_y": 1640,
+ "title": "How Many Years of Minimum Wage to Buy a Home? 🏠",
+ "banner": {
+  "text": "Years of Full-Time Minimum Wage to Buy the Average Home",
+  "highlight": "Years"
+ },
+ "footnote": "Jan avg price (HM Land Registry, GB regions) ÷ (min wage × 37.5 hrs × 52 wks), before tax.",
+ "thumbnail": {
+  "lines": [
+   {
+    "text": "YEARS OF",
+    "color": "white"
+   },
+   {
+    "text": "MINIMUM WAGE",
+    "color": "yellow",
+    "size": 140
+   },
+   {
+    "text": "TO BUY A HOME",
+    "color": "white"
+   },
+   {
+    "text": "...LONDON: 25 YEARS (2025)",
+    "color": "red",
+    "size": 56
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "bar_race2",
+   "years": [
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+   ],
+   "items_data": [
+    {
+     "name": "London",
+     "label": "London",
+     "values": [
+      19.9,
+      22.2,
+      22.8,
+      27.1,
+      26.7,
+      26.4,
+      26.1,
+      27.5,
+      29.7,
+      24.3,
+      26.5,
+      26.7,
+      26.7,
+      27.7,
+      31.1,
+      34.2,
+      37.7,
+      36.4,
+      35.3,
+      33.1,
+      31.9,
+      31.1,
+      31.7,
+      30.8,
+      27.1,
+      25.3
+     ],
+     "color": [
+      225,
+      40,
+      70
+     ]
+    },
+    {
+     "name": "South East",
+     "label": "South East",
+     "values": [
+      15.1,
+      16.6,
+      17.3,
+      20.8,
+      21.0,
+      20.9,
+      20.6,
+      21.3,
+      22.0,
+      17.6,
+      19.4,
+      18.9,
+      18.5,
+      18.8,
+      19.8,
+      21.1,
+      22.7,
+      22.5,
+      22.1,
+      21.3,
+      20.3,
+      19.9,
+      21.2,
+      20.9,
+      18.2,
+      17.1
+     ],
+     "color": [
+      40,
+      80,
+      220
+     ]
+    },
+    {
+     "name": "East of England",
+     "label": "East of England",
+     "values": [
+      11.9,
+      13.3,
+      14.0,
+      17.6,
+      18.1,
+      18.4,
+      18.0,
+      18.6,
+      19.2,
+      15.6,
+      16.5,
+      16.3,
+      16.1,
+      16.0,
+      16.6,
+      17.9,
+      19.4,
+      19.4,
+      19.6,
+      18.7,
+      17.9,
+      17.6,
+      18.6,
+      18.4,
+      16.2,
+      14.9
+     ],
+     "color": [
+      30,
+      170,
+      90
+     ]
+    },
+    {
+     "name": "South West",
+     "label": "South West",
+     "values": [
+      11.3,
+      12.4,
+      13.2,
+      16.7,
+      17.5,
+      18.0,
+      17.8,
+      18.3,
+      18.7,
+      15.0,
+      16.1,
+      15.8,
+      15.5,
+      15.2,
+      15.6,
+      16.3,
+      16.8,
+      16.4,
+      16.7,
+      16.1,
+      15.5,
+      15.5,
+      16.7,
+      16.7,
+      14.7,
+      13.6
+     ],
+     "color": [
+      20,
+      150,
+      150
+     ]
+    },
+    {
+     "name": "West Midlands",
+     "label": "West Midlands",
+     "values": [
+      8.8,
+      9.5,
+      9.7,
+      12.3,
+      13.5,
+      14.3,
+      14.5,
+      14.6,
+      14.5,
+      12.1,
+      12.5,
+      12.2,
+      11.8,
+      11.6,
+      11.9,
+      12.0,
+      12.5,
+      12.2,
+      12.3,
+      12.3,
+      12.1,
+      12.0,
+      12.7,
+      12.8,
+      11.4,
+      10.9
+     ],
+     "color": [
+      110,
+      70,
+      200
+     ]
+    },
+    {
+     "name": "East Midlands",
+     "label": "East Midlands",
+     "values": [
+      8.0,
+      8.8,
+      9.1,
+      11.9,
+      13.2,
+      13.9,
+      13.9,
+      14.1,
+      13.8,
+      11.5,
+      11.8,
+      11.5,
+      11.2,
+      11.1,
+      11.5,
+      11.7,
+      12.2,
+      11.9,
+      12.2,
+      12.1,
+      11.8,
+      11.9,
+      12.6,
+      12.7,
+      11.2,
+      10.6
+     ],
+     "color": [
+      230,
+      130,
+      30
+     ]
+    },
+    {
+     "name": "Yorkshire",
+     "label": "Yorkshire",
+     "values": [
+      6.9,
+      7.3,
+      7.3,
+      9.2,
+      10.6,
+      12.0,
+      12.6,
+      13.0,
+      13.1,
+      10.8,
+      11.3,
+      10.7,
+      10.3,
+      10.0,
+      10.2,
+      10.3,
+      10.6,
+      10.1,
+      10.1,
+      10.0,
+      9.8,
+      10.0,
+      10.5,
+      10.3,
+      9.4,
+      9.1
+     ],
+     "color": [
+      200,
+      60,
+      140
+     ]
+    },
+    {
+     "name": "North West",
+     "label": "North West",
+     "values": [
+      6.8,
+      7.3,
+      7.3,
+      8.7,
+      10.2,
+      11.8,
+      12.4,
+      12.9,
+      12.9,
+      10.7,
+      10.9,
+      10.5,
+      10.0,
+      9.7,
+      9.9,
+      10.0,
+      10.2,
+      9.9,
+      9.9,
+      9.9,
+      9.6,
+      10.0,
+      10.7,
+      10.7,
+      9.7,
+      9.4
+     ],
+     "color": [
+      60,
+      120,
+      220
+     ]
+    },
+    {
+     "name": "North East",
+     "label": "North East",
+     "values": [
+      6.5,
+      6.6,
+      6.6,
+      7.9,
+      10.0,
+      11.3,
+      12.0,
+      12.2,
+      12.1,
+      10.2,
+      10.2,
+      9.8,
+      9.2,
+      9.1,
+      9.0,
+      8.9,
+      8.9,
+      8.4,
+      8.2,
+      7.9,
+      7.7,
+      7.8,
+      8.1,
+      8.1,
+      7.3,
+      7.1
+     ],
+     "color": [
+      150,
+      110,
+      40
+     ]
+    },
+    {
+     "name": "Wales",
+     "label": "Wales",
+     "values": [
+      7.0,
+      7.1,
+      7.3,
+      9.0,
+      10.7,
+      12.4,
+      12.5,
+      12.7,
+      12.9,
+      10.6,
+      10.7,
+      10.5,
+      10.1,
+      10.0,
+      10.1,
+      10.1,
+      10.1,
+      9.8,
+      9.9,
+      9.8,
+      9.7,
+      10.0,
+      11.0,
+      10.9,
+      9.7,
+      9.3
+     ],
+     "color": [
+      220,
+      60,
+      60
+     ]
+    },
+    {
+     "name": "Scotland",
+     "label": "Scotland",
+     "values": [
+      null,
+      null,
+      null,
+      null,
+      9.1,
+      9.8,
+      10.9,
+      11.9,
+      12.5,
+      10.9,
+      11.1,
+      10.9,
+      10.3,
+      9.8,
+      10.0,
+      10.3,
+      10.1,
+      9.5,
+      9.7,
+      9.4,
+      9.2,
+      9.3,
+      10.0,
+      9.5,
+      8.8,
+      8.3
+     ],
+     "color": [
+      40,
+      160,
+      220
+     ]
+    }
+   ],
+   "prefix": "",
+   "suffix": " yrs",
+   "decimals": 1,
+   "spy": 1.6,
+   "lead": 0.5,
+   "tail": 23.0,
+   "top": 410,
+   "row": 98,
+   "year_y": 1530,
+   "subtitle": "Years of full-time pay, before tax",
+   "after": [
+    {
+     "at": 40.8,
+     "y": 640,
+     "items": [
+      {
+       "text": "LONDON IN 2025",
+       "color": "grey",
+       "size": 64
+      },
+      {
+       "text": "25.3 YEARS",
+       "color": "red",
+       "size": 130
+      },
+      {
+       "text": "OF FULL-TIME MINIMUM WAGE",
+       "color": "white",
+       "size": 56
+      }
+     ]
+    },
+    {
+     "at": 45.3,
+     "y": 640,
+     "items": [
+      {
+       "text": "THE PEAK: LONDON, 2016",
+       "color": "grey",
+       "size": 60
+      },
+      {
+       "text": "37.7 YEARS",
+       "color": "red",
+       "size": 130
+      },
+      {
+       "text": "BEFORE THE LIVING WAGE",
+       "color": "white",
+       "size": 60
+      }
+     ]
+    },
+    {
+     "at": 49.8,
+     "y": 640,
+     "items": [
+      {
+       "text": "CHEAPEST: NORTH EAST",
+       "color": "grey",
+       "size": 60
+      },
+      {
+       "text": "7.1 YEARS",
+       "color": "green",
+       "size": 130
+      },
+      {
+       "text": "IN JANUARY 2025",
+       "color": "white",
+       "size": 60
+      }
+     ]
+    },
+    {
+     "at": 54.3,
+     "y": 640,
+     "items": [
+      {
+       "text": "NORTH EAST, 2000",
+       "color": "grey",
+       "size": 60
+      },
+      {
+       "text": "6.5 YEARS",
+       "color": "yellow",
+       "size": 130
+      },
+      {
+       "text": "BACK NEAR 2000 LEVELS",
+       "color": "white",
+       "size": 60
+      }
+     ]
+    },
+    {
+     "at": 58.8,
+     "y": 640,
+     "items": [
+      {
+       "text": "HOW MANY YEARS",
+       "color": "white",
+       "size": 80
+      },
+      {
+       "text": "WHERE YOU LIVE?",
+       "color": "yellow",
+       "size": 100
+      },
+      {
+       "text": "COMMENT YOUR AREA",
+       "color": "grey",
+       "size": 60
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

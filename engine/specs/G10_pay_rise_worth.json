@@ -1,0 +1,678 @@
+{
+ "slug": "TheMoneyWhatIfs_G10_pay_rise_worth",
+ "title": "Your Pay Rise Is Worth £1.15 a Week 💷",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Source: ONS UK labour market, Nov 2026 (regular pay Jul–Sep 2026). Illustration on a £30,000 salary.",
+ "thumbnail": {
+  "scene": 4,
+  "lines": [
+   {
+    "text": "YOUR PAY RISE",
+    "size": 100
+   },
+   {
+    "text": "£1.15 A WEEK",
+    "c": "gold",
+    "size": 120
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "lines": [
+    "You got a pay rise this year. It's worth about one pound fifteen a week."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "your pay rise, after prices",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 480,
+     "size": 170,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "/wk",
+     "dec": 2,
+     "maxw": 900,
+     "from": 1.15,
+     "to": 1.15,
+     "dur": 0
+    },
+    {
+     "k": "pill",
+     "text": "real pay growth: +0.2%",
+     "x": 540,
+     "y": 640,
+     "at": 0,
+     "inv": true,
+     "size": 26
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1150,
+     "s": 1.05,
+     "pose": "shrug",
+     "at": 0,
+     "ring": true
+    },
+    {
+     "k": "line",
+     "y": 1170,
+     "at": 0
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Here's the news. Across Britain, regular pay grew three point five percent in the three months to September."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "regular pay growth · jul to sep 2026",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 480,
+     "size": 170,
+     "at": 0.3,
+     "prefix": "",
+     "suffix": "%",
+     "dec": 1,
+     "maxw": 900,
+     "from": 0,
+     "to": 3.5,
+     "dur": 1.4
+    },
+    {
+     "k": "icon",
+     "kind": "chart",
+     "x": 540,
+     "y": 760,
+     "s": 2.2,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "crowd",
+     "n": 5,
+     "x0": 220,
+     "x1": 860,
+     "y": 1180,
+     "s": 0.7,
+     "hero": 2,
+     "at": 0
+    }
+   ],
+   "focus": [
+    540,
+    700
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "On a thirty thousand pound salary, that's one thousand and fifty pounds more a year. Feels like a win."
+   ],
+   "els": [
+    {
+     "k": "box",
+     "lines": [
+      {
+       "text": "£30,000 SALARY",
+       "size": 58
+      },
+      {
+       "text": "+3.5%",
+       "size": 58,
+       "c": "gold"
+      }
+     ],
+     "y": 420,
+     "w": 700,
+     "h": 220,
+     "at": 0
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 700,
+     "size": 150,
+     "at": [
+      0,
+      2.4
+     ],
+     "prefix": "+£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 1050,
+     "dur": 1.2
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 1.0,
+     "pose": "up",
+     "at": [
+      0,
+      3.5
+     ]
+    }
+   ],
+   "spots": [
+    [
+     540,
+     60
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "But prices kept rising too. Food, rent, energy, fuel. All of it costs more than last year, and that eats almost the whole raise."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "meanwhile, prices",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "cards",
+     "y": 640,
+     "w": 190,
+     "gap": 24,
+     "at": 0,
+     "items": [
+      {
+       "icon": "bag",
+       "label": "food",
+       "at": [
+        0,
+        1.2
+       ],
+       "lit": true,
+       "mark": {
+        "kind": "arrow_up",
+        "at": [
+         0,
+         1.5
+        ],
+        "c": "red"
+       }
+      },
+      {
+       "icon": "house",
+       "label": "rent",
+       "at": [
+        0,
+        1.6
+       ],
+       "lit": true,
+       "mark": {
+        "kind": "arrow_up",
+        "at": [
+         0,
+         1.9
+        ],
+        "c": "red"
+       }
+      },
+      {
+       "icon": "clock",
+       "label": "energy",
+       "at": [
+        0,
+        2.0
+       ],
+       "lit": true,
+       "mark": {
+        "kind": "arrow_up",
+        "at": [
+         0,
+         2.3
+        ],
+        "c": "red"
+       }
+      },
+      {
+       "icon": "car",
+       "label": "fuel",
+       "at": [
+        0,
+        2.4
+       ],
+       "lit": true,
+       "mark": {
+        "kind": "arrow_up",
+        "at": [
+         0,
+         2.7
+        ],
+        "c": "red"
+       }
+      }
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 0.95,
+     "pose": "shrug",
+     "at": 1,
+     "c": "mid"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "After inflation, the Office for National Statistics says real regular pay grew just zero point two percent."
+   ],
+   "els": [
+    {
+     "k": "bars",
+     "items": [
+      {
+       "label": "pay rise",
+       "value": 3.5,
+       "at": 0.3,
+       "dur": 1.4,
+       "prefix": "",
+       "suffix": "%",
+       "dec": 1,
+       "sub": "before prices"
+      },
+      {
+       "label": "real rise",
+       "value": 0.2,
+       "at": [
+        0,
+        3.0
+       ],
+       "dur": 1.4,
+       "prefix": "",
+       "suffix": "%",
+       "dec": 1,
+       "c": "red",
+       "sub": "after prices"
+      }
+     ],
+     "y": 1150,
+     "h": 560,
+     "w": 230,
+     "gap": 120,
+     "at": 0,
+     "max": 3.5
+    },
+    {
+     "k": "caps",
+     "text": "ons, nov 2026",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    }
+   ],
+   "spots": [
+    [
+     330,
+     50
+    ],
+    [
+     750,
+     50
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "On thirty thousand, that's about sixty pounds a year. One pound fifteen a week."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "your real pay rise",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 520,
+     "size": 170,
+     "at": 0.3,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 60,
+     "dur": 1.2,
+     "until": 1
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 520,
+     "size": 170,
+     "at": 1,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 2,
+     "maxw": 900,
+     "from": 0,
+     "to": 1.15,
+     "dur": 0.6
+    },
+    {
+     "k": "text",
+     "text": "A YEAR",
+     "x": 540,
+     "y": 670,
+     "size": 50,
+     "at": 0,
+     "c": "mid",
+     "until": 1
+    },
+    {
+     "k": "text",
+     "text": "A WEEK",
+     "x": 540,
+     "y": 670,
+     "size": 50,
+     "at": 1,
+     "c": "gold"
+    },
+    {
+     "k": "icon",
+     "kind": "coin",
+     "x": 540,
+     "y": 960,
+     "s": 2.4,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "line",
+     "y": 1200,
+     "at": 0
+    }
+   ],
+   "focus": [
+    540,
+    600
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "And here's the trap. Your raise just covers the higher prices. Spend it on upgrades too, and you go backwards.",
+    "The raise was already spent. By prices."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "the trap",
+     "y": 320,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "icon",
+     "kind": "phone",
+     "x": 330,
+     "y": 640,
+     "s": 1.8,
+     "pop": true,
+     "at": 0.8
+    },
+    {
+     "k": "icon",
+     "kind": "bag",
+     "x": 750,
+     "y": 640,
+     "s": 1.8,
+     "pop": true,
+     "at": 1.4
+    },
+    {
+     "k": "text",
+     "text": "UPGRADE = BACKWARDS",
+     "x": 540,
+     "y": 880,
+     "size": 66,
+     "at": [
+      0,
+      2.6
+     ],
+     "c": "red"
+    },
+    {
+     "k": "text",
+     "text": "PRICES SPENT IT FIRST",
+     "x": 540,
+     "y": 990,
+     "size": 56,
+     "at": 1
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1260,
+     "s": 0.85,
+     "pose": "stand",
+     "at": 0,
+     "c": "dim"
+    }
+   ],
+   "spots": [
+    [
+     540,
+     70
+    ]
+   ],
+   "twist": true
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "A raise isn't a raise until it beats prices. Until then, it's just keeping up."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "A RAISE ISN'T A RAISE",
+     "x": 540,
+     "y": 400,
+     "size": 74,
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "UNTIL IT BEATS PRICES.",
+     "x": 540,
+     "y": 500,
+     "size": 74,
+     "at": [
+      0,
+      1.4
+     ],
+     "c": "gold"
+    },
+    {
+     "k": "stairs",
+     "n": 7,
+     "x0": 200,
+     "y0": 1300,
+     "w": 100,
+     "h": 70,
+     "at": 0,
+     "climb": {
+      "at": 0.3,
+      "dur": 3.0
+     },
+     "s": 0.6
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "So next time, move half of it to savings on payday. You won't miss money you never got used to."
+   ],
+   "els": [
+    {
+     "k": "divider",
+     "x": 540,
+     "y0": 460,
+     "y1": 980,
+     "at": 0
+    },
+    {
+     "k": "caps",
+     "text": "on payday",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "icon",
+     "kind": "bank",
+     "x": 300,
+     "y": 640,
+     "s": 2.0,
+     "pop": true,
+     "at": [
+      0,
+      1.0
+     ],
+     "c": "gold"
+    },
+    {
+     "k": "text",
+     "text": "50% SAVED",
+     "x": 300,
+     "y": 840,
+     "size": 54,
+     "at": [
+      0,
+      1.0
+     ],
+     "c": "gold"
+    },
+    {
+     "k": "icon",
+     "kind": "bag",
+     "x": 780,
+     "y": 640,
+     "s": 2.0,
+     "pop": true,
+     "at": [
+      0,
+      1.8
+     ]
+    },
+    {
+     "k": "text",
+     "text": "50% ENJOYED",
+     "x": 780,
+     "y": 840,
+     "size": 54,
+     "at": [
+      0,
+      1.8
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1240,
+     "s": 0.9,
+     "pose": "stand",
+     "at": 1,
+     "ring": true
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Be honest. Did your last pay rise actually feel like one? Tell me below."
+   ],
+   "els": [
+    {
+     "k": "icon",
+     "kind": "question",
+     "x": 540,
+     "y": 600,
+     "s": 2.6,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "caps",
+     "text": "did your last pay rise feel like one?",
+     "y": 860,
+     "x": 540,
+     "at": 0.6,
+     "size": 26
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 1.0,
+     "pose": "point",
+     "at": 0,
+     "ring": true
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ],
+   "footnote": true
+  }
+ ]
+}

@@ -1,0 +1,575 @@
+{
+ "slug": "TheMoneyWhatIfs_G19_saving_a_deposit",
+ "title": "What If You Saved £300 a Month for a House Deposit? 🏠",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Average price: HM Land Registry UK HPI, Sept 2026. Illustration: £300 a month at 4%, prices +1.2% a year. Not financial advice.",
+ "thumbnail": {
+  "scene": 5,
+  "lines": [
+   {
+    "text": "THE DEPOSIT",
+    "size": 120
+   },
+   {
+    "text": "THAT RUNS AWAY",
+    "c": "gold",
+    "size": 100
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "lines": [
+    "Saving three hundred pounds a month for a house deposit? Here's how long it really takes."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "10% deposit on the average uk home",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 480,
+     "size": 160,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 27300,
+     "to": 27300,
+     "dur": 0
+    },
+    {
+     "k": "icon",
+     "kind": "house",
+     "x": 540,
+     "y": 800,
+     "s": 2.6,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1200,
+     "s": 0.9,
+     "pose": "stand",
+     "at": 0,
+     "c": "mid"
+    },
+    {
+     "k": "line",
+     "y": 1220,
+     "at": 0
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "The average UK house price is now two hundred and seventy-three thousand pounds."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "uk average · sept 2026",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 490,
+     "size": 160,
+     "at": 0.3,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 273000,
+     "dur": 1.6
+    },
+    {
+     "k": "crowd",
+     "n": 5,
+     "x0": 220,
+     "x1": 860,
+     "y": 1180,
+     "s": 0.65,
+     "hero": 2,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "A ten percent deposit on that is twenty-seven thousand three hundred pounds. That's a lot of saving."
+   ],
+   "els": [
+    {
+     "k": "pill",
+     "text": "10% deposit",
+     "x": 540,
+     "y": 320,
+     "at": 0,
+     "inv": false,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 500,
+     "size": 160,
+     "at": [
+      0,
+      1.6
+     ],
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 27300,
+     "dur": 1.2
+    },
+    {
+     "k": "icon",
+     "kind": "house",
+     "x": 540,
+     "y": 820,
+     "s": 2.2,
+     "pop": true,
+     "at": 0
+    },
+    {
+     "k": "line",
+     "y": 1050,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "You save three hundred pounds every month, in an easy access account paying four percent. No holidays, no skipped months."
+   ],
+   "els": [
+    {
+     "k": "cards",
+     "y": 560,
+     "w": 260,
+     "gap": 60,
+     "at": 0,
+     "items": [
+      {
+       "icon": "pound",
+       "label": "£300 a month",
+       "at": 0.3,
+       "lit": true
+      },
+      {
+       "icon": "bank",
+       "label": "4% interest",
+       "at": [
+        0,
+        2.6
+       ],
+       "lit": true
+      }
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 0.95,
+     "pose": "stand",
+     "at": 0,
+     "ring": true
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "You get there after eighty months. That's six years and eight months of saving."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "80 MONTHS",
+     "x": 540,
+     "y": 420,
+     "size": 110,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "caps",
+     "text": "6 years 8 months",
+     "y": 540,
+     "x": 540,
+     "at": [
+      0,
+      2.0
+     ],
+     "size": 26
+    },
+    {
+     "k": "stairs",
+     "n": 9,
+     "x0": 120,
+     "y0": 1290,
+     "w": 92,
+     "h": 72,
+     "at": 0,
+     "climb": {
+      "at": 0.3,
+      "dur": 4.5
+     },
+     "s": 0.6
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Or go for a five percent deposit. Thirteen thousand six hundred and fifty. That takes forty-three months."
+   ],
+   "els": [
+    {
+     "k": "bars",
+     "items": [
+      {
+       "label": "5% deposit",
+       "value": 43,
+       "at": 0.3,
+       "dur": 1.4,
+       "prefix": "",
+       "suffix": " mo",
+       "dec": 0,
+       "c": "white"
+      },
+      {
+       "label": "10% deposit",
+       "value": 80,
+       "at": [
+        0,
+        1.0
+       ],
+       "dur": 1.4,
+       "prefix": "",
+       "suffix": " mo",
+       "dec": 0
+      }
+     ],
+     "y": 1150,
+     "h": 560,
+     "w": 230,
+     "gap": 120,
+     "at": 0,
+     "max": 80
+    },
+    {
+     "k": "caps",
+     "text": "months of saving",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    }
+   ],
+   "spots": [
+    [
+     330,
+     50
+    ],
+    [
+     750,
+     60
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "But here's the catch. House prices don't wait for you. They rose one point two percent in the last year."
+   ],
+   "els": [
+    {
+     "k": "curve",
+     "ys": [
+      1300,
+      1463,
+      1628,
+      1793,
+      1959,
+      2126,
+      2295,
+      2464,
+      2634,
+      2805,
+      2978,
+      3151,
+      3326,
+      3501,
+      3677
+     ],
+     "xlabels": [
+      [
+       0,
+       "NOW"
+      ],
+      [
+       0.5,
+       "YR 3.5"
+      ],
+      [
+       1.0,
+       "YR 7"
+      ]
+     ],
+     "box": [
+      140,
+      640,
+      900,
+      1220
+     ],
+     "at": 0.5,
+     "dur": 5.0,
+     "fill": true,
+     "head": false,
+     "max": 4000
+    },
+    {
+     "k": "caps",
+     "text": "your 10% target keeps rising",
+     "y": 1300,
+     "x": 540,
+     "at": 1,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 460,
+     "size": 130,
+     "at": [
+      0,
+      3.0
+     ],
+     "prefix": "",
+     "suffix": "% a year",
+     "dec": 1,
+     "maxw": 900,
+     "from": 1.2,
+     "to": 1.2,
+     "dur": 0,
+     "c": "red"
+    }
+   ],
+   "twist": true
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "If they keep rising like that, your ten percent target moves to twenty-nine thousand seven hundred and thirty-six pounds. And it takes eighty-six months."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "your moving target",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 500,
+     "size": 160,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 27300,
+     "keys": [
+      [
+       0,
+       27300,
+       0
+      ],
+      [
+       [
+        0,
+        2.5
+       ],
+       29736,
+       1.6
+      ]
+     ]
+    },
+    {
+     "k": "pill",
+     "text": "86 months",
+     "x": 540,
+     "y": 680,
+     "at": [
+      0,
+      6.0
+     ],
+     "inv": false,
+     "size": 26
+    },
+    {
+     "k": "icon",
+     "kind": "house",
+     "x": 540,
+     "y": 950,
+     "s": 2.2,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "fig",
+     "x": 780,
+     "y": 1240,
+     "s": 0.8,
+     "pose": "shrug",
+     "at": 0,
+     "c": "mid"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "A smaller deposit gets you in sooner. But you borrow more, and usually pay a higher rate. Neither choice is free."
+   ],
+   "els": [
+    {
+     "k": "divider",
+     "x": 540,
+     "y0": 450,
+     "y1": 980,
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "5%: SOONER",
+     "x": 300,
+     "y": 600,
+     "size": 56,
+     "at": 0
+    },
+    {
+     "k": "text",
+     "text": "10%: CHEAPER",
+     "x": 780,
+     "y": 600,
+     "size": 56,
+     "at": [
+      0,
+      3.0
+     ],
+     "c": "gold"
+    },
+    {
+     "k": "icon",
+     "kind": "clock",
+     "x": 300,
+     "y": 800,
+     "s": 1.6,
+     "pop": true,
+     "at": 0
+    },
+    {
+     "k": "icon",
+     "kind": "coin",
+     "x": 780,
+     "y": 800,
+     "s": 1.6,
+     "pop": true,
+     "at": [
+      0,
+      3.0
+     ],
+     "c": "gold"
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1250,
+     "s": 0.85,
+     "pose": "stand",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "How long did your deposit take to save? Or how long have you got left? Be honest."
+   ],
+   "els": [
+    {
+     "k": "icon",
+     "kind": "question",
+     "x": 540,
+     "y": 600,
+     "s": 2.6,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "caps",
+     "text": "how long did yours take?",
+     "y": 860,
+     "x": 540,
+     "at": 0.6,
+     "size": 26
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 1.0,
+     "pose": "point",
+     "at": 0,
+     "ring": true
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ],
+   "footnote": true
+  }
+ ]
+}

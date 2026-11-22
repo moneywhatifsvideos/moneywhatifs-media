@@ -1,0 +1,571 @@
+{
+ "slug": "TheMoneyWhatIfs_G15_black_friday_267",
+ "title": "What If You Saved Your Black Friday Money Instead? 🛍️",
+ "style": "glow",
+ "voice": "af_heart",
+ "speed": 0.92,
+ "footnote": "Spend forecast: Omnisend via Retail Gazette, Nov 2026. Illustration: £267 saved yearly at 4%, compounded yearly. Not financial advice.",
+ "thumbnail": {
+  "scene": 6,
+  "lines": [
+   {
+    "text": "SKIP BLACK FRIDAY",
+    "size": 96
+   },
+   {
+    "text": "£15,574",
+    "c": "gold",
+    "size": 140
+   }
+  ]
+ },
+ "scenes": [
+  {
+   "type": "glow",
+   "lines": [
+    "Black Friday and Cyber Monday shoppers plan to spend two hundred and sixty-seven pounds each this year."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "planned spend · black friday + cyber monday",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 490,
+     "size": 180,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 267,
+     "to": 267,
+     "dur": 0
+    },
+    {
+     "k": "icon",
+     "kind": "bag",
+     "x": 540,
+     "y": 800,
+     "s": 2.6,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1200,
+     "s": 0.9,
+     "pose": "stand",
+     "at": 0,
+     "c": "mid"
+    },
+    {
+     "k": "line",
+     "y": 1220,
+     "at": 0
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "That's Omnisend's forecast. Last year, shoppers say they spent three hundred and ninety pounds."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "average spend per shopper",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 500,
+     "size": 160,
+     "at": 0,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 390,
+     "keys": [
+      [
+       0.2,
+       390,
+       0
+      ],
+      [
+       [
+        0,
+        3.6
+       ],
+       267,
+       1.4
+      ]
+     ],
+     "c": "white"
+    },
+    {
+     "k": "pill",
+     "text": "2025 (reported): £390",
+     "x": 540,
+     "y": 700,
+     "at": 0,
+     "inv": true,
+     "size": 26
+    },
+    {
+     "k": "pill",
+     "text": "2026 (planned): £267",
+     "x": 540,
+     "y": 790,
+     "at": [
+      0,
+      3.6
+     ],
+     "inv": false,
+     "size": 26
+    },
+    {
+     "k": "icon",
+     "kind": "chart",
+     "x": 540,
+     "y": 1050,
+     "s": 1.8,
+     "pop": true,
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Now imagine you skipped it. No deals, no gadgets, no basket. Every single year. And you saved the two hundred and sixty-seven pounds instead."
+   ],
+   "els": [
+    {
+     "k": "cards",
+     "y": 600,
+     "w": 220,
+     "gap": 36,
+     "at": 0,
+     "items": [
+      {
+       "icon": "bag",
+       "label": "deals",
+       "at": 0.2,
+       "lit": true,
+       "mark": {
+        "kind": "cross",
+        "at": [
+         0,
+         1.4
+        ]
+       }
+      },
+      {
+       "icon": "phone",
+       "label": "gadgets",
+       "at": 0.4,
+       "lit": true,
+       "mark": {
+        "kind": "cross",
+        "at": [
+         0,
+         1.8
+        ]
+       }
+      },
+      {
+       "icon": "card",
+       "label": "basket",
+       "at": 0.6,
+       "lit": true,
+       "mark": {
+        "kind": "cross",
+        "at": [
+         0,
+         2.2
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1230,
+     "s": 0.95,
+     "pose": "stand",
+     "at": 1,
+     "ring": true
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "You put it into an easy access savings account, paying four percent a year, if you could find that rate and it stayed there."
+   ],
+   "els": [
+    {
+     "k": "icon",
+     "kind": "bank",
+     "x": 540,
+     "y": 560,
+     "s": 2.6,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "pill",
+     "text": "4% a year",
+     "x": 540,
+     "y": 800,
+     "at": 0.8,
+     "inv": false,
+     "size": 26
+    },
+    {
+     "k": "crowd",
+     "n": 5,
+     "x0": 220,
+     "x1": 860,
+     "y": 1200,
+     "s": 0.65,
+     "hero": 2,
+     "at": 0,
+     "hero_c": "gold"
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "After ten years, you'd have three thousand three hundred and thirty-four pounds. Nice, but not life-changing."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "after 10 years",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 480,
+     "size": 160,
+     "at": 0.3,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 0,
+     "to": 3334,
+     "dur": 1.6
+    },
+    {
+     "k": "curve",
+     "ys": [
+      0,
+      278,
+      566,
+      867,
+      1179,
+      1504,
+      1842,
+      2193,
+      2559,
+      2939,
+      3334
+     ],
+     "xlabels": [
+      [
+       0,
+       "NOW"
+      ],
+      [
+       0.5,
+       "YR 5"
+      ],
+      [
+       1.0,
+       "10"
+      ]
+     ],
+     "box": [
+      140,
+      640,
+      900,
+      1200
+     ],
+     "at": 0.3,
+     "dur": 4.0,
+     "fill": true,
+     "head": true,
+     "max": 3500
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "Keep going. After twenty years, eight thousand two hundred and sixty-nine pounds."
+   ],
+   "els": [
+    {
+     "k": "caps",
+     "text": "after 20 years",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    },
+    {
+     "k": "counter",
+     "x": 540,
+     "y": 480,
+     "size": 160,
+     "at": 0.3,
+     "prefix": "£",
+     "suffix": "",
+     "dec": 0,
+     "maxw": 900,
+     "from": 3334,
+     "to": 8269,
+     "dur": 1.6
+    },
+    {
+     "k": "stairs",
+     "n": 9,
+     "x0": 120,
+     "y0": 1290,
+     "w": 92,
+     "h": 72,
+     "at": 0,
+     "climb": {
+      "at": 0.3,
+      "dur": 3.5
+     },
+     "s": 0.6
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "After thirty years, fifteen thousand five hundred and seventy-four pounds. From just eight thousand and ten pounds paid in. Interest did the rest."
+   ],
+   "els": [
+    {
+     "k": "bars",
+     "items": [
+      {
+       "label": "paid in",
+       "value": 8010,
+       "at": [
+        0,
+        3.0
+       ],
+       "dur": 1.4,
+       "prefix": "£",
+       "suffix": "",
+       "dec": 0,
+       "c": "white"
+      },
+      {
+       "label": "your pot",
+       "value": 15574,
+       "at": 0.3,
+       "dur": 1.4,
+       "prefix": "£",
+       "suffix": "",
+       "dec": 0
+      }
+     ],
+     "y": 1150,
+     "h": 560,
+     "w": 230,
+     "gap": 120,
+     "at": 0
+    },
+    {
+     "k": "caps",
+     "text": "after 30 years",
+     "y": 330,
+     "x": 540,
+     "at": 0,
+     "size": 26
+    }
+   ],
+   "spots": [
+    [
+     330,
+     50
+    ],
+    [
+     750,
+     80
+    ]
+   ],
+   "twist": true,
+   "dings": [
+    [
+     0,
+     2.5
+    ]
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "But here's the honest bit. A real deal on something you were already going to buy is a saving. Keep those."
+   ],
+   "els": [
+    {
+     "k": "box",
+     "lines": [
+      {
+       "text": "NEEDED IT ANYWAY?",
+       "size": 58
+      },
+      {
+       "text": "BUY IT.",
+       "size": 58,
+       "c": "gold"
+      }
+     ],
+     "y": 520,
+     "w": 760,
+     "h": 220,
+     "at": 0
+    },
+    {
+     "k": "icon",
+     "kind": "check",
+     "x": 540,
+     "y": 840,
+     "s": 2.2,
+     "pop": true,
+     "at": [
+      0,
+      3.0
+     ],
+     "c": "green"
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1250,
+     "s": 0.85,
+     "pose": "stand",
+     "at": 1
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "It's the stuff you only buy because it says fifty percent off that quietly costs you. Half price on something you didn't need isn't a saving. It's still spending."
+   ],
+   "els": [
+    {
+     "k": "text",
+     "text": "50% OFF",
+     "x": 540,
+     "y": 520,
+     "size": 150,
+     "at": 0,
+     "c": "red"
+    },
+    {
+     "k": "icon",
+     "kind": "cross",
+     "x": 540,
+     "y": 820,
+     "s": 2.4,
+     "pop": true,
+     "at": [
+      0,
+      2.4
+     ],
+     "c": "red"
+    },
+    {
+     "k": "text",
+     "text": "STILL SPENDING",
+     "x": 540,
+     "y": 1040,
+     "size": 70,
+     "at": [
+      0,
+      3.0
+     ]
+    }
+   ]
+  },
+  {
+   "type": "glow",
+   "lines": [
+    "What's the best Black Friday deal you've ever actually used? Go."
+   ],
+   "els": [
+    {
+     "k": "icon",
+     "kind": "question",
+     "x": 540,
+     "y": 600,
+     "s": 2.6,
+     "pop": true,
+     "at": 0,
+     "c": "gold"
+    },
+    {
+     "k": "caps",
+     "text": "best deal you actually used?",
+     "y": 860,
+     "x": 540,
+     "at": 0.6,
+     "size": 26
+    },
+    {
+     "k": "fig",
+     "x": 540,
+     "y": 1220,
+     "s": 1.0,
+     "pose": "point",
+     "at": 0,
+     "ring": true
+    }
+   ],
+   "spots": [
+    [
+     540,
+     80
+    ]
+   ],
+   "footnote": true
+  }
+ ]
+}
