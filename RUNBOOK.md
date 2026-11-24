@@ -36,6 +36,8 @@ export MWI_TTS_DIR=~/kokoro
 
 ## 1. Find the free slots
 
+Before planning new videos, read `~/media/packs/BACKLOG.md`: finished videos listed there are ready to use and should fill free slots first (TikTok-only ones go in a slot as TikTok-only, and the YouTube upload for that slot can be skipped). Remove used items from the backlog.
+
 The schedule ledger is the posting packs in `~/media/packs/` (one file per week, named by the first date it covers). Read every pack that covers any of the 7 days after today: a slot (date + time) listed in a pack is taken. Each day has three slots, 10:00, 16:00 and 19:00, with formats set by the rotation rule above. Make one video of the right format per free slot (normally 7 + 7 + 7 = 21). Do not use Metricool for this.
 
 ## 2. Analyst: what is working
